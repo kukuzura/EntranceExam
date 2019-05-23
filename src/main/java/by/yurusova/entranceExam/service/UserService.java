@@ -5,8 +5,11 @@ import by.yurusova.entranceExam.entity.User;
 import java.util.List;
 
 public interface UserService {
-    User addUser(User user);
+    void addUser(User user);
+
     void deleteUser(long id);
-    User editUser(User user);
+
+    void editUser(User user);
+
     List<User> getAll();
 }

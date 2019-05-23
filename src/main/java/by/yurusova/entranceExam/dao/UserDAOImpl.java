@@ -1,96 +1,57 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
+
 public class UserDAOImpl implements UserDAO {
-    @Override
-    public List<User> findAll() {
-        return null;
-    }
 
+    private SessionFactory sessionFactory;
 
     @Override
-    public Iterable<User> findAll(Iterable<Long> iterable) {
-        return null;
-    }
-
-    @Override
-    public long count() {
-        return 0;
+    public User findById(long id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        User user = (User) session.load(User.class, id);
+        return user;
     }
 
     @Override
-    public void delete(Long aLong) {
-
+    public void saveUser(User user) {
+        //Session session = sessionFactory.openSession();
+        Session session = this.sessionFactory.getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.persist(user);
+        tx.commit();
+        session.close();
     }
 
     @Override
-    public void delete(User user) {
-
-    }
-
-    @Override
-    public void delete(Iterable<? extends User> iterable) {
+    public void deleteUserById(long id) {
 
     }
 
     @Override
-    public void deleteAll() {
-
-    }
-
-    @Override
-    public List<User> findAll(Sort sort) {
+    public List<User> findAllUsers() {
         return null;
     }
 
     @Override
-    public Page<User> findAll(Pageable pageable) {
+    public User findEmployeeById(long id) {
         return null;
     }
 
-    @Override
-    public <S extends User> S save(S s) {
-        return null;
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 
-    @Override
-    public <S extends User> List<S> save(Iterable<S> iterable) {
-        return null;
-    }
-
-    @Override
-    public User findOne(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public boolean exists(Long aLong) {
-        return false;
-    }
-
-    @Override
-    public void flush() {
-
-    }
-
-    @Override
-    public User saveAndFlush(User user) {
-        return null;
-    }
-
-    @Override
-    public void deleteInBatch(Iterable<User> iterable) {
-
-    }
-
-    @Override
-    public void deleteAllInBatch() {
-
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
 }

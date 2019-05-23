@@ -3,32 +3,32 @@ package by.yurusova.entranceExam.service;
 import by.yurusova.entranceExam.dao.UserDAO;
 import by.yurusova.entranceExam.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public class UserServiceImpl implements UserService{
-    //@Autowired
-    UserDAO userDAO;
+
+public class UserServiceImpl implements UserService {
+
+    private UserDAO userDAO;
 
     @Override
-    public User addUser(User user){
-        User savedUser = userDAO.saveAndFlush(user);
-        return savedUser;
+    public void addUser(User user) {
+        userDAO.saveUser(user);
     }
 
     @Override
     public void deleteUser(long id) {
-        userDAO.delete(id);
+        userDAO.deleteUserById(id);
     }
 
     @Override
-    public User editUser(User user) {
-        return userDAO.saveAndFlush(user);
+    public void editUser(User user) {
     }
 
     @Override
     public List<User> getAll() {
-        return userDAO.findAll();
+        return null;
     }
 
     public UserDAO getUserDAO() {

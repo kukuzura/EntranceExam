@@ -4,14 +4,17 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="by.yurusova"/>
-    <context:annotation-config />
-    <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl" />
-    <bean id="userService" class="by.yurusova.entranceExam.service.UserServiceImpl" >
+    <import resource="classpath:database.xml"/>
+
+    <context:component-scan base-package="by.yurusova.entranceExam"/>
+    <context:annotation-config/>
+
+    <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="userService" class="by.yurusova.entranceExam.service.UserServiceImpl">
         <property name="userDAO" ref="userDAO"/>
     </bean>
 
-    <bean id="registrationController" class="by.yurusova.entranceExam.controller.RegistrationController">
-    <property name="userService" ref="userService" />
-    </bean>
 </beans>

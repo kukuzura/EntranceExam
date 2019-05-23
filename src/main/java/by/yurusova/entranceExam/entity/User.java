@@ -6,25 +6,26 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(generator = "increment")
-    @GenericGenerator(name="increment",strategy = "increment")
-    @Column(name="id",length=5,nullable = false)
-    long id;
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "id", length = 5, nullable = false)
+    private long id;
 
-    @Column(name="login")
-    String login;
+    @Column(name = "login")
+    private String login;
 
-    @Column(name="password")
-    String password;
+    @Column(name = "password")
+    private String password;
 
-    public User(){}
+    public User() {
+    }
 
-    public User(String password,String User){
-        this.login=login;
-        this.password=password;
+    public User(String password, String User) {
+        this.login = login;
+        this.password = password;
     }
 
     public long getId() {
