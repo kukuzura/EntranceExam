@@ -1,19 +1,27 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.User;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
 
-
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+        sessionFactory.openSession();
+    }
 
     @Override
     public User findById(long id) {
@@ -24,12 +32,23 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void saveUser(User user) {
-        //Session session = sessionFactory.openSession();
         Session session = this.sessionFactory.getCurrentSession();
-        Transaction tx = session.beginTransaction();
-        session.persist(user);
-        tx.commit();
-        session.close();
+        try {
+            Transaction tx =session.getTransaction();
+            tx.begin();
+            session.persist(user);
+            if(!tx.wasCommitted()) {
+                tx.commit();
+            }
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        }
+        finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
 
     @Override
@@ -49,9 +68,5 @@ public class UserDAOImpl implements UserDAO {
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 }
