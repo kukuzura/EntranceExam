@@ -78,7 +78,12 @@
             <artifactId>spring-orm</artifactId>
             <version>3.1.4.RELEASE</version>
         </dependency>
-
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+<!--            <scope>provided</scope>-->
+        </dependency>
 
     </dependencies>
 

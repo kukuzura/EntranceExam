@@ -58,7 +58,24 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> findAllUsers() {
-        return null;
+        Session session = this.sessionFactory.getCurrentSession();
+        List<User> users = null;
+        try {
+            Transaction tx = session.getTransaction();
+            tx.begin();
+            users = session.createQuery("from User").list();
+            if(!tx.wasCommitted()) {
+                tx.commit();
+            }
+        } catch (RuntimeException e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+            return users;
+        }
     }
 
     @Override
