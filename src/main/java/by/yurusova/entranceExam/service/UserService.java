@@ -12,4 +12,6 @@ public interface UserService {
     void editUser(User user);
 
     List<User> getAll();
+
+    public User findById(long id);
 }

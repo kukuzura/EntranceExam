@@ -10,9 +10,9 @@ public interface UserDAO {
 
     void saveUser(User user);
 
-    void deleteUserById(long id);
+    void delete(User user);
 
-    List<User> findAllUsers();
+    void update (User user);
 
-    User findEmployeeById(long id);
+    List<User> getAll();
 }

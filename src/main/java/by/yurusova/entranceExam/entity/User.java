@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.cfg.DefaultNamingStrategy;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "examsdb.user")
@@ -51,6 +52,17 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        User user = (User) obj;
+        return this.id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 
 

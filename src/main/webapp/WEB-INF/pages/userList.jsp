@@ -18,10 +18,11 @@
                 <td align = "center">${user.id}</td>
                 <td align = "center">${user.login}</td>
                 <td align = "center">${user.password}</td>
+                <td><a href="<c:url value='/userUpdate/${user.id}' />" >Edit</a></td>
             </tr>
         </c:forEach>
     <td></td>
-    <td><a href="./">Home</a>
+    <td><a href="..">Home</a>
     </td>
     </table>
 </body>
