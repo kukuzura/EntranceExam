@@ -2,8 +2,6 @@ package by.yurusova.entranceExam.service;
 
 import by.yurusova.entranceExam.dao.UserDAO;
 import by.yurusova.entranceExam.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 public class UserServiceImpl implements UserService {
@@ -30,7 +28,6 @@ public class UserServiceImpl implements UserService {
         userDAO.update(user);
     }
 
-    @Transactional(readOnly = true)
     @Override
     public List<User> getAll() {
        return userDAO.getAll();

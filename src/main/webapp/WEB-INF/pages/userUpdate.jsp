@@ -1,19 +1,12 @@
 <%@ taglib prefix="textarea" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Юлия
-  Date: 28.05.2019
-  Time: 16:08
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Edit User</title>
 </head>
 <body><form:form id="updateForm" modelAttribute="user" action="../updateProcess/${user.id}" method="post">
-    <table align="center">
+    <table>
         <tr>
             <td>
                 <form:label path="login">Username</form:label>

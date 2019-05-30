@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 @RequestMapping(value = "/")
 @Controller
@@ -34,13 +33,7 @@ public class RegistrationController {
         return new ModelAndView("/welcome.jsp", "login", user.getLogin());
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
 
-    public UserService getUserService() {
-        return userService;
-    }
 }
 
 

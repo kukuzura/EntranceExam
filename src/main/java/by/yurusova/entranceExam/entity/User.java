@@ -2,7 +2,6 @@ package by.yurusova.entranceExam.entity;
 
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.cfg.DefaultNamingStrategy;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -13,7 +12,7 @@ public class User {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "id", length = 11, nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
 
     @Column(name = "login")
