@@ -15,7 +15,7 @@
 <body>
 <table align="center">
     <tr>
-        <td><a href="<c:url value = "//login"/>"><spring:message code="lbl.loginPage" /></a>
+        <td><a href="<c:url value = "//login"/>"><spring:message code="lbl.loginPage"/></a>
         </td>
         <td><a href="<c:url value = "//register"/>"><spring:message code="lbl.registrationPage" text ="Registration"  /></a>
         </td>
