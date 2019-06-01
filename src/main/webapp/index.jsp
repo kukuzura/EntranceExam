@@ -9,7 +9,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>><spring:message code="lbl.welcome" text="welcome"/></title>
+    <title><spring:message code="lbl.welcome" text="welcome"/></title>
 </head>
 
 <body>
