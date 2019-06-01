@@ -2,8 +2,12 @@ package by.yurusova.entranceExam.service;
 
 import by.yurusova.entranceExam.dao.UserDAO;
 import by.yurusova.entranceExam.entity.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
+
+
 public class UserServiceImpl implements UserService {
 
     private UserDAO userDAO;

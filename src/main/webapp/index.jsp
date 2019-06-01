@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
@@ -7,21 +8,18 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title><spring:message code="lbl.welcome" text="Welcome" /></title>
 </head>
 
 <body>
 <table align="center">
     <tr>
-        <%--        <td><a href="login">Login</a>--%>
-        <td><a href="<c:url value = "//login"/>">Login</a>
+        <td><a href="<c:url value = "//login"/>"><spring:message code="lbl.loginPage" /></a>
         </td>
-        <%--    <td><a href="register">Register</a>--%>
-        <td><a href="<c:url value = "//register"/>">Register</a>
+        <td><a href="<c:url value = "//register"/>"><spring:message code="lbl.registrationPage" text ="Registration"  /></a>
         </td>
-        <%--        <td><a href="userList">Users List</a>--%>
-        <td><a href="<c:url value = "//userList"/>">Users List</a>
+        <td><a href="<c:url value = "//userList"/>"><spring:message code="lbl.userListPage" text="List of users" /></a>
         </td>
     </tr>
 </table>

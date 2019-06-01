@@ -2,6 +2,9 @@ package by.yurusova.entranceExam.controller;
 
 import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.UserService;
+import by.yurusova.entranceExam.service.UserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +28,11 @@ public class UsersDisplayController {
         ModelAndView mav = new ModelAndView("/userList.jsp");
         List<User> users = userService.getAll();
         mav.addObject("usersList", users);
+
+        Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+        logger.info("info message");
+        logger.warn("warning message");
+        logger.error("error message");
         return mav;
     }
 

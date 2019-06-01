@@ -9,13 +9,6 @@
     <context:component-scan base-package="by.yurusova.entranceExam"/>
     <context:annotation-config/>
 
-<!--    <bean id="abstractDAO" class="by.yurusova.entranceExam.dao.AbstractBaseDAO">-->
-<!--        <property name="sessionFactory" ref="sessionFactory"/>-->
-<!--    </bean>-->
-
-<!--    <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl">-->
-<!--    </bean>-->
-
     <bean id="userService" class="by.yurusova.entranceExam.service.UserServiceImpl">
         <property name="userDAO" ref="userDAO"/>
     </bean>
