@@ -7,18 +7,13 @@
     <context:component-scan base-package="by.yurusova.entranceExam"/>
     <context:annotation-config/>
 
-
-
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="classpath:messages"/>
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="classpath*:messages"/>
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-        <property name="defaultLocale" value="ru"/>
-    </bean>
 
     <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
         <property name="paramName" value="lang"/>
@@ -30,6 +25,9 @@
                 <ref bean="localeChangeInterceptor"/>
             </list>
         </property>
+    </bean>
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
     </bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -5,8 +5,13 @@
 <head>
     <title>Edit User</title>
 </head>
-<body><form:form id="updateForm" modelAttribute="user" action="../updateProcess/${user.id}" method="post">
+<body><form:form id="updateForm" modelAttribute="user" action="../updateProcess" method="post">
     <table>
+        <tr>
+            <td>
+                <input type="hidden" id="id" name="id" value="${user.id}" />
+            </td>
+        </tr>
         <tr>
             <td>
                 <form:label path="login">Username</form:label>

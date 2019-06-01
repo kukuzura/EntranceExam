@@ -44,9 +44,8 @@ public class UsersDisplayController {
         return mav;
     }
 
-    @RequestMapping(value = "/updateProcess/{id}", method = RequestMethod.POST)
-    public ModelAndView updateUser(@PathVariable("id") long id, HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") User user) {
-        user.setId(id);
+    @RequestMapping(value = "/updateProcess", method = RequestMethod.POST)
+    public ModelAndView updateUser( HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") User user) {
         userService.editUser(user);
         ModelAndView mav = new ModelAndView("/userList.jsp");
         List<User> users = userService.getAll();
