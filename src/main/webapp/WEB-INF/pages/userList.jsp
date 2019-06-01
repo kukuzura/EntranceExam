@@ -19,6 +19,7 @@
                 <td align = "center">${user.login}</td>
                 <td align = "center">${user.password}</td>
                 <td><a href="<c:url value='/userUpdate/${user.id}' />" >Edit</a></td>
+                <td><a href="<c:url value='/userDelete/${user.id}' />" >Delete</a></td>
             </tr>
         </c:forEach>
     <td></td>

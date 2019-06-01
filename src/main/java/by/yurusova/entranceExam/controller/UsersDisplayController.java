@@ -54,4 +54,17 @@ public class UsersDisplayController {
     }
 
 
+    @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.GET)
+    public ModelAndView showDelete(@PathVariable("id") long id){
+        userService.deleteUser(id);
+        ModelAndView mav = new ModelAndView("/userList.jsp");
+        List<User> users = userService.getAll();
+        mav.addObject("usersList", users);
+        return mav;
+    }
+
+
+
+
+
 }
