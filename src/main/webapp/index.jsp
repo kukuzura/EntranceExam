@@ -9,20 +9,22 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title><spring:message code="lbl.welcome" text="welcome"/></title>
+    <title><spring:message code="welcome" text="Welcome"/></title>
 </head>
 
 <body>
 <table align="center">
     <tr>
-        <td><a href="<c:url value = "//login"/>"><spring:message code="lbl.login" text="Login"/></a>
+        <td><a href="<c:url value = "//login"/>"><spring:message code="login" text="Login"/></a>
         </td>
-        <td><a href="<c:url value = "//register"/>"><spring:message code="lbl.registrationPage" text = "Registration"/></a>
+        <td><a href="<c:url value = "//register"/>"><spring:message code="registrationPage" text="Registration"/></a>
         </td>
-        <td><a href="<c:url value = "//userList"/>"><spring:message code="lbl.userListPage" text="List of users"/></a>
+        <td><a href="<c:url value = "//userList"/>"><spring:message code="userListPage" text="Users List"/></a>
         </td>
     </tr>
 </table>
+
+Current Locale : ${pageContext.response.locale}
 
 </body>
 

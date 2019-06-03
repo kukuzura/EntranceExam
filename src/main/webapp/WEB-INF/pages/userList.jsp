@@ -23,7 +23,7 @@
             </tr>
         </c:forEach>
     <td></td>
-    <td><a href="">Home</a>
+    <td><a href="<c:url value='..' />">Home</a>
     </td>
     </table>
 </body>

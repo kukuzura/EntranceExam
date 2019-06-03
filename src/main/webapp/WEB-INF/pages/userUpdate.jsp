@@ -1,6 +1,7 @@
 <%@ taglib prefix="textarea" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Edit User</title>
@@ -34,7 +35,10 @@
                 <form:button id="update" name="update">Update</form:button>
             </td>
         </tr>
-        <tr></tr>
+        <tr>
+            <td><a href="<c:url value='..' />">Home</a>
+            </td>
+        </tr>
         <tr>
         </tr>
     </table>

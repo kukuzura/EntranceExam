@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <html>
 
 <head>
@@ -34,9 +35,10 @@
         </tr>
         <tr></tr>
         <tr>
-            <td></td>
-            <td><a href="">Home</a>
+        <tr>
+            <td><a href="<c:url value='..' />">Home</a>
             </td>
+        </tr>
         </tr>
     </table>
 </form:form>
