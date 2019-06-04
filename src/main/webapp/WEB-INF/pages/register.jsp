@@ -18,6 +18,9 @@
             <td>
                 <form:input path="login" name="login" id="login"/>
             </td>
+            <td>
+                <form:errors path="login" cssClass="error" />
+            </td>
         </tr>
         <tr>
             <td>
@@ -25,6 +28,9 @@
             </td>
             <td>
                 <form:password path="password" name="password" id="password"/>
+            </td>
+            <td>
+                <form:errors path="password" cssClass="error" />
             </td>
         </tr>
         <tr>

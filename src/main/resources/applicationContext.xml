@@ -13,4 +13,6 @@
         <property name="userDAO" ref="userDAO"/>
     </bean>
 
+    <bean id="userValidator" class="by.yurusova.entranceExam.validator.UserValidator" />
+
 </beans>
