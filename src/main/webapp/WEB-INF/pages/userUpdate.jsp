@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td>
-                <form:label path="login"><spring:message code="login"/></form:label>
+                <form:label path="login"><spring:message code="edit.lable.login"/></form:label>
             </td>
             <td>
                 <form:input path="login" name="login" id="login" />
@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td>
-                <form:label path="password"><spring:message code="password"/></form:label>
+                <form:label path="password"><spring:message code="edit.lable.password"/></form:label>
             </td>
             <td>
                 <form:password path="password" name="password" id="password"/>
@@ -33,11 +33,11 @@
         <tr>
             <td></td>
             <td>
-                <form:button id="update" name="update"><spring:message code="editPage"/></form:button>
+                <form:button id="update" name="update"><spring:message code="edit.button.confirm"/></form:button>
             </td>
         </tr>
         <tr>
-            <td><a href="<c:url value='..' />"><spring:message code="homePage"/></a>
+            <td><a href="<c:url value='..' />"><spring:message code="edit.button.home"/></a>
             </td>
         </tr>
         <tr>

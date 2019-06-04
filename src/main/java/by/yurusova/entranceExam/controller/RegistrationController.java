@@ -22,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 
-@RequestMapping(value = "/")
 @Controller
 public class RegistrationController {
     @Autowired

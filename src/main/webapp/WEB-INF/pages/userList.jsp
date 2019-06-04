@@ -4,27 +4,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Users List</title>
+    <title><spring:message code="home.button.listOfUsers"/></title>
 </head>
 <body>
 
 <table align="center">
         <tr>
-            <th width="50"><spring:message code="Id"/></th>
-            <th width="80"><spring:message code="login"/></th>
-            <th width="80"><spring:message code="password"/></th>
+            <th width="50"><spring:message code="userList.lable.Id"/></th>
+            <th width="80"><spring:message code="userList.lable.login"/></th>
+            <th width="80"><spring:message code="userList.lable.password"/></th>
         </tr>
         <c:forEach items="${usersList}" var="user">
             <tr>
                 <td align = "center">${user.id}</td>
                 <td align = "center">${user.login}</td>
                 <td align = "center">${user.password}</td>
-                <td><a href="<c:url value='/userUpdate/${user.id}' />" ><spring:message code="editPage"/></a></td>
-                <td><a href="<c:url value='/userDelete/${user.id}' />" ><spring:message code="deletePage"/></a></td>
+                <td><a href="<c:url value='/userUpdate/${user.id}' />" ><spring:message code="userList.button.edit"/></a></td>
+                <td><a href="<c:url value='/userDelete/${user.id}' />" ><spring:message code="userList.button.delete"/></a></td>
             </tr>
         </c:forEach>
     <td></td>
-    <td><a href="<c:url value='..' />"><spring:message code="homePage"/></a>
+    <td><a href="<c:url value='..' />"><spring:message code="userList.button.home"/></a>
     </td>
     </table>
 </body>

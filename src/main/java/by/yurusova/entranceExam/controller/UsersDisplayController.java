@@ -28,11 +28,6 @@ public class UsersDisplayController {
         ModelAndView mav = new ModelAndView("/userList.jsp");
         List<User> users = userService.getAll();
         mav.addObject("usersList", users);
-
-        Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-        logger.info("info message");
-        logger.warn("warning message");
-        logger.error("error message");
         return mav;
     }
 

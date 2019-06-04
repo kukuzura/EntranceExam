@@ -9,17 +9,17 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title><spring:message code="welcome"/></title>
+    <title><spring:message code="home.title" /></title>
 </head>
 
 <body>
 <table align="center">
     <tr>
-        <td><a href="<c:url value = "//login"/>"><spring:message code="login" /></a>
+        <td><a href="<c:url value = "//login"/>"><spring:message code="home.button.login" /></a>
         </td>
-        <td><a href="<c:url value = "//register"/>"><spring:message code="registrationPage"/></a>
+        <td><a href="<c:url value = "//register"/>"><spring:message code="home.button.registration" /></a>
         </td>
-        <td><a href="<c:url value = "//userList"/>"><spring:message code="userListPage"/></a>
+        <td><a href="<c:url value = "//userList"/>"><spring:message code="home.button.listOfUsers" /></a>
         </td>
     </tr>
 </table>

@@ -6,7 +6,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Registration</title>
+    <title><spring:message key="registration.title"/></title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
     <table align="center">
         <tr>
             <td>
-                <form:label path="login"><spring:message key="login"/></form:label>
+                <form:label path="login"><spring:message key="registration.lable.login"/></form:label>
             </td>
             <td>
                 <form:input path="login" name="login" id="login"/>
@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <td>
-                <form:label path="password"><spring:message key="password"/></form:label>
+                <form:label path="password"><spring:message key="registration.lable.password"/></form:label>
             </td>
             <td>
                 <form:password path="password" name="password" id="password"/>
@@ -37,13 +37,13 @@
         <tr>
             <td></td>
             <td>
-                <form:button id="register" name="register"><spring:message key="confirmButton"/></form:button>
+                <form:button id="register" name="register"><spring:message key="registration.button.confirm"/></form:button>
             </td>
         </tr>
         <tr></tr>
         <tr>
         <tr>
-            <td><a href="<c:url value='..' />"><spring:message key="homePage"/></a>
+            <td><a href="<c:url value='..' />"><spring:message key="registration.button.home"/></a>
             </td>
         </tr>
         </tr>
