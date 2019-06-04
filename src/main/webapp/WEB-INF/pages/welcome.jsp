@@ -19,7 +19,7 @@
     <tr>
     </tr>
     <tr>
-        <td><a href="<c:url value='..' />"><spring:message code="homePage"/></a>
+        <td><a href="<c:url value='..' />"><spring:message code="welcomePage.welcome"/></a>
         </td>
     </tr>
 </table>
