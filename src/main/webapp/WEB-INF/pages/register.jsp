@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <html>
 
@@ -13,7 +14,7 @@
     <table align="center">
         <tr>
             <td>
-                <form:label path="login">Username</form:label>
+                <form:label path="login"><spring:message key="login"/></form:label>
             </td>
             <td>
                 <form:input path="login" name="login" id="login"/>
@@ -24,7 +25,7 @@
         </tr>
         <tr>
             <td>
-                <form:label path="password">Password</form:label>
+                <form:label path="password"><spring:message key="password"/></form:label>
             </td>
             <td>
                 <form:password path="password" name="password" id="password"/>
@@ -36,13 +37,13 @@
         <tr>
             <td></td>
             <td>
-                <form:button id="register" name="register">Register</form:button>
+                <form:button id="register" name="register"><spring:message key="confirmButton"/></form:button>
             </td>
         </tr>
         <tr></tr>
         <tr>
         <tr>
-            <td><a href="<c:url value='..' />">Home</a>
+            <td><a href="<c:url value='..' />"><spring:message key="homePage"/></a>
             </td>
         </tr>
         </tr>

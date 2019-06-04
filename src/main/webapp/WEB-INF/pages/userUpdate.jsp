@@ -1,6 +1,7 @@
 <%@ taglib prefix="textarea" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -15,7 +16,7 @@
         </tr>
         <tr>
             <td>
-                <form:label path="login">Username</form:label>
+                <form:label path="login"><spring:message code="login"/></form:label>
             </td>
             <td>
                 <form:input path="login" name="login" id="login" />
@@ -23,7 +24,7 @@
         </tr>
         <tr>
             <td>
-                <form:label path="password">Password</form:label>
+                <form:label path="password"><spring:message code="password"/></form:label>
             </td>
             <td>
                 <form:password path="password" name="password" id="password"/>
@@ -32,11 +33,11 @@
         <tr>
             <td></td>
             <td>
-                <form:button id="update" name="update">Update</form:button>
+                <form:button id="update" name="update"><spring:message code="editPage"/></form:button>
             </td>
         </tr>
         <tr>
-            <td><a href="<c:url value='..' />">Home</a>
+            <td><a href="<c:url value='..' />"><spring:message code="homePage"/></a>
             </td>
         </tr>
         <tr>
