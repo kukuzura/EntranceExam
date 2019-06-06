@@ -24,11 +24,12 @@ import org.springframework.validation.Validator;
 
 @Controller
 public class RegistrationController {
+
     @Autowired
     UserService userService;
 
     @Autowired
-    @Qualifier("userValidator")
+    @Resource(name = "userValidator")
     Validator validator;
 
     Logger logger = LoggerFactory
