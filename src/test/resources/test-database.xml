@@ -29,6 +29,7 @@
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.connection.charSet">utf-8</prop>
                 <prop key="current_session_context_class">thread</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
             </props>
         </property>
     </bean>

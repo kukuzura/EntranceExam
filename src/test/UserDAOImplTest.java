@@ -22,7 +22,7 @@ public class UserDAOImplTest {
     @Test
     public void testFindAllUsers() {
         List<User> users = userDAO.getAll();
-        assertEquals("Check DB is empty first", 0, users.size());
+        assertEquals("Check DB is empty first",0,users.size());
         User user = new User();
         user.setLogin("login");
         user.setPassword("password");

@@ -36,10 +36,7 @@
                 <form:button id="update" name="update"><spring:message code="edit.button.confirm"/></form:button>
             </td>
         </tr>
-        <tr>
-            <td><a href="<c:url value='..' />"><spring:message code="edit.button.home"/></a>
-            </td>
-        </tr>
+        <tr></tr>
         <tr>
         </tr>
     </table>

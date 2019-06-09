@@ -37,15 +37,14 @@
         <tr>
             <td></td>
             <td>
-                <form:button id="register" name="register"><spring:message key="registration.button.confirm"/></form:button>
+                <form:button id="register" name="register">Register</form:button>
             </td>
         </tr>
         <tr></tr>
         <tr>
-        <tr>
-            <td><a href="<c:url value='..' />"><spring:message key="registration.button.home"/></a>
+            <td></td>
+            <td><a href="">Home</a>
             </td>
-        </tr>
         </tr>
     </table>
 </form:form>
