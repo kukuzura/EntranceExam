@@ -37,7 +37,17 @@ public interface UserDAO {
 
     /**
      * Get users list from database
+     *
      * @return the list of users
      */
     List<User> getAll();
+
+
+    /**
+     * Get user by login
+     *
+     * @param login the login
+     * @return the user
+     */
+    User findByLogin(String login);
 }

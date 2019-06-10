@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "examsdb.user")
@@ -21,10 +22,14 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @ManyToMany
+    @Column(name = "roles")
+    private Set<Role> roles;
+
     public User() {
     }
 
-    public User(String password, String User) {
+    public User(String password, String login) {
         this.login = login;
         this.password = password;
     }
@@ -53,16 +58,11 @@ public class User {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        User user = (User) obj;
-        return this.id == user.id;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
+    public Set<Role> getRoles() {
+        return roles;
     }
-
-
 }

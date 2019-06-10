@@ -44,6 +44,8 @@
     <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl" parent="abstractDAO">
     </bean>
 
+    <bean id="roleDAO" class="by.yurusova.entranceExam.dao.RoleDAO" parent="abstractDAO"/>
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 

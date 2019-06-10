@@ -1,23 +1,26 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.User;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
-public class UserDAOImpl extends AbstractBaseDAO  implements UserDAO
-{
+public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
+
+
     @Override
     public User findById(long id) {
-        User user = (User)super.findById(id,User.class);
+        User user = (User) super.findById(id, User.class);
         return user;
     }
 
-
     @Override
     public void saveUser(User user) {
-       super.save(user);
+        super.save(user);
     }
 
     @Override
@@ -34,7 +37,16 @@ public class UserDAOImpl extends AbstractBaseDAO  implements UserDAO
     @Override
     public List<User> getAll() {
         List users = super.getAll("from User");
-        return (List<User>)users;
+        return (List<User>) users;
+    }
+
+    @Transactional
+    @Override
+    public User findByLogin(String login) {
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
+        Object user = criteria.add(Restrictions.eq("login", login))
+                .uniqueResult();
+        return (User) user;
     }
 
     public SessionFactory getSessionFactory() {
