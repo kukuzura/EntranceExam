@@ -18,7 +18,7 @@ import java.util.List;
 public class UsersDisplayController {
 
     @Resource(name = "userService")
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping(value = "/userList", method = RequestMethod.GET)
     public ModelAndView showAllUsers(HttpServletRequest request, HttpServletResponse response) {

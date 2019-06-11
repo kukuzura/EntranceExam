@@ -32,7 +32,7 @@ public class RegistrationController {
     @Resource(name = "userValidator")
     Validator validator;
 
-    Logger logger = LoggerFactory
+    private static final Logger logger = LoggerFactory
             .getLogger(RegistrationController.class);
 
     @InitBinder

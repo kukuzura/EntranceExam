@@ -17,7 +17,7 @@
                 <form:label path="login"><spring:message key="registration.lable.login"/></form:label>
             </td>
             <td>
-                <form:input path="login" name="login" id="login"/>
+                <form:input path="login" name="login" id="login" />
             </td>
             <td>
                 <form:errors path="login" cssClass="error" />

@@ -21,7 +21,7 @@ public class LoginController {
     private SecurityService securityService;
 
     @Autowired
-    Validator validator;
+    private Validator validator;
 
     private static final Logger logger = LoggerFactory
             .getLogger(RegistrationController.class);
