@@ -50,18 +50,6 @@
         </init-param>
     </filter>
 
-    <context-param>
-        <param-name>javax.servlet.jsp.jstl.fmt.request.charset</param-name>
-        <param-value>UTF-8</param-value>
-    </context-param>
-
-    <jsp-config>
-        <jsp-property-group>
-            <url-pattern>*.jsp</url-pattern>
-            <page-encoding>UTF-8</page-encoding>
-        </jsp-property-group>
-    </jsp-config>
-
     <filter-mapping>
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>

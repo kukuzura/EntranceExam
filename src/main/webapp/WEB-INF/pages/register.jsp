@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<form:form id="regForm" modelAttribute="user" action="registerProcess" method="post" acceptCharset="utf-8">
+<form:form id="regForm" modelAttribute="user" action="registerProcess" method="post" >
     <table align="center">
         <tr>
             <td>
