@@ -15,11 +15,11 @@
 <body>
 <table align="center">
     <tr>
-        <td><a href="<c:url value = "//login"/>"><spring:message code="home.button.login" /></a>
+        <td><a href="<c:url value = "/login"/>"><spring:message code="home.button.login" /></a>
         </td>
-        <td><a href="<c:url value = "//register"/>"><spring:message code="home.button.registration" /></a>
+        <td><a href="<c:url value = "/register"/>"><spring:message code="home.button.registration" /></a>
         </td>
-        <td><a href="<c:url value = "//userList"/>"><spring:message code="home.button.listOfUsers" /></a>
+        <td><a href="<c:url value = "/userList"/>"><spring:message code="home.button.listOfUsers" /></a>
         </td>
     </tr>
 </table>

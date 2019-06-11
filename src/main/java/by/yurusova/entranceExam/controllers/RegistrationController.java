@@ -1,4 +1,4 @@
-package by.yurusova.entranceExam.controller;
+package by.yurusova.entranceExam.controllers;
 
 
 import by.yurusova.entranceExam.entity.User;
@@ -6,7 +6,6 @@ import by.yurusova.entranceExam.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -19,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 
@@ -49,13 +49,12 @@ public class RegistrationController {
 
 
     @RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
-    public ModelAndView addUser(HttpServletRequest request,@ModelAttribute("user") @Validated User user,
-                                BindingResult bindingResult,HttpServletResponse response) {
-        if(bindingResult.hasErrors()){
+    public ModelAndView addUser(HttpServletRequest request, @ModelAttribute("user") @Validated User user,
+                                BindingResult bindingResult, HttpServletResponse response) {
+        if (bindingResult.hasErrors()) {
             logger.info("Returning register.jsp page");
             return new ModelAndView("/register.jsp", "user", user);
-        }
-        else {
+        } else {
             logger.info("Returning welcome.jsp page");
             userService.addUser(user);
             return new ModelAndView("/welcome.jsp", "login", user.getLogin());

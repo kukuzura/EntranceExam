@@ -41,8 +41,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl" parent="abstractDAO">
-    </bean>
+    <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl" parent="abstractDAO"></bean>
 
     <bean id="roleDAO" class="by.yurusova.entranceExam.dao.RoleDAO" parent="abstractDAO"/>
 

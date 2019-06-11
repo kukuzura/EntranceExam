@@ -1,4 +1,4 @@
-package by.yurusova.entranceExam.controller;
+package by.yurusova.entranceExam.controllers;
 
 
 import org.springframework.stereotype.Controller;

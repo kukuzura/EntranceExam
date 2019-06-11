@@ -5,12 +5,12 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html"; charset=utf-8">
     <title><spring:message key="registration.title"/></title>
 </head>
 
 <body>
-<form:form id="regForm" modelAttribute="user" action="registerProcess" method="post">
+<form:form id="regForm" modelAttribute="user" action="registerProcess" method="post" acceptCharset="utf-8">
     <table align="center">
         <tr>
             <td>
@@ -37,13 +37,13 @@
         <tr>
             <td></td>
             <td>
-                <form:button id="register" name="register">Register</form:button>
+                <form:button id="register" name="register"><spring:message key="registration.button.confirm"/></form:button>
             </td>
         </tr>
         <tr></tr>
         <tr>
             <td></td>
-            <td><a href="">Home</a>
+            <td><a href=""><spring:message key="registration.button.home"/></a>
             </td>
         </tr>
     </table>

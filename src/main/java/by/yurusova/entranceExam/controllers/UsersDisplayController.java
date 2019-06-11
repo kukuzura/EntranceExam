@@ -1,10 +1,7 @@
-package by.yurusova.entranceExam.controller;
+package by.yurusova.entranceExam.controllers;
 
 import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.UserService;
-import by.yurusova.entranceExam.service.UserServiceImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
