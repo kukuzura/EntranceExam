@@ -22,7 +22,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @ManyToMany
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "examsdb.user_role",
             joinColumns = { @JoinColumn(name = "user_id") },
