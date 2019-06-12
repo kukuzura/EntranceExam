@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Edit User</title>
+    <title><spring:message code="edit.title"/> </title>
 </head>
 <body><form:form id="updateForm" modelAttribute="user" action="../updateProcess" method="post">
     <table>

@@ -5,39 +5,45 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html"; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html" ; charset=utf-8">
     <title><spring:message key="login.title"/></title>
 </head>
 
 <body>
+
 <form:form action="login" method="post" class="form-signin">
     <table align="center">
+        <c:if test="${not empty error}">
+            <div align="center" class="error">${error}</div>
+        </c:if>
         <tr>
             <td>
-                <form:label path="login"><spring:message key="login.lable.login"/></form:label>
+                <label><spring:message key="login.lable.login"/></label>
             </td>
             <td>
-                <form:input path="login" name="login" class="form-control"/>
+                <input type="text" name="login"/>
             </td>
         </tr>
         <tr>
             <td>
-                <form:label path="password"><spring:message key="login.lable.password"/></form:label>
+                <label ><spring:message key="login.lable.password"/></label>
             </td>
             <td>
-                <form:password path="password" name="password" class="form-control"/>
+                <input type="password" name="password"/>
             </td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <form:button id="login" name="login"><spring:message key="login.button.confirm"/></form:button>
+                <button><spring:message key="login.button.confirm"/></button>
             </td>
         </tr>
-        <tr></tr>
+        <tr>
+
+        </tr>
         <tr>
             <td></td>
-            <td><a href=""><spring:message key="login.button.home"/></a>
+            <td><a href="/"><spring:message key="login.button.home"/></a>
             </td>
         </tr>
     </table>

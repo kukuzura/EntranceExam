@@ -7,12 +7,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Welcome</title>
+    <title><spring:message code="welcomePage.welcome"/></title>
 </head>
 <body>
 <table>
     <tr>
-        <td>Welcome ${login}</td>
+        <td><spring:message code="welcomePage.welcome"/> ${login}</td>
     </tr>
     <tr>
     </tr>
@@ -26,3 +26,4 @@
 </body>
 </html>
 
+ r

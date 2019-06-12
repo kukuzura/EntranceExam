@@ -43,7 +43,7 @@
         <tr></tr>
         <tr>
             <td></td>
-            <td><a href=""><spring:message key="registration.button.home"/></a>
+            <td><a href="/"><spring:message key="registration.button.home"/></a>
             </td>
         </tr>
     </table>
