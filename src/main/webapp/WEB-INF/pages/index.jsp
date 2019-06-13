@@ -21,6 +21,8 @@
         </td>
         <td><a href="<c:url value = "/userList"/>"><spring:message code="home.button.listOfUsers" /></a>
         </td>
+        <td><a href="<c:url value = "/studentRegister"/>">Student Register</a>
+        </td>
     </tr>
 </table>
 

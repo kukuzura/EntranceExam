@@ -2,6 +2,9 @@ package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.Role;
 import by.yurusova.entranceExam.entity.User;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,6 +30,15 @@ public class RoleDAO extends AbstractBaseDAO {
     public List<Role> getAll() {
         List roles = super.getAll("from Role");
         return (List<Role>) roles;
+    }
+
+
+    @Transactional
+    public Role findByName(String name) {
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Role.class);
+        Object role = criteria.add(Restrictions.eq("name", name))
+                .uniqueResult();
+        return (Role) role;
     }
 
 }

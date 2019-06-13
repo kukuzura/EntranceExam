@@ -1,4 +1,4 @@
-package by.yurusova.entranceExam.service;
+package by.yurusova.entranceExam.service.security;
 
 public interface SecurityService {
 

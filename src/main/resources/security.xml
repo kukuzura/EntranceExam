@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-    <bean id="userDetailsService" class="by.yurusova.entranceExam.service.UserDetailsServiceImpl">
+    <bean id="userDetailsService" class="by.yurusova.entranceExam.service.security.UserDetailsServiceImpl">
         <property name="userDAO" ref="userDAO"/>
     </bean>
 
@@ -18,7 +18,8 @@
     </bean>
 
     <security:http auto-config='true'>
-        <security:intercept-url pattern="/**" access="permitAll" />
+        <security:intercept-url pattern="/" access="permitAll" />
+        <security:intercept-url pattern="/userList" access="hasRole('ROLE_STUDENT')" />
         <security:form-login
                 login-page="/login"
                 default-target-url="/welcome"
@@ -34,7 +35,7 @@
         </security:authentication-provider>
     </security:authentication-manager>
 
-    <bean id="securityService" class="by.yurusova.entranceExam.service.SecurityServiceImpl">
+    <bean id="securityService" class="by.yurusova.entranceExam.service.security.SecurityServiceImpl">
         <property name="authenticationManager" ref="authenticationManager"/>
         <property name="userDetailsService" ref="userDetailsService"/>
     </bean>

@@ -19,4 +19,8 @@
 
     <bean id="userValidator" class="by.yurusova.entranceExam.validator.UserValidator" />
 
+    <bean id="studentService" class="by.yurusova.entranceExam.service.StudentServiceImpl">
+          <property name="studentDAO" ref="studentDAO"/>
+    </bean>
+
 </beans>

@@ -1,8 +1,7 @@
 package by.yurusova.entranceExam.controllers;
 
 
-import by.yurusova.entranceExam.entity.User;
-import by.yurusova.entranceExam.service.SecurityService;
+import by.yurusova.entranceExam.service.security.SecurityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

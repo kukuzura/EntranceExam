@@ -1,7 +1,10 @@
 package by.yurusova.entranceExam.controllers;
 
 
+import by.yurusova.entranceExam.dao.RoleDAO;
+import by.yurusova.entranceExam.entity.Student;
 import by.yurusova.entranceExam.entity.User;
+import by.yurusova.entranceExam.service.StudentService;
 import by.yurusova.entranceExam.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +25,19 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 
+import java.util.Arrays;
+
 @Controller
 public class RegistrationController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    StudentService studentService;
+
+    @Autowired
+    RoleDAO roleDAO;
 
     @Autowired
     @Resource(name = "userValidator")
@@ -35,10 +46,10 @@ public class RegistrationController {
     private static final Logger logger = LoggerFactory
             .getLogger(RegistrationController.class);
 
-    @InitBinder
-    private void initBinder(WebDataBinder binder) {
-        binder.setValidator(validator);
-    }
+//    @InitBinder
+//    private void initBinder(WebDataBinder binder) {
+//        binder.setValidator(validator);
+//    }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
@@ -56,11 +67,29 @@ public class RegistrationController {
             return new ModelAndView("/register.jsp", "user", user);
         } else {
             logger.info("Returning welcome.jsp page");
+            user.setRoles(Arrays.asList(roleDAO.findByName("ROLE_STUDENT")));
             userService.addUser(user);
             return new ModelAndView("/welcome.jsp", "login", user.getLogin());
         }
     }
 
+    @RequestMapping(value = "/studentRegister", method = RequestMethod.GET)
+    public ModelAndView showStudentRegister(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
+        mav.addObject("user", new User());
+        mav.addObject("student", new Student());
+        return mav;
+    }
+
+    @RequestMapping(value = "/studentRegisterProcess", method = RequestMethod.POST)
+    public ModelAndView addStudent(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("user") User user,
+                                  @ModelAttribute("student")Student student){
+            logger.info("Returning welcome.jsp page");
+            user.setRoles(Arrays.asList(roleDAO.findByName("ROLE_STUDENT")));
+            userService.addUser(user);
+            studentService.addStudent(student);
+            return new ModelAndView("/welcome.jsp", "login", user.getLogin());
+    }
 
 }
 
