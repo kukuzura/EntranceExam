@@ -16,6 +16,21 @@ create table role
         unique (name)
 );
 
+create table student
+(
+    passport_id varchar(10) not null
+        primary key,
+    first_name  varchar(30) null,
+    last_name   varchar(30) null,
+    patronymic  varchar(30) null,
+    user_id     int         null,
+    constraint student_user_id_uindex
+        unique (user_id),
+    constraint student_user_id_fk
+        foreign key (user_id) references user (id)
+            on update cascade on delete cascade
+);
+
 create table user_role
 (
     user_id int null,
