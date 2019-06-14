@@ -87,6 +87,7 @@ public class RegistrationController {
             logger.info("Returning welcome.jsp page");
             user.setRoles(Arrays.asList(roleDAO.findByName("ROLE_STUDENT")));
             userService.addUser(user);
+            student.setUser(user);
             studentService.addStudent(student);
             return new ModelAndView("/welcome.jsp", "login", user.getLogin());
     }

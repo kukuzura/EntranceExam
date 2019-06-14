@@ -20,7 +20,8 @@ public class Student {
     @Column(name="patronymic")
     private String patronymic;
 
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "student")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
 
     public void setFirstName(String firstName) {

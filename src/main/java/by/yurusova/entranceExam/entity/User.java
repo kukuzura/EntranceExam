@@ -32,8 +32,7 @@ public class User {
     )
     private List<Role> roles;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "password_id")
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "user")
     private Student student;
 
     public User() {

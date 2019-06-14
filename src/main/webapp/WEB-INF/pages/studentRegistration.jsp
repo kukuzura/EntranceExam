@@ -11,7 +11,7 @@
 
 <body>
 
-<form action="/studentRegisterProcess" method="post">
+<form action="studentRegisterProcess" method="post">
     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
     <table align="center">
         <tr>
