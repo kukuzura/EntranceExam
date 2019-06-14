@@ -11,7 +11,7 @@
 
 <body>
 
-<form:form action="login" method="post" class="form-signin">
+<form:form action="login_process" method="post" class="form-signin">
     <table align="center">
         <c:if test="${not empty error}">
             <div align="center" class="error">${error}</div>
