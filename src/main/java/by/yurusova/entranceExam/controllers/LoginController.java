@@ -5,6 +5,9 @@ import by.yurusova.entranceExam.service.security.SecurityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +42,6 @@ public class LoginController {
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public ModelAndView showWelcome(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView("/welcome.jsp");
-//        mav.addObject("login", new User());
         return mav;
     }
-
-
 }
