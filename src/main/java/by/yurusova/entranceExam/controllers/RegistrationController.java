@@ -6,9 +6,12 @@ import by.yurusova.entranceExam.entity.Student;
 import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.StudentService;
 import by.yurusova.entranceExam.service.UserService;
+import by.yurusova.entranceExam.validator.StudentValidator;
+import by.yurusova.entranceExam.validator.UserValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -39,17 +42,24 @@ public class RegistrationController {
     @Autowired
     RoleDAO roleDAO;
 
-    @Autowired
     @Resource(name = "userValidator")
-    Validator validator;
+    Validator userValidator;
+
+    @Resource(name="studentValidator")
+    Validator studentValidator;
 
     private static final Logger logger = LoggerFactory
             .getLogger(RegistrationController.class);
 
-//    @InitBinder
-//    private void initBinder(WebDataBinder binder) {
-//        binder.setValidator(validator);
-//    }
+    @InitBinder("user")
+    protected void initUserBinder(WebDataBinder binder) {
+        binder.setValidator(new UserValidator());
+    }
+
+    @InitBinder("student")
+    protected void initStudentBinder(WebDataBinder binder) {
+        binder.setValidator(new StudentValidator());
+    }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
@@ -82,14 +92,21 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/studentRegisterProcess", method = RequestMethod.POST)
-    public ModelAndView addStudent(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("user") User user,
-                                  @ModelAttribute("student")Student student){
-            logger.info("Returning welcome.jsp page");
+    public ModelAndView addStudent(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") @Validated User user, BindingResult bindingResultUser,
+                                   @ModelAttribute("student") @Validated Student student, BindingResult bindingResultStudent) {
+        if ( bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
+            ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
+            mav.addObject("user", user);
+            mav.addObject("student", student);
+            return mav;
+
+        } else {
             user.setRoles(Arrays.asList(roleDAO.findByName("ROLE_STUDENT")));
             userService.addUser(user);
             student.setUser(user);
             studentService.addStudent(student);
             return new ModelAndView("/welcome.jsp", "login", user.getLogin());
+        }
     }
 
 }

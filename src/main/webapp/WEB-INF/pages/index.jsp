@@ -9,17 +9,21 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title><spring:message code="home.title" /></title>
+    <title><spring:message code="home.title"/></title>
 </head>
+
+<style>
+    <%@include file="/WEB-INF/pages/css/link.css" %>
+</style>
 
 <body>
 <table align="center">
     <tr>
-        <td><a href="<c:url value = "/login"/>"><spring:message code="home.button.login" /></a>
+        <td><a href="<c:url value = "/login"/>"><spring:message code="home.button.login"/></a>
         </td>
-        <td><a href="<c:url value = "/register"/>"><spring:message code="home.button.registration" /></a>
+        <td><a href="<c:url value = "/register"/>"><spring:message code="home.button.registration"/></a>
         </td>
-        <td><a href="<c:url value = "/userList"/>"><spring:message code="home.button.listOfUsers" /></a>
+        <td><a href="<c:url value = "/userList"/>"><spring:message code="home.button.listOfUsers"/></a>
         </td>
         <td><a href="<c:url value = "/studentRegister"/>">Student Register</a>
         </td>

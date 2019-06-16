@@ -28,7 +28,7 @@
                 username-parameter="login"
                 password-parameter="password"/>
         <security:logout logout-success-url="/login"
-                         logout-url="/perform_logout"/>
+                         logout-url="/logout"/>
     </security:http>
 
     <security:authentication-manager alias="authenticationManager">
@@ -37,9 +37,9 @@
         </security:authentication-provider>
     </security:authentication-manager>
 
-    <bean id="securityService" class="by.yurusova.entranceExam.service.security.SecurityServiceImpl">
-        <property name="authenticationManager" ref="authenticationManager"/>
-        <property name="userDetailsService" ref="userDetailsService"/>
-    </bean>
+<!--    <bean id="securityService" class="by.yurusova.entranceExam.service.security.SecurityServiceImpl">-->
+<!--        <property name="authenticationManager" ref="authenticationManager"/>-->
+<!--        <property name="userDetailsService" ref="userDetailsService"/>-->
+<!--    </bean>-->
 
 </beans>

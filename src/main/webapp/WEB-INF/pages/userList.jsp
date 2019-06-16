@@ -6,9 +6,14 @@
 <head>
     <title><spring:message code="home.button.listOfUsers"/></title>
 </head>
+
+<style>
+
+</style>
+
 <body>
 
-<table align="center">
+<table id = "users" align="center">
         <tr>
             <th width="50"><spring:message code="userList.lable.Id"/></th>
             <th width="80"><spring:message code="userList.lable.login"/></th>
