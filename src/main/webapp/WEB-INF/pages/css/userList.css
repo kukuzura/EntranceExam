@@ -7,6 +7,7 @@
 #users td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
+    align-content: center;
 }
 
 #users tr:nth-child(even){background-color: #f2f2f2;}
@@ -16,7 +17,7 @@
 #users th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
+    text-align: center;
+    background-color: darkslategrey;
     color: white;
 }

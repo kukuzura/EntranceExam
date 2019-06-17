@@ -94,19 +94,19 @@ public class RegistrationController {
     @RequestMapping(value = "/studentRegisterProcess", method = RequestMethod.POST)
     public ModelAndView addStudent(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") @Validated User user, BindingResult bindingResultUser,
                                    @ModelAttribute("student") @Validated Student student, BindingResult bindingResultStudent) {
-        if ( bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
-            ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
-            mav.addObject("user", user);
-            mav.addObject("student", student);
-            return mav;
-
-        } else {
+//        if ( bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
+//            ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
+//            mav.addObject("user", user);
+//            mav.addObject("student", student);
+//            return mav;
+//
+////        } else {
             user.setRoles(Arrays.asList(roleDAO.findByName("ROLE_STUDENT")));
             userService.addUser(user);
             student.setUser(user);
             studentService.addStudent(student);
             return new ModelAndView("/welcome.jsp", "login", user.getLogin());
-        }
+//        }
     }
 
 }

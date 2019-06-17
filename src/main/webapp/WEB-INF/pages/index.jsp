@@ -13,21 +13,18 @@
 </head>
 
 <style>
-    <%@include file="/WEB-INF/pages/css/link.css" %>
+    <%@include file="/WEB-INF/pages/css/navigation.css" %>
 </style>
 
 <body>
 <table align="center">
-    <tr>
-        <td><a href="<c:url value = "/login"/>"><spring:message code="home.button.login"/></a>
-        </td>
-        <td><a href="<c:url value = "/register"/>"><spring:message code="home.button.registration"/></a>
-        </td>
-        <td><a href="<c:url value = "/userList"/>"><spring:message code="home.button.listOfUsers"/></a>
-        </td>
-        <td><a href="<c:url value = "/studentRegister"/>">Student Register</a>
-        </td>
-    </tr>
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="<c:url value = "/userList"/>">User List</a></li>
+        <li><a href="<c:url value = "/login"/>">Login</a></li>
+        <li><a href="<c:url value = "/studentRegister"/>">Registration</a></li>
+        <li><a href="">About</a></li>
+    </ul>
 </table>
 
 Current Locale : ${pageContext.response.locale}

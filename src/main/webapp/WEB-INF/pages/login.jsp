@@ -9,8 +9,18 @@
     <title><spring:message key="login.title"/></title>
 </head>
 
+<style>
+    .error {
+        color: red;
+        font-size: 14px;
+    }
+    <%@include file="/WEB-INF/pages/css/link.css" %>
+    <%@include file="/WEB-INF/pages/css/login.css" %>
+</style>
+
 <body>
 
+<div class="container">
 <form:form action="login_process" method="post" class="form-signin">
     <table align="center">
         <c:if test="${not empty error}">
@@ -49,5 +59,6 @@
         </tr>
     </table>
 </form:form>
+</div>
 </body>
 </html>

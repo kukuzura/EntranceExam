@@ -37,9 +37,6 @@
         </security:authentication-provider>
     </security:authentication-manager>
 
-<!--    <bean id="securityService" class="by.yurusova.entranceExam.service.security.SecurityServiceImpl">-->
-<!--        <property name="authenticationManager" ref="authenticationManager"/>-->
-<!--        <property name="userDetailsService" ref="userDetailsService"/>-->
-<!--    </bean>-->
+
 
 </beans>
