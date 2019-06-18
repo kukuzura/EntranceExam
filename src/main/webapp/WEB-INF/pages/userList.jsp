@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title><spring:message code="home.button.listOfUsers"/></title>
@@ -17,9 +17,9 @@
 
     <ul>
         <li><a class="active" href="/">Home</a></li>
-        <li><a href="<c:url value = "/userList"/>">User List</a></li>
+        <li><a href="<c:url value = "/admin/userList"/>">User List</a></li>
         <li><a href="<c:url value = "/login"/>">Login</a></li>
-        <li><a href="<c:url value = "/studentRegister"/>">Registration</a></li>
+        <li><a href="<c:url value = "/account/studentRegister"/>">Registration</a></li>
         <li><a href="">About</a></li>
     </ul>
 
@@ -38,9 +38,9 @@
             <td align="center">${user.id}</td>
             <td align="center">${user.login}</td>
             <td align="center">${user.password}</td>
-            <td><a href="<c:url value='/userUpdate/${user.id}' />"><spring:message code="userList.button.edit"/></a>
+            <td><a href="<c:url value='/admin/userUpdate/${user.id}' />"><spring:message code="userList.button.edit"/></a>
             </td>
-            <td><a href="<c:url value='/userDelete/${user.id}' />"><spring:message code="userList.button.delete"/></a>
+            <td><a href="<c:url value='/admin/userDelete/${user.id}' />"><spring:message code="userList.button.delete"/></a>
             </td>
         </tr>
     </c:forEach>

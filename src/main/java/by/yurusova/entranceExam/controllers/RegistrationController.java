@@ -34,19 +34,19 @@ import java.util.Arrays;
 public class RegistrationController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    StudentService studentService;
+    private StudentService studentService;
 
     @Autowired
-    RoleDAO roleDAO;
+    private RoleDAO roleDAO;
 
     @Resource(name = "userValidator")
-    Validator userValidator;
+    private Validator userValidator;
 
-    @Resource(name="studentValidator")
-    Validator studentValidator;
+    @Resource(name = "studentValidator")
+    private Validator studentValidator;
 
     private static final Logger logger = LoggerFactory
             .getLogger(RegistrationController.class);
@@ -83,7 +83,7 @@ public class RegistrationController {
         }
     }
 
-    @RequestMapping(value = "/studentRegister", method = RequestMethod.GET)
+    @RequestMapping(value = "/account/studentRegister", method = RequestMethod.GET)
     public ModelAndView showStudentRegister(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
         mav.addObject("user", new User());
@@ -91,7 +91,7 @@ public class RegistrationController {
         return mav;
     }
 
-    @RequestMapping(value = "/studentRegisterProcess", method = RequestMethod.POST)
+    @RequestMapping(value = "/account/studentRegisterProcess", method = RequestMethod.POST)
     public ModelAndView addStudent(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") @Validated User user, BindingResult bindingResultUser,
                                    @ModelAttribute("student") @Validated Student student, BindingResult bindingResultStudent) {
 //        if ( bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
@@ -101,11 +101,11 @@ public class RegistrationController {
 //            return mav;
 //
 ////        } else {
-            user.setRoles(Arrays.asList(roleDAO.findByName("ROLE_STUDENT")));
-            userService.addUser(user);
-            student.setUser(user);
-            studentService.addStudent(student);
-            return new ModelAndView("/welcome.jsp", "login", user.getLogin());
+        user.setRoles(Arrays.asList(roleDAO.findByName("ROLE_STUDENT")));
+        userService.addUser(user);
+        student.setUser(user);
+        studentService.addStudent(student);
+        return new ModelAndView("/welcome.jsp", "login", user.getLogin());
 //        }
     }
 

@@ -20,7 +20,7 @@ public class UsersDisplayController {
     @Resource(name = "userService")
     private UserService userService;
 
-    @RequestMapping(value = "/userList", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/userList", method = RequestMethod.GET)
     public ModelAndView showAllUsers(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView("/userList.jsp");
         List<User> users = userService.getAll();
@@ -28,7 +28,7 @@ public class UsersDisplayController {
         return mav;
     }
 
-    @RequestMapping(value = "/userUpdate/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/userUpdate/{id}", method = RequestMethod.GET)
     public ModelAndView showEdit(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView("/userUpdate.jsp");
         User user = userService.findById(id);
@@ -36,7 +36,7 @@ public class UsersDisplayController {
         return mav;
     }
 
-    @RequestMapping(value = "/updateProcess", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/updateProcess", method = RequestMethod.POST)
     public ModelAndView updateUser( HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") User user) {
         userService.editUser(user);
         ModelAndView mav = new ModelAndView("/userList.jsp");
@@ -46,7 +46,7 @@ public class UsersDisplayController {
     }
 
 
-    @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/userDelete/{id}", method = RequestMethod.GET)
     public ModelAndView showDelete(@PathVariable("id") long id){
         userService.deleteUser(id);
         ModelAndView mav = new ModelAndView("/userList.jsp");

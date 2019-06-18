@@ -21,7 +21,7 @@
 
 <div class="container">
 <h1><spring:message code="studentRegistration.title"/></h1>
-    <form action="studentRegisterProcess" method="post">
+    <form action="/account/studentRegisterProcess" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <table align="center">
     <tr>
