@@ -14,12 +14,12 @@
         color: red;
         font-size: 14px;
     }
-    <%@include file="/WEB-INF/pages/css/link.css" %>
-    <%@include file="/WEB-INF/pages/css/login.css" %>
+    <%@include file="/resources/css/link.css" %>
+    <%@include file="/resources/css/login.css" %>
 </style>
 
 <body>
-
+<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 <div class="container">
 <form:form action="login_process" method="post" class="form-signin">
     <table align="center">

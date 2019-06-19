@@ -6,7 +6,12 @@ import java.util.List;
 
 public interface StudentDAO {
 
-    Student findById(String passport_id);
+    /**
+     * 
+     * @param passportId
+     * @return
+     */
+    Student findById(String passportId);
 
     void saveStudent(Student student);
 

@@ -8,6 +8,7 @@ import org.springframework.validation.Validator;
 import java.util.regex.Pattern;
 
 public class UserValidator implements Validator {
+    private static final String VALID_PASSWORD = "^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{8,}$";
     @Override
     public boolean supports(Class<?> aClass) {
         return User.class.equals(aClass);
@@ -18,7 +19,7 @@ public class UserValidator implements Validator {
         User user = (User) o;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "registration.error.login.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "registration.error.password.required");
-        if (!Pattern.matches("^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{8,}$", user.getPassword())){
+        if (!Pattern.matches( VALID_PASSWORD , user.getPassword())){
             errors.rejectValue("password","registration.error.password.weakPassword");
         }
     }

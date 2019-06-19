@@ -8,22 +8,12 @@
 </head>
 
 <style>
-    <%@include file="/WEB-INF/pages/css/userList.css" %>
-    <%@include file="/WEB-INF/pages/css/link.css"%>
     <%@include file="/WEB-INF/pages/css/navigation.css"%>
+    <%@include file="/WEB-INF/pages/css/userList.css" %>
 </style>
 
 <body>
-
-    <ul>
-        <li><a class="active" href="/">Home</a></li>
-        <li><a href="<c:url value = "/admin/userList"/>">User List</a></li>
-        <li><a href="<c:url value = "/login"/>">Login</a></li>
-        <li><a href="<c:url value = "/account/studentRegister"/>">Registration</a></li>
-        <li><a href="">About</a></li>
-    </ul>
-
-
+<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 <div style="padding-top:30px;margin-top:30px;height:1500px;">
 <table id="users">
     <tr>
@@ -44,9 +34,7 @@
             </td>
         </tr>
     </c:forEach>
-    <td></td>
 </table>
-<a href="<c:url value='..' />"><spring:message code="userList.button.home"/></a>
 </div>
 </body>
 </html>

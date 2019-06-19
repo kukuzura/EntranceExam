@@ -8,7 +8,7 @@ import java.util.List;
 public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO{
 
     @Override
-    public Student findById(String passport_id) {
+    public Student findById(String passportId) {
         return null;
     }
 

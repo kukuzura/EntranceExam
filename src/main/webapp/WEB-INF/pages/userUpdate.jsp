@@ -5,9 +5,18 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+
+    <style>
+        <%@include file="/resources/css/login.css" %>
+    </style>
+
     <title><spring:message code="edit.title"/> </title>
 </head>
-<body><form:form id="updateForm" modelAttribute="user" action="../updateProcess" method="post">
+
+<div class="container">
+<body>
+<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
+<form:form id="updateForm" modelAttribute="user" action="../updateProcess" method="post">
     <table>
         <tr>
             <td>
@@ -41,4 +50,5 @@
         </tr>
     </table>
 </form:form></body>
+</div>
 </html>

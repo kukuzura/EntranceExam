@@ -7,7 +7,7 @@
     <import resource="classpath:database.xml"/>
     <import resource="classpath:security.xml"/>
 
-    <context:component-scan base-package="by.yurusova.entranceExam"/>
+    <context:component-scan base-package="by.yurusova.entranceExam.controllers"/>
     <context:annotation-config/>
 
     <bean id="userService" class="by.yurusova.entranceExam.service.UserServiceImpl">
@@ -15,6 +15,10 @@
         <property name="roleDAO" ref ="roleDAO"/>
         <property name="bCryptPasswordEncoder" ref="encoder"/>
 
+    </bean>
+
+    <bean id="roleService" class="by.yurusova.entranceExam.service.RoleServiceImpl">
+        <property name="roleDAO" ref="roleDAO"/>
     </bean>
 
     <bean id="userValidator" class="by.yurusova.entranceExam.validator.UserValidator" />

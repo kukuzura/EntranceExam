@@ -5,6 +5,7 @@ import by.yurusova.entranceExam.dao.UserDAO;
 import by.yurusova.entranceExam.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.HashSet;

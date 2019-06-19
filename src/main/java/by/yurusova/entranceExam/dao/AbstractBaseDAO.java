@@ -12,7 +12,6 @@ import java.util.List;
 @Transactional
 public abstract class AbstractBaseDAO {
 
-    @Autowired
     protected SessionFactory sessionFactory;
 
     protected void save(Object obj) {

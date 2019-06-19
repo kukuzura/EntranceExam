@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserService {
 
     /**
-     * Save user to database
+     * Save user to database.
      *
      * @param user the user
      */

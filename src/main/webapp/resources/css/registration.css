@@ -1,4 +1,4 @@
-.container{
+.container {
 
     background: #f4f7f8;
     margin: 10px auto;
@@ -7,21 +7,29 @@
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     width: 100%;
 }
-.container fieldset{
+
+.container fieldset {
     border: none;
 }
+
 .container legend {
     font-size: 1.4em;
     margin-bottom: 10px;
 }
+
 .container label {
     display: block;
     margin-bottom: 8px;
+    align-content: end;
 }
-.container input
-{
+
+.container td {
+    max-width: 1000px;
+}
+
+.container input {
     font-family: Georgia, "Times New Roman", Times, serif;
-    background: rgba(255,255,255,.1);
+    background: rgba(255, 255, 255, .1);
     border: none;
     border-radius: 4px;
     font-size: 15px;
@@ -29,21 +37,18 @@
     outline: 0;
     padding: 10px;
     background-color: #e8eeef;
-    color:#8a97a0;
+    color: #8a97a0;
     margin-bottom: 20px;
-    width: 50%;
 
 }
+
 .container input[type="text"]:focus,
-.container input[type="password"]:focus
-{
+.container input[type="password"]:focus {
     background: #d2d9dd;
 }
 
 
-
-.container button
-{
+.container button {
     position: relative;
     display: block;
     padding: 19px 39px 18px 39px;
@@ -59,7 +64,6 @@
     margin-bottom: 10px;
 }
 
-.container button:hover
-{
+.container button:hover {
     background: #109177;
 }

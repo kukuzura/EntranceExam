@@ -14,8 +14,7 @@ public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
 
     @Override
     public User findById(long id) {
-        User user = (User) super.findById(id, User.class);
-        return user;
+        return (User) super.findById(id, User.class);
     }
 
     @Override

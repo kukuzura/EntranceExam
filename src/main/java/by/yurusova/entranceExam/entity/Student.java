@@ -11,10 +11,10 @@ public class Student {
     @Column(name = "passport_id")
     private String passportID;
 
-    @Column(name="first_name")
+    @Column(name="firstname")
     private String firstName;
 
-    @Column(name="last_name")
+    @Column(name="lastname")
     private String lastName;
 
     @Column(name="patronymic")

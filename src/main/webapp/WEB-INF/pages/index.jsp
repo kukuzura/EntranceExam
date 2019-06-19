@@ -8,26 +8,13 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<%--    <link rel="stylesheet" href="<c:url value = "/resources/css/navigation.css"/>"/>--%>
     <title><spring:message code="home.title"/></title>
 </head>
 
-<style>
-    <%@include file="/WEB-INF/pages/css/navigation.css" %>
-</style>
+<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 
 <body>
-<table align="center">
-    <ul>
-        <li><a class="active" href="/">Home</a></li>
-        <li><a href="<c:url value = "/admin/userList"/>">User List</a></li>
-        <li><a href="<c:url value = "/login"/>">Login</a></li>
-        <li><a href="<c:url value = "/account/studentRegister"/>">Registration</a></li>
-        <li><a href="">About</a></li>
-    </ul>
-</table>
-
-Current Locale : ${pageContext.response.locale}
 
 </body>
 

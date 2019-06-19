@@ -10,6 +10,7 @@
     <title><spring:message code="welcomePage.welcome"/></title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 <table>
     <tr>
         <td><spring:message code="welcomePage.welcome"/> ${login}</td>

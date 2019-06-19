@@ -16,8 +16,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(String password_id) {
-        Student student = studentDAO.findById(password_id);
+    public void deleteStudent(String passwordId) {
+        Student student = new Student();
+        student.setPassportID(passwordId);
         studentDAO.delete(student);
     }
 

@@ -6,10 +6,14 @@ import java.util.List;
 
 public interface StudentService {
 
+    /**
+     *
+     * @param student
+     */
     void addStudent(Student student);
 
 
-    void deleteStudent(String password_id);
+    void deleteStudent(String passwordId);
 
 
     void editStudent(Student student);
