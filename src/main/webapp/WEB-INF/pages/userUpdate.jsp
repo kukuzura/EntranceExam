@@ -13,9 +13,10 @@
     <title><spring:message code="edit.title"/> </title>
 </head>
 
-<div class="container">
+
 <body>
 <jsp:include page="/WEB-INF/pages/navigation.jsp"/>
+<div class="container">
 <form:form id="updateForm" modelAttribute="user" action="../updateProcess" method="post">
     <table>
         <tr>
@@ -49,6 +50,7 @@
         <tr>
         </tr>
     </table>
-</form:form></body>
+</form:form>
 </div>
+</body>
 </html>

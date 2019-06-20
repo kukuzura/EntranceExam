@@ -5,9 +5,10 @@
     margin: 10px auto;
     padding: 20px;
     background: #f4f7f8;
-    border: 2px solid #16a085;
     border-radius: 8px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding-top: 30px;
+    margin-top: 50px;
 }
 
 .container label {

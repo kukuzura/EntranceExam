@@ -9,7 +9,7 @@
 
 <head>
 <%--    <link rel="stylesheet" href="<c:url value = "/resources/css/navigation.css"/>"/>--%>
-    <title><spring:message code="home.title"/></title>
+<%--    <title><spring:message code="home.title"/></title>--%>
 </head>
 
 <jsp:include page="/WEB-INF/pages/navigation.jsp"/>

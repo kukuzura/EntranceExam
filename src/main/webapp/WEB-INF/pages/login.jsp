@@ -14,12 +14,12 @@
         color: red;
         font-size: 14px;
     }
-    <%@include file="/resources/css/link.css" %>
     <%@include file="/resources/css/login.css" %>
 </style>
 
 <body>
 <jsp:include page="/WEB-INF/pages/navigation.jsp"/>
+
 <div class="container">
 <form:form action="login_process" method="post" class="form-signin">
     <table align="center">
@@ -51,11 +51,6 @@
         <tr>
             <input type="hidden" name="${_csrf.parameterName}"
                    value="${_csrf.token}" />
-        </tr>
-        <tr>
-            <td></td>
-            <td><a href="/"><spring:message key="login.button.home"/></a>
-            </td>
         </tr>
     </table>
 </form:form>

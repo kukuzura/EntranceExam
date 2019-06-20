@@ -18,8 +18,6 @@ public class UserServiceImpl implements UserService {
 
     private UserDAO userDAO;
 
-    private RoleDAO roleDAO;
-
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
@@ -54,10 +52,6 @@ public class UserServiceImpl implements UserService {
 
     public void setUserDAO(UserDAO userDAO) {
         this.userDAO = userDAO;
-    }
-
-    public void setRoleDAO(RoleDAO roleDAO) {
-        this.roleDAO = roleDAO;
     }
 
     public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {

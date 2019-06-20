@@ -18,7 +18,7 @@ public class StudentValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Student student = (Student) o;
         if (!student.getFirstName().matches(ONLY_LETTERS)) {
-            errors.rejectValue("firstname", "studentRegistration.error.firstName");
+            errors.rejectValue("firstName", "studentRegistration.error.firstName");
         }
         if (!student.getLastName().matches(ONLY_LETTERS)) {
             errors.rejectValue("lastName", "studentRegistration.error.lastName");

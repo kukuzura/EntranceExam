@@ -4,12 +4,12 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title><spring:message code="home.button.listOfUsers"/></title>
+    <title><spring:message code="userList.title"/></title>
 </head>
 
 <style>
-    <%@include file="/WEB-INF/pages/css/navigation.css"%>
-    <%@include file="/WEB-INF/pages/css/userList.css" %>
+    <%@include file="/resources/css/userList.css" %>
+    <%@include file="/resources/css/link.css" %>
 </style>
 
 <body>

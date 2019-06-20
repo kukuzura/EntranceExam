@@ -12,7 +12,6 @@
 
     <bean id="userService" class="by.yurusova.entranceExam.service.UserServiceImpl">
         <property name="userDAO" ref="userDAO"/>
-        <property name="roleDAO" ref ="roleDAO"/>
         <property name="bCryptPasswordEncoder" ref="encoder"/>
 
     </bean>

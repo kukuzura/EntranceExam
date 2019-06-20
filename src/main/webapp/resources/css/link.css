@@ -1,7 +1,6 @@
-a:link, a:visited {
-    background-color: #1abc9c;
+a{
+    background-color: darkslategrey;
     color: white;
-    border: 2px solid #1abc9c;;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -9,7 +8,8 @@ a:link, a:visited {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
-a:hover, a:active {
-    background-color: #16a085;
-    color: white;
+a:link:active,a:link:hover{
+    background-color: lightseagreen;
 }
+
+

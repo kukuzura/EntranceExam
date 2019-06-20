@@ -6,6 +6,7 @@
     border-radius: 8px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     width: 100%;
+    padding: 50px;
 }
 
 .container fieldset {
@@ -13,19 +14,27 @@
 }
 
 .container legend {
+
     font-size: 1.4em;
     margin-bottom: 10px;
 }
+
+.container table{
+    width: 70%;
+}
+
+.container td{
+    width: 33%;
+}
+
 
 .container label {
     display: block;
     margin-bottom: 8px;
     align-content: end;
+    width: 30%;
 }
 
-.container td {
-    max-width: 1000px;
-}
 
 .container input {
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -39,7 +48,12 @@
     background-color: #e8eeef;
     color: #8a97a0;
     margin-bottom: 20px;
+    width: 60%;
 
+}
+
+.container .error{
+    width: 30%;
 }
 
 .container input[type="text"]:focus,
@@ -54,7 +68,7 @@
     padding: 19px 39px 18px 39px;
     color: #FFF;
     margin: 0 auto;
-    background: #1abc9c;
+    background: lightseagreen;
     font-size: 18px;
     text-align: center;
     font-style: normal;
