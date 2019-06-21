@@ -1,7 +1,9 @@
 package by.yurusova.entranceExam.service;
 
+import by.yurusova.entranceExam.dao.RoleDAO;
 import by.yurusova.entranceExam.dao.RoleDAOImpl;
 import by.yurusova.entranceExam.entity.Role;
+import org.springframework.beans.factory.annotation.Required;
 
 /**
  * Class that performe base role services.
@@ -13,7 +15,7 @@ import by.yurusova.entranceExam.entity.Role;
  */
 public class RoleServiceImpl implements RoleService {
 
-    private RoleDAOImpl roleDAO;
+    private RoleDAO roleDAO;
 
     @Override
     public Role findByName(final String roleName) {
@@ -23,9 +25,9 @@ public class RoleServiceImpl implements RoleService {
     /**
      * Set role dao.
      *
-     * @param roleDAO roledao to be set.
+     * @param roleDAO roleDAO to be set.
      */
-    public void setRoleDAO(final RoleDAOImpl roleDAO) {
+    public void setRoleDAO(final RoleDAO roleDAO) {
         this.roleDAO = roleDAO;
     }
 }

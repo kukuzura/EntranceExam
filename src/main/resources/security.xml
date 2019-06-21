@@ -23,7 +23,7 @@
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
         <security:form-login
                 login-page="/login"
-                login-processing-url="/login_process"
+                login-processing-url="/login"
                 default-target-url="/welcome"
                 authentication-failure-url="/login?error"
                 username-parameter="login"

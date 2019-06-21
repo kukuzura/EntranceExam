@@ -1,5 +1,6 @@
 package by.yurusova.entranceExam.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Controller
 public class WelcomeController {
     /**
      * Method shows welcome page.

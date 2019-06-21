@@ -21,7 +21,7 @@
 <jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 
 <div class="container">
-<form:form action="login_process" method="post" class="form-signin">
+<form:form  method="post" class="form-signin">
     <table align="center">
         <c:if test="${not empty error}">
             <div align="center" class="error">${error}</div>

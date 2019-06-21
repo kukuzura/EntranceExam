@@ -1,8 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<style><%@include file="/resources/css/navigation.css" %></style>
-
 <ul>
     <li><a href="/"><spring:message code="navigation.button.home"/></a></li>
     <li><a href="<c:url value = "/admin/userList"/>"><spring:message code="navigation.button.listOfUsers"/></a></li>

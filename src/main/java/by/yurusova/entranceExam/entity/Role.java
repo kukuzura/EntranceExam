@@ -14,8 +14,8 @@ import java.util.List;
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
  * @package by.yurusova.entranceExam.controllers
- *  @link http ://sam-solutions.com/
- *  @copyright 2019 SaM
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
  */
 @Entity
 @Table(name = "examsdb.role")
