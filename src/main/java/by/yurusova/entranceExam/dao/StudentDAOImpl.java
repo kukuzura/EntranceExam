@@ -4,25 +4,33 @@ import by.yurusova.entranceExam.entity.Student;
 
 import java.util.List;
 
+/**
+ * Class responsible for operations with student table.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.dao
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
 
     @Override
-    public Student findById(String passportId) {
+    public Student findById(final String passportId) {
         return null;
     }
 
     @Override
-    public void saveStudent(Student student) {
+    public void saveStudent(final Student student) {
         super.save(student);
     }
 
     @Override
-    public void delete(Student student) {
+    public void delete(final Student student) {
         super.delete(student);
     }
 
     @Override
-    public void update(Student student) {
+    public void update(final Student student) {
         super.update(student);
     }
 

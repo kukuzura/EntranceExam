@@ -23,15 +23,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
 
-
 /**
  * Student Registration controller.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
  * @package by.yurusova.entranceExam.controllers
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
  */
 @Controller
 public class RegistrationController {
+
+    private static final Logger LOGGER = LoggerFactory
+            .getLogger(RegistrationController.class);
 
     @Autowired
     private UserService userService;
@@ -42,22 +46,30 @@ public class RegistrationController {
     @Autowired
     private RoleService roleService;
 
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(RegistrationController.class);
-
+    /**
+     * Method sets validator to "user" model attribute.
+     *
+     * @param binder data binder
+     */
     @InitBinder("user")
-    protected void initUserBinder(WebDataBinder binder) {
+    protected void initUserBinder(final WebDataBinder binder) {
         binder.setValidator(new UserValidator());
     }
 
+    /**
+     * Method sets validator to "student" model attribute.
+     *
+     * @param binder data binder
+     */
     @InitBinder("student")
-    protected void initStudentBinder(WebDataBinder binder) {
+    protected void initStudentBinder(final WebDataBinder binder) {
         binder.setValidator(new StudentValidator());
     }
+
     /**
-     * Method shows student registrtion page
+     * Method shows student registrtion page.
      *
-     * @return student registration page
+     * @return student registration page.
      */
     @RequestMapping(value = "/studentRegister", method = RequestMethod.GET)
     public ModelAndView showStudentRegister() {
@@ -66,19 +78,21 @@ public class RegistrationController {
         mav.addObject("student", new Student());
         return mav;
     }
+
     /**
      * Method returns welcome page if student information is correct,
-     * or page with error messages if not
+     * or page with error messages if not.
      *
-     * @param user the user to validate
-     * @param bindingResultUser object that holds the result of user validation
-     * @param student the student to validate
-     * @param bindingResultStudent object that holds the result of student validation
-     * @return welcome page
+     * @param user                 the user to validate.
+     * @param bindingResultUser    object that holds the result of user validation.
+     * @param student              the student to validate.
+     * @param bindingResultStudent object that holds the result of student validation.
+     * @return welcome page.
      */
     @RequestMapping(value = "/studentRegister", method = RequestMethod.POST)
-    public ModelAndView addStudent(@ModelAttribute("user") @Validated User user, BindingResult bindingResultUser,
-                                   @ModelAttribute("student") @Validated Student student, BindingResult bindingResultStudent) {
+    public ModelAndView addStudent(
+            @ModelAttribute("user") @Validated final User user, final BindingResult bindingResultUser,
+            @ModelAttribute("student") @Validated final Student student, final BindingResult bindingResultStudent) {
         if (bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
             ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
             mav.addObject("user", user);

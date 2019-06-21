@@ -43,7 +43,7 @@
 
     <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl" parent="abstractDAO"/>
 
-    <bean id="roleDAO" class="by.yurusova.entranceExam.dao.RoleDAO" parent="abstractDAO"/>
+    <bean id="roleDAO" class="by.yurusova.entranceExam.dao.RoleDAOImpl" parent="abstractDAO"/>
 
     <bean id="studentDAO" class="by.yurusova.entranceExam.dao.StudentDAOImpl" parent="abstractDAO"/>
 

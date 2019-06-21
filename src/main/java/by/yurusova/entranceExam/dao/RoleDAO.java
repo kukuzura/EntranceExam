@@ -1,42 +1,59 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.Role;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public class RoleDAO extends AbstractBaseDAO {
+/**
+ * Interface defines base operations that can be performed with role objects.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.dao
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
+public interface RoleDAO {
+    /**
+     * Get role object by id.
+     *
+     * @param id the role id.
+     * @return the role object.
+     */
+    Role findById(long id);
 
-    public Role findById(long id) {
-        return (Role) super.findById(id, Role.class);
-    }
+    /**
+     * Saves role in db.
+     *
+     * @param role the role object.
+     */
+    void saveRole(Role role);
 
-    public void saveRole(Role role) {
-        super.save(role);
-    }
+    /**
+     * Delete role from db.
+     *
+     * @param role the role object.
+     */
+    void delete(Role role);
 
-    public void delete(Role role) {
-        super.delete(role);
-    }
+    /**
+     * Update role.
+     *
+     * @param role the role object.
+     */
+    void update(Role role);
 
-    public void update(Role role) {
-        super.update(role);
-    }
+    /**
+     * Get all roles from db.
+     *
+     * @return list of roles.
+     */
+    List<Role> getAll();
 
-    public List<Role> getAll() {
-        List roles = super.getAll("from Role");
-        return (List<Role>) roles;
-    }
-
-
-    @Transactional
-    public Role findByName(String name) {
-        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Role.class);
-        Object role = criteria.add(Restrictions.eq("name", name))
-                .uniqueResult();
-        return (Role) role;
-    }
-
+    /**
+     * Get role object with given name.
+     *
+     * @param name role name.
+     * @return the role object.
+     */
+    Role findByName(String name);
 }

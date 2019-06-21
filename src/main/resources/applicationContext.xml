@@ -17,7 +17,7 @@
     </bean>
 
     <bean id="roleService" class="by.yurusova.entranceExam.service.RoleServiceImpl">
-        <property name="roleDAO" ref="roleDAO"/>
+        <property name="roleDAOImpl" ref="roleDAOImpl"/>
     </bean>
 
     <bean id="userValidator" class="by.yurusova.entranceExam.validator.UserValidator" />

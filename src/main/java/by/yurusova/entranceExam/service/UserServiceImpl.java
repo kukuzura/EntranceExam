@@ -8,33 +8,41 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 
-
+/**
+ * Class that performe base user services.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.dao
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 public class UserServiceImpl implements UserService {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     private UserDAO userDAO;
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public void addUser(User user) {
+    public void addUser(final User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userDAO.saveUser(user);
     }
 
-    public User findById(long id) {
+    @Override
+    public User findById(final long id) {
         return userDAO.findById(id);
     }
 
     @Override
-    public void deleteUser(long id) {
+    public void deleteUser(final long id) {
         User user = userDAO.findById(id);
         userDAO.delete(user);
     }
 
     @Override
-    public void editUser(User user) {
+    public void editUser(final User user) {
         userDAO.update(user);
     }
 
@@ -43,15 +51,30 @@ public class UserServiceImpl implements UserService {
         return userDAO.getAll();
     }
 
+    /**
+     * Gets userDAO.
+     *
+     * @return userDAO
+     */
     public UserDAO getUserDAO() {
         return userDAO;
     }
 
-    public void setUserDAO(UserDAO userDAO) {
+    /**
+     * Set userDAO.
+     *
+     * @param userDAO userDAO to be set
+     */
+    public void setUserDAO(final UserDAO userDAO) {
         this.userDAO = userDAO;
     }
 
-    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
+    /**
+     * Set encoder.
+     *
+     * @param bCryptPasswordEncoder encoder to be set
+     */
+    public void setbCryptPasswordEncoder(final BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 }

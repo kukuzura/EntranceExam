@@ -7,33 +7,74 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Abstract DAO class.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.controllers
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 @Transactional
 public abstract class AbstractBaseDAO {
 
     protected SessionFactory sessionFactory;
 
-    protected void save(Object obj) {
+    /**
+     * Method saves object to database.
+     *
+     * @param obj the object..
+     */
+    protected void save(final Object obj) {
         sessionFactory.getCurrentSession().save(obj);
     }
 
-    protected List<Object> getAll(String queryString) {
+    /**
+     * Returns list of objects from db.
+     *
+     * @param queryString the query string.
+     * @return list of object.
+     */
+    protected List<Object> getAll(final String queryString) {
         return sessionFactory.getCurrentSession().createQuery(queryString).list();
     }
 
-    protected void update(Object object) {
+    /**
+     * Update object in db.
+     *
+     * @param object the updated object.
+     */
+    protected void update(final Object object) {
         this.sessionFactory.getCurrentSession().saveOrUpdate(object);
     }
 
-    protected void delete(Object object) {
+    /**
+     * Delete object from db.
+     *
+     * @param object deleted object.
+     */
+    protected void delete(final Object object) {
         this.sessionFactory.getCurrentSession().delete(object);
     }
 
-    protected Object findById(long id, Class<?> type) {
+    /**
+     * Finds object by id.
+     *
+     * @param id   the id.
+     * @param type type of object.
+     * @return object of given type with given id.
+     */
+    protected Object findById(final long id, final Class<?> type) {
         Session session = this.sessionFactory.getCurrentSession();
         return session.get(type, id);
     }
 
-    public void setSessionFactory(org.hibernate.SessionFactory sessionFactory) {
+    /**
+     * Set sessionFactory.
+     *
+     * @param sessionFactory sessionFactory to set.
+     */
+    public void setSessionFactory(final org.hibernate.SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
         sessionFactory.openSession();
     }

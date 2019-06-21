@@ -9,26 +9,34 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
+/**
+ * DAO class that responsible for operations with user table.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.controllers
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
 
 
     @Override
-    public User findById(long id) {
+    public User findById(final long id) {
         return (User) super.findById(id, User.class);
     }
 
     @Override
-    public void saveUser(User user) {
+    public void saveUser(final User user) {
         super.save(user);
     }
 
     @Override
-    public void delete(User user) {
+    public void delete(final User user) {
         super.delete(user);
     }
 
     @Override
-    public void update(User user) {
+    public void update(final User user) {
         super.update(user);
     }
 
@@ -41,13 +49,18 @@ public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
 
     @Transactional
     @Override
-    public User findByLogin(String login) {
+    public User findByLogin(final String login) {
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
         Object user = criteria.add(Restrictions.eq("login", login))
                 .uniqueResult();
         return (User) user;
     }
 
+    /**
+     * Gets sessionFactory.
+     *
+     * @return sessionFactory.
+     */
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }

@@ -3,9 +3,26 @@ package by.yurusova.entranceExam.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.util.List;
 
+/**
+ * Entity class for user.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.controllers
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 @Entity
 @Table(name = "examsdb.user")
 public class User {
@@ -32,44 +49,75 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private Student student;
 
-    public User() {
-    }
-
-    public User(String password, String login) {
-        this.login = login;
-        this.password = password;
-    }
-
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Get login.
+     *
+     * @return the login
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     * Get password.
+     *
+     * @return the password
+     */
     public String getPassword() {
         return password;
     }
 
-    public void setId(long id) {
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(final long id) {
         this.id = id;
     }
 
-    public void setLogin(String login) {
+    /**
+     * Sets login.
+     *
+     * @param login login to be set
+     */
+    public void setLogin(final String login) {
         this.login = login;
     }
 
-    public void setPassword(String password) {
+    /**
+     * Sets password.
+     *
+     * @param password password to be set
+     */
+    public void setPassword(final String password) {
         this.password = password;
     }
 
-    public void setRoles(List<Role> roles) {
+    /**
+     * Set list of roles to curernt user.
+     *
+     * @param roles list of roles
+     */
+    public void setRoles(final List<Role> roles) {
         this.roles = roles;
     }
 
+    /**
+     * Get roles of current user.
+     *
+     * @return list of roles
+     */
     public List<Role> getRoles() {
         return roles;
     }
-
 }
