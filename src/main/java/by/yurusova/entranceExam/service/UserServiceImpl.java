@@ -1,14 +1,11 @@
 package by.yurusova.entranceExam.service;
 
-import by.yurusova.entranceExam.dao.RoleDAO;
 import by.yurusova.entranceExam.dao.UserDAO;
 import by.yurusova.entranceExam.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.HashSet;
 import java.util.List;
 
 
@@ -26,7 +23,7 @@ public class UserServiceImpl implements UserService {
         userDAO.saveUser(user);
     }
 
-    public User findById(long id){
+    public User findById(long id) {
         return userDAO.findById(id);
     }
 
@@ -43,7 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-       return userDAO.getAll();
+        return userDAO.getAll();
     }
 
     public UserDAO getUserDAO() {
@@ -55,6 +52,6 @@ public class UserServiceImpl implements UserService {
     }
 
     public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.bCryptPasswordEncoder=bCryptPasswordEncoder;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 }

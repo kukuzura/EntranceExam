@@ -1,11 +1,10 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.Student;
-import by.yurusova.entranceExam.entity.User;
 
 import java.util.List;
 
-public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO{
+public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
 
     @Override
     public Student findById(String passportId) {
@@ -29,7 +28,7 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO{
 
     @Override
     public List<Student> getAll() {
-        List students= super.getAll("from Student");
-        return (List<Student>)students;
+        List students = super.getAll("from Student");
+        return (List<Student>) students;
     }
 }

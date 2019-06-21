@@ -1,7 +1,6 @@
 package by.yurusova.entranceExam.service;
 
 import by.yurusova.entranceExam.dao.StudentDAO;
-import by.yurusova.entranceExam.dao.StudentDAOImpl;
 import by.yurusova.entranceExam.entity.Student;
 
 import java.util.List;
@@ -42,3 +41,4 @@ public class StudentServiceImpl implements StudentService {
         this.studentDAO = studentDAO;
     }
 }
+

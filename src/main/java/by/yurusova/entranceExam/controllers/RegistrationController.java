@@ -23,8 +23,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 
 @Controller
@@ -45,7 +43,7 @@ public class RegistrationController {
     @Resource(name = "studentValidator")
     private Validator studentValidator;
 
-    private static final Logger logger = LoggerFactory
+    private static final Logger LOGGER = LoggerFactory
             .getLogger(RegistrationController.class);
 
     @InitBinder("user")
@@ -60,7 +58,7 @@ public class RegistrationController {
 
 
     @RequestMapping(value = "/studentRegister", method = RequestMethod.GET)
-    public ModelAndView showStudentRegister(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView showStudentRegister() {
         ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
         mav.addObject("user", new User());
         mav.addObject("student", new Student());
@@ -68,7 +66,7 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/studentRegister", method = RequestMethod.POST)
-    public ModelAndView addStudent(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") @Validated User user, BindingResult bindingResultUser,
+    public ModelAndView addStudent(@ModelAttribute("user") @Validated User user, BindingResult bindingResultUser,
                                    @ModelAttribute("student") @Validated Student student, BindingResult bindingResultStudent) {
         if (bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
             ModelAndView mav = new ModelAndView("/studentRegistration.jsp");

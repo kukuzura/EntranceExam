@@ -16,3 +16,4 @@ public class RoleServiceImpl implements RoleService {
         this.roleDAO = roleDAO;
     }
 }
+

@@ -1,7 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.Role;
-import by.yurusova.entranceExam.entity.User;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,8 +10,7 @@ import java.util.List;
 public class RoleDAO extends AbstractBaseDAO {
 
     public Role findById(long id) {
-        Role role = (Role) super.findById(id, Role.class);
-        return role;
+        return (Role) super.findById(id, Role.class);
     }
 
     public void saveRole(Role role) {

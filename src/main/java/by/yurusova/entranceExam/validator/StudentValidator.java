@@ -1,6 +1,5 @@
 package by.yurusova.entranceExam.validator;
 
-
 import by.yurusova.entranceExam.entity.Student;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -31,3 +30,4 @@ public class StudentValidator implements Validator {
         }
     }
 }
+

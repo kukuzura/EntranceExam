@@ -1,15 +1,17 @@
 package by.yurusova.entranceExam.controllers;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
+/**
+ * Home page controller.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.controllers
+ */
 @Controller
 public class HomeController {
-
     /**
-     * Method shows home page
+     * Method shows home page.
      *
      * @return home page
      */
@@ -17,5 +19,4 @@ public class HomeController {
     public String showHome() {
         return "/index.jsp";
     }
-
 }

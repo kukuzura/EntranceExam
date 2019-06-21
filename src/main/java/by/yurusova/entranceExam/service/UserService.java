@@ -36,6 +36,7 @@ public interface UserService {
 
     /**
      * Get user by id
+     *
      * @param id the id
      * @return the user with given id
      */

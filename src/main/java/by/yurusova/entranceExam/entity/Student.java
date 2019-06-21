@@ -4,20 +4,20 @@ package by.yurusova.entranceExam.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="examsdb.student")
+@Table(name = "examsdb.student")
 public class Student {
 
     @Id
     @Column(name = "passport_id")
     private String passportID;
 
-    @Column(name="firstname")
+    @Column(name = "firstname")
     private String firstName;
 
-    @Column(name="lastname")
+    @Column(name = "lastname")
     private String lastName;
 
-    @Column(name="patronymic")
+    @Column(name = "patronymic")
     private String patronymic;
 
     @OneToOne(cascade = CascadeType.ALL)

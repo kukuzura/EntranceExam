@@ -24,3 +24,4 @@ public interface StudentService {
 
     public Student findById(String password_id);
 }
+

@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -22,7 +19,7 @@ public class UsersDisplayController {
     private UserService userService;
 
     @RequestMapping(value = "/userList", method = RequestMethod.GET)
-    public ModelAndView showAllUsers(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView showAllUsers() {
         ModelAndView mav = new ModelAndView("/userList.jsp");
         List<User> users = userService.getAll();
         mav.addObject("usersList", users);
@@ -30,15 +27,15 @@ public class UsersDisplayController {
     }
 
     @RequestMapping(value = "/userUpdate/{id}", method = RequestMethod.GET)
-    public ModelAndView showEdit(@PathVariable("id") long id){
+    public ModelAndView showEdit(@PathVariable("id") long id) {
         ModelAndView mav = new ModelAndView("/userUpdate.jsp");
         User user = userService.findById(id);
-        mav.addObject("user",user);
+        mav.addObject("user", user);
         return mav;
     }
 
     @RequestMapping(value = "/updateProcess", method = RequestMethod.POST)
-    public ModelAndView updateUser( HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") User user) {
+    public ModelAndView updateUser(@ModelAttribute("user") User user) {
         userService.editUser(user);
         ModelAndView mav = new ModelAndView("/userList.jsp");
         List<User> users = userService.getAll();
@@ -48,16 +45,13 @@ public class UsersDisplayController {
 
 
     @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.GET)
-    public ModelAndView showDelete(@PathVariable("id") long id){
+    public ModelAndView showDelete(@PathVariable("id") long id) {
         userService.deleteUser(id);
         ModelAndView mav = new ModelAndView("/userList.jsp");
         List<User> users = userService.getAll();
         mav.addObject("usersList", users);
         return mav;
     }
-
-
-
 
 
 }
