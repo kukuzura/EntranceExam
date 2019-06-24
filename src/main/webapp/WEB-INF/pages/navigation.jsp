@@ -18,4 +18,4 @@
             <a href="?lang=RU_ru"><spring:message code="navigation.dropdown.rus"/></a>
         </div>
     <li class="logout"><a href="<c:url value = "/logout"/>"><spring:message code="navigation.button.logout"/></a></li>
-                   </ul>
+</ul>

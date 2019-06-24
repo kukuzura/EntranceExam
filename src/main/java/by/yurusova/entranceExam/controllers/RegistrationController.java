@@ -73,7 +73,7 @@ public class RegistrationController {
     }
 
     /**
-     * Method shows student registrtion page.
+     * Method shows student registration page.
      *
      * @return student registration page.
      */
@@ -110,7 +110,7 @@ public class RegistrationController {
             userService.addUser(user);
             student.setUser(user);
             studentService.addStudent(student);
-            return new ModelAndView("/welcome.jsp", "login", user.getLogin());
+            return new ModelAndView("/welcome.jsp");
         }
     }
 }

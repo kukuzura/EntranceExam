@@ -19,11 +19,11 @@
     margin-bottom: 10px;
 }
 
-.container table{
+.container table {
     width: 70%;
 }
 
-.container td{
+.container td {
     width: 33%;
 }
 
@@ -52,7 +52,7 @@
 
 }
 
-.container .error{
+.container .error {
     width: 30%;
 }
 

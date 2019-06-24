@@ -1,4 +1,4 @@
-.container{
+.container {
     max-width: 500px;
     padding: 10px 20px;
     background: #f4f7f8;
@@ -13,17 +13,16 @@
 
 .container label {
     display: block;
-   align-content: center;
+    align-content: center;
     margin-bottom: 35px;
     margin-right: 50px;
 }
 
 
 .container input[type="text"],
-.container input[type="password"]
-{
+.container input[type="password"] {
     font-family: Georgia, "Times New Roman", Times, serif;
-    background: rgba(255,255,255,.1);
+    background: rgba(255, 255, 255, .1);
     border: none;
     border-radius: 4px;
     font-size: 15px;
@@ -35,14 +34,13 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     background-color: #e8eeef;
-    color:#8a97a0;
-    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    color: #8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
     margin-bottom: 30px;
 }
 
-.container button
-{
+.container button {
     position: relative;
     display: block;
     padding: 19px 39px 18px 39px;
@@ -58,13 +56,11 @@
     margin-bottom: 10px;
 }
 
-.container button:hover
-{
+.container button:hover {
     background: #109177;
 }
 
 .container input[type="text"]:focus,
-.container input[type="password"]:focus
-{
+.container input[type="password"]:focus {
     background: #d2d9dd;
 }

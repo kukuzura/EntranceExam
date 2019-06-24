@@ -1,8 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.Role;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -46,9 +44,10 @@ public class RoleDAOImpl extends AbstractBaseDAO implements RoleDAO {
     @Override
     @Transactional
     public Role findByName(final String name) {
-        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Role.class);
-        Object role = criteria.add(Restrictions.eq("name", name))
-                .uniqueResult();
+        Object role = sessionFactory.getCurrentSession().createQuery(
+                "SELECT role FROM Role role WHERE role.name LIKE: name")
+                .setParameter("name", name)
+                .getSingleResult();
         return (Role) role;
     }
 

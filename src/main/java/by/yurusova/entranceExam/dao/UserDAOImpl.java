@@ -1,9 +1,7 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.User;
-import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -50,9 +48,10 @@ public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
     @Transactional
     @Override
     public User findByLogin(final String login) {
-        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
-        Object user = criteria.add(Restrictions.eq("login", login))
-                .uniqueResult();
+        Object user = sessionFactory.getCurrentSession().createQuery(
+                "SELECT user FROM User user WHERE user.login LIKE: login")
+                .setParameter("login", login)
+                .getSingleResult();
         return (User) user;
     }
 
