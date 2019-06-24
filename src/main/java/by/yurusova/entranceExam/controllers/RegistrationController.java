@@ -6,13 +6,12 @@ import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.RoleService;
 import by.yurusova.entranceExam.service.StudentService;
 import by.yurusova.entranceExam.service.UserService;
-import by.yurusova.entranceExam.validator.StudentValidator;
-import by.yurusova.entranceExam.validator.UserValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 
 /**
@@ -46,6 +46,12 @@ public class RegistrationController {
     @Autowired
     private RoleService roleService;
 
+    @Resource(name = "userValidator")
+    private Validator userValidator;
+
+    @Resource(name = "studentValidator")
+    private Validator studentValidator;
+
     /**
      * Method sets validator to "user" model attribute.
      *
@@ -53,7 +59,7 @@ public class RegistrationController {
      */
     @InitBinder("user")
     protected void initUserBinder(final WebDataBinder binder) {
-        binder.setValidator(new UserValidator());
+        binder.setValidator(userValidator);
     }
 
     /**
@@ -63,7 +69,7 @@ public class RegistrationController {
      */
     @InitBinder("student")
     protected void initStudentBinder(final WebDataBinder binder) {
-        binder.setValidator(new StudentValidator());
+        binder.setValidator(studentValidator);
     }
 
     /**

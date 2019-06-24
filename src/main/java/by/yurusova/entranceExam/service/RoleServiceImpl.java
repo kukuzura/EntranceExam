@@ -1,9 +1,7 @@
 package by.yurusova.entranceExam.service;
 
 import by.yurusova.entranceExam.dao.RoleDAO;
-import by.yurusova.entranceExam.dao.RoleDAOImpl;
 import by.yurusova.entranceExam.entity.Role;
-import org.springframework.beans.factory.annotation.Required;
 
 /**
  * Class that performe base role services.

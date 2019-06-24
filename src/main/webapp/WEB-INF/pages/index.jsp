@@ -8,7 +8,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="/resources/css/navigation.css"/>
+
 </head>
 
 <jsp:include page="/WEB-INF/pages/navigation.jsp"/>

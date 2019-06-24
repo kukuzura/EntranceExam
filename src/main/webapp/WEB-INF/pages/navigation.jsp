@@ -1,6 +1,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<head>
+    <link rel="stylesheet" href="/resources/css/navigation.css"/>
+</head>
+
 <ul>
     <li><a href="/"><spring:message code="navigation.button.home"/></a></li>
     <li><a href="<c:url value = "/admin/userList"/>"><spring:message code="navigation.button.listOfUsers"/></a></li>
@@ -13,4 +17,5 @@
             <a href="?lang=en"><spring:message code="navigation.dropdown.eng"/></a>
             <a href="?lang=RU_ru"><spring:message code="navigation.dropdown.rus"/></a>
         </div>
-</ul>
+    <li class="logout"><a href="<c:url value = "/logout"/>"><spring:message code="navigation.button.logout"/></a></li>
+                   </ul>

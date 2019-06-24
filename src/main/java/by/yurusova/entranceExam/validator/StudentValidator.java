@@ -4,6 +4,8 @@ import by.yurusova.entranceExam.entity.Student;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 /**
  * Class for validation of student information.
  *
@@ -15,6 +17,7 @@ import org.springframework.validation.Validator;
 public class StudentValidator implements Validator {
     private static final String ONLY_LETTERS = "^\\D+$";
     private static final String ONLY_NUMBERS = "[0-9]{7}";
+    private static final int MAX_LENGTH = 30;
 
     @Override
     public boolean supports(final Class<?> aClass) {
@@ -24,6 +27,27 @@ public class StudentValidator implements Validator {
     @Override
     public void validate(final Object o, final Errors errors) {
         Student student = (Student) o;
+        if (isEmpty(student.getFirstName())) {
+            errors.rejectValue("firstName", "studentRegistration.error.firstName.required");
+        }
+        if (isEmpty(student.getLastName())) {
+            errors.rejectValue("lastName", "studentRegistration.error.lastName.required");
+        }
+        if (isEmpty(student.getPatronymic())) {
+            errors.rejectValue("patronymic", "studentRegistration.error.lastName.required");
+        }
+        if (isEmpty(student.getPassportID())) {
+            errors.rejectValue("passportID", "studentRegistration.error.passportID.required");
+        }
+        if (student.getFirstName().length() > MAX_LENGTH) {
+            errors.rejectValue("firstName", "studentRegistration.error.firstName.length");
+        }
+        if (student.getLastName().length() > MAX_LENGTH) {
+            errors.rejectValue("lastName", "studentRegistration.error.lastName.length");
+        }
+        if (student.getPatronymic().length() > MAX_LENGTH) {
+            errors.rejectValue("patronymic", "studentRegistration.error.patronymic.length");
+        }
         if (!student.getFirstName().matches(ONLY_LETTERS)) {
             errors.rejectValue("firstName", "studentRegistration.error.firstName");
         }

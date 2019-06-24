@@ -48,10 +48,6 @@
                 <button><spring:message key="login.button.confirm"/></button>
             </td>
         </tr>
-        <tr>
-            <input type="hidden" name="${_csrf.parameterName}"
-                   value="${_csrf.token}" />
-        </tr>
     </table>
 </form:form>
 </div>
