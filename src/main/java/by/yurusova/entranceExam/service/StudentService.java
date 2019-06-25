@@ -27,7 +27,7 @@ public interface StudentService {
      *
      * @param id password id of deletes user.
      */
-    void deleteStudent(String id);
+    void deleteStudent(long id);
 
 
     /**
@@ -52,6 +52,6 @@ public interface StudentService {
      * @param id passport_id of the user.
      * @return the user.
      */
-    Student findById(String id);
+    Student findById(long id);
 }
 

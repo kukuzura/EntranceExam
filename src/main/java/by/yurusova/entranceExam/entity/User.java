@@ -27,9 +27,9 @@ import java.util.List;
 @Table(name = "examsdb.user")
 public class User {
     @Id
+    @Column(name = "id")
+    @GenericGenerator(name="increment" , strategy="increment")
     @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "id", nullable = false, unique = true)
     private long id;
 
     @Column(name = "login")
@@ -38,7 +38,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.REFRESH})
     @JoinTable(
             name = "examsdb.user_role",
             joinColumns = {@JoinColumn(name = "user_id")},

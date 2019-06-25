@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
@@ -96,21 +97,21 @@ public class RegistrationController {
      * @return welcome page.
      */
     @RequestMapping(value = "/studentRegister", method = RequestMethod.POST)
-    public ModelAndView addStudent(
+    public String addStudent(
             @ModelAttribute("user") @Validated final User user, final BindingResult bindingResultUser,
-            @ModelAttribute("student") @Validated final Student student, final BindingResult bindingResultStudent) {
+            @ModelAttribute("student") @Validated final Student student, final BindingResult bindingResultStudent,
+            Model model) {
         if (bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
-            ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
-            mav.addObject("user", user);
-            mav.addObject("student", student);
-            return mav;
+            model.addAttribute("user", user);
+            model.addAttribute("student", student);
+            return "/studentRegistration.jsp";
         }
         else {
             user.setRoles(Arrays.asList(roleService.findByName("ROLE_STUDENT")));
             userService.addUser(user);
             student.setUser(user);
             studentService.addStudent(student);
-            return new ModelAndView("/welcome.jsp");
+            return "redirect:/login";
         }
     }
 }

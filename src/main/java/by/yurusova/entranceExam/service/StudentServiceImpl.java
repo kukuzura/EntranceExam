@@ -23,9 +23,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(final String id) {
+    public void deleteStudent(final long id) {
         Student student = new Student();
-        student.setPassportID(id);
+        student.setId(id);
         studentDAO.delete(student);
     }
 
@@ -40,7 +40,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findById(final String id) {
+    public Student findById(final long id) {
         return studentDAO.findById(id);
     }
 

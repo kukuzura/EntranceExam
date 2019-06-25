@@ -17,10 +17,10 @@ public interface StudentDAO {
     /**
      * Gets student by id.
      *
-     * @param passportId student id.
+     * @param id student id.
      * @return the student.
      */
-    Student findById(String passportId);
+    Student findById(long id);
 
     /**
      * Saves given user to db.

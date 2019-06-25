@@ -42,9 +42,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     /**
-     * Set userdao.
+     * Set userDAO.
      *
-     * @param userDAO userdao to be set.
+     * @param userDAO userDAO to be set.
      */
     public void setUserDAO(final UserDAO userDAO) {
         this.userDAO = userDAO;

@@ -1,5 +1,7 @@
 package by.yurusova.entranceExam.entity;
 
+import org.hibernate.annotations.Generated;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,8 +24,8 @@ import java.util.List;
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(generator = "increment")
     private Long id;
 
     @Column(name = "name")

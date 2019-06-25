@@ -3,23 +3,30 @@ package by.yurusova.entranceExam.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 /**
  * Entity class for student.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
  * @package by.yurusova.entranceExam.controllers
  * @link http ://sam-solutions.com/
- *  @copyright 2019 SaM
+ * @copyright 2019 SaM
  */
 @Entity
 @Table(name = "examsdb.student")
 public class Student {
 
     @Id
+    @Column(name = "id")
+    @GeneratedValue(generator = "increment")
+    private long id;
+
     @Column(name = "passport_id")
     private String passportID;
 
@@ -124,5 +131,23 @@ public class Student {
      */
     public void setUser(final User user) {
         this.user = user;
+    }
+
+    /**
+     * Gets user id.
+     *
+     * @return the user id.
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * Sets users id.
+     *
+     * @param id id to be set
+     */
+    public void setId(final long id) {
+        this.id = id;
     }
 }

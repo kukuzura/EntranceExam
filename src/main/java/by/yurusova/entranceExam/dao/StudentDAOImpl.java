@@ -15,8 +15,8 @@ import java.util.List;
 public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
 
     @Override
-    public Student findById(final String passportId) {
-        return null;
+    public Student findById(final long id) {
+        return (Student) super.findById(id, Student.class);
     }
 
     @Override
