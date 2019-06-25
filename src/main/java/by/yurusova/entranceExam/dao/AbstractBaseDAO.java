@@ -11,7 +11,7 @@ import java.util.List;
  * Abstract DAO class.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.controllers
+ * @package by.yurusova.entranceExam.dao
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */

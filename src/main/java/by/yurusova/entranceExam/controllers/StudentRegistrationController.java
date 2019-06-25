@@ -33,10 +33,10 @@ import java.util.Arrays;
  * @copyright 2019 SaM
  */
 @Controller
-public class RegistrationController {
+public class StudentRegistrationController {
 
     private static final Logger LOGGER = LoggerFactory
-            .getLogger(RegistrationController.class);
+            .getLogger(StudentRegistrationController.class);
 
     @Autowired
     private UserService userService;
@@ -94,13 +94,14 @@ public class RegistrationController {
      * @param bindingResultUser    object that holds the result of user validation.
      * @param student              the student to validate.
      * @param bindingResultStudent object that holds the result of student validation.
+     * @param model                the model
      * @return welcome page.
      */
     @RequestMapping(value = "/studentRegister", method = RequestMethod.POST)
     public String addStudent(
             @ModelAttribute("user") @Validated final User user, final BindingResult bindingResultUser,
             @ModelAttribute("student") @Validated final Student student, final BindingResult bindingResultStudent,
-            Model model) {
+            final Model model) {
         if (bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
             model.addAttribute("user", user);
             model.addAttribute("student", student);

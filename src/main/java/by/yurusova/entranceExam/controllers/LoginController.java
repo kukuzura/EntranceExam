@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
     private static final Logger LOGGER = LoggerFactory
-            .getLogger(RegistrationController.class);
+            .getLogger(StudentRegistrationController.class);
 
     /**
      * Method shows login page.

@@ -9,7 +9,7 @@ import java.util.List;
  * DAO class that responsible for operations with roles table.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.controllers
+ * @package by.yurusova.entranceExam.dao
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */

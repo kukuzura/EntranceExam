@@ -8,8 +8,8 @@ import java.util.List;
  * Interface defines base role service operations.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.dao
- *  @link http ://sam-solutions.com/
+ * @package by.yurusova.entranceExam.service
+ * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
 public interface UserService {

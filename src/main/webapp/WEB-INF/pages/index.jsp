@@ -8,13 +8,10 @@
 <html>
 
 <head>
-
 </head>
 
-<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
-
 <body>
-
+<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 </body>
 
 </html>

@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,7 +20,7 @@ import java.util.List;
  * Entity class for user.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.controllers
+ * @package by.yurusova.entranceExam.entity
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
@@ -28,7 +29,7 @@ import java.util.List;
 public class User {
     @Id
     @Column(name = "id")
-    @GenericGenerator(name="increment" , strategy="increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     @GeneratedValue(generator = "increment")
     private long id;
 
@@ -46,8 +47,11 @@ public class User {
     )
     private List<Role> roles;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.REMOVE}, mappedBy = "user")
     private Student student;
+
+    @OneToOne(mappedBy = "user")
+    private Teacher teacher;
 
     /**
      * Gets id.

@@ -4,10 +4,10 @@ import by.yurusova.entranceExam.dao.RoleDAO;
 import by.yurusova.entranceExam.entity.Role;
 
 /**
- * Class that performe base role services.
+ * Class that perform base role services.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.dao
+ * @package by.yurusova.entranceExam.service
  *  @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */

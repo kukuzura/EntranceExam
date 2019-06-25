@@ -17,7 +17,7 @@ import java.util.Set;
  * Custom UserDetailsService implementation.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.controllers
+ * @package by.yurusova.entranceExam.service.security
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */

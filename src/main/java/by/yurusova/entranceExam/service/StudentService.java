@@ -8,7 +8,7 @@ import java.util.List;
  * Interface defines base student service operations.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.dao
+ * @package by.yurusova.entranceExam.service
  *  @link http ://sam-solutions.com/
  *  @copyright 2019 SaM
  */

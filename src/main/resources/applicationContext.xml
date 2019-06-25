@@ -28,4 +28,8 @@
           <property name="studentDAO" ref="studentDAO"/>
     </bean>
 
+    <bean id="teacherService" class="by.yurusova.entranceExam.service.TeacherServiceImpl">
+        <property name="teacherDAO" ref="teacherDAO"/>
+    </bean>
+
 </beans>

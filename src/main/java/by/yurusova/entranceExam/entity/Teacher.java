@@ -19,16 +19,12 @@ import javax.persistence.Table;
  * @copyright 2019 SaM
  */
 @Entity
-@Table(name = "examsdb.student")
-public class Student {
+@Table(name = "examsdb.teacher")
+public class Teacher {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(generator = "increment")
     private long id;
-
-    @Column(name = "passport_id")
-    private String passportID;
 
     @Column(name = "first_name")
     private String firstName;
@@ -46,34 +42,17 @@ public class Student {
     /**
      * Set first name.
      *
-     * @param firstName first name to be set
+     * @param firstName first name to be set.
      */
     public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     * Gets passport id.
-     *
-     * @return the passport id
-     */
-    public String getPassportID() {
-        return passportID;
-    }
-
-    /**
-     * Sets passport id.
-     *
-     * @param passportID passport id to be set
-     */
-    public void setPassportID(final String passportID) {
-        this.passportID = passportID;
-    }
 
     /**
      * Gets first name.
      *
-     * @return the first name
+     * @return the first name.
      */
     public String getFirstName() {
         return firstName;
@@ -82,7 +61,7 @@ public class Student {
     /**
      * Gets last name.
      *
-     * @return the last name
+     * @return the last name.
      */
     public String getLastName() {
         return lastName;
@@ -91,7 +70,7 @@ public class Student {
     /**
      * Sets last name.
      *
-     * @param lastName last name to be set
+     * @param lastName last name to be set.
      */
     public void setLastName(final String lastName) {
         this.lastName = lastName;
@@ -100,7 +79,7 @@ public class Student {
     /**
      * Gets patronymic.
      *
-     * @return the patronymic
+     * @return the patronymic.
      */
     public String getPatronymic() {
         return patronymic;
@@ -109,10 +88,28 @@ public class Student {
     /**
      * Sets patronymic.
      *
-     * @param patronymic patronymic to be set
+     * @param patronymic patronymic to be set.
      */
     public void setPatronymic(final String patronymic) {
         this.patronymic = patronymic;
+    }
+
+    /**
+     * Gets id.
+     *
+     * @return the id.
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * Sets id.
+     *
+     * @param id id to be set.
+     */
+    public void setId(final long id) {
+        this.id = id;
     }
 
     /**
@@ -133,21 +130,4 @@ public class Student {
         this.user = user;
     }
 
-    /**
-     * Gets user id.
-     *
-     * @return the user id.
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * Sets users id.
-     *
-     * @param id id to be set
-     */
-    public void setId(final long id) {
-        this.id = id;
-    }
 }

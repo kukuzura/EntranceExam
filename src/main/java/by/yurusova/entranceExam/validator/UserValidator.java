@@ -12,7 +12,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * Class for validation of user information.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.controllers
+ * @package by.yurusova.entranceExam.validator
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */

@@ -12,6 +12,8 @@
         <property name="userDAO" ref="userDAO"/>
     </bean>
 
+    <bean id="authSuccessHandler" class="by.yurusova.entranceExam.service.security.CustomAuthenticationSuccessHandler"/>
+
     <bean id="encoder"
           class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <constructor-arg name="strength" value="11"/>
@@ -24,7 +26,7 @@
         <security:form-login
                 login-page="/login"
                 login-processing-url="/login"
-                default-target-url="/welcome"
+                authentication-success-handler-ref="authSuccessHandler"
                 authentication-failure-url="/login?error"
                 username-parameter="login"
                 password-parameter="password"/>

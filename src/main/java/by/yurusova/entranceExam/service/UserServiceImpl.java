@@ -9,10 +9,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.List;
 
 /**
- * Class that performe base user services.
+ * Class that perform base user services.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.dao
+ * @package by.yurusova.entranceExam.service
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */

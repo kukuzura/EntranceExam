@@ -1,11 +1,8 @@
 package by.yurusova.entranceExam.entity;
 
-import org.hibernate.annotations.Generated;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -15,7 +12,7 @@ import java.util.List;
  * Entity class for role.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.controllers
+ * @package by.yurusova.entranceExam.entity
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */

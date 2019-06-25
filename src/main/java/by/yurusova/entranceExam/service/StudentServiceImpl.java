@@ -6,10 +6,10 @@ import by.yurusova.entranceExam.entity.Student;
 import java.util.List;
 
 /**
- * Class that performe base student services.
+ * Class that perform base student services.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
- * @package by.yurusova.entranceExam.dao
+ * @package by.yurusova.entranceExam.service
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
