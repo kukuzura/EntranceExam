@@ -16,6 +16,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
 
+/**
+ * Teacher Registration controller.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.controllers
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 @Controller
 public class TeacherRegistrationController {
 
@@ -29,6 +37,11 @@ public class TeacherRegistrationController {
     private TeacherService teacherService;
 
 
+    /**
+     * Method shows teacher registration page.
+     *
+     * @return teacher registration page
+     */
     @RequestMapping(value = "/teacherRegister", method = RequestMethod.GET)
     public ModelAndView showTeacherRegisterPage() {
         ModelAndView mav = new ModelAndView("/teacherRegistration.jsp");
@@ -38,7 +51,9 @@ public class TeacherRegistrationController {
     }
 
     @RequestMapping(value = "/teacherRegister", method = RequestMethod.POST)
-    public String addTeacher(@ModelAttribute("user") User user, @ModelAttribute("teacher") Teacher teacher, Model model){
+    public String addTeacher(@ModelAttribute("user") final User user,
+                             @ModelAttribute("teacher") final Teacher teacher,
+                             final Model model) {
         user.setRoles(Arrays.asList(roleService.findByName("ROLE_TEACHER")));
         userService.addUser(user);
         teacher.setUser(user);
