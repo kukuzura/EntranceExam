@@ -46,8 +46,20 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl" parent="abstractDAO">
-    </bean>
+    <bean id="userDAO" class="by.yurusova.entranceExam.dao.UserDAOImpl" parent="abstractDAO"/>
 
+    <bean id="roleDAO" class="by.yurusova.entranceExam.dao.RoleDAOImpl" parent="abstractDAO"/>
+
+    <bean id="studentDAO" class="by.yurusova.entranceExam.dao.StudentDAOImpl" parent="abstractDAO"/>
+
+    <bean id="teacherDAO" class="by.yurusova.entranceExam.dao.TeacherDAOImpl" parent="abstractDAO"/>
+
+    <bean id="subjectDAO" class="by.yurusova.entranceExam.dao.SubjectDAOImpl" parent="abstractDAO"/>
+
+    <bean id="gradeDAO" class="by.yurusova.entranceExam.dao.GradeDAOImpl" parent="abstractDAO"/>
+
+    <bean id="examDAO" class="by.yurusova.entranceExam.dao.ExamDAOImpl" parent="abstractDAO"/>
+
+    <bean id="specialiyDAO" class="by.yurusova.entranceExam.dao.SpecialityDAOImpl" parent="abstractDAO"/>
 
 </beans>

@@ -49,6 +49,10 @@
 
     <bean id="teacherDAO" class="by.yurusova.entranceExam.dao.TeacherDAOImpl" parent="abstractDAO"/>
 
+    <bean id="subjectDAO" class="by.yurusova.entranceExam.dao.SubjectDAOImpl" parent="abstractDAO"/>
+
+    <bean id="gradeDAO" class="by.yurusova.entranceExam.dao.GradeDAOImpl" parent="abstractDAO"/>
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 

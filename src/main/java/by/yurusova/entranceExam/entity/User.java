@@ -46,10 +46,10 @@ public class User {
     )
     private List<Role> roles;
 
-    @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.REMOVE}, mappedBy = "user")
+    @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, mappedBy = "user")
     private Student student;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, mappedBy = "user")
     private Teacher teacher;
 
     /**

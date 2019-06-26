@@ -34,7 +34,6 @@ create table student
     user_id     int              null,
     id          int              not null,
     grade       double default 0 not null,
-    constraint student_id_uindex unique (id),
     constraint student_user_id_uindex unique (user_id),
     constraint student_user_id_fk foreign key (user_id)
         references user (id)
@@ -51,6 +50,7 @@ create table teacher
     last_name  varchar(30) null,
     patronymic varchar(30) null,
     user_id    int         null,
+    constraint teacher_user_id_uindex unique (user_id),
     constraint teacher_user_id_fk foreign key (user_id)
         references user (id)
         on update cascade on delete cascade
