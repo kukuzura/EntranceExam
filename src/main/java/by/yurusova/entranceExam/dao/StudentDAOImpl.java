@@ -1,6 +1,7 @@
 package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.Student;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -38,5 +39,15 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
     public List<Student> getAll() {
         List students = super.getAll("from Student");
         return (List<Student>) students;
+    }
+
+    @Transactional
+    @Override
+    public Student findByPassportID(String passportID) {
+        Object student = sessionFactory.getCurrentSession().createQuery(
+                "SELECT student FROM Student student WHERE student.passport_id =: passport_id")
+                .setParameter("passport_id", passportID)
+                .getSingleResult();
+        return (Student) student;
     }
 }

@@ -1,6 +1,8 @@
 package by.yurusova.entranceExam.validator;
 
 import by.yurusova.entranceExam.entity.User;
+import by.yurusova.entranceExam.service.UserService;
+import by.yurusova.entranceExam.service.UserServiceImpl;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -20,6 +22,8 @@ public class UserValidator implements Validator {
     private static final String VALID_PASSWORD =
             "^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{8,}$";
     private static final int MAX_LENGTH = 30;
+
+    private UserService userService;
 
     @Override
     public boolean supports(final Class<?> aClass) {
@@ -44,5 +48,12 @@ public class UserValidator implements Validator {
         if (!Pattern.matches(VALID_PASSWORD, user.getPassword())) {
             errors.rejectValue("password", "registration.error.password.weakPassword");
         }
+        if(userService.findByLogin(user.getLogin())!=null){
+            errors.rejectValue("login", "registration.error.login.exists");
+        }
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 }

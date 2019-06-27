@@ -28,7 +28,8 @@ li a:hover, .dropdown:hover .dropbtn {
     background-color: lightseagreen;
 }
 
-li.dropdown {
+li .dropdown {
+    background-color: lightgrey;
     display: inline-block;
 }
 
@@ -55,4 +56,10 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    width: 30%
 }

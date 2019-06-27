@@ -1,6 +1,5 @@
 package by.yurusova.entranceExam.controllers;
 
-
 import by.yurusova.entranceExam.entity.Teacher;
 import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.RoleService;
@@ -9,6 +8,11 @@ import by.yurusova.entranceExam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +40,21 @@ public class TeacherRegistrationController {
     @Autowired
     private TeacherService teacherService;
 
+    @Autowired
+    private Validator teacherValidator;
+
+    @Autowired
+    private Validator userValidator;
+
+    @InitBinder("user")
+    protected void initUserBinder(final WebDataBinder binder) {
+        binder.setValidator(userValidator);
+    }
+
+    @InitBinder("teacher")
+    protected void initTeacherBinder(final WebDataBinder binder) {
+        binder.setValidator(teacherValidator);
+    }
 
     /**
      * Method shows teacher registration page.
@@ -50,14 +69,32 @@ public class TeacherRegistrationController {
         return mav;
     }
 
+    /**
+     * Method returns login page if teacher information correct,
+     * or registration page if not.
+     *
+     * @param user user to be validate
+     * @param bindingResultUser result of user validation
+     * @param teacher
+     * @param bindingResultTeacher
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/teacherRegister", method = RequestMethod.POST)
-    public String addTeacher(@ModelAttribute("user") final User user,
-                             @ModelAttribute("teacher") final Teacher teacher,
+    public String addTeacher(@ModelAttribute("user") @Validated final User user, BindingResult bindingResultUser,
+                             @ModelAttribute("teacher") @Validated final Teacher teacher, BindingResult bindingResultTeacher,
                              final Model model) {
-        user.setRoles(Arrays.asList(roleService.findByName("ROLE_TEACHER")));
-        userService.addUser(user);
-        teacher.setUser(user);
-        teacherService.addTeacher(teacher);
-        return "redirect:/login";
+        if (bindingResultTeacher.hasErrors() || bindingResultUser.hasErrors()) {
+            model.addAttribute("user", user);
+            model.addAttribute("teacher", teacher);
+            return "/teacherRegistration.jsp";
+        }
+        else {
+            user.setRoles(Arrays.asList(roleService.findByName("ROLE_TEACHER")));
+            userService.addUser(user);
+            teacher.setUser(user);
+            teacherService.addTeacher(teacher);
+            return "redirect:/login";
+        }
     }
 }

@@ -44,6 +44,11 @@ public class StudentServiceImpl implements StudentService {
         return studentDAO.findById(id);
     }
 
+    @Override
+    public Student findByPassportID(String passportID) {
+        return studentDAO.findByPassportID(passportID);
+    }
+
 
     /**
      * Sets studentDAO.

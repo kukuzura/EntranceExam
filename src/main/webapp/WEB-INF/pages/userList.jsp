@@ -13,9 +13,9 @@
 </style>
 
 <body>
-<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
+<jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
 <div style="padding-top:30px;margin-top:30px;height:1500px;">
-    <table id="users">
+    <table id="list">
         <tr>
             <th width="50"><spring:message code="userList.lable.Id"/></th>
             <th width="80"><spring:message code="userList.lable.login"/></th>

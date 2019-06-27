@@ -49,4 +49,12 @@ public interface StudentDAO {
      * @return lust of student.
      */
     List<Student> getAll();
+
+    /**
+     * Gets student by passport id.
+     *
+     * @param passportID the passport id.
+     * @return user with given passport id.
+     */
+    Student findByPassportID(String passportID);
 }

@@ -26,13 +26,13 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                                         final Authentication authentication) throws IOException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         if (roles.contains("ROLE_ADMIN")) {
-            httpServletResponse.sendRedirect("/admin/userList");
+            httpServletResponse.sendRedirect("/admin/adminPage");
         }
         if (roles.contains("ROLE_TEACHER")) {
-            httpServletResponse.sendRedirect("/account/teacher");
+            httpServletResponse.sendRedirect("/account/teacherPage");
         }
         if (roles.contains("ROLE_STUDENT")) {
-            httpServletResponse.sendRedirect("/account/student");
+            httpServletResponse.sendRedirect("/account/studentPage");
         }
     }
 }

@@ -1,6 +1,7 @@
 package by.yurusova.entranceExam.controllers;
 
 
+import by.yurusova.entranceExam.entity.Exam;
 import by.yurusova.entranceExam.entity.Student;
 import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.RoleService;
@@ -87,7 +88,7 @@ public class StudentRegistrationController {
     }
 
     /**
-     * Method returns welcome page if student information is correct,
+     * Method returns login page if student information is correct,
      * or page with error messages if not.
      *
      * @param user                 the user to validate.

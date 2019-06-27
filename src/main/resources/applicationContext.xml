@@ -20,16 +20,34 @@
         <property name="roleDAO" ref="roleDAO"/>
     </bean>
 
-    <bean id="userValidator" class="by.yurusova.entranceExam.validator.UserValidator" />
+    <bean id="userValidator" class="by.yurusova.entranceExam.validator.UserValidator">
+        <property name="userService" ref="userService"/>
+    </bean>
 
-    <bean id="studentValidator" class="by.yurusova.entranceExam.validator.StudentValidator" />
+    <bean id="studentValidator" class="by.yurusova.entranceExam.validator.StudentValidator">
+        <property name="studentService" ref="studentService"/>
+    </bean>
+
+    <bean id="teacherValidator" class="by.yurusova.entranceExam.validator.TeacherValidator"/>
 
     <bean id="studentService" class="by.yurusova.entranceExam.service.StudentServiceImpl">
-          <property name="studentDAO" ref="studentDAO"/>
+        <property name="studentDAO" ref="studentDAO"/>
     </bean>
 
     <bean id="teacherService" class="by.yurusova.entranceExam.service.TeacherServiceImpl">
         <property name="teacherDAO" ref="teacherDAO"/>
+    </bean>
+
+    <bean id="examService" class="by.yurusova.entranceExam.service.ExamServiceImpl">
+        <property name="examDAO" ref="examDAO"/>
+    </bean>
+
+    <bean id="subjectService" class="by.yurusova.entranceExam.service.SubjectServiceImpl">
+        <property name="subjectDAO" ref="subjectDAO"/>
+    </bean>
+
+    <bean id="specialityService" class="by.yurusova.entranceExam.service.SpecialityServiceImpl">
+        <property name="specialityDAO" ref="specialityDAO"/>
     </bean>
 
 </beans>

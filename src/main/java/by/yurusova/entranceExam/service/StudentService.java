@@ -9,8 +9,8 @@ import java.util.List;
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
  * @package by.yurusova.entranceExam.service
- *  @link http ://sam-solutions.com/
- *  @copyright 2019 SaM
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
  */
 public interface StudentService {
 
@@ -49,9 +49,17 @@ public interface StudentService {
     /**
      * Gets user by id.
      *
-     * @param id passport_id of the user.
+     * @param id id of the user.
      * @return the user.
      */
     Student findById(long id);
+
+    /**
+     * Gets student by passport id.
+     *
+     * @param passportID the passport id.
+     * @return student with given passport id.
+     */
+    Student findByPassportID(String passportID);
 }
 

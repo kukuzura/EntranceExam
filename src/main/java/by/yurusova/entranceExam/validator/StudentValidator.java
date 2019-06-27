@@ -1,6 +1,8 @@
 package by.yurusova.entranceExam.validator;
 
 import by.yurusova.entranceExam.entity.Student;
+import by.yurusova.entranceExam.service.StudentService;
+import by.yurusova.entranceExam.service.StudentServiceImpl;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -18,6 +20,8 @@ public class StudentValidator implements Validator {
     private static final String ONLY_LETTERS = "^\\D+$";
     private static final String ONLY_NUMBERS = "[0-9]{7}";
     private static final int MAX_LENGTH = 30;
+
+    private StudentService studentService;
 
     @Override
     public boolean supports(final Class<?> aClass) {
@@ -60,6 +64,13 @@ public class StudentValidator implements Validator {
         if (!student.getPassportID().matches(ONLY_NUMBERS)) {
             errors.rejectValue("passportID", "studentRegistration.error.passportID");
         }
+        if(studentService.findByPassportID(student.getPassportID())!=null){
+            errors.rejectValue("passportID", "studentRegistration.error.passportID.exists");
+        }
+    }
+
+    public void setStudentService(StudentService studentService) {
+        this.studentService = studentService;
     }
 }
 

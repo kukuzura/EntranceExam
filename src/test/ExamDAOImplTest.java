@@ -93,7 +93,6 @@ public class ExamDAOImplTest {
         assertEquals("table is empty", 1, exams.size());
     }
 
-
     @Test
     public void testDeleteExam() {
         Exam exam = new Exam();
