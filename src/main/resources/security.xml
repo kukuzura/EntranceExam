@@ -35,7 +35,7 @@
         <security:csrf disabled="true"/>
     </security:http>
 
-    <security:authentication-manager alias="authenticationManager">
+    <security:authentication-manager>
         <security:authentication-provider>
             <security:user-service>
                 <security:user name="admin" password="admin" authorities="ROLE_ADMIN"/>

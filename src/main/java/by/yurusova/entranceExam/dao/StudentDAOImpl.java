@@ -45,7 +45,7 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
     @Override
     public Student findByPassportID(String passportID) {
         Object student = sessionFactory.getCurrentSession().createQuery(
-                "SELECT student FROM Student student WHERE student.passport_id =: passport_id")
+                "SELECT student FROM Student student WHERE student.passportID =: passport_id")
                 .setParameter("passport_id", passportID)
                 .getSingleResult();
         return (Student) student;

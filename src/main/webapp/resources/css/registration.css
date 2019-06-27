@@ -24,12 +24,12 @@ body {
 }
 
 .container {
-
     margin: 10px auto;
     border-radius: 8px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     width: 100%;
     padding: 50px;
+    color: white;
 }
 
 .container fieldset {
@@ -37,7 +37,7 @@ body {
 }
 
 .container legend {
-
+    text-align: center;
     font-size: 1.4em;
     margin-bottom: 10px;
 }
@@ -55,7 +55,11 @@ body {
     display: block;
     margin-bottom: 8px;
     align-content: end;
-    width: 30%;
+    width: 80%;
+    color: white;
+    text-align: end;
+    padding-bottom: 15px;
+    padding-right: 20px;
 }
 
 
@@ -91,12 +95,12 @@ body {
     padding: 19px 39px 18px 39px;
     color: #FFF;
     margin: 0 auto;
-    background: #6E8BCE;
+    background: transparent;
     font-size: 18px;
     text-align: center;
     font-style: normal;
     width: 100%;
-    border: 1px solid #2C3752;
+    border: 2px solid white;
     border-width: 1px 1px 3px;
     margin-bottom: 10px;
 }
