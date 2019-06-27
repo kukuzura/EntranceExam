@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Adding Exam</title>
+    <link rel="stylesheet" href="/resources/css/select.css"/>
 </head>
 <body>
 <form>
@@ -44,6 +45,7 @@
             </select>
         </td>
     </tr>
+
 </table>
 </form>
 </body>

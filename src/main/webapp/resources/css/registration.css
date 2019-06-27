@@ -1,8 +1,31 @@
+
+@import 'https://fonts.googleapis.com/css?family=Roboto:100,300';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,700';
+
+body {
+    width: 100%;
+    min-height: 900px;
+    margin: 3em auto;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7cac9+0,92a8d1+100 */
+    background: rgb(247, 202, 201);
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /* IE6-9 fallback on horizontal gradient */
+
+    font-family: 'Roboto Mono';
+    letter-spacing: 1px;
+}
+
 .container {
 
-    background: #f4f7f8;
     margin: 10px auto;
-    background: #f4f7f8;
     border-radius: 8px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     width: 100%;
@@ -58,7 +81,7 @@
 
 .container input[type="text"]:focus,
 .container input[type="password"]:focus {
-    background: #d2d9dd;
+    background: #DDE2EC;
 }
 
 
@@ -68,16 +91,16 @@
     padding: 19px 39px 18px 39px;
     color: #FFF;
     margin: 0 auto;
-    background: lightseagreen;
+    background: #6E8BCE;
     font-size: 18px;
     text-align: center;
     font-style: normal;
     width: 100%;
-    border: 1px solid #16a085;
+    border: 1px solid #2C3752;
     border-width: 1px 1px 3px;
     margin-bottom: 10px;
 }
 
 .container button:hover {
-    background: #109177;
+    background: #2C3752;
 }

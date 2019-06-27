@@ -87,14 +87,14 @@ create table grade
 );
 
 create table user_role
-(
-    user_id int null,
-    role_id int null,
-    constraint user_role_role_id_fk foreign key (role_id)
-        references role (id)
-        on update cascade on delete cascade,
-    constraint user_role_user_id_fk foreign key (user_id)
-        references user (id)
-        on update cascade on delete cascade
-);
+  (
+      user_id int null,
+      role_id int null,
+      constraint user_role_role_id_fk foreign key (role_id)
+          references role (id)
+          on update cascade on delete cascade,
+      constraint user_role_user_id_fk foreign key (user_id)
+          references user (id)
+          on update cascade on delete cascade
+  );
 

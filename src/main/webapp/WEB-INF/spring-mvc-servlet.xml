@@ -33,7 +33,6 @@
         <property name="prefix" value="/WEB-INF/pages"/>
         <property name="suffix" value=""/>
     </bean>
-
 </beans>
 
 
