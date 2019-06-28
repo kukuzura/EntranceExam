@@ -15,6 +15,11 @@ public class SubjectServiceImpl implements SubjectService {
         return (List<Subject>) subjects;
     }
 
+    @Override
+    public Subject findById(long id) {
+        return subjectDAO.findById(id);
+    }
+
     public void setSubjectDAO(SubjectDAO subjectDAO) {
         this.subjectDAO = subjectDAO;
     }

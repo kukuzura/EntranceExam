@@ -4,6 +4,7 @@ import by.yurusova.entranceExam.entity.User;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 
@@ -48,11 +49,17 @@ public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
     @Transactional
     @Override
     public User findByLogin(final String login) {
-        Object user = sessionFactory.getCurrentSession().createQuery(
-                "SELECT user FROM User user WHERE user.login LIKE: login")
-                .setParameter("login", login)
-                .getSingleResult();
-        return (User) user;
+        Object user = null;
+        try {
+            user = sessionFactory.getCurrentSession().createQuery(
+                    "SELECT user FROM User user WHERE user.login LIKE: login")
+                    .setParameter("login", login)
+                    .getSingleResult();
+        }
+        catch (NoResultException ex) {}
+        finally {
+            return (User) user;
+        }
     }
 
     /**

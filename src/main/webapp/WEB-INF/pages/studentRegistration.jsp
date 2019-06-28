@@ -9,12 +9,7 @@
 </head>
 
 <style>
-    .error {
-        color: red;
-        font-size: 14px;
-        width: 30%
-    }
-
+    <%@include file="/resources/css/errors.css" %>
     <%@include file="/resources/css/registration.css" %>
 </style>
 
@@ -30,10 +25,11 @@
                 </td>
                 <td>
                     <input type="text" name="login"/>
-                </td>
                 <td>
-                    <form:errors path="user.login" cssClass="error"/>
+                    <form:errors path="user.password" cssClass="error"/>
                 </td>
+                </td>
+
             </tr>
             <tr>
 

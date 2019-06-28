@@ -1,4 +1,4 @@
-.select {
+select {
     position: relative;
     overflow: hidden;
     display: block;
@@ -28,7 +28,7 @@
 }
 
 
-.select-selected.select-arrow-active:after {
+.select-selected, .select-arrow-active:after {
     border-color: transparent transparent #fff transparent;
     top: 7px;
 }

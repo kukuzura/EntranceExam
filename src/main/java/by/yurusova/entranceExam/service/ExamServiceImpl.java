@@ -16,6 +16,11 @@ public class ExamServiceImpl implements ExamService {
         return (List<Exam>) exams;
     }
 
+    @Override
+    public void saveExam(Exam exam) {
+        examDAO.saveExam(exam);
+    }
+
     public void setExamDAO(ExamDAO examDAO) {
         this.examDAO = examDAO;
     }

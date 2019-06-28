@@ -15,6 +15,11 @@ public class SpecialityServiceImpl implements SpecialityService {
         return specialityDAO.getAll();
     }
 
+    @Override
+    public Speciality findById(long id) {
+        return specialityDAO.findById(id);
+    }
+
     public void setSpecialityDAO(SpecialityDAO specialityDAO) {
         this.specialityDAO = specialityDAO;
     }

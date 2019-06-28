@@ -3,6 +3,7 @@ package by.yurusova.entranceExam.dao;
 import by.yurusova.entranceExam.entity.Student;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -44,10 +45,16 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
     @Transactional
     @Override
     public Student findByPassportID(String passportID) {
-        Object student = sessionFactory.getCurrentSession().createQuery(
-                "SELECT student FROM Student student WHERE student.passportID =: passport_id")
-                .setParameter("passport_id", passportID)
-                .getSingleResult();
-        return (Student) student;
+        Object student = null;
+        try {
+            student = sessionFactory.getCurrentSession().createQuery(
+                    "SELECT student FROM Student student WHERE student.passportID =: passport_id")
+                    .setParameter("passport_id", passportID)
+                    .getSingleResult();
+        }
+        catch (NoResultException ex){}
+        finally {
+            return (Student) student;
+        }
     }
 }

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
@@ -7,18 +8,16 @@
     <link rel="stylesheet" href="/resources/css/select.css"/>
 </head>
 <body>
-<form>
+<form:form method="post" commandName="exam">
 <table>
     <tr>
         <td>
             <label>Speciality</label>
         </td>
         <td>
-            <select name="speciality">
-                <c:forEach items="${specialityList}" var="speciality">
-                    <option value="${speciality.name}">${speciality.name}</option>
-                </c:forEach>
-            </select>
+            <form:select path="speciality">
+                <form:options items="${specialityList}" itemValue="id" itemLabel="name"/>
+            </form:select>
         </td>
     </tr>
     <tr>
@@ -26,11 +25,9 @@
             <label>Subject</label>
         </td>
         <td>
-            <select name="subject">
-                <c:forEach items="${subjectList}" var="subject">
-                    <option value="${subject.name}">${subject.name}</option>
-                </c:forEach>
-            </select>
+            <form:select path="subject">
+                <form:options items="${subjectList}" itemValue="id" itemLabel="name"/>
+            </form:select>
         </td>
     </tr>
     <tr>
@@ -38,15 +35,14 @@
             <label>Teacher</label>
         </td>
         <td>
-            <select name="teacher">
-                <c:forEach items="${teacherList}" var="teacher">
-                    <option value="${teacher.lastName}">${teacher.lastName}</option>
-                </c:forEach>
-            </select>
+            <form:select path="teacher">
+               <form:options items="${teacherList}" itemValue="id" itemLabel="lastName"/>
+            </form:select>
         </td>
     </tr>
 
+    <button>Confirm</button>
 </table>
-</form>
+</form:form>
 </body>
 </html>
