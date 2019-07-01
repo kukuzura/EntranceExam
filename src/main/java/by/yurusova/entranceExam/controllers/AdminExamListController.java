@@ -16,7 +16,7 @@ import java.util.List;
 public class AdminExamListController {
 
     @Autowired
-    ExamService examService;
+    private ExamService examService;
 
     @RequestMapping(value = "examList",method = RequestMethod.GET)
     ModelAndView showExamList(){

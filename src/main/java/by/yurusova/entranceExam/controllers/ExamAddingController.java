@@ -24,16 +24,16 @@ import javax.servlet.http.HttpServletRequest;
 public class ExamAddingController {
 
     @Autowired
-    ExamService examService;
+    private ExamService examService;
 
     @Autowired
-    TeacherService teacherService;
+    private  TeacherService teacherService;
 
     @Autowired
-    SubjectService subjectService;
+    private SubjectService subjectService;
 
     @Autowired
-    SpecialityService specialityService;
+    private SpecialityService specialityService;
 
 
     @RequestMapping(value = "addExam", method = RequestMethod.GET)

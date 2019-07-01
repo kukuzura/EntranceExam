@@ -1,5 +1,7 @@
 package by.yurusova.entranceExam.entity;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -84,6 +86,7 @@ public class Speciality {
      *
      * @return list of exams.
      */
+    @Transactional
     public List<Exam> getExams() {
         return exams;
     }

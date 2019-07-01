@@ -9,7 +9,7 @@ import java.util.List;
 public class GradeServiceImpl implements GradeService {
 
     @Autowired
-    GradeDAO gradeDAO;
+    private GradeDAO gradeDAO;
 
 
     @Override

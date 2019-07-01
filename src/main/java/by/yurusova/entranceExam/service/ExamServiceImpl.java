@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ExamServiceImpl implements ExamService {
 
-    ExamDAO examDAO;
+    private ExamDAO examDAO;
 
     @Override
     public List<Exam> getAll() {

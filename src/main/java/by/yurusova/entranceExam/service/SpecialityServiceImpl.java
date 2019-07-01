@@ -8,7 +8,7 @@ import java.util.List;
 
 public class SpecialityServiceImpl implements SpecialityService {
 
-    SpecialityDAO specialityDAO;
+    private SpecialityDAO specialityDAO;
 
     @Override
     public List<Speciality> getAll() {

@@ -11,7 +11,7 @@
         <c:forEach items="${specialityList}" var="speciality">
             <tr>
                 <td align="center">${speciality.name}</td>
-                <td><a href="<c:url value='/account/apply/${exam.id}' />">Apply</a>
+                <td><a href="<c:url value='/account/apply/${speciality.id}' />">Apply</a>
                 </td>
             </tr>
         </c:forEach>
