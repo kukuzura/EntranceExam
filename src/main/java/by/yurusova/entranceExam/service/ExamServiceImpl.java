@@ -21,6 +21,18 @@ public class ExamServiceImpl implements ExamService {
         examDAO.saveExam(exam);
     }
 
+    @Override
+    public void deleteExam(long id) {
+        Exam exam = new Exam();
+        exam.setId(id);
+        examDAO.delete(exam);
+    }
+
+    @Override
+    public List<Exam> findBySpeciality(long specialityID) {
+        return null;
+    }
+
     public void setExamDAO(ExamDAO examDAO) {
         this.examDAO = examDAO;
     }

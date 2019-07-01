@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
 
-
     @Override
     public User findById(final long id) {
         return (User) super.findById(id, User.class);

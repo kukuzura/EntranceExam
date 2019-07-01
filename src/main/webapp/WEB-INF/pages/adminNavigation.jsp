@@ -8,7 +8,7 @@
 <ul>
     <li><a href="/"><spring:message code="adminNavigation.button.home"/></a></li>
     <li><a href="<c:url value = "/admin/userList"/>"><spring:message code="adminNavigation.button.userList"/></a></li>
-    <li><a href="<c:url value = ""/>"><spring:message code="adminNavigation.button.examsList"/></a></li>
+    <li><a href="<c:url value = "/admin/examList"/>"><spring:message code="adminNavigation.button.examsList"/></a></li>
     <li><a href="<c:url value = ""/>"><spring:message code="adminNavigation.button.specialityList"/></a></li>
     <li><a href="<c:url value = ""/>"><spring:message code="adminNavigation.button.subjectList"/></a></li>
     <li class="dropdown">

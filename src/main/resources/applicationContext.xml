@@ -50,4 +50,8 @@
         <property name="specialityDAO" ref="specialityDAO"/>
     </bean>
 
+    <bean id="gradeService" class="by.yurusova.entranceExam.service.GradeServiceImpl">
+        <property name="gradeDAO" ref="gradeDAO"/>
+    </bean>
+
 </beans>

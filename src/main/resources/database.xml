@@ -57,6 +57,8 @@
 
     <bean id="specialityDAO" class="by.yurusova.entranceExam.dao.SpecialityDAOImpl" parent="abstractDAO"/>
 
+    <bean id="gradeService" class="by.yurusova.entranceExam.service.GradeServiceImpl" parent="abstractDAO"/>
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 

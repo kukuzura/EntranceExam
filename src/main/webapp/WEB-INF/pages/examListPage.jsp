@@ -1,18 +1,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Exam List</title>
+    <title><spring:message code="examList.title"/></title>
     <link rel="stylesheet" href="/resources/css/userList.css"/>
+    <link rel="stylesheet" href="/resources/css/select.css"/>
+    <link rel="stylesheet" href="/resources/css/link.css"/>
 </head>
 <body>
+
 <table id="list">
     <tr>
-        <th>Id</th>
-        <th>Teacher</th>
-        <th>Subject</th>
-        <th>Speciality</th>
+        <th><spring:message code="examList.label.id"/></th>
+        <th><spring:message code="examList.label.teacher"/></th>
+        <th><spring:message code="examList.label.subject"/></th>
+        <th><spring:message code="examList.label.speciality"/></th>
         <th></th>
     </tr>
     <c:forEach items="${examList}" var="exam">
@@ -21,8 +25,13 @@
             <td align="center">${exam.teacher.lastName} ${exam.teacher.lastName} ${exam.teacher.lastName}</td>
             <td align="center">${exam.subject.name}</td>
             <td align="center">${exam.speciality.name}</td>
+            <td><a href="<c:url value='/admin/examDelete/${exam.id}'/>"><spring:message code="examList.button.delete"/></a></td>
         </tr>
+        <tr></tr>
     </c:forEach>
 </table>
+<div align="center" >
+<a href="/admin/addExam"><spring:message code="addingExam.button.addExam"/></a>
+</div>
 </body>
 </html>

@@ -9,4 +9,8 @@ public interface ExamService {
     List<Exam> getAll();
 
     void saveExam(Exam exam);
+
+    void deleteExam(long id);
+
+    List<Exam> findBySpeciality(long specialityID);
 }

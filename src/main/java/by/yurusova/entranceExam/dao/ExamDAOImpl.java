@@ -2,6 +2,7 @@ package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.entity.Exam;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -37,5 +38,21 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
     public List<Exam> getAll() {
         List exams = super.getAll("from Exam");
         return (List<Exam>) exams;
+    }
+
+    @Override
+    public List<Exam> findBySpeciality(long specialityID) {
+        List exams = null;
+        try {
+            exams = sessionFactory.getCurrentSession().createQuery(
+                    "SELECT exam FROM Exam exam WHERE exam.speciality_id =: speciality_id")
+                    .setParameter("speciality_id", specialityID)
+                    .getResultList();
+        }
+        catch (NoResultException ex) {
+        }
+        finally {
+            return (List<Exam>) exams;
+        }
     }
 }

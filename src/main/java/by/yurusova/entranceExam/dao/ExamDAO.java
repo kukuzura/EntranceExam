@@ -50,4 +50,6 @@ public interface ExamDAO {
      */
     List<Exam> getAll();
 
+    List<Exam> findBySpeciality(long SpecialityID);
+
 }
