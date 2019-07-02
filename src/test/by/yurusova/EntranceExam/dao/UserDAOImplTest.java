@@ -1,3 +1,5 @@
+package by.yurusova.EntranceExam.dao;
+
 import by.yurusova.entranceExam.dao.UserDAO;
 import by.yurusova.entranceExam.entity.User;
 import org.junit.Test;

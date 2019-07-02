@@ -2,7 +2,6 @@ package by.yurusova.entranceExam.validator;
 
 import by.yurusova.entranceExam.entity.Student;
 import by.yurusova.entranceExam.service.StudentService;
-import by.yurusova.entranceExam.service.StudentServiceImpl;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -64,12 +63,17 @@ public class StudentValidator implements Validator {
         if (!student.getPassportID().matches(ONLY_NUMBERS)) {
             errors.rejectValue("passportID", "studentRegistration.error.passportID");
         }
-        if(studentService.findByPassportID(student.getPassportID())!=null){
+        if (studentService.findByPassportID(student.getPassportID()) != null) {
             errors.rejectValue("passportID", "studentRegistration.error.passportID.exists");
         }
     }
 
-    public void setStudentService(StudentService studentService) {
+    /**
+     * Method sets studentService.
+     *
+     * @param studentService studentService to be set.
+     */
+    public void setStudentService(final StudentService studentService) {
         this.studentService = studentService;
     }
 }

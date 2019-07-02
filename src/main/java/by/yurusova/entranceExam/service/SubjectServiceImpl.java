@@ -5,6 +5,14 @@ import by.yurusova.entranceExam.entity.Subject;
 
 import java.util.List;
 
+/**
+ * Class that perform base subject services.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.service
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 public class SubjectServiceImpl implements SubjectService {
 
     private SubjectDAO subjectDAO;
@@ -16,11 +24,16 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public Subject findById(long id) {
+    public Subject findById(final long id) {
         return subjectDAO.findById(id);
     }
 
-    public void setSubjectDAO(SubjectDAO subjectDAO) {
+    /**
+     * Sets subjectDAO.
+     *
+     * @param subjectDAO the subjectDAO.
+     */
+    public void setSubjectDAO(final SubjectDAO subjectDAO) {
         this.subjectDAO = subjectDAO;
     }
 }

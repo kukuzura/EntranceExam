@@ -6,23 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+/**
+ * Class that perform base grade services.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.service
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 public class GradeServiceImpl implements GradeService {
 
     @Autowired
     private GradeDAO gradeDAO;
 
-
     @Override
-    public void saveGrade(Grade grade) {
+    public void saveGrade(final Grade grade) {
         gradeDAO.saveGrade(grade);
     }
 
     @Override
-    public List<Grade> getAll(Grade grade) {
+    public List<Grade> getAll() {
         return gradeDAO.getAll();
     }
 
-    public void setGradeDAO(GradeDAO gradeDAO) {
+    /**
+     * Method sets gradedDAO.
+     *
+     * @param gradeDAO gradeDAO to be set.
+     */
+    public void setGradeDAO(final GradeDAO gradeDAO) {
         this.gradeDAO = gradeDAO;
     }
 }

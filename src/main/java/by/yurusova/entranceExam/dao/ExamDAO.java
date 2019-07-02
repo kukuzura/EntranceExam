@@ -30,7 +30,7 @@ public interface ExamDAO {
     void saveExam(Exam exam);
 
     /**
-     * Metod delete exam from db.
+     * Method delete exam from db.
      *
      * @param exam exam to be delete.
      */
@@ -50,6 +50,12 @@ public interface ExamDAO {
      */
     List<Exam> getAll();
 
-    List<Exam> findBySpeciality(long SpecialityID);
+    /**
+     * Method gets all exams with given speciality id.
+     *
+     * @param specialityID the speciality id.
+     * @return list of exams.
+     */
+    List<Exam> findBySpeciality(long specialityID);
 
 }

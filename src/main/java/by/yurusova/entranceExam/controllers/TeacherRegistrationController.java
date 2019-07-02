@@ -46,11 +46,21 @@ public class TeacherRegistrationController {
     @Autowired
     private Validator userValidator;
 
+    /**
+     * Method sets validator to "user" model attribute.
+     *
+     * @param binder the data binder.
+     */
     @InitBinder("user")
     protected void initUserBinder(final WebDataBinder binder) {
         binder.setValidator(userValidator);
     }
 
+    /**
+     * Method sets validator to "teacher" model attribute.
+     *
+     * @param binder the data binder.
+     */
     @InitBinder("teacher")
     protected void initTeacherBinder(final WebDataBinder binder) {
         binder.setValidator(teacherValidator);
@@ -73,16 +83,18 @@ public class TeacherRegistrationController {
      * Method returns login page if teacher information correct,
      * or registration page if not.
      *
-     * @param user user to be validate
-     * @param bindingResultUser result of user validation
-     * @param teacher
-     * @param bindingResultTeacher
-     * @param model
-     * @return
+     * @param user                 user to be validate
+     * @param bindingResultUser    result of user validation
+     * @param teacher              teacher to be validate
+     * @param bindingResultTeacher result of teacher validation
+     * @param model                model
+     * @return the page
      */
     @RequestMapping(value = "/teacherRegister", method = RequestMethod.POST)
-    public String addTeacher(@ModelAttribute("user") @Validated final User user, BindingResult bindingResultUser,
-                             @ModelAttribute("teacher") @Validated final Teacher teacher, BindingResult bindingResultTeacher,
+    public String addTeacher(@ModelAttribute("user") @Validated final User user,
+                             final BindingResult bindingResultUser,
+                             @ModelAttribute("teacher") @Validated final Teacher teacher,
+                             final BindingResult bindingResultTeacher,
                              final Model model) {
         if (bindingResultTeacher.hasErrors() || bindingResultUser.hasErrors()) {
             model.addAttribute("user", user);

@@ -13,6 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "examsdb.user")
-public class User {
+public class User implements Serializable {
     @Id
     @Column(name = "id")
     @GenericGenerator(name = "increment", strategy = "increment")
@@ -124,19 +125,39 @@ public class User {
         return roles;
     }
 
+    /**
+     * Gets student.
+     *
+     * @return the student.
+     */
     public Student getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    /**
+     * Sets student.
+     *
+     * @param student student to be set.
+     */
+    public void setStudent(final Student student) {
         this.student = student;
     }
 
+    /**
+     * Gets teacher.
+     *
+     * @return the teacher.
+     */
     public Teacher getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(Teacher teacher) {
+    /**
+     * Method sets teacher.
+     *
+     * @param teacher the teacher to be set.
+     */
+    public void setTeacher(final Teacher teacher) {
         this.teacher = teacher;
     }
 }

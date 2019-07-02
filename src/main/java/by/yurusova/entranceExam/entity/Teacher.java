@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Entity class for student.
@@ -20,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "examsdb.teacher")
-public class Teacher {
+public class Teacher implements Serializable {
 
     @Id
     @GeneratedValue(generator = "increment")

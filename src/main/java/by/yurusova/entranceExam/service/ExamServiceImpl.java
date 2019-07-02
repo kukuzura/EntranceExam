@@ -6,6 +6,14 @@ import by.yurusova.entranceExam.entity.Exam;
 
 import java.util.List;
 
+/**
+ * Class that perform base exam services.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.service
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 public class ExamServiceImpl implements ExamService {
 
     private ExamDAO examDAO;
@@ -17,23 +25,28 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
-    public void saveExam(Exam exam) {
+    public void saveExam(final Exam exam) {
         examDAO.saveExam(exam);
     }
 
     @Override
-    public void deleteExam(long id) {
+    public void deleteExam(final long id) {
         Exam exam = new Exam();
         exam.setId(id);
         examDAO.delete(exam);
     }
 
     @Override
-    public List<Exam> findBySpeciality(long specialityID) {
+    public List<Exam> findBySpeciality(final long specialityID) {
         return null;
     }
 
-    public void setExamDAO(ExamDAO examDAO) {
+    /**
+     * Sets examDAO.
+     *
+     * @param examDAO examDAO to be set.
+     */
+    public void setExamDAO(final ExamDAO examDAO) {
         this.examDAO = examDAO;
     }
 }

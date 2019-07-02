@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "examsdb.exam")
-public class Exam {
+public class Exam implements Serializable {
 
     @Id
     @GeneratedValue(generator = "increment")

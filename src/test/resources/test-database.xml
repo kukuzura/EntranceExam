@@ -60,6 +60,6 @@
 
     <bean id="examDAO" class="by.yurusova.entranceExam.dao.ExamDAOImpl" parent="abstractDAO"/>
 
-    <bean id="specialiyDAO" class="by.yurusova.entranceExam.dao.SpecialityDAOImpl" parent="abstractDAO"/>
+    <bean id="specialityDAO" class="by.yurusova.entranceExam.dao.SpecialityDAOImpl" parent="abstractDAO"/>
 
 </beans>

@@ -6,17 +6,25 @@ import org.springframework.validation.Validator;
 
 import static org.apache.commons.lang3.ObjectUtils.isEmpty;
 
+/**
+ * Class for validation of teacher information.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.validator
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 public class TeacherValidator implements Validator {
     private static final String ONLY_LETTERS = "^\\D+$";
     private static final int MAX_LENGTH = 30;
 
     @Override
-    public boolean supports(Class<?> clazz) {
+    public boolean supports(final Class<?> clazz) {
         return Teacher.class.equals(clazz);
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
+    public void validate(final Object target, final Errors errors) {
         Teacher teacher = (Teacher) target;
         if (isEmpty(teacher.getFirstName())) {
             errors.rejectValue("firstName", "teacherRegistration.error.firstName.required");

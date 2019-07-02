@@ -2,7 +2,6 @@ package by.yurusova.entranceExam.validator;
 
 import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.UserService;
-import by.yurusova.entranceExam.service.UserServiceImpl;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -48,12 +47,17 @@ public class UserValidator implements Validator {
         if (!Pattern.matches(VALID_PASSWORD, user.getPassword())) {
             errors.rejectValue("password", "registration.error.password.weakPassword");
         }
-        if(userService.findByLogin(user.getLogin())!=null){
+        if (userService.findByLogin(user.getLogin()) != null) {
             errors.rejectValue("login", "registration.error.login.exists");
         }
     }
 
-    public void setUserService(UserService userService) {
+    /**
+     * Method sets userService.
+     *
+     * @param userService userService to be set.
+     */
+    public void setUserService(final UserService userService) {
         this.userService = userService;
     }
 }

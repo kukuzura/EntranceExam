@@ -8,7 +8,6 @@ import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.ExamService;
 import by.yurusova.entranceExam.service.GradeService;
 import by.yurusova.entranceExam.service.SpecialityService;
-import by.yurusova.entranceExam.service.StudentService;
 import by.yurusova.entranceExam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +19,14 @@ import org.springframework.web.servlet.ModelAndView;
 import java.security.Principal;
 import java.util.List;
 
+/**
+ * List of speciality page(for student) controller.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.controllers
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 @Controller
 @RequestMapping("/account")
 public class StudentSpecialityDisplayController {
@@ -34,10 +41,17 @@ public class StudentSpecialityDisplayController {
     private GradeService gradeService;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
+    /**
+     * Method apply student to speciality with given id.
+     *
+     * @param id        the id.
+     * @param principal object that contains username.
+     * @return student information page.
+     */
     @RequestMapping(value = "apply/{id}", method = RequestMethod.GET)
-    String applyToSpeciality(@PathVariable("id") final long id, Principal principal) {
+    String applyToSpeciality(@PathVariable("id") final long id, final Principal principal) {
         ModelAndView mav = new ModelAndView();
         Speciality speciality = specialityService.findById(id);
         List<Exam> exams = speciality.getExams();
@@ -52,6 +66,11 @@ public class StudentSpecialityDisplayController {
         return "/studentPage";
     }
 
+    /**
+     * Method shows speciality list.
+     *
+     * @return page with list of specialities.
+     */
     @RequestMapping("specialityList")
     ModelAndView showSpecialityList() {
         ModelAndView mav = new ModelAndView("/specialityList.jsp");
@@ -59,6 +78,4 @@ public class StudentSpecialityDisplayController {
         mav.addObject("specialityList", specialities);
         return mav;
     }
-
-
 }

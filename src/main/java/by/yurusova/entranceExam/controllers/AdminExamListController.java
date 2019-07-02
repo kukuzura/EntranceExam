@@ -11,6 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+/**
+ * List of exam page(for admin) controller.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.controllers
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 @Controller
 @RequestMapping("/admin")
 public class AdminExamListController {
@@ -18,14 +26,25 @@ public class AdminExamListController {
     @Autowired
     private ExamService examService;
 
-    @RequestMapping(value = "examList",method = RequestMethod.GET)
-    ModelAndView showExamList(){
-        ModelAndView mav=new ModelAndView("/examListPage.jsp");
+    /**
+     * Method shows the lit of exams.
+     *
+     * @return page with list of exams.
+     */
+    @RequestMapping(value = "examList", method = RequestMethod.GET)
+    ModelAndView showExamList() {
+        ModelAndView mav = new ModelAndView("/examListPage.jsp");
         List<Exam> exams = examService.getAll();
-        mav.addObject("examList",exams);
+        mav.addObject("examList", exams);
         return mav;
     }
 
+    /**
+     * Method delete exam with given id.
+     *
+     * @param id the id.
+     * @return page with list of exams.
+     */
     @RequestMapping(value = "/examDelete/{id}", method = RequestMethod.GET)
     public ModelAndView showDelete(@PathVariable("id") final long id) {
         examService.deleteExam(id);

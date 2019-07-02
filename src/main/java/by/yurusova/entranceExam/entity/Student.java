@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "examsdb.student")
-public class Student {
+public class Student implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -46,7 +47,7 @@ public class Student {
     private User user;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "student")
-    private List<Grade>grades;
+    private List<Grade> grades;
 
     /**
      * Set first name.

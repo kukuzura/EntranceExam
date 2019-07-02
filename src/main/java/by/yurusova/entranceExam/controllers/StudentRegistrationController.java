@@ -1,7 +1,6 @@
 package by.yurusova.entranceExam.controllers;
 
 
-import by.yurusova.entranceExam.entity.Exam;
 import by.yurusova.entranceExam.entity.Student;
 import by.yurusova.entranceExam.entity.User;
 import by.yurusova.entranceExam.service.RoleService;

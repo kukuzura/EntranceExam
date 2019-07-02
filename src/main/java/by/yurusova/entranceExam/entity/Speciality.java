@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.PreRemove;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "examsdb.speciality")
-public class Speciality {
+public class Speciality implements Serializable {
 
     @Id
     @GeneratedValue(generator = "increment")
@@ -38,6 +39,9 @@ public class Speciality {
     @Column(name = "entering_grade")
     private double enteringGrade;
 
+    /**
+     * Method sets speciality id as null fir al exams of current speciality, if speciality was remove.
+     */
     @PreRemove
     private void preRemove() {
         for (Exam exam : exams) {

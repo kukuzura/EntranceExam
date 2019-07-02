@@ -55,7 +55,9 @@ public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
                     .setParameter("login", login)
                     .getSingleResult();
         }
-        catch (NoResultException ex) {}
+        catch (NoResultException ex) {
+
+        }
         finally {
             return (User) user;
         }

@@ -41,7 +41,7 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
     }
 
     @Override
-    public List<Exam> findBySpeciality(long specialityID) {
+    public List<Exam> findBySpeciality(final long specialityID) {
         List exams = null;
         try {
             exams = sessionFactory.getCurrentSession().createQuery(

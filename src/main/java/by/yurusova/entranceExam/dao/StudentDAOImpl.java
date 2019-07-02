@@ -44,7 +44,7 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
 
     @Transactional
     @Override
-    public Student findByPassportID(String passportID) {
+    public Student findByPassportID(final String passportID) {
         Object student = null;
         try {
             student = sessionFactory.getCurrentSession().createQuery(
@@ -52,7 +52,8 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
                     .setParameter("passport_id", passportID)
                     .getSingleResult();
         }
-        catch (NoResultException ex){}
+        catch (NoResultException ex) {
+        }
         finally {
             return (Student) student;
         }
