@@ -19,7 +19,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="by.yurusova.entranceExam.entity"/>
+        <property name="packagesToScan" value="by.yurusova.entranceExam.entities"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">
@@ -38,7 +38,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="userService" class="by.yurusova.entranceExam.service.UserServiceImpl">
+    <bean id="userService" class="by.yurusova.entranceExam.services.UserServiceImpl">
         <property name="userDAO" ref="userDAO"/>
     </bean>
 

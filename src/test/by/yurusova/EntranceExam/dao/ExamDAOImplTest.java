@@ -4,13 +4,14 @@ import by.yurusova.entranceExam.dao.ExamDAO;
 import by.yurusova.entranceExam.dao.SpecialityDAO;
 import by.yurusova.entranceExam.dao.SubjectDAO;
 import by.yurusova.entranceExam.dao.TeacherDAO;
-import by.yurusova.entranceExam.entity.Exam;
-import by.yurusova.entranceExam.entity.Speciality;
-import by.yurusova.entranceExam.entity.Subject;
-import by.yurusova.entranceExam.entity.Teacher;
+import by.yurusova.entranceExam.entities.Exam;
+import by.yurusova.entranceExam.entities.Speciality;
+import by.yurusova.entranceExam.entities.Subject;
+import by.yurusova.entranceExam.entities.Teacher;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test-database.xml"})
@@ -27,19 +29,19 @@ import static org.junit.Assert.assertEquals;
 public class ExamDAOImplTest {
 
     @Autowired
-    ExamDAO examDAO;
+    private ExamDAO examDAO;
 
     @Autowired
-    SpecialityDAO specialityDAO;
+    private SpecialityDAO specialityDAO;
 
     @Autowired
-    SubjectDAO subjectDAO;
+    private SubjectDAO subjectDAO;
 
     @Autowired
-    TeacherDAO teacherDAO;
+    private TeacherDAO teacherDAO;
 
-    @Before
-    public void beforeSave() {
+    @BeforeAll
+    public void before() {
         Exam exam = new Exam();
         Teacher teacher = new Teacher();
         Subject subject = new Subject();
@@ -56,7 +58,16 @@ public class ExamDAOImplTest {
     @Test
     public void testSaveExam() {
         List<Exam> exams = examDAO.getAll();
+        assertNotNull(exams);
         assertEquals("table is empty", 1, exams.size());
+    }
+
+    @After
+    public void after(){
+        Teacher teacher = teacherDAO.findById(1);
+        Speciality speciality = specialityDAO.findById(1);
+        Subject subject = subjectDAO.findById(1);
+        List<Exam> exams = examDAO.getAll();
     }
 
     @Before

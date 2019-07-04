@@ -2,7 +2,7 @@ package by.yurusova.entranceExam.dao;
 
 
 
-import by.yurusova.entranceExam.entity.Subject;
+import by.yurusova.entranceExam.entities.Subject;
 
 import java.util.List;
 /**

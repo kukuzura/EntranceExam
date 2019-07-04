@@ -1,14 +1,14 @@
 package by.yurusova.entranceExam.controllers;
 
-import by.yurusova.entranceExam.entity.Exam;
-import by.yurusova.entranceExam.entity.Grade;
-import by.yurusova.entranceExam.entity.Speciality;
-import by.yurusova.entranceExam.entity.Student;
-import by.yurusova.entranceExam.entity.User;
-import by.yurusova.entranceExam.service.ExamService;
-import by.yurusova.entranceExam.service.GradeService;
-import by.yurusova.entranceExam.service.SpecialityService;
-import by.yurusova.entranceExam.service.UserService;
+import by.yurusova.entranceExam.entities.Exam;
+import by.yurusova.entranceExam.entities.Grade;
+import by.yurusova.entranceExam.entities.Speciality;
+import by.yurusova.entranceExam.entities.Student;
+import by.yurusova.entranceExam.entities.User;
+import by.yurusova.entranceExam.services.ExamService;
+import by.yurusova.entranceExam.services.GradeService;
+import by.yurusova.entranceExam.services.SpecialityService;
+import by.yurusova.entranceExam.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

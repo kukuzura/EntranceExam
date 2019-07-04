@@ -10,48 +10,64 @@
     <context:component-scan base-package="by.yurusova.entranceExam.controllers"/>
     <context:annotation-config/>
 
-    <bean id="userService" class="by.yurusova.entranceExam.service.UserServiceImpl">
+    <bean id="userService" class="by.yurusova.entranceExam.services.UserServiceImpl">
         <property name="userDAO" ref="userDAO"/>
         <property name="bCryptPasswordEncoder" ref="encoder"/>
 
     </bean>
 
-    <bean id="roleService" class="by.yurusova.entranceExam.service.RoleServiceImpl">
+    <bean id="roleService" class="by.yurusova.entranceExam.services.RoleServiceImpl">
         <property name="roleDAO" ref="roleDAO"/>
     </bean>
 
-    <bean id="userValidator" class="by.yurusova.entranceExam.validator.UserValidator">
+    <bean id="userValidator" class="by.yurusova.entranceExam.validators.UserValidator">
         <property name="userService" ref="userService"/>
     </bean>
 
-    <bean id="studentValidator" class="by.yurusova.entranceExam.validator.StudentValidator">
+    <bean id="studentValidator" class="by.yurusova.entranceExam.validators.StudentValidator">
         <property name="studentService" ref="studentService"/>
     </bean>
 
-    <bean id="teacherValidator" class="by.yurusova.entranceExam.validator.TeacherValidator"/>
+    <bean id="teacherValidator" class="by.yurusova.entranceExam.validators.TeacherValidator"/>
 
-    <bean id="studentService" class="by.yurusova.entranceExam.service.StudentServiceImpl">
+    <bean id="studentService" class="by.yurusova.entranceExam.services.StudentServiceImpl">
         <property name="studentDAO" ref="studentDAO"/>
     </bean>
 
-    <bean id="teacherService" class="by.yurusova.entranceExam.service.TeacherServiceImpl">
+    <bean id="teacherService" class="by.yurusova.entranceExam.services.TeacherServiceImpl">
         <property name="teacherDAO" ref="teacherDAO"/>
     </bean>
 
-    <bean id="examService" class="by.yurusova.entranceExam.service.ExamServiceImpl">
+    <bean id="examService" class="by.yurusova.entranceExam.services.ExamServiceImpl">
         <property name="examDAO" ref="examDAO"/>
     </bean>
 
-    <bean id="subjectService" class="by.yurusova.entranceExam.service.SubjectServiceImpl">
+    <bean id="subjectService" class="by.yurusova.entranceExam.services.SubjectServiceImpl">
         <property name="subjectDAO" ref="subjectDAO"/>
     </bean>
 
-    <bean id="specialityService" class="by.yurusova.entranceExam.service.SpecialityServiceImpl">
+    <bean id="specialityService" class="by.yurusova.entranceExam.services.SpecialityServiceImpl">
         <property name="specialityDAO" ref="specialityDAO"/>
     </bean>
 
-    <bean id="gradeService" class="by.yurusova.entranceExam.service.GradeServiceImpl">
+    <bean id="gradeService" class="by.yurusova.entranceExam.services.GradeServiceImpl">
         <property name="gradeDAO" ref="gradeDAO"/>
+    </bean>
+
+    <bean id="userConverter" class="by.yurusova.entranceExam.converters.UserConverter"/>
+
+    <bean id="userReverseConverter" class="by.yurusova.entranceExam.converters.UserReverseConverter"/>
+
+    <bean id="studentConverter" class="by.yurusova.entranceExam.converters.StudentConverter"/>
+
+    <bean id="studentReverseConverter" class="by.yurusova.entranceExam.converters.StudentReverseConverter"/>
+
+    <bean id="registrationFacade" class="by.yurusova.entranceExam.facades.RegistrationFacade">
+        <property name="userService" ref="userService"/>
+        <property name="studentService" ref="studentService"/>
+        <property name="studentReverseConverter" ref="studentReverseConverter"/>
+        <property name="userReverseConverter" ref="userReverseConverter"/>
+        <property name="roleService" ref="roleService"/>
     </bean>
 
 </beans>

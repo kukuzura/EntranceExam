@@ -1,7 +1,7 @@
 package by.yurusova.EntranceExam.dao;
 
 import by.yurusova.entranceExam.dao.UserDAO;
-import by.yurusova.entranceExam.entity.User;
+import by.yurusova.entranceExam.entities.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

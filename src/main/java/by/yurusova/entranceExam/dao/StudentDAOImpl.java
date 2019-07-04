@@ -1,6 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
-import by.yurusova.entranceExam.entity.Student;
+import by.yurusova.entranceExam.entities.Student;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;

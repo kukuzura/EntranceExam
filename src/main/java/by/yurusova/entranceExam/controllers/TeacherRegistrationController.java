@@ -1,10 +1,10 @@
 package by.yurusova.entranceExam.controllers;
 
-import by.yurusova.entranceExam.entity.Teacher;
-import by.yurusova.entranceExam.entity.User;
-import by.yurusova.entranceExam.service.RoleService;
-import by.yurusova.entranceExam.service.TeacherService;
-import by.yurusova.entranceExam.service.UserService;
+import by.yurusova.entranceExam.entities.Teacher;
+import by.yurusova.entranceExam.entities.User;
+import by.yurusova.entranceExam.services.RoleService;
+import by.yurusova.entranceExam.services.TeacherService;
+import by.yurusova.entranceExam.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,7 +47,7 @@ public class TeacherRegistrationController {
     private Validator userValidator;
 
     /**
-     * Method sets validator to "user" model attribute.
+     * Method sets validators to "user" model attribute.
      *
      * @param binder the data binder.
      */
@@ -57,7 +57,7 @@ public class TeacherRegistrationController {
     }
 
     /**
-     * Method sets validator to "teacher" model attribute.
+     * Method sets validators to "teacher" model attribute.
      *
      * @param binder the data binder.
      */

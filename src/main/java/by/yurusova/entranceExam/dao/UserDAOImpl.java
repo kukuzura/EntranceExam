@@ -1,6 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
-import by.yurusova.entranceExam.entity.User;
+import by.yurusova.entranceExam.entities.User;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 

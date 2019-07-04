@@ -8,11 +8,11 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-    <bean id="userDetailsService" class="by.yurusova.entranceExam.service.security.UserDetailsServiceImpl">
+    <bean id="userDetailsService" class="by.yurusova.entranceExam.services.security.UserDetailsServiceImpl">
         <property name="userDAO" ref="userDAO"/>
     </bean>
 
-    <bean id="authSuccessHandler" class="by.yurusova.entranceExam.service.security.CustomAuthenticationSuccessHandler"/>
+    <bean id="authSuccessHandler" class="by.yurusova.entranceExam.services.security.CustomAuthenticationSuccessHandler"/>
 
     <bean id="encoder"
           class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">

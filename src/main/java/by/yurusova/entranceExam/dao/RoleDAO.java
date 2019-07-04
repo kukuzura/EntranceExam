@@ -1,6 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
-import by.yurusova.entranceExam.entity.Role;
+import by.yurusova.entranceExam.entities.Role;
 
 import java.util.List;
 

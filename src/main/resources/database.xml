@@ -19,7 +19,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="by.yurusova.entranceExam.entity"/>
+        <property name="packagesToScan" value="by.yurusova.entranceExam.entities"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">
@@ -51,13 +51,11 @@
 
     <bean id="subjectDAO" class="by.yurusova.entranceExam.dao.SubjectDAOImpl" parent="abstractDAO"/>
 
-    <bean id="gradeDAO" class="by.yurusova.entranceExam.dao.GradeDAOImpl" parent="abstractDAO"/>
-
     <bean id="examDAO" class="by.yurusova.entranceExam.dao.ExamDAOImpl" parent="abstractDAO"/>
 
     <bean id="specialityDAO" class="by.yurusova.entranceExam.dao.SpecialityDAOImpl" parent="abstractDAO"/>
 
-    <bean id="gradeService" class="by.yurusova.entranceExam.service.GradeServiceImpl" parent="abstractDAO"/>
+    <bean id="gradeDAO" class="by.yurusova.entranceExam.dao.GradeDAOImpl" parent="abstractDAO"/>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 

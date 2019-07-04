@@ -1,11 +1,9 @@
 package by.yurusova.entranceExam.controllers;
 
 
-import by.yurusova.entranceExam.entity.Student;
-import by.yurusova.entranceExam.entity.User;
-import by.yurusova.entranceExam.service.RoleService;
-import by.yurusova.entranceExam.service.StudentService;
-import by.yurusova.entranceExam.service.UserService;
+import by.yurusova.entranceExam.dto.StudentDTO;
+import by.yurusova.entranceExam.dto.UserDTO;
+import by.yurusova.entranceExam.facades.RegistrationFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
 
 /**
  * Student Registration controller.
@@ -39,13 +36,7 @@ public class StudentRegistrationController {
             .getLogger(StudentRegistrationController.class);
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
-    private StudentService studentService;
-
-    @Autowired
-    private RoleService roleService;
+    private RegistrationFacade registrationFacade;
 
     @Resource(name = "userValidator")
     private Validator userValidator;
@@ -54,7 +45,7 @@ public class StudentRegistrationController {
     private Validator studentValidator;
 
     /**
-     * Method sets validator to "user" model attribute.
+     * Method sets validators to "user" model attribute.
      *
      * @param binder data binder
      */
@@ -64,7 +55,7 @@ public class StudentRegistrationController {
     }
 
     /**
-     * Method sets validator to "student" model attribute.
+     * Method sets validators to "student" model attribute.
      *
      * @param binder data binder
      */
@@ -81,8 +72,8 @@ public class StudentRegistrationController {
     @RequestMapping(value = "/studentRegister", method = RequestMethod.GET)
     public ModelAndView showStudentRegister() {
         ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
-        mav.addObject("user", new User());
-        mav.addObject("student", new Student());
+        mav.addObject("user", new UserDTO());
+        mav.addObject("student", new StudentDTO());
         return mav;
     }
 
@@ -99,8 +90,8 @@ public class StudentRegistrationController {
      */
     @RequestMapping(value = "/studentRegister", method = RequestMethod.POST)
     public String addStudent(
-            @ModelAttribute("user") @Validated final User user, final BindingResult bindingResultUser,
-            @ModelAttribute("student") @Validated final Student student, final BindingResult bindingResultStudent,
+            @ModelAttribute("user") @Validated final UserDTO user, final BindingResult bindingResultUser,
+            @ModelAttribute("student") @Validated final StudentDTO student, final BindingResult bindingResultStudent,
             final Model model) {
         if (bindingResultStudent.hasErrors() || bindingResultUser.hasErrors()) {
             model.addAttribute("user", user);
@@ -108,10 +99,7 @@ public class StudentRegistrationController {
             return "/studentRegistration.jsp";
         }
         else {
-            user.setRoles(Arrays.asList(roleService.findByName("ROLE_STUDENT")));
-            userService.addUser(user);
-            student.setUser(user);
-            studentService.addStudent(student);
+            registrationFacade.registerStudent(user, student);
             return "redirect:/login";
         }
     }

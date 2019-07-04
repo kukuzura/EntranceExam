@@ -1,6 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
-import by.yurusova.entranceExam.entity.Speciality;
+import by.yurusova.entranceExam.entities.Speciality;
 
 import java.util.List;
 
