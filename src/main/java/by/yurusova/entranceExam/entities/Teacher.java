@@ -41,6 +41,26 @@ public class Teacher implements Serializable {
     private User user;
 
     /**
+     * Constructor with parameters for Teacher.
+     *
+     * @param firstName  first name of new teacher.
+     * @param lastName   last name of new teacher.
+     * @param patronymic patronymic of new teacher.
+     */
+    public Teacher(final String firstName, final String lastName, final String patronymic) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.patronymic = patronymic;
+    }
+
+    /**
+     * Constructor for teacher.
+     */
+    public Teacher() {
+
+    }
+
+    /**
      * Set first name.
      *
      * @param firstName first name to be set.

@@ -1,5 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
+import by.yurusova.entranceExam.dao.interfaces.ExamDAO;
 import by.yurusova.entranceExam.entities.Exam;
 
 import javax.persistence.NoResultException;

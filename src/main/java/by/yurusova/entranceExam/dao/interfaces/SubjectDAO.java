@@ -1,4 +1,4 @@
-package by.yurusova.entranceExam.dao;
+package by.yurusova.entranceExam.dao.interfaces;
 
 
 import by.yurusova.entranceExam.entities.Subject;

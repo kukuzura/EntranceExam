@@ -1,7 +1,7 @@
 package by.yurusova.entranceExam.validators;
 
 import by.yurusova.entranceExam.dto.UserDTO;
-import by.yurusova.entranceExam.services.UserService;
+import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 

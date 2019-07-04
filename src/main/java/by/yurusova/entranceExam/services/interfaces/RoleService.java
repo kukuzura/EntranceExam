@@ -1,4 +1,4 @@
-package by.yurusova.entranceExam.services;
+package by.yurusova.entranceExam.services.interfaces;
 
 import by.yurusova.entranceExam.entities.Role;
 

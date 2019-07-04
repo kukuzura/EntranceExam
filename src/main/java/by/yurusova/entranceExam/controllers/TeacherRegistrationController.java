@@ -1,10 +1,8 @@
 package by.yurusova.entranceExam.controllers;
 
-import by.yurusova.entranceExam.entities.Teacher;
-import by.yurusova.entranceExam.entities.User;
-import by.yurusova.entranceExam.services.RoleService;
-import by.yurusova.entranceExam.services.TeacherService;
-import by.yurusova.entranceExam.services.UserService;
+import by.yurusova.entranceExam.dto.TeacherDTO;
+import by.yurusova.entranceExam.dto.UserDTO;
+import by.yurusova.entranceExam.facades.RegistrationFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Arrays;
-
 /**
  * Teacher Registration controller.
  *
@@ -32,13 +28,7 @@ import java.util.Arrays;
 public class TeacherRegistrationController {
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
-    private RoleService roleService;
-
-    @Autowired
-    private TeacherService teacherService;
+    private RegistrationFacade registrationFacade;
 
     @Autowired
     private Validator teacherValidator;
@@ -74,8 +64,8 @@ public class TeacherRegistrationController {
     @RequestMapping(value = "/teacherRegister", method = RequestMethod.GET)
     public ModelAndView showTeacherRegisterPage() {
         ModelAndView mav = new ModelAndView("/teacherRegistration.jsp");
-        mav.addObject("user", new User());
-        mav.addObject("teacher", new Teacher());
+        mav.addObject("user", new UserDTO());
+        mav.addObject("teacher", new TeacherDTO());
         return mav;
     }
 
@@ -91,9 +81,9 @@ public class TeacherRegistrationController {
      * @return the page
      */
     @RequestMapping(value = "/teacherRegister", method = RequestMethod.POST)
-    public String addTeacher(@ModelAttribute("user") @Validated final User user,
+    public String addTeacher(@ModelAttribute("user") @Validated final UserDTO user,
                              final BindingResult bindingResultUser,
-                             @ModelAttribute("teacher") @Validated final Teacher teacher,
+                             @ModelAttribute("teacher") @Validated final TeacherDTO teacher,
                              final BindingResult bindingResultTeacher,
                              final Model model) {
         if (bindingResultTeacher.hasErrors() || bindingResultUser.hasErrors()) {
@@ -102,10 +92,7 @@ public class TeacherRegistrationController {
             return "/teacherRegistration.jsp";
         }
         else {
-            user.setRoles(Arrays.asList(roleService.findByName("ROLE_TEACHER")));
-            userService.addUser(user);
-            teacher.setUser(user);
-            teacherService.addTeacher(teacher);
+            registrationFacade.registerTeacher(user, teacher);
             return "redirect:/login";
         }
     }

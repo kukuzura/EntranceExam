@@ -1,5 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
+import by.yurusova.entranceExam.dao.interfaces.GradeDAO;
 import by.yurusova.entranceExam.entities.Grade;
 
 import java.util.List;

@@ -62,12 +62,18 @@
 
     <bean id="studentReverseConverter" class="by.yurusova.entranceExam.converters.StudentReverseConverter"/>
 
+    <bean id="teacherConverter" class="by.yurusova.entranceExam.converters.TeacherConverter"/>
+
+    <bean id="teacherReverseConverter" class="by.yurusova.entranceExam.converters.TeacherReverseConverter"/>
+
     <bean id="registrationFacade" class="by.yurusova.entranceExam.facades.RegistrationFacade">
         <property name="userService" ref="userService"/>
         <property name="studentService" ref="studentService"/>
         <property name="studentReverseConverter" ref="studentReverseConverter"/>
         <property name="userReverseConverter" ref="userReverseConverter"/>
         <property name="roleService" ref="roleService"/>
+        <property name="teacherReverseConverter" ref="teacherReverseConverter"/>
+        <property name="teacherService" ref="teacherService"/>
     </bean>
 
 </beans>

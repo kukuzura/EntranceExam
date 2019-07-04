@@ -1,7 +1,8 @@
 package by.yurusova.entranceExam.services;
 
-import by.yurusova.entranceExam.dao.RoleDAO;
+import by.yurusova.entranceExam.dao.interfaces.RoleDAO;
 import by.yurusova.entranceExam.entities.Role;
+import by.yurusova.entranceExam.services.interfaces.RoleService;
 
 /**
  * Class that perform base role services.

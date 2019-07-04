@@ -1,7 +1,8 @@
 package by.yurusova.entranceExam.services;
 
-import by.yurusova.entranceExam.dao.GradeDAO;
+import by.yurusova.entranceExam.dao.interfaces.GradeDAO;
 import by.yurusova.entranceExam.entities.Grade;
+import by.yurusova.entranceExam.services.interfaces.GradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

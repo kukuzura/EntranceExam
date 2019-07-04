@@ -1,8 +1,9 @@
 package by.yurusova.entranceExam.services;
 
 
-import by.yurusova.entranceExam.dao.ExamDAO;
+import by.yurusova.entranceExam.dao.interfaces.ExamDAO;
 import by.yurusova.entranceExam.entities.Exam;
+import by.yurusova.entranceExam.services.interfaces.ExamService;
 
 import java.util.List;
 

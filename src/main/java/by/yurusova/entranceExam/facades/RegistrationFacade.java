@@ -1,14 +1,18 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.StudentReverseConverter;
+import by.yurusova.entranceExam.converters.TeacherReverseConverter;
 import by.yurusova.entranceExam.converters.UserReverseConverter;
 import by.yurusova.entranceExam.dto.StudentDTO;
+import by.yurusova.entranceExam.dto.TeacherDTO;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.entities.Student;
+import by.yurusova.entranceExam.entities.Teacher;
 import by.yurusova.entranceExam.entities.User;
-import by.yurusova.entranceExam.services.RoleService;
-import by.yurusova.entranceExam.services.StudentService;
-import by.yurusova.entranceExam.services.UserService;
+import by.yurusova.entranceExam.services.interfaces.RoleService;
+import by.yurusova.entranceExam.services.interfaces.StudentService;
+import by.yurusova.entranceExam.services.interfaces.TeacherService;
+import by.yurusova.entranceExam.services.interfaces.UserService;
 
 import java.util.Arrays;
 
@@ -21,16 +25,28 @@ import java.util.Arrays;
  * @copyright 2019 SaM
  */
 public class RegistrationFacade {
-
     private UserService userService;
 
     private StudentService studentService;
+
+    private TeacherService teacherService;
 
     private RoleService roleService;
 
     private StudentReverseConverter studentReverseConverter;
 
     private UserReverseConverter userReverseConverter;
+
+    private TeacherReverseConverter teacherReverseConverter;
+
+    /**
+     * Sets teacher reverse converter.
+     *
+     * @param teacherReverseConverter converter to be set.
+     */
+    public void setTeacherReverseConverter(final TeacherReverseConverter teacherReverseConverter) {
+        this.teacherReverseConverter = teacherReverseConverter;
+    }
 
     /**
      * Sets role service.
@@ -48,6 +64,15 @@ public class RegistrationFacade {
      */
     public void setUserReverseConverter(final UserReverseConverter userReverseConverter) {
         this.userReverseConverter = userReverseConverter;
+    }
+
+    /**
+     * Sets teacher service.
+     *
+     * @param teacherService teacher service to be set.
+     */
+    public void setTeacherService(final TeacherService teacherService) {
+        this.teacherService = teacherService;
     }
 
     /**
@@ -87,8 +112,23 @@ public class RegistrationFacade {
         User user = userReverseConverter.convert(userDTO);
         Student student = studentReverseConverter.convert(studentDTO);
         user.setRoles(Arrays.asList(roleService.findByName("ROLE_STUDENT")));
-        student.setUser(user);
         userService.addUser(user);
+        student.setUser(user);
         studentService.addStudent(student);
+    }
+
+    /**
+     * Method adds teacher and user to db.
+     *
+     * @param userDTO    user
+     * @param teacherDTO teacher
+     */
+    public void registerTeacher(final UserDTO userDTO, final TeacherDTO teacherDTO) {
+        User user = userReverseConverter.convert(userDTO);
+        Teacher teacher = teacherReverseConverter.convert(teacherDTO);
+        user.setRoles(Arrays.asList(roleService.findByName("ROLE_TEACHER")));
+        userService.addUser(user);
+        teacher.setUser(user);
+        teacherService.addTeacher(teacher);
     }
 }

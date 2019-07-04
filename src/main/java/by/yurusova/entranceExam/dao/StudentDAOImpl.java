@@ -1,5 +1,6 @@
 package by.yurusova.entranceExam.dao;
 
+import by.yurusova.entranceExam.dao.interfaces.StudentDAO;
 import by.yurusova.entranceExam.entities.Student;
 import org.springframework.transaction.annotation.Transactional;
 
