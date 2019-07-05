@@ -1,7 +1,8 @@
 package by.yurusova.entranceExam.controllers;
 
-import by.yurusova.entranceExam.entities.User;
-import by.yurusova.entranceExam.services.interfaces.UserService;
+import by.yurusova.entranceExam.dto.UserDTO;
+import by.yurusova.entranceExam.facades.UserOperationsFacade;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 
@@ -25,8 +25,8 @@ import java.util.List;
 @RequestMapping(value = "/admin")
 public class UsersDisplayController {
 
-    @Resource(name = "userService")
-    private UserService userService;
+    @Autowired
+    private UserOperationsFacade facade;
 
     /**
      * Show list of user.
@@ -36,7 +36,7 @@ public class UsersDisplayController {
     @RequestMapping(value = "/userList", method = RequestMethod.GET)
     public ModelAndView showAllUsers() {
         ModelAndView mav = new ModelAndView("/userList.jsp");
-        List<User> users = userService.getAll();
+        List<UserDTO> users = facade.getAll();
         mav.addObject("usersList", users);
         return mav;
     }
@@ -50,7 +50,7 @@ public class UsersDisplayController {
     @RequestMapping(value = "/userUpdate/{id}", method = RequestMethod.GET)
     public ModelAndView showEdit(@PathVariable("id") final long id) {
         ModelAndView mav = new ModelAndView("/userUpdate.jsp");
-        User user = userService.findById(id);
+        UserDTO user = facade.findById(id);
         mav.addObject("user", user);
         return mav;
     }
@@ -62,10 +62,10 @@ public class UsersDisplayController {
      * @return page with updated list of users.
      */
     @RequestMapping(value = "/updateProcess", method = RequestMethod.POST)
-    public ModelAndView updateUser(@ModelAttribute("user") final User user) {
-        userService.editUser(user);
+    public ModelAndView updateUser(@ModelAttribute("user") final UserDTO user) {
+        facade.update(user);
         ModelAndView mav = new ModelAndView("/userList.jsp");
-        List<User> users = userService.getAll();
+        List<UserDTO> users = facade.getAll();
         mav.addObject("usersList", users);
         return mav;
     }
@@ -73,14 +73,14 @@ public class UsersDisplayController {
     /**
      * Method delete user with given id.
      *
-     * @param id the id of deleed user.
+     * @param id the id of deleted user.
      * @return updated user list page.
      */
     @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.GET)
     public ModelAndView showDelete(@PathVariable("id") final long id) {
-        userService.deleteUser(id);
+        facade.delete(id);
         ModelAndView mav = new ModelAndView("/userList.jsp");
-        List<User> users = userService.getAll();
+        List<UserDTO> users = facade.getAll();
         mav.addObject("usersList", users);
         return mav;
     }

@@ -43,6 +43,26 @@ public class Exam implements Serializable {
     @JoinColumn(name = "speciality_id")
     private Speciality speciality;
 
+    /**
+     * Constructor for Exam.
+     */
+    public Exam() {
+    }
+
+    /**
+     * Constructor with parameters for exam.
+     *
+     * @param id         id of new exam.
+     * @param teacher    teacher of new exam.
+     * @param subject    subject of new exam.
+     * @param speciality speciality of new exam.
+     */
+    public Exam(final long id, final Teacher teacher, final Subject subject, final Speciality speciality) {
+        this.id = id;
+        this.teacher = teacher;
+        this.subject = subject;
+        this.speciality = speciality;
+    }
 
     /**
      * Gets exam id.

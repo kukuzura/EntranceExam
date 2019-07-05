@@ -33,6 +33,23 @@ public class Subject implements Serializable {
     private List<Exam> exams;
 
     /**
+     * Constructor for Subject.
+     */
+    public Subject() {
+    }
+
+    /**
+     * Constructor with parameters for Subject.
+     *
+     * @param id   id of new Subject.
+     * @param name name of new Subject.
+     */
+    public Subject(final long id, final String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    /**
      * Gets id.
      *
      * @return the id.

@@ -50,6 +50,23 @@ public class Speciality implements Serializable {
     }
 
     /**
+     * Constructor for Speciality.
+     */
+    public Speciality() {
+    }
+
+    /**
+     * Constructor with parameters for Speciality.
+     *
+     * @param id   id of new Speciality.
+     * @param name name of new Speciality.
+     */
+    public Speciality(final long id, final String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    /**
      * Gets id.
      *
      * @return the id.

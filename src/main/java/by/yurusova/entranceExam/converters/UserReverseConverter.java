@@ -17,6 +17,8 @@ public class UserReverseConverter implements Converter<UserDTO, User> {
 
     @Override
     public User convert(final UserDTO source) {
-        return new User(source.getLogin(), source.getPassword());
+        User user = new User(source.getLogin(), source.getPassword());
+        user.setId(source.getId());
+        return user;
     }
 }

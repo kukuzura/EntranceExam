@@ -10,6 +10,8 @@ package by.yurusova.entranceExam.dto;
  */
 public class UserDTO {
 
+    private long id;
+
     private String login;
 
     private String password;
@@ -17,10 +19,12 @@ public class UserDTO {
     /**
      * Constructor with parameters foe userDTO.
      *
+     * @param id       id of new userDTO
      * @param login    login of new userDTO.
      * @param password password of new userDTO.
      */
-    public UserDTO(final String login, final String password) {
+    public UserDTO(final long id, final String login, final String password) {
+        this.id = id;
         this.login = login;
         this.password = password;
     }
@@ -65,5 +69,23 @@ public class UserDTO {
      */
     public void setPassword(final String password) {
         this.password = password;
+    }
+
+    /**
+     * Gets user id.
+     *
+     * @return the id.
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * Sets id.
+     *
+     * @param id id to be set.
+     */
+    public void setId(final long id) {
+        this.id = id;
     }
 }

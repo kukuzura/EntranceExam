@@ -12,11 +12,10 @@ import org.springframework.core.convert.converter.Converter;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-
 public class UserConverter implements Converter<User, UserDTO> {
 
     @Override
     public UserDTO convert(final User source) {
-        return new UserDTO(source.getLogin(), source.getPassword());
+        return new UserDTO(source.getId(), source.getLogin(), source.getPassword());
     }
 }

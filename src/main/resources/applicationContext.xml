@@ -66,6 +66,18 @@
 
     <bean id="teacherReverseConverter" class="by.yurusova.entranceExam.converters.TeacherReverseConverter"/>
 
+    <bean id="specialityConverter" class="by.yurusova.entranceExam.converters.SpecialityConverter"/>
+
+    <bean id="specialityReverseConverter" class="by.yurusova.entranceExam.converters.SpecialityReverseConverter"/>
+
+    <bean id="subjectConveter" class="by.yurusova.entranceExam.converters.SubjectConverter"/>
+
+    <bean id="examConverter" class="by.yurusova.entranceExam.converters.ExamConverter">
+        <property name="specialityConverter" ref="specialityConverter"/>
+        <property name="subjectConverter" ref="subjectConveter"/>
+        <property name="teacherConverter" ref="teacherConverter"/>
+    </bean>
+
     <bean id="registrationFacade" class="by.yurusova.entranceExam.facades.RegistrationFacade">
         <property name="userService" ref="userService"/>
         <property name="studentService" ref="studentService"/>
@@ -73,6 +85,19 @@
         <property name="userReverseConverter" ref="userReverseConverter"/>
         <property name="roleService" ref="roleService"/>
         <property name="teacherReverseConverter" ref="teacherReverseConverter"/>
+        <property name="teacherService" ref="teacherService"/>
+    </bean>
+
+    <bean id="userOperationsFacade" class="by.yurusova.entranceExam.facades.UserOperationsFacade">
+        <property name="userConverter" ref="userConverter"/>
+        <property name="userReverseConverter" ref="userReverseConverter"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <bean id="examAddingFacade" class="by.yurusova.entranceExam.facades.ExamAddingFacade">
+        <property name="specialityService" ref="specialityService"/>
+        <property name="examService" ref="examService"/>
+        <property name="subjectService" ref="subjectService"/>
         <property name="teacherService" ref="teacherService"/>
     </bean>
 
