@@ -7,49 +7,30 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" ; charset=utf-8">
     <title><spring:message key="login.title"/></title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
+    <link rel="stylesheet" href="/resources/css/registration.css"/>
 </head>
 
-<style>
-    .error {
-        color: red;
-        font-size: 14px;
-    }
-    <%@include file="/resources/css/login.css" %>
-</style>
-
 <body>
-<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
-
 <div class="container">
-<form:form  method="post" class="form-signin">
-    <table align="center">
-        <c:if test="${not empty error}">
-            <div align="center" class="error">${error}</div>
-        </c:if>
-        <tr>
-            <td>
-                <label><spring:message key="login.lable.login"/></label>
-            </td>
-            <td>
-                <input type="text" name="login"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label ><spring:message key="login.lable.password"/></label>
-            </td>
-            <td>
-                <input type="password" name="password"/>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <button><spring:message key="login.button.confirm"/></button>
-            </td>
-        </tr>
-    </table>
-</form:form>
+    <div class="form-group">
+        <form:form method="post">
+            <h2><spring:message key="login.title"/></h2>
+                <c:if test="${not empty error}">
+                    <span class="login-error" align="center" class="error">${error}</span>
+                </c:if>
+                <p>
+                    <label for="login" class="floatLabel"><spring:message key="login.lable.login"/></label>
+                    <input type="text" name="login" id="login"/>
+                </p>
+                <p>
+                    <label for="password" class="floatLabel"><spring:message key="login.lable.password"/></label>
+                    <input type="password" name="password" id="password"/>
+                </p>
+            <input type="submit" value="<spring:message key="login.button.confirm"/>" id="submit">
+        </form:form>
+    </div>
 </div>
 </body>
 </html>

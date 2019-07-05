@@ -1,21 +1,23 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<head>
+<header>
     <link rel="stylesheet" href="/resources/css/navigation.css"/>
-</head>
-
-<ul>
-    <li><a href="/"><spring:message code="navigation.button.home"/></a></li>
-    <li><a href="<c:url value = "/admin/userList"/>"><spring:message code="navigation.button.listOfUsers"/></a></li>
-    <li><a href="<c:url value = "/login"/>"><spring:message code="navigation.button.login"/></a></li>
-    <li><a href="<c:url value = "/studentRegister"/>"><spring:message code="navigation.button.registration"/></a></li>
-    <li><a href=""><spring:message code="navigation.button.about"/></a></li>
-    <li class="dropdown">
-        <a class="dropbtn"><spring:message code="navigation.dropdown.name"/></a>
-        <div class="dropdown-content">
-            <a href="?lang=en"><spring:message code="navigation.dropdown.eng"/></a>
-            <a href="?lang=RU_ru"><spring:message code="navigation.dropdown.rus"/></a>
+    <div class="page">
+        <div class="page__demo">
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__group"><a href="#0" class="menu__link">Home</a></li>
+                    <li class="menu__group"><a href="#0" class="menu__link">About me</a></li>
+                    <li class="menu__group"><a href="#0" class="menu__link">Services</a></li>
+                    <li class="menu__group"><a href="#0" class="menu__link">Portfolio</a></li>
+                    <li class="menu__group dropdown">
+                        <a class="dropbtn menu__link"><spring:message code="navigation.dropdown.name"/></a>
+                        <div class="dropdown-content">
+                            <a href="?lang=en"><spring:message code="navigation.dropdown.eng"/></a>
+                            <a href="?lang=RU_ru"><spring:message code="navigation.dropdown.rus"/></a>
+                        </div>
+                    <li class="menu__group "><a href="#0" class="menu__link">Contacts</a></li>
+                </ul>
+            </nav>
         </div>
-    <li class="logout"><a href="<c:url value = "/logout"/>"><spring:message code="navigation.button.logout"/></a></li>
-</ul>
+    </div>
+</header>

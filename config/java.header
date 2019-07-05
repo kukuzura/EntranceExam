@@ -1,0 +1,46 @@
+^(\/\*\*|([ \t]+)\/\*|([ \t]+)\*)
+^package
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^import
+^$
+^/\*\*$
+^ \*([ \t]+).*$
+^ \*$
+^ \* @param
+^ \*$
+^ \* @author([ \t]+)(([a-zA-z]+[ ]){2})(\<([a-zA-Z-_.]+)@(([a-zA-Z-_]+\.[a-zA-Z-_]+))\>)$
+^ \* @package([ \t]+)
+^ \* @link([ \t]+)http://rec\.expert/$
+^ \* @copyright([ \t]+)20(\d\d) REC$

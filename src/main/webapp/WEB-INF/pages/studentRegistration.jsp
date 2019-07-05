@@ -6,108 +6,57 @@
 
 <head>
     <title><spring:message code="studentRegistration.title"/></title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
 </head>
 
+
+<body>
+<div class="container">
+    <div class="form-group">
+        <form method="post">
+            <h2><spring:message code="studentRegistration.title"/></h2>
+            <p>
+                <label for="login" class="floatLabel"><spring:message code="studentRegistration.lable.login"/></label>
+                <input id="login" name="login" type="text"/>
+                <span><form:errors path="user.login"/></span>
+            </p>
+            <p>
+                <label for="password" class="floatLabel"><spring:message code="studentRegistration.lable.password"/></label>
+                <input id="password" name="password" type="password">
+                <span><form:errors path="user.password"/></span>
+            </p>
+            <p>
+                <label for="firstName" class="floatLabel"><spring:message code="studentRegistration.lable.firstName"/></label>
+                <input id="firstName" name="firstName" type="password">
+                <span><form:errors path="student.firstName"/></span>
+            </p>
+            <p>
+                <label for="lastName" class="floatLabel"><spring:message code="studentRegistration.lable.lastName"/></label>
+                <input id="lastName" name="lastName" type="password">
+                <span><form:errors path="student.lastName"/></span>
+            </p>
+            <p>
+                <label for="patronymic" class="floatLabel"><spring:message code="studentRegistration.lable.patronymic"/></label>
+                <input id="patronymic" name="patronymic" type="password">
+                <span><form:errors path="student.patronymic"/></span>
+            </p>
+            <p>
+                <label for="passportID" class="floatLabel"><spring:message code="studentRegistration.lable.passportID"/></label>
+                <input id="passportID" name="passportID" type="password">
+                <span><form:errors path="student.patronymic"/></span>
+            </p>
+            <p>
+                <input type="submit" value="<spring:message code="studentRegistration.button.confirm"/>" id="submit">
+            </p>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>
 <style>
+
     <%@include file="/resources/css/errors.css" %>
     <%@include file="/resources/css/registration.css" %>
 </style>
-
-<body>
-<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
-<div class="container">
-    <h1><spring:message code="studentRegistration.title"/></h1>
-    <form method="post">
-        <table>
-            <tr>
-                <td>
-                    <label><spring:message code="studentRegistration.lable.login"/></label>
-                </td>
-                <td>
-                    <input type="text" name="login"/>
-                <td>
-                    <form:errors path="user.password" cssClass="error"/>
-                </td>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>
-                    <label><spring:message code="studentRegistration.lable.password"/></label>
-                </td>
-                <td>
-                    <input type="password" name="password"/>
-                </td>
-                <td>
-                    <form:errors path="user.password" cssClass="error"/>
-                </td>
-
-            </tr>
-
-            <td>
-                <label><spring:message code="studentRegistration.lable.firstName"/></label>
-            </td>
-            <td>
-                <input type="text" name="firstName"
-                       placeholder="<spring:message code="studentRegistration.placeholder.firstName"/>"/>
-            </td>
-            <td>
-                <form:errors path="student.firstName" cssClass="error"/>
-            </td>
-
-            <tr>
-
-                <td>
-                    <label><spring:message code="studentRegistration.lable.lastName"/></label>
-                </td>
-                <td>
-                    <input type="text" name="lastName"
-                           placeholder="<spring:message code="studentRegistration.placeholder.lastName"/>"/>
-                </td>
-                <td>
-                    <form:errors path="student.lastName" cssClass="error"/>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>
-                    <label><spring:message code="studentRegistration.lable.patronymic"/></label>
-                </td>
-                <td>
-                    <input type="text" name="patronymic"
-                           placeholder="<spring:message code="studentRegistration.placeholder.patronymic"/>"/>
-                </td>
-                <td>
-                    <form:errors path="student.patronymic" cssClass="error"/>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>
-                    <label><spring:message code="studentRegistration.lable.passportID"/></label>
-                </td>
-                <td>
-                    <input type="text" name="passportID"
-                           placeholder="<spring:message code="studentRegistration.placeholder.passportID"/>"/>
-                </td>
-                <td>
-                    <form:errors path="student.passportID" cssClass="error"/>
-                </td>
-
-            </tr>
-
-            <tr>
-                <td>
-                    <button><spring:message code="studentRegistration.button.confirm"/></button>
-                </td>
-            </tr>
-        </table>
-
-
-    </form>
-</div>
-</body>
-</html>
