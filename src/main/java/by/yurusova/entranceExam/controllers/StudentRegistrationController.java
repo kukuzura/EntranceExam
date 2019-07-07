@@ -4,8 +4,6 @@ package by.yurusova.entranceExam.controllers;
 import by.yurusova.entranceExam.dto.StudentDTO;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.facades.RegistrationFacade;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,9 +29,6 @@ import javax.annotation.Resource;
  */
 @Controller
 public class StudentRegistrationController {
-
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(StudentRegistrationController.class);
 
     @Autowired
     private RegistrationFacade registrationFacade;
@@ -71,10 +66,7 @@ public class StudentRegistrationController {
      */
     @RequestMapping(value = "/studentRegister", method = RequestMethod.GET)
     public ModelAndView showStudentRegister() {
-        ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
-        mav.addObject("user", new UserDTO());
-        mav.addObject("student", new StudentDTO());
-        return mav;
+        return registrationFacade.createStudentRegistrationPage();
     }
 
     /**

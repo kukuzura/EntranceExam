@@ -5,6 +5,7 @@ import by.yurusova.entranceExam.converters.UserReverseConverter;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.UserService;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,17 +25,6 @@ public class UserOperationsFacade {
     private UserReverseConverter userReverseConverter;
 
     private UserConverter userConverter;
-
-    /**
-     * Method convert userDTO to user
-     * and updates user in db.
-     *
-     * @param userDTO users dto.
-     */
-    public void update(final UserDTO userDTO) {
-        User user = userReverseConverter.convert(userDTO);
-        userService.editUser(user);
-    }
 
     /**
      * Method delete user by id.
@@ -95,5 +85,41 @@ public class UserOperationsFacade {
      */
     public void setUserReverseConverter(final UserReverseConverter userReverseConverter) {
         this.userReverseConverter = userReverseConverter;
+    }
+
+    /**
+     * Method creates ModelAndView for user list.
+     *
+     * @return page with list of users.
+     */
+    public ModelAndView createUserListPage() {
+        ModelAndView mav = new ModelAndView("/userList.jsp");
+        List<UserDTO> users = getAll();
+        mav.addObject("usersList", users);
+        return mav;
+    }
+
+    /**
+     * Method creates modelAndView for update.
+     *
+     * @param id id of user to update.
+     * @return user update page.
+     */
+    public ModelAndView createUpdatePage(final long id) {
+        ModelAndView mav = new ModelAndView("/userUpdate.jsp");
+        User user = userService.findById(id);
+        mav.addObject("user", user);
+        return mav;
+    }
+
+    /**
+     * Method converts UserDTO to user
+     * and updates it in db.
+     *
+     * @param userDTO userDTO to be update.
+     */
+    public void update(final UserDTO userDTO) {
+        User user = userReverseConverter.convert(userDTO);
+        userService.editUser(user);
     }
 }

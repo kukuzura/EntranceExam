@@ -63,10 +63,7 @@ public class TeacherRegistrationController {
      */
     @RequestMapping(value = "/teacherRegister", method = RequestMethod.GET)
     public ModelAndView showTeacherRegisterPage() {
-        ModelAndView mav = new ModelAndView("/teacherRegistration.jsp");
-        mav.addObject("user", new UserDTO());
-        mav.addObject("teacher", new TeacherDTO());
-        return mav;
+        return registrationFacade.createTeacherRegistrationPage();
     }
 
     /**

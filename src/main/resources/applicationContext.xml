@@ -101,4 +101,16 @@
         <property name="teacherService" ref="teacherService"/>
     </bean>
 
+    <bean id="applyingToSpecialityFacade" class="by.yurusova.entranceExam.facades.ApplyingToSpecialityFacade">
+        <property name="specialityService" ref="specialityService"/>
+        <property name="userService" ref="userService"/>
+        <property name="gradeService" ref="gradeService"/>
+    </bean>
+
+    <bean id="adminOPerationWithExamFacade" class="by.yurusova.entranceExam.facades.AdminOperationWithExamFacade">
+        <property name="examService" ref="examService"/>
+        <property name="examConverter" ref="examConverter"/>
+    </bean>
+
+
 </beans>

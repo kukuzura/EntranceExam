@@ -40,16 +40,6 @@ public class Speciality implements Serializable {
     private double enteringGrade;
 
     /**
-     * Method sets speciality id as null fir al exams of current speciality, if speciality was remove.
-     */
-    @PreRemove
-    private void preRemove() {
-        for (Exam exam : exams) {
-            exam.setSpeciality(null);
-        }
-    }
-
-    /**
      * Constructor for Speciality.
      */
     public Speciality() {
@@ -64,6 +54,16 @@ public class Speciality implements Serializable {
     public Speciality(final long id, final String name) {
         this.id = id;
         this.name = name;
+    }
+
+    /**
+     * Method sets speciality id as null fir al exams of current speciality, if speciality was remove.
+     */
+    @PreRemove
+    private void preRemove() {
+        for (Exam exam : exams) {
+            exam.setSpeciality(null);
+        }
     }
 
     /**

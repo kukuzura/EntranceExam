@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 
 /**
  * User list page controller.
@@ -35,10 +33,7 @@ public class UsersDisplayController {
      */
     @RequestMapping(value = "/userList", method = RequestMethod.GET)
     public ModelAndView showAllUsers() {
-        ModelAndView mav = new ModelAndView("/userList.jsp");
-        List<UserDTO> users = facade.getAll();
-        mav.addObject("usersList", users);
-        return mav;
+        return facade.createUserListPage();
     }
 
     /**
@@ -49,10 +44,7 @@ public class UsersDisplayController {
      */
     @RequestMapping(value = "/userUpdate/{id}", method = RequestMethod.GET)
     public ModelAndView showEdit(@PathVariable("id") final long id) {
-        ModelAndView mav = new ModelAndView("/userUpdate.jsp");
-        UserDTO user = facade.findById(id);
-        mav.addObject("user", user);
-        return mav;
+        return facade.createUpdatePage(id);
     }
 
     /**
@@ -64,10 +56,7 @@ public class UsersDisplayController {
     @RequestMapping(value = "/updateProcess", method = RequestMethod.POST)
     public ModelAndView updateUser(@ModelAttribute("user") final UserDTO user) {
         facade.update(user);
-        ModelAndView mav = new ModelAndView("/userList.jsp");
-        List<UserDTO> users = facade.getAll();
-        mav.addObject("usersList", users);
-        return mav;
+        return facade.createUserListPage();
     }
 
     /**
@@ -79,10 +68,7 @@ public class UsersDisplayController {
     @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.GET)
     public ModelAndView showDelete(@PathVariable("id") final long id) {
         facade.delete(id);
-        ModelAndView mav = new ModelAndView("/userList.jsp");
-        List<UserDTO> users = facade.getAll();
-        mav.addObject("usersList", users);
-        return mav;
+        return facade.createUserListPage();
     }
 
 

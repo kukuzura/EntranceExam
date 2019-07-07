@@ -13,6 +13,7 @@ import by.yurusova.entranceExam.services.interfaces.RoleService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.TeacherService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
 
@@ -25,6 +26,7 @@ import java.util.Arrays;
  * @copyright 2019 SaM
  */
 public class RegistrationFacade {
+
     private UserService userService;
 
     private StudentService studentService;
@@ -103,7 +105,8 @@ public class RegistrationFacade {
     }
 
     /**
-     * Method adds student and user to db.
+     * Method converts UserDto and StudentDTO to User and Student
+     * and saves the to db.
      *
      * @param userDTO    user
      * @param studentDTO student
@@ -118,7 +121,8 @@ public class RegistrationFacade {
     }
 
     /**
-     * Method adds teacher and user to db.
+     * Method converts UserDto and TeacherDTO to User and Teacher
+     * and saves the to db.
      *
      * @param userDTO    user
      * @param teacherDTO teacher
@@ -130,5 +134,31 @@ public class RegistrationFacade {
         userService.addUser(user);
         teacher.setUser(user);
         teacherService.addTeacher(teacher);
+    }
+
+    /**
+     * Method creates ModelAndView for student registration page
+     * and sets on it UserDTO and StudentDTO.
+     *
+     * @return student registration page.
+     */
+    public ModelAndView createStudentRegistrationPage() {
+        ModelAndView mav = new ModelAndView("/studentRegistration.jsp");
+        mav.addObject("user", new UserDTO());
+        mav.addObject("student", new StudentDTO());
+        return mav;
+    }
+
+    /**
+     * Method creates ModelAndView for teacher registration page
+     * and sets on it UserDTO and TeacherDTO.
+     *
+     * @return teacher registration page.
+     */
+    public ModelAndView createTeacherRegistrationPage() {
+        ModelAndView mav = new ModelAndView("/teacherRegistration.jsp");
+        mav.addObject("user", new UserDTO());
+        mav.addObject("teacher", new TeacherDTO());
+        return mav;
     }
 }
