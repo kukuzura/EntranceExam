@@ -57,7 +57,6 @@ public class Teacher implements Serializable {
      * Constructor for teacher.
      */
     public Teacher() {
-
     }
 
     /**

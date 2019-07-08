@@ -1,7 +1,8 @@
 package by.yurusova.EntranceExam.dao;
 
-import by.yurusova.entranceExam.dao.UserDAO;
+import by.yurusova.entranceExam.dao.interfaces.UserDAO;
 import by.yurusova.entranceExam.entities.User;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +22,17 @@ public class UserDAOImplTest {
     @Autowired
     UserDAO userDAO;
 
-    @Test
-    public void testFindAllUsers() {
-        List<User> users = userDAO.getAll();
-        assertEquals("Check DB is empty first",0,users.size());
+    @Before
+    public void before() {
         User user = new User();
         user.setLogin("login");
         user.setPassword("password");
         userDAO.saveUser(user);
-        users = userDAO.getAll();
+    }
+
+    @Test
+    public void testFindAllUsers() {
+        List<User> users = userDAO.getAll();
         assertEquals("check User has been created", 1, users.size());
     }
 }

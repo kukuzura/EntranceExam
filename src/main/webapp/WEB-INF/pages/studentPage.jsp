@@ -8,13 +8,17 @@
 <html>
 
 <head>
-
+    <jsp:include page="/WEB-INF/pages/studentNavigation.jsp"/>
 </head>
 
 <body>
-<jsp:include page="/WEB-INF/pages/studentNavigation.jsp"/>
+<h3>${student.lastName} ${student.firstName} ${student.patronymic} ${student.user.login}</h3>
+<c:forEach items="examList" var="exam">
+    <p>${exam.speciality.name}</p>
+    <p>${exam.subject.name}</p>
+    <p>${exam.teacher.lastName} ${exam.teacher.firstName} ${exam.teacher.patronymic}</p>
+</c:forEach>
 </body>
-
 </html>
 
 

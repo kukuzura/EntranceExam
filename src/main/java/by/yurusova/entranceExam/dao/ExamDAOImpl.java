@@ -2,6 +2,8 @@ package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.dao.interfaces.ExamDAO;
 import by.yurusova.entranceExam.entities.Exam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.NoResultException;
 import java.util.List;
@@ -15,6 +17,9 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(ExamDAOImpl.class);
+
     @Override
     public Exam findById(final long id) {
         return (Exam) super.findById(id, Exam.class);
@@ -51,9 +56,33 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
                     .getResultList();
         }
         catch (NoResultException ex) {
+            LOGGER.error("No exams found for speciality");
         }
         finally {
             return (List<Exam>) exams;
+        }
+    }
+
+    @Override
+    public List<Exam> findByStudent(final long studentID) {
+        List studentExams = null;
+        try {
+            studentExams = sessionFactory.getCurrentSession().createQuery(
+                    "SELECT Exam.*" +
+                            "FROM Exam" +
+                            "INNER JOIN Grade" +
+                            "ON Grade.exam_id = Exam.id" +
+                            "INNER JOIN Student" +
+                            "ON Student.id = Grade.student_id" +
+                            "WHERE Grade.student_id = student_id")
+                    .setParameter("student_id", studentID)
+                    .getResultList();
+        }
+        catch (NoResultException ex) {
+            LOGGER.error("No exams found for student");
+        }
+        finally {
+           return (List<Exam>) studentExams;
         }
     }
 }

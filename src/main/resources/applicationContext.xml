@@ -112,5 +112,12 @@
         <property name="examConverter" ref="examConverter"/>
     </bean>
 
+    <bean id="studentPageFacade" class="by.yurusova.entranceExam.facades.StudentInformationPageFacade">
+        <property name="examService" ref="examService"/>
+        <property name="gradeService" ref="gradeService"/>
+        <property name="userService" ref="userService"/>
+        <property name="studentService" ref="studentService"/>
+      </bean>
+
 
 </beans>

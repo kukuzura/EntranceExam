@@ -58,4 +58,12 @@ public interface ExamDAO {
      */
     List<Exam> findBySpeciality(long specialityID);
 
+    /**
+     * Method gets all exams of student with given id.
+     *
+     * @param studentID the id.
+     * @return list of exams.
+     */
+    List<Exam> findByStudent(long studentID);
+
 }

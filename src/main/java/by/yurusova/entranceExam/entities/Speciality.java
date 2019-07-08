@@ -57,12 +57,14 @@ public class Speciality implements Serializable {
     }
 
     /**
-     * Method sets speciality id as null fir al exams of current speciality, if speciality was remove.
+     * Method sets speciality id as null for all exams of current speciality, if speciality was remove.
      */
     @PreRemove
     private void preRemove() {
-        for (Exam exam : exams) {
-            exam.setSpeciality(null);
+        if (exams != null) {
+            for (Exam exam : exams) {
+                exam.setSpeciality(null);
+            }
         }
     }
 
