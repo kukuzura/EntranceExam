@@ -57,7 +57,7 @@
 
     <bean id="gradeDAO" class="by.yurusova.entranceExam.dao.GradeDAOImpl" parent="abstractDAO"/>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven />
 
 
 </beans>

@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>Speciality List</title>
+    <link rel="stylesheet" href="/resources/css/userList.css"/>
+    <link rel="stylesheet" href="/resources/css/link.css"/>
 </head>
 <body>
 <div style="padding-top:30px;margin-top:30px;height:1500px;">
@@ -11,6 +13,11 @@
         <c:forEach items="${specialityList}" var="speciality">
             <tr>
                 <td align="center">${speciality.name}</td>
+                <td>
+                    <c:forEach items="${speciality.exams}" var="exam">
+                    <p>${exam.subject.name}</p>
+                    </c:forEach>
+                </td>
                 <td><a href="<c:url value='/account/apply/${speciality.id}' />">Apply</a>
                 </td>
             </tr>

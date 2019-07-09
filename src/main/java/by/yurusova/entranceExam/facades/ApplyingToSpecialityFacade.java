@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,8 +46,8 @@ public class ApplyingToSpecialityFacade {
         List<Exam> exams = speciality.getExams();
         User user = userService.findByLogin(principal.getName());
         Student student = user.getStudent();
-        Grade grade = new Grade();
         for (Exam exam : exams) {
+            Grade grade = new Grade();
             grade.setExam(exam);
             grade.setStudent(student);
             gradeService.saveGrade(grade);
@@ -59,14 +60,17 @@ public class ApplyingToSpecialityFacade {
      *
      * @return page with speciality list.
      */
+    @Transactional
     public ModelAndView createSpecialityListPage() {
         ModelAndView mav = new ModelAndView("/specialityList.jsp");
         List<Speciality> specialities = specialityService.getAll();
+        List<Speciality> removed = new ArrayList<>();
         for (Speciality speciality : specialities) {
             if (speciality.getExams().size() != EXAMS_AMOUNT) {
-                specialities.remove(speciality);
+                removed.add(speciality);
             }
         }
+        specialities.removeAll(removed);
         mav.addObject("specialityList", specialities);
         return mav;
     }

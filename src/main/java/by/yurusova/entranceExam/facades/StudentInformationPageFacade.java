@@ -1,17 +1,14 @@
 package by.yurusova.entranceExam.facades;
 
-import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
-import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
-
-import java.security.Principal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 
 /**
  * Facade for user information page.
@@ -32,8 +29,6 @@ public class StudentInformationPageFacade {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private StudentService studentService;
 
     /**
      * Method creates ModelAndView for student page.
@@ -69,15 +64,6 @@ public class StudentInformationPageFacade {
     }
 
     /**
-     * Sets student service.
-     *
-     * @param studentService service to be set.
-     */
-    public void setStudentService(final StudentService studentService) {
-        this.studentService = studentService;
-    }
-
-    /**
      * Sets exam service.
      *
      * @param examService service to be set.
@@ -85,4 +71,5 @@ public class StudentInformationPageFacade {
     public void setExamService(final ExamService examService) {
         this.examService = examService;
     }
+
 }

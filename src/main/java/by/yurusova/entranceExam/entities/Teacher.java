@@ -7,9 +7,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Entity class for student.
@@ -36,9 +38,12 @@ public class Teacher implements Serializable {
     @Column(name = "patronymic")
     private String patronymic;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "teacher")
+    private List<Exam> exams;
 
     /**
      * Constructor with parameters for Teacher.
@@ -150,4 +155,21 @@ public class Teacher implements Serializable {
         this.user = user;
     }
 
+    /**
+     * Gets teachers exams.
+     *
+     * @return list of exams.
+     */
+    public List<Exam> getExams() {
+        return exams;
+    }
+
+    /**
+     * Sets teachers exams.
+     *
+     * @param exams list of exams to be set.
+     */
+    public void setExams(List<Exam> exams) {
+        this.exams = exams;
+    }
 }
