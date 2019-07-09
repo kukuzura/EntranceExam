@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -51,38 +52,28 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
         List exams = null;
         try {
             exams = sessionFactory.getCurrentSession().createQuery(
-                    "SELECT exam FROM Exam exam WHERE exam.speciality_id =: speciality_id")
+                    "SELECT exam " +
+                            "FROM Exam AS exam " +
+                            "JOIN exam.speciality AS speciality " +
+                            "WHERE speciality.id =: speciality_id")
                     .setParameter("speciality_id", specialityID)
                     .getResultList();
-        }
-        catch (NoResultException ex) {
+        } catch (NoResultException ex) {
             LOGGER.error("No exams found for speciality");
-        }
-        finally {
+        } finally {
             return (List<Exam>) exams;
         }
     }
 
     @Override
     public List<Exam> findByStudent(final long studentID) {
-        List studentExams = null;
-        try {
-            studentExams = sessionFactory.getCurrentSession().createQuery(
-                    "SELECT Exam.*" +
-                            "FROM Exam" +
-                            "INNER JOIN Grade" +
-                            "ON Grade.exam_id = Exam.id" +
-                            "INNER JOIN Student" +
-                            "ON Student.id = Grade.student_id" +
-                            "WHERE Grade.student_id = student_id")
-                    .setParameter("student_id", studentID)
-                    .getResultList();
-        }
-        catch (NoResultException ex) {
-            LOGGER.error("No exams found for student");
-        }
-        finally {
-           return (List<Exam>) studentExams;
-        }
+        Query query = sessionFactory.getCurrentSession().createQuery("SELECT exam " +
+                "                           FROM Exam AS exam " +
+                "                            JOIN exam.grades AS grade " +
+                "                            JOIN grade.student as student " +
+                "                            WHERE student.id=:studentID \n ");
+        List exams = query.setParameter("studentID", studentID).getResultList();
+        return (List<Exam>) exams;
+
     }
 }

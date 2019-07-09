@@ -1,5 +1,6 @@
 package by.yurusova.entranceExam.facades;
 
+import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.ExamService;

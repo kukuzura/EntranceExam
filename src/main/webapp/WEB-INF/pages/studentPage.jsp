@@ -13,7 +13,7 @@
 
 <body>
 <h3>${student.lastName} ${student.firstName} ${student.patronymic} ${student.user.login}</h3>
-<c:forEach items="examList" var="exam">
+<c:forEach items="${examList}" var="exam" >
     <p>${exam.speciality.name}</p>
     <p>${exam.subject.name}</p>
     <p>${exam.teacher.lastName} ${exam.teacher.firstName} ${exam.teacher.patronymic}</p>
