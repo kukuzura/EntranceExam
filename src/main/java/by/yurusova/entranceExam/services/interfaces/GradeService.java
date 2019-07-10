@@ -27,4 +27,12 @@ public interface GradeService {
      * @return list of grades.
      */
     List<Grade> getAll();
+
+    /**
+     * Method updates grade with of student with given id on exam with given id
+     *
+     * @param examID    exam id
+     * @param studentID student id
+     */
+    void updateByExamAndStudent(long examID, long studentID , int grade);
 }

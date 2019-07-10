@@ -10,6 +10,7 @@ import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.entities.Teacher;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -59,4 +60,5 @@ public class ExamDAOFindBySpeciality {
     public void deleteExamReferences(){
         assertNotNull(examDAO.findBySpeciality(1));
     }
+
 }

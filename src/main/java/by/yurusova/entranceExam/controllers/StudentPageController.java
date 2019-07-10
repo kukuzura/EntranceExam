@@ -1,6 +1,6 @@
 package by.yurusova.entranceExam.controllers;
 
-import by.yurusova.entranceExam.facades.StudentInformationPageFacade;
+import by.yurusova.entranceExam.facades.InformationPageCreationFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +21,7 @@ import java.security.Principal;
 public class StudentPageController {
 
     @Autowired
-    private StudentInformationPageFacade facade;
+    private InformationPageCreationFacade facade;
 
     /**
      * Method returns student page with student information(exams of student, full name, current grade).

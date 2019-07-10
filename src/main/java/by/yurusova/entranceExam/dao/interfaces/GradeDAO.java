@@ -30,9 +30,25 @@ public interface GradeDAO {
     void saveGrade(Grade grade);
 
     /**
+     * Method updates grade in db.
+     *
+     * @param grade grade to be update.
+     */
+    void update(Grade grade);
+
+    /**
      * Method gets all grades.
      *
      * @return list of grades.
      */
     List<Grade> getAll();
+
+    /**
+     * Method gets grade of student with given id for exam with given id.
+     *
+     * @param studentID student id.
+     * @param examID    exam id.
+     * @return grade.
+     */
+    Grade getByStudentAndExam(long studentID, long examID);
 }

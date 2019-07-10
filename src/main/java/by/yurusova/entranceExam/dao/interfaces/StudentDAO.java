@@ -57,4 +57,12 @@ public interface StudentDAO {
      * @return user with given passport id.
      */
     Student findByPassportID(String passportID);
+
+    /**
+     * Method gets all students that register for exam with given id.
+     *
+     * @param examID exam id.
+     * @return list of students.
+     */
+    List<Student> findByExamID(long examID);
 }

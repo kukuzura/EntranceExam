@@ -11,6 +11,8 @@ package by.yurusova.entranceExam.dto;
 
 public class StudentDTO {
 
+    private long id;
+
     private String passportID;
 
     private String firstName;
@@ -18,6 +20,8 @@ public class StudentDTO {
     private String lastName;
 
     private String patronymic;
+
+    private int grade;
 
     /**
      * Constructor with parameters for class StudentDTO.
@@ -28,6 +32,14 @@ public class StudentDTO {
      * @param patronymic patronymic of new studentDTO.
      */
     public StudentDTO(final String passportID, final String firstName, final String lastName, final String patronymic) {
+        this.passportID = passportID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.patronymic = patronymic;
+    }
+
+    public StudentDTO(long id, String passportID, String firstName, String lastName, String patronymic) {
+        this.id = id;
         this.passportID = passportID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -110,5 +122,21 @@ public class StudentDTO {
      */
     public void setPatronymic(final String patronymic) {
         this.patronymic = patronymic;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 }

@@ -2,6 +2,8 @@ package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.dao.interfaces.StudentDAO;
 import by.yurusova.entranceExam.entities.Student;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
@@ -16,6 +18,8 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(SpecialityDAOImpl.class);
 
     @Override
     public Student findById(final long id) {
@@ -54,9 +58,30 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
                     .getSingleResult();
         }
         catch (NoResultException ex) {
+            LOGGER.error("No student found ");
         }
         finally {
             return (Student) student;
         }
+    }
+
+    @Override
+    public List<Student> findByExamID(final long examID) {
+        List students = null;
+        try {
+            students = sessionFactory.getCurrentSession().createQuery("SELECT student " +
+                    " FROM Student AS student " +
+                    " JOIN student.grades AS grade " +
+                    " JOIN grade.exam as exam " +
+                    " WHERE exam.id=:examID \n ")
+                    .setParameter("examID", examID).getResultList();
+        }
+        catch (NoResultException ex) {
+            LOGGER.error("No student found for exam");
+        }
+        finally {
+            return (List<Student>) students;
+        }
+
     }
 }

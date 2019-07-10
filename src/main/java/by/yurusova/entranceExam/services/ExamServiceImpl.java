@@ -47,6 +47,11 @@ public class ExamServiceImpl implements ExamService {
         return examDAO.findByStudent(studentID);
     }
 
+    @Override
+    public Exam findByID(final long id) {
+        return examDAO.findById(id);
+    }
+
     /**
      * Sets examDAO.
      *

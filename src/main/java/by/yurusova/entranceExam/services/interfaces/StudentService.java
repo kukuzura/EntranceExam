@@ -61,5 +61,13 @@ public interface StudentService {
      * @return student with given passport id.
      */
     Student findByPassportID(String passportID);
+
+    /**
+     * Gets all student that register foe exam with given id.
+     *
+     * @param examID exam id.
+     * @return list of students.
+     */
+    List<Student> findByExamID(long examID);
 }
 

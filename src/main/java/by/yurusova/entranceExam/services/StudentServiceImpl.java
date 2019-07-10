@@ -50,6 +50,11 @@ public class StudentServiceImpl implements StudentService {
         return studentDAO.findByPassportID(passportID);
     }
 
+    @Override
+    public List<Student> findByExamID(long examID) {
+        return studentDAO.findByExamID(examID);
+    }
+
 
     /**
      * Sets studentDAO.

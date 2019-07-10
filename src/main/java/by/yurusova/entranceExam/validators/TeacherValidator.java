@@ -1,5 +1,6 @@
 package by.yurusova.entranceExam.validators;
 
+import by.yurusova.entranceExam.dto.TeacherDTO;
 import by.yurusova.entranceExam.entities.Teacher;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -20,12 +21,12 @@ public class TeacherValidator implements Validator {
 
     @Override
     public boolean supports(final Class<?> clazz) {
-        return Teacher.class.equals(clazz);
+        return TeacherDTO.class.equals(clazz);
     }
 
     @Override
     public void validate(final Object target, final Errors errors) {
-        Teacher teacher = (Teacher) target;
+        TeacherDTO teacher = (TeacherDTO) target;
         if (isEmpty(teacher.getFirstName())) {
             errors.rejectValue("firstName", "teacherRegistration.error.firstName.required");
         }

@@ -69,13 +69,21 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
 
     @Override
     public List<Exam> findByStudent(final long studentID) {
-        Query query = sessionFactory.getCurrentSession().createQuery("SELECT exam " +
-                " FROM Exam AS exam " +
-                " JOIN exam.grades AS grade " +
-                " JOIN grade.student as student " +
-                " WHERE student.id=:studentID \n ");
-        List exams = query.setParameter("studentID", studentID).getResultList();
-        return (List<Exam>) exams;
+        List exams = null;
+        try {
+            exams = sessionFactory.getCurrentSession().createQuery("SELECT exam " +
+                    " FROM Exam AS exam " +
+                    " JOIN exam.grades AS grade " +
+                    " JOIN grade.student as student " +
+                    " WHERE student.id=:studentID \n ")
+                    .setParameter("studentID", studentID).getResultList();
+        }
+        catch (NoResultException ex) {
+            LOGGER.error("No exams found for student");
+        }
+        finally {
+            return (List<Exam>) exams;
+        }
 
     }
 }

@@ -50,4 +50,14 @@ public interface ExamService {
      * @return list pf exams.
      */
     List<Exam> findByStudent(long studentID);
+
+    /**
+     * Method gets exam by id.
+     *
+     * @param id the id.
+     * @return exam with given id.
+     */
+    Exam findByID(long id);
+
+
 }

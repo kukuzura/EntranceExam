@@ -8,10 +8,27 @@
 <html>
 
 <head>
+    <jsp:include page="/WEB-INF/pages/teacherNavigator.jsp/"/>
+
 </head>
 
 <body>
-<jsp:include page="/WEB-INF/pages/teacherPage.jsp/">
+<h3>${teacher.lastName} ${teacher.firstName} ${teacher.patronymic}</h3>
+<table>
+    <c:forEach items="${examList}" var="exam">
+        <tr>
+            <td>
+                <p>${exam.speciality.name}</p>
+            </td>
+            <td>
+                <p>${exam.subject.name}</p
+            </td>
+            <td>
+                <a href="rate/${exam.id}">Rate</a>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 
 </html>

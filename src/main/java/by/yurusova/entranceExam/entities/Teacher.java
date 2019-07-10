@@ -1,5 +1,7 @@
 package by.yurusova.entranceExam.entities;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -160,6 +162,7 @@ public class Teacher implements Serializable {
      *
      * @return list of exams.
      */
+    @Transactional
     public List<Exam> getExams() {
         return exams;
     }

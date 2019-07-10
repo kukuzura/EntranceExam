@@ -21,7 +21,7 @@
 
     <security:http>
         <security:intercept-url pattern="/" access="permitAll"/>
-        <security:intercept-url pattern="/account/**" access="hasRole('ROLE_STUDENT')"/>
+        <security:intercept-url pattern="/account/**" access="hasAnyRole('ROLE_TEACHER','ROLE_STUDENT')"/>
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
         <security:form-login
                 login-page="/login"
