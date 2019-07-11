@@ -9,12 +9,19 @@
 
 <head>
     <jsp:include page="/WEB-INF/pages/teacherNavigator.jsp/"/>
-
+    <title><spring:message code="teacherPage.title"/></title>
 </head>
 
 <body>
-<h3>${teacher.lastName} ${teacher.firstName} ${teacher.patronymic}</h3>
+<h3><spring:message code="teacherPage.lable.lastName"/> ${teacher.lastName}</h3>
+<h3><spring:message code="teacherPage.lable.firstName"/>${teacher.firstName}</h3>
+<h3><spring:message code="teacherPage.lable.patronymic"/>${teacher.patronymic}</h3>
+<h2><spring:message code="studentPage.lable.exams"/></h2>
 <table>
+    <tr>
+        <th width="50"><spring:message code="teacherPage.lable.speciality"/></th>
+        <th width="80"><spring:message code="teacherPage.lable.subject"/></th>
+    </tr>
     <c:forEach items="${examList}" var="exam">
         <tr>
             <td>
@@ -24,7 +31,7 @@
                 <p>${exam.subject.name}</p
             </td>
             <td>
-                <a href="rate/${exam.id}">Rate</a>
+                <a href="rate/${exam.id}"><spring:message code="teacherPage.button.grading"/></a>
             </td>
         </tr>
     </c:forEach>

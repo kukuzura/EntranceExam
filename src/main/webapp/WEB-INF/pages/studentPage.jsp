@@ -9,11 +9,22 @@
 
 <head>
     <jsp:include page="/WEB-INF/pages/studentNavigation.jsp"/>
+    <title><spring:message code="studentPage.title"/></title>
 </head>
 
 <body>
-<h3>${student.lastName} ${student.firstName} ${student.patronymic}</h3>
+<h3><spring:message code="studentPage.lable.lastName"/> ${student.lastName}</h3>
+<h3><spring:message code="studentPage.lable.firstName"/>${student.firstName}</h3>
+<h3><spring:message code="studentPage.lable.patronymic"/>${student.patronymic}</h3>
+<h2><spring:message code="studentPage.lable.exams"/></h2>
 <table>
+    <tr>
+        <th><spring:message code="studentPage.lable.speciality"/></th>
+        <th><spring:message code="studentPage.lable.subject"/></th>
+        <th><spring:message code="studentPage.lable.teacher"/></th>
+        <th></th>
+        <th></th>
+    </tr>
     <c:forEach items="${examList}" var="exam">
         <tr>
             <td>

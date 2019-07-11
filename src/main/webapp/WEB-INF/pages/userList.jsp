@@ -17,12 +17,12 @@
 <div style="padding-top:30px;margin-top:30px;height:1500px;">
     <table id="list">
         <tr>
-            <th width="50"><spring:message code="userList.lable.Id"/></th>
-            <th width="80"><spring:message code="userList.lable.login"/></th>
-            <th width="80"><spring:message code="userList.lable.password"/></th>
-            <th width="50"></th>
-            <th width="50"></th>
-        </tr>
+        <th width="50"><spring:message code="userList.lable.Id"/></th>
+        <th width="80"><spring:message code="userList.lable.login"/></th>
+        <th width="80"><spring:message code="userList.lable.password"/></th>
+        <th width="50"></th>
+        <th width="50"></th>
+    </tr>
         <c:forEach items="${usersList}" var="user">
             <tr>
                 <td align="center">${user.id}</td>

@@ -46,7 +46,7 @@ public class RatePageController {
     @RequestMapping(value = "rate/{id}", method = RequestMethod.POST)
     public String setRates(@PathVariable("id") final long examId, @ModelAttribute("studentForm") final StudentForm studentForm) {
         rateFacade.rateStudents(studentForm.getStudents(), examId);
-        return "/teacherPage.jsp";
+        return "redirect: /account/teacherPage";
     }
 }
 
