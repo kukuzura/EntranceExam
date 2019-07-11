@@ -8,6 +8,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 
+/**
+ * Controller for teacher page.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.controllers
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 @Controller
 @RequestMapping("/account")
 public class TeacherPageController {
@@ -15,8 +23,14 @@ public class TeacherPageController {
     @Autowired
     private InformationPageCreationFacade pageCreationFacade;
 
+    /**
+     * Method shows teacher page.
+     *
+     * @param principal object that contains user information.
+     * @return teacher page.
+     */
     @RequestMapping("teacherPage")
-    public ModelAndView showTeacherPage(Principal principal) {
+    public ModelAndView showTeacherPage(final Principal principal) {
         return pageCreationFacade.createTeacherPage(principal);
     }
 

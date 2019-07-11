@@ -29,10 +29,11 @@ public interface GradeService {
     List<Grade> getAll();
 
     /**
-     * Method updates grade with of student with given id on exam with given id
+     * Method updates grade with of student with given id on exam with given id.
      *
+     * @param grade     student grade
      * @param examID    exam id
      * @param studentID student id
      */
-    void updateByExamAndStudent(long examID, long studentID , int grade);
+    void updateByExamAndStudent(long examID, long studentID, int grade);
 }

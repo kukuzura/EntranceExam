@@ -51,7 +51,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> findByExamID(long examID) {
+    public List<Student> findByExamID(final long examID) {
         return studentDAO.findByExamID(examID);
     }
 

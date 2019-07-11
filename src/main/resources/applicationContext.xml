@@ -124,7 +124,6 @@
         <property name="studentService" ref="studentService"/>
         <property name="examService" ref="examService"/>
         <property name="gradeService" ref="gradeService"/>
-        <property name="reverseConverter" ref="studentReverseConverter"/>
         <property name="studentConverterForRate" ref="studentConverterForRate"/>
     </bean>
 

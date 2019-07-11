@@ -38,7 +38,17 @@ public class StudentDTO {
         this.patronymic = patronymic;
     }
 
-    public StudentDTO(long id, String passportID, String firstName, String lastName, String patronymic) {
+    /**
+     * Constructor with parameters for class StudentDTO.
+     *
+     * @param id         id of new studentDTO.
+     * @param passportID passport id of new studentDTO.
+     * @param firstName  first name of new studentDTO.
+     * @param lastName   last name of new studentDTO.
+     * @param patronymic patronymic of new studentDTO.
+     */
+    public StudentDTO(
+            final long id, final String passportID, final String firstName, final String lastName, final String patronymic) {
         this.id = id;
         this.passportID = passportID;
         this.firstName = firstName;
@@ -124,19 +134,39 @@ public class StudentDTO {
         this.patronymic = patronymic;
     }
 
+    /**
+     * Gets studentDTO id.
+     *
+     * @return the id.
+     */
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    /**
+     * Sets student id.
+     *
+     * @param id id to be set.
+     */
+    public void setId(final long id) {
         this.id = id;
     }
 
+    /**
+     * Gets grade.
+     *
+     * @return student grade.
+     */
     public int getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    /**
+     * Sets student grade.
+     *
+     * @param grade grade to be set.
+     */
+    public void setGrade(final int grade) {
         this.grade = grade;
     }
 }

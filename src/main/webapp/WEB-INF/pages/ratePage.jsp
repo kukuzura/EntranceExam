@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Rating</title>
@@ -14,14 +14,21 @@
         </tr>
         <c:forEach items="${studentForm.students}" var="student" varStatus="status">
             <tr>
-                <form:input type="hidden" path="students[${status.index}].id" name="id" id="id" value=""
-                       readonly="true"/>
+                    <form:input type="hidden" path="students[${status.index}].id" name="id" id="id" value=""
+                                readonly="true"/>
                 <td>
-                    <form:input type="hidden" path="students[${status.index}].passportID" name="passportID" id="passportID" value=""
-                           readonly="true"/>
+                    <form:input path="students[${status.index}].passportID" readonly="true"/>
                 </td>
                 <td>
                     <form:input path="students[${status.index}].lastName" name="lastName" id="lastName" value=""
+                                readonly="true"/>
+                </td>
+                <td>
+                    <form:input path="students[${status.index}].firstName" name="lastName" id="lastName" value=""
+                                readonly="true"/>
+                </td>
+                <td>
+                    <form:input path="students[${status.index}].patronymic" name="lastName" id="lastName" value=""
                                 readonly="true"/>
                 </td>
                 <td>

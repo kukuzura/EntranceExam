@@ -31,7 +31,7 @@ public class GradeServiceImpl implements GradeService {
     }
 
     @Override
-    public void updateByExamAndStudent(long examID, long studentID, int grade) {
+    public void updateByExamAndStudent(final long examID, final long studentID, final int grade) {
         Grade gradeObj = gradeDAO.getByStudentAndExam(studentID, examID);
         gradeObj.setGrade(grade);
         gradeDAO.update(gradeObj);

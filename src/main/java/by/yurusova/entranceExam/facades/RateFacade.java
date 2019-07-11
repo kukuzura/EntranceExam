@@ -1,9 +1,8 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.StudentConverterForRate;
-import by.yurusova.entranceExam.converters.StudentReverseConverter;
-import by.yurusova.entranceExam.dao.StudentForm;
 import by.yurusova.entranceExam.dto.StudentDTO;
+import by.yurusova.entranceExam.dto.StudentForm;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
@@ -14,7 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Facade for student grading.
+ *
+ * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
+ * @package by.yurusova.entranceExam.facades
+ * @link http ://sam-solutions.com/
+ * @copyright 2019 SaM
+ */
 public class RateFacade {
+
     private GradeService gradeService;
 
     private StudentService studentService;
@@ -23,8 +31,15 @@ public class RateFacade {
 
     private StudentConverterForRate studentConverterForRate;
 
-    private StudentReverseConverter reverseConverter;
-
+    /**
+     * Method creates ModelAndView for rate page,
+     * finds all students that register to this exam,
+     * converts the into StudentDTOs sets list of StudentsDTO in
+     * studentForm and pass to ModelAndView.
+     *
+     * @param examID id of exam.
+     * @return modelAndView.
+     */
     public ModelAndView showRatePage(final long examID) {
         ModelAndView modelAndView = new ModelAndView("/ratePage.jsp");
         modelAndView.addObject("examID", examID);
@@ -40,34 +55,56 @@ public class RateFacade {
         return modelAndView;
     }
 
-    public String rateStudents(ArrayList<StudentDTO> studentDTOS, long examID) {
+    /**
+     * Method updates student grades in db,
+     * for all students that register for exams with id examID.
+     *
+     * @param studentDTOS list of student with grades.
+     * @param examID      exam id.
+     * @return teacherPage.
+     */
+    public String rateStudents(final ArrayList<StudentDTO> studentDTOS, final long examID) {
         Exam exam = examService.findByID(examID);
         List<Student> students = new ArrayList<>();
         for (StudentDTO studentDTO : studentDTOS) {
             gradeService.updateByExamAndStudent(examID, studentDTO.getId(), studentDTO.getGrade());
         }
-        return "/account/teacherPage.jsp";
+        return "/teacherPage.jsp";
     }
 
-    public void setGradeService(GradeService gradeService) {
+    /**
+     * Method sets grade service.
+     *
+     * @param gradeService service to be set.
+     */
+    public void setGradeService(final GradeService gradeService) {
         this.gradeService = gradeService;
     }
 
-    public void setStudentService(StudentService studentService) {
+    /**
+     * Method sets student service.
+     *
+     * @param studentService service to be set.
+     */
+    public void setStudentService(final StudentService studentService) {
         this.studentService = studentService;
     }
 
-    public void setExamService(ExamService examService) {
+    /**
+     * Sets exam service.
+     *
+     * @param examService service to be set.
+     */
+    public void setExamService(final ExamService examService) {
         this.examService = examService;
     }
 
-    public void setStudentConverterForRate(StudentConverterForRate studentConverterForRate) {
+    /**
+     * Sets studentConverter.
+     *
+     * @param studentConverterForRate converter to be set.
+     */
+    public void setStudentConverterForRate(final StudentConverterForRate studentConverterForRate) {
         this.studentConverterForRate = studentConverterForRate;
     }
-
-    public void setReverseConverter(StudentReverseConverter reverseConverter) {
-        this.reverseConverter = reverseConverter;
-    }
-
-
 }

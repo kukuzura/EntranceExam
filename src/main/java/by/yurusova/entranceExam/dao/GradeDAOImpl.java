@@ -35,7 +35,7 @@ public class GradeDAOImpl extends AbstractBaseDAO implements GradeDAO {
     }
 
     @Override
-    public void update(Grade grade) {
+    public void update(final Grade grade) {
         super.update(grade);
     }
 
@@ -46,7 +46,7 @@ public class GradeDAOImpl extends AbstractBaseDAO implements GradeDAO {
     }
 
     @Override
-    public Grade getByStudentAndExam(long studentID, long examID) {
+    public Grade getByStudentAndExam(final long studentID, final long examID) {
         Object grade = new Grade();
         try {
             grade = sessionFactory.getCurrentSession().createQuery("SELECT grade " +
@@ -55,7 +55,7 @@ public class GradeDAOImpl extends AbstractBaseDAO implements GradeDAO {
                     " JOIN grade.student as student " +
                     " WHERE exam.id=:examID AND student.id=:studentID\n ")
                     .setParameter("examID", examID)
-                    .setParameter("studentID",studentID)
+                    .setParameter("studentID", studentID)
                     .getSingleResult();
 
         }
@@ -63,7 +63,7 @@ public class GradeDAOImpl extends AbstractBaseDAO implements GradeDAO {
             LOGGER.error("No student found for exam");
         }
         finally {
-            return (Grade)grade;
+            return (Grade) grade;
         }
     }
 }

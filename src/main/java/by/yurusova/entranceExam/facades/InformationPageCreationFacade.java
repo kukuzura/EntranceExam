@@ -13,13 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 import java.security.Principal;
 
 /**
- * Facade for user information page.
+ * Facade for student and teacher information page.
  *
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
  * @package by.yurusova.entranceExam.facades
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class InformationPageCreationFacade {
 
     @Autowired
@@ -48,6 +49,12 @@ public class InformationPageCreationFacade {
     }
 
 
+    /**
+     * Method creates ModelAndView for teacher page.
+     *
+     * @param principal object with user information.
+     * @return the ModelAndView.
+     */
     @Transactional
     public ModelAndView createTeacherPage(final Principal principal) {
         ModelAndView modelAndView = new ModelAndView("/teacherPage.jsp");

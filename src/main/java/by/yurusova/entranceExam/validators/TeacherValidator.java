@@ -1,7 +1,6 @@
 package by.yurusova.entranceExam.validators;
 
 import by.yurusova.entranceExam.dto.TeacherDTO;
-import by.yurusova.entranceExam.entities.Teacher;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
