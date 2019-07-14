@@ -2,7 +2,7 @@
 This project is a simple simulator of applying to university. It allows students to apply to some speciality and get an answer.
 
 ## Database
-In order to work, you need to create database. Create empty shema with namae examsdb the run script database.sql from config folder.  
+In order to work, you need to create database. Create empty shema with name examsdb the run script database.sql from config folder.  
 	
 ## Features
 * Students and teachers registration.
