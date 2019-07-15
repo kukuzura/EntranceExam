@@ -178,4 +178,22 @@ public class Student implements Serializable {
     public void setId(final long id) {
         this.id = id;
     }
+
+    /**
+     * Gets student grades.
+     *
+     * @return list of grades.
+     */
+    public List<Grade> getGrades() {
+        return grades;
+    }
+
+    /**
+     * Sets student grades.
+     *
+     * @param grades grades to be set.
+     */
+    public void setGrades(List<Grade> grades) {
+        this.grades = grades;
+    }
 }

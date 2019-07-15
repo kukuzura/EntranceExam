@@ -1,6 +1,7 @@
 package by.yurusova.entranceExam.services;
 
 import by.yurusova.entranceExam.dao.interfaces.StudentDAO;
+import by.yurusova.entranceExam.entities.Grade;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 
@@ -53,6 +54,15 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> findByExamID(final long examID) {
         return studentDAO.findByExamID(examID);
+    }
+
+    @Override
+    public int getTotalGradeByID(long studentID) {
+        Student student = studentDAO.findById(studentID);
+        int totalGrade = 0;
+        for (Grade grade : student.getGrades())
+            totalGrade += grade.getGrade();
+        return totalGrade;
     }
 
 

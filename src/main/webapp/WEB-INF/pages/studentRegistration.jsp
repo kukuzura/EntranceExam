@@ -47,6 +47,7 @@
                 <span><form:errors path="student.patronymic"/></span>
             </p>
             <p>
+                <a  style="text-decoration: underline" href="/login">Already have an account?</a>
                 <input type="submit" value="<spring:message code="studentRegistration.button.confirm"/>" id="submit">
             </p>
         </form>

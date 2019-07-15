@@ -28,8 +28,7 @@ public class SubjectDAOImpl extends AbstractBaseDAO implements SubjectDAO {
 
     @Override
     public List<Subject> getAll() {
-        List subjects = super.getAll("from Subject");
-        return (List<Subject>) subjects;
+        return super.getAll("from Subject");
     }
 
     @Override

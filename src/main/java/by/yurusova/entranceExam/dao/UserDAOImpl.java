@@ -3,11 +3,12 @@ package by.yurusova.entranceExam.dao;
 import by.yurusova.entranceExam.dao.interfaces.UserDAO;
 import by.yurusova.entranceExam.entities.User;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
 import java.util.List;
-
 
 /**
  * DAO class that responsible for operations with user table.
@@ -18,6 +19,8 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(UserDAOImpl.class);
 
     @Override
     public User findById(final long id) {
@@ -42,26 +45,22 @@ public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
 
     @Override
     public List<User> getAll() {
-        List users = super.getAll("from User");
-        return (List<User>) users;
+        return super.getAll("from User");
     }
 
     @Transactional
     @Override
     public User findByLogin(final String login) {
-        Object user = null;
+        User user = null;
         try {
             user = sessionFactory.getCurrentSession().createQuery(
-                    "SELECT user FROM User user WHERE user.login LIKE: login")
+                    "SELECT user FROM User user WHERE user.login LIKE: login", User.class)
                     .setParameter("login", login)
                     .getSingleResult();
+        } catch (NoResultException ex) {
+            LOGGER.error("No user found");
         }
-        catch (NoResultException ex) {
-
-        }
-        finally {
-            return (User) user;
-        }
+        return user;
     }
 
     /**

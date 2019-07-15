@@ -29,7 +29,7 @@ public class ExamAddingController {
      * @return exam adding page.
      */
     @RequestMapping(value = "addExam", method = RequestMethod.GET)
-    ModelAndView showAddingPage() {
+    public ModelAndView showAddingPage() {
         return facade.createModelAndView();
     }
 
@@ -42,9 +42,9 @@ public class ExamAddingController {
      * @return exam list page.
      */
     @RequestMapping(value = "addExam", method = RequestMethod.POST)
-    String addExam(@ModelAttribute("teacher") final String teacherID,
-                   @ModelAttribute("subject") final String subjectID,
-                   @ModelAttribute("speciality") final String specialityID) {
+    public String addExam(@ModelAttribute("teacher") final String teacherID,
+                          @ModelAttribute("subject") final String subjectID,
+                          @ModelAttribute("speciality") final String specialityID) {
         facade.addExam(teacherID, subjectID, specialityID);
         return "redirect: /admin/examList";
     }

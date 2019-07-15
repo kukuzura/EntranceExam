@@ -2,8 +2,11 @@ package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.dao.interfaces.RoleDAO;
 import by.yurusova.entranceExam.entities.Role;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -15,6 +18,8 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 public class RoleDAOImpl extends AbstractBaseDAO implements RoleDAO {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(RoleDAOImpl.class);
 
     @Override
     public Role findById(final long id) {
@@ -38,18 +43,22 @@ public class RoleDAOImpl extends AbstractBaseDAO implements RoleDAO {
 
     @Override
     public List<Role> getAll() {
-        List roles = super.getAll("from Role");
-        return (List<Role>) roles;
+        return super.getAll("from Role");
     }
 
     @Override
     @Transactional
     public Role findByName(final String name) {
-        Object role = sessionFactory.getCurrentSession().createQuery(
-                "SELECT role FROM Role role WHERE role.name LIKE: name")
-                .setParameter("name", name)
-                .getSingleResult();
-        return (Role) role;
+        Role role = null;
+        try {
+            role = sessionFactory.getCurrentSession().createQuery(
+                    "SELECT role FROM Role role WHERE role.name LIKE: name", Role.class)
+                    .setParameter("name", name)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            LOGGER.error("No role found");
+        }
+        return role;
     }
 
 }

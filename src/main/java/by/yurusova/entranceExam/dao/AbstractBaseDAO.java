@@ -15,16 +15,16 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 @Transactional
-public abstract class AbstractBaseDAO {
+public abstract class AbstractBaseDAO<T> {
 
     protected SessionFactory sessionFactory;
 
     /**
      * Method saves object to database.
      *
-     * @param obj the object..
+     * @param obj the object.
      */
-    protected void save(final Object obj) {
+    protected void save(final T obj) {
         sessionFactory.getCurrentSession().save(obj);
     }
 
@@ -34,7 +34,7 @@ public abstract class AbstractBaseDAO {
      * @param queryString the query string.
      * @return list of object.
      */
-    protected List<Object> getAll(final String queryString) {
+    protected List<T> getAll(final String queryString) {
         return sessionFactory.getCurrentSession().createQuery(queryString).list();
     }
 
@@ -43,7 +43,7 @@ public abstract class AbstractBaseDAO {
      *
      * @param object the updated object.
      */
-    protected void update(final Object object) {
+    protected void update(final T object) {
         this.sessionFactory.getCurrentSession().saveOrUpdate(object);
     }
 
@@ -52,7 +52,7 @@ public abstract class AbstractBaseDAO {
      *
      * @param object deleted object.
      */
-    protected void delete(final Object object) {
+    protected void delete(final T object) {
         this.sessionFactory.getCurrentSession().delete(object);
     }
 

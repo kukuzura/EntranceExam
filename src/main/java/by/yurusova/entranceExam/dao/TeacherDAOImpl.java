@@ -37,7 +37,6 @@ public class TeacherDAOImpl extends AbstractBaseDAO implements TeacherDAO {
 
     @Override
     public List<Teacher> getAll() {
-        List teachers = super.getAll("from Teacher");
-        return (List<Teacher>) teachers;
+        return super.getAll("from Teacher");
     }
 }

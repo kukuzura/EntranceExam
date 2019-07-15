@@ -116,7 +116,7 @@
 
     <bean id="studentPageFacade" class="by.yurusova.entranceExam.facades.InformationPageCreationFacade">
         <property name="examService" ref="examService"/>
-        <property name="gradeService" ref="gradeService"/>
+        <property name="studentService" ref="studentService"/>
         <property name="userService" ref="userService"/>
       </bean>
 

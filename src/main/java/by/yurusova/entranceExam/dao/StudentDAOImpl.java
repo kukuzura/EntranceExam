@@ -43,45 +43,37 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
 
     @Override
     public List<Student> getAll() {
-        List students = super.getAll("from Student");
-        return (List<Student>) students;
+        return super.getAll("from Student");
     }
 
     @Transactional
     @Override
     public Student findByPassportID(final String passportID) {
-        Object student = null;
+        Student student = null;
         try {
             student = sessionFactory.getCurrentSession().createQuery(
-                    "SELECT student FROM Student student WHERE student.passportID =: passport_id")
+                    "SELECT student FROM Student student WHERE student.passportID =: passport_id", Student.class)
                     .setParameter("passport_id", passportID)
                     .getSingleResult();
-        }
-        catch (NoResultException ex) {
+        } catch (NoResultException ex) {
             LOGGER.error("No student found ");
         }
-        finally {
-            return (Student) student;
-        }
+        return student;
     }
 
     @Override
     public List<Student> findByExamID(final long examID) {
-        List students = null;
+        List<Student> students = null;
         try {
             students = sessionFactory.getCurrentSession().createQuery("SELECT student " +
                     " FROM Student AS student " +
                     " JOIN student.grades AS grade " +
                     " JOIN grade.exam as exam " +
-                    " WHERE exam.id=:examID \n ")
+                    " WHERE exam.id=:examID \n ", Student.class)
                     .setParameter("examID", examID).getResultList();
-        }
-        catch (NoResultException ex) {
+        } catch (NoResultException ex) {
             LOGGER.error("No student found for exam");
         }
-        finally {
-            return (List<Student>) students;
-        }
-
+        return students;
     }
 }

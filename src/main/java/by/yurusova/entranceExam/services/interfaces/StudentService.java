@@ -69,5 +69,13 @@ public interface StudentService {
      * @return list of students.
      */
     List<Student> findByExamID(long examID);
+
+    /**
+     * Method counts total grade of student by his id.
+     *
+     * @param studentID the id.
+     * @return total grade.
+     */
+    int getTotalGradeByID(long studentID);
 }
 

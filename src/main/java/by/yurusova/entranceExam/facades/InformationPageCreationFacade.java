@@ -5,6 +5,7 @@ import by.yurusova.entranceExam.entities.Teacher;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
+import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +28,7 @@ public class InformationPageCreationFacade {
     private ExamService examService;
 
     @Autowired
-    private GradeService gradeService;
+    private StudentService studentService;
 
     @Autowired
     private UserService userService;
@@ -45,6 +46,7 @@ public class InformationPageCreationFacade {
         Student student = user.getStudent();
         modelAndView.addObject("student", student);
         modelAndView.addObject("examList", examService.findByStudent(student.getId()));
+        modelAndView.addObject("totalGrade", studentService.getTotalGradeByID(student.getId()));
         return modelAndView;
     }
 
@@ -66,15 +68,6 @@ public class InformationPageCreationFacade {
     }
 
     /**
-     * Sets grade service.
-     *
-     * @param gradeService service to be set.
-     */
-    public void setGradeService(final GradeService gradeService) {
-        this.gradeService = gradeService;
-    }
-
-    /**
      * Sets user service.
      *
      * @param userService service to be set.
@@ -92,4 +85,12 @@ public class InformationPageCreationFacade {
         this.examService = examService;
     }
 
+    /**
+     * Sets student service.
+     *
+     * @param studentService service to be set.
+     */
+    public void setStudentService(StudentService studentService) {
+        this.studentService = studentService;
+    }
 }

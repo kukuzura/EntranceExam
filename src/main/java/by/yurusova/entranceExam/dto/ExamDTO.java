@@ -47,7 +47,7 @@ public class ExamDTO {
      *
      * @return the teacherDTO.
      */
-    public TeacherDTO getTeacherDTO() {
+    public TeacherDTO getTeacher() {
         return teacher;
     }
 
@@ -56,7 +56,7 @@ public class ExamDTO {
      *
      * @return the subjectDTO.
      */
-    public SubjectDTO getSubjectDTO() {
+    public SubjectDTO getSubject() {
         return subject;
     }
 
@@ -65,7 +65,7 @@ public class ExamDTO {
      *
      * @return the specialityDTO.
      */
-    public SpecialityDTO getSpecialityDTO() {
+    public SpecialityDTO getSpeciality() {
         return specialityDTO;
     }
 }

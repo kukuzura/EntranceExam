@@ -25,9 +25,9 @@ public class ExamReverseConverter implements Converter<ExamDTO, Exam> {
 
     @Override
     public Exam convert(final ExamDTO source) {
-        Teacher teacher = teacherReverseConverter.convert(source.getTeacherDTO());
-        Subject subject = subjectReverseConverter.convert(source.getSubjectDTO());
-        Speciality speciality = specialityReverseConverter.convert(source.getSpecialityDTO());
+        Teacher teacher = teacherReverseConverter.convert(source.getTeacher());
+        Subject subject = subjectReverseConverter.convert(source.getSubject());
+        Speciality speciality = specialityReverseConverter.convert(source.getSpeciality());
         return new Exam(source.getId(), teacher, subject, speciality);
     }
 }

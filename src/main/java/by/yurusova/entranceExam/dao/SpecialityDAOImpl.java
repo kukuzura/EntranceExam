@@ -2,6 +2,8 @@ package by.yurusova.entranceExam.dao;
 
 import by.yurusova.entranceExam.dao.interfaces.SpecialityDAO;
 import by.yurusova.entranceExam.entities.Speciality;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -37,7 +39,6 @@ public class SpecialityDAOImpl extends AbstractBaseDAO implements SpecialityDAO 
 
     @Override
     public List<Speciality> getAll() {
-        List specialities = super.getAll("from Speciality");
-        return (List<Speciality>) specialities;
+        return super.getAll("from Speciality");
     }
 }

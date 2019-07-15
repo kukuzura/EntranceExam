@@ -17,25 +17,32 @@
 <h3><spring:message code="teacherPage.lable.firstName"/>${teacher.firstName}</h3>
 <h3><spring:message code="teacherPage.lable.patronymic"/>${teacher.patronymic}</h3>
 <h2><spring:message code="studentPage.lable.exams"/></h2>
-<table>
-    <tr>
-        <th width="50"><spring:message code="teacherPage.lable.speciality"/></th>
-        <th width="80"><spring:message code="teacherPage.lable.subject"/></th>
-    </tr>
-    <c:forEach items="${examList}" var="exam">
-        <tr>
-            <td>
-                <p>${exam.speciality.name}</p>
-            </td>
-            <td>
-                <p>${exam.subject.name}</p
-            </td>
-            <td>
-                <a href="rate/${exam.id}"><spring:message code="teacherPage.button.grading"/></a>
-            </td>
-        </tr>
-    </c:forEach>
-</table>
+<c:choose>
+    <c:when test="empty examList">
+        <tr>You don't have exams</tr>
+    </c:when>
+    <c:otherwise>
+        <table>
+            <tr>
+                <th width="50"><spring:message code="teacherPage.lable.speciality"/></th>
+                <th width="80"><spring:message code="teacherPage.lable.subject"/></th>
+            </tr>
+            <c:forEach items="${examList}" var="exam">
+                <tr>
+                    <td>
+                        <p>${exam.speciality.name}</p>
+                    </td>
+                    <td>
+                        <p>${exam.subject.name}</p
+                    </td>
+                    <td>
+                        <a href="rate/${exam.id}"><spring:message code="teacherPage.button.grading"/></a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:otherwise>
+</c:choose>
 </body>
 
 </html>

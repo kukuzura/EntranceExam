@@ -73,6 +73,7 @@
 
             <tr>
                 <td>
+                    <a style="color: #6c757d ; margin: 10px" href="/login">Already have an account</a>
                     <button><spring:message code="teacherRegistration.button.confirm"/></button>
                 </td>
             </tr>

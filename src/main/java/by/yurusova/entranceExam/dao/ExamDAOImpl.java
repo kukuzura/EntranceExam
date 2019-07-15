@@ -42,47 +42,40 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
 
     @Override
     public List<Exam> getAll() {
-        List exams = super.getAll("from Exam");
-        return (List<Exam>) exams;
+        return super.getAll("from Exam");
     }
 
     @Override
     public List<Exam> findBySpeciality(final long specialityID) {
-        List exams = null;
+        List<Exam> exams = null;
         try {
             exams = sessionFactory.getCurrentSession().createQuery(
                     "SELECT exam " +
                             "FROM Exam AS exam " +
                             "JOIN exam.speciality AS speciality " +
-                            "WHERE speciality.id =: speciality_id")
+                            "WHERE speciality.id =: speciality_id", Exam.class)
                     .setParameter("speciality_id", specialityID)
                     .getResultList();
-        }
-        catch (NoResultException ex) {
+        } catch (NoResultException ex) {
             LOGGER.error("No exams found for speciality");
         }
-        finally {
-            return (List<Exam>) exams;
-        }
+        return exams;
     }
 
     @Override
     public List<Exam> findByStudent(final long studentID) {
-        List exams = null;
+        List<Exam> exams = null;
         try {
             exams = sessionFactory.getCurrentSession().createQuery("SELECT exam " +
                     " FROM Exam AS exam " +
                     " JOIN exam.grades AS grade " +
                     " JOIN grade.student as student " +
-                    " WHERE student.id=:studentID \n ")
+                    " WHERE student.id=:studentID \n ", Exam.class)
                     .setParameter("studentID", studentID).getResultList();
-        }
-        catch (NoResultException ex) {
+        } catch (NoResultException ex) {
             LOGGER.error("No exams found for student");
         }
-        finally {
-            return (List<Exam>) exams;
-        }
+        return exams;
 
     }
 }

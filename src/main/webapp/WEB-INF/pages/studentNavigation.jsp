@@ -8,7 +8,6 @@
 <ul>
     <li><a href="/"><spring:message code="studentNavigation.button.home"/></a></li>
     <li><a href="<c:url value = ""/>"><spring:message code="studentNavigation.button.studentPage"/></a></li>
-    <li><a href="<c:url value = ""/>"><spring:message code="studentNavigation.button.studentExamList"/></a></li>
     <li class="dropdown">
         <a class="dropbtn"><spring:message code="studentNavigation.dropdown.name"/></a>
         <div class="dropdown-content">
