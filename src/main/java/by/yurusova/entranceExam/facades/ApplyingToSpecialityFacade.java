@@ -7,6 +7,7 @@ import by.yurusova.entranceExam.entities.Grade;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.User;
+import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
@@ -26,8 +27,6 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 public class ApplyingToSpecialityFacade {
-
-    private static final int EXAMS_AMOUNT = 3;
 
     private SpecialityService specialityService;
 
@@ -70,8 +69,9 @@ public class ApplyingToSpecialityFacade {
         ModelAndView mav = new ModelAndView("/specialityList.jsp");
         List<Speciality> specialities = specialityService.getAll();
         List<Speciality> removed = new ArrayList<>();
+
         for (Speciality speciality : specialities) {
-            if (speciality.getExams().size() != EXAMS_AMOUNT) {
+            if (speciality.getExams().size() != Integer.valueOf(new ApplicationProperties().getExamAmount())) {
                 removed.add(speciality);
             }
         }

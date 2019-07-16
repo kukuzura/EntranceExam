@@ -106,7 +106,7 @@ public class RegistrationFacade {
 
     /**
      * Method converts UserDto and StudentDTO to User and Student
-     * and saves the to db.
+     * and saves it to db.
      *
      * @param userDTO    user
      * @param studentDTO student
