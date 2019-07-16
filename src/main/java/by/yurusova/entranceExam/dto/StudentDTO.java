@@ -1,5 +1,7 @@
 package by.yurusova.entranceExam.dto;
 
+import java.io.Serializable;
+
 /**
  * DTO for Student.
  *
@@ -9,7 +11,7 @@ package by.yurusova.entranceExam.dto;
  * @copyright 2019 SaM
  */
 
-public class StudentDTO {
+public class StudentDTO implements Serializable {
 
     private long id;
 

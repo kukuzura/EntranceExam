@@ -67,4 +67,5 @@ public class AdminOperationWithExamFacade {
     public void setExamConverter(final ExamConverter examConverter) {
         this.examConverter = examConverter;
     }
+
 }

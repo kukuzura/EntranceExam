@@ -101,12 +101,16 @@
         <property name="examService" ref="examService"/>
         <property name="subjectService" ref="subjectService"/>
         <property name="teacherService" ref="teacherService"/>
+        <property name="specialityConverter" ref="specialityConverter"/>
+        <property name="teacherConverter" ref="teacherConverter"/>
+        <property name="subjectConverter" ref="subjectConveter"/>
     </bean>
 
     <bean id="applyingToSpecialityFacade" class="by.yurusova.entranceExam.facades.ApplyingToSpecialityFacade">
         <property name="specialityService" ref="specialityService"/>
         <property name="userService" ref="userService"/>
         <property name="gradeService" ref="gradeService"/>
+        <property name="specialityConverter" ref="specialityConverter"/>
     </bean>
 
     <bean id="adminOPerationWithExamFacade" class="by.yurusova.entranceExam.facades.AdminOperationWithExamFacade">
@@ -118,7 +122,7 @@
         <property name="examService" ref="examService"/>
         <property name="studentService" ref="studentService"/>
         <property name="userService" ref="userService"/>
-      </bean>
+    </bean>
 
     <bean id="rateFacade" class="by.yurusova.entranceExam.facades.RateFacade">
         <property name="studentService" ref="studentService"/>

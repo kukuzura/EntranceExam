@@ -19,16 +19,16 @@
     <li class="dropdown nav">
         <a class="dropbtn">Register</a>
         <div class="dropdown-content">
-            <a href="/studentRegister">Teacher</a>
-            <a href="/teacherRegister">Student</a>
+            <a href="/studentRegister">Student</a>
+            <a href="/teacherRegister">Teacher</a>
         </div>
     <li><a  href="<c:url value = "/login"/>">Login</a></li>
     <li><a  href="<c:url value = "/about"/>">About</a></li>
     <li class="dropdown nav">
         <a class="dropbtn">Locale</a>
         <div class="dropdown-content">
-            <a href="?lang=en">ENG</a>
-            <a href="?lang=RU_ru">RUS</a>
+            <a href="?lang=en_US">ENG</a>
+            <a href="?lang=ru_RU">RUS</a>
         </div>
 </ul>
 <input type="radio" id="trigger1" name="slider">

@@ -18,7 +18,7 @@ import java.io.Serializable;
  * @copyright 2019 SaM
  */
 @Entity
-@Table(name = "examsdb.grade")
+@Table(name = "grade")
 public class Grade implements Serializable {
 
     @Id

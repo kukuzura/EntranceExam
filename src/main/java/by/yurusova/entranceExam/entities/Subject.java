@@ -19,7 +19,7 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 @Entity
-@Table(name = "examsdb.subject")
+@Table(name = "subject")
 public class Subject implements Serializable {
 
     @Id

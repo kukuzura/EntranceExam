@@ -22,7 +22,7 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 @Entity
-@Table(name = "examsdb.student")
+@Table(name = "student")
 public class Student implements Serializable {
 
     @Id
@@ -193,7 +193,7 @@ public class Student implements Serializable {
      *
      * @param grades grades to be set.
      */
-    public void setGrades(List<Grade> grades) {
+    public void setGrades(final List<Grade> grades) {
         this.grades = grades;
     }
 }

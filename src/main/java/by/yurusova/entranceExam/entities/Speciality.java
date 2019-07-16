@@ -23,7 +23,7 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 @Entity
-@Table(name = "examsdb.speciality")
+@Table(name = "speciality")
 public class Speciality implements Serializable {
 
     @Id

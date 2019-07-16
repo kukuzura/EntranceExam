@@ -3,7 +3,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #002752;
 }
 
 li {
@@ -19,9 +19,8 @@ li a  {
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+    background-color: midnightblue;
 }
 li.dropdown {
     display: inline-block;
@@ -30,7 +29,7 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: darkgrey;
+    background-color: #002752;
     min-width: 160px;
     z-index: 1;
 }
@@ -44,7 +43,7 @@ li.dropdown {
 }
 
 .dropdown-content a:hover {
-    background-color: lightgray;
+    background-color: midnightblue;
 }
 
 .dropdown:hover .dropdown-content {

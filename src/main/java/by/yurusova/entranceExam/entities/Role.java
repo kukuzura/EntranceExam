@@ -18,7 +18,7 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 @Entity
-@Table(name = "examsdb.role")
+@Table(name = "role")
 public class Role implements Serializable {
 
     @Id

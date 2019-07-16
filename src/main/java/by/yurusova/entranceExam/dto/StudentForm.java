@@ -1,5 +1,6 @@
 package by.yurusova.entranceExam.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class StudentForm {
+public class StudentForm implements Serializable {
 
     private ArrayList<StudentDTO> students;
 

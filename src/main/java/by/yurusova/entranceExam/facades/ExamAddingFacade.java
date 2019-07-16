@@ -1,5 +1,12 @@
 package by.yurusova.entranceExam.facades;
 
+import by.yurusova.entranceExam.converters.SpecialityConverter;
+import by.yurusova.entranceExam.converters.SubjectConverter;
+import by.yurusova.entranceExam.converters.TeacherConverter;
+import by.yurusova.entranceExam.dto.ExamDTO;
+import by.yurusova.entranceExam.dto.SpecialityDTO;
+import by.yurusova.entranceExam.dto.SubjectDTO;
+import by.yurusova.entranceExam.dto.TeacherDTO;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Subject;
@@ -9,6 +16,9 @@ import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.SubjectService;
 import by.yurusova.entranceExam.services.interfaces.TeacherService;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Facade for adding exam.
@@ -27,6 +37,12 @@ public class ExamAddingFacade {
     private SubjectService subjectService;
 
     private SpecialityService specialityService;
+
+    private SpecialityConverter specialityConverter;
+
+    private TeacherConverter teacherConverter;
+
+    private SubjectConverter subjectConverter;
 
     /**
      * Method adds exam to db.
@@ -54,11 +70,23 @@ public class ExamAddingFacade {
      */
     public ModelAndView createModelAndView() {
         ModelAndView mav = new ModelAndView("/addingExam.jsp");
-        mav.addObject("exam", new Exam());
-        mav.addObject("teacherList", teacherService.getAll());
-        mav.addObject("teacher", new Teacher());
-        mav.addObject("subjectList", subjectService.getAll());
-        mav.addObject("specialityList", specialityService.getAll());
+        mav.addObject("exam", new ExamDTO());
+        List<TeacherDTO> teacherDTOList = new ArrayList<>();
+        for (Teacher teacher : teacherService.getAll()) {
+            teacherDTOList.add(teacherConverter.convert(teacher));
+        }
+        mav.addObject("teacherList", teacherDTOList);
+        mav.addObject("teacher", new TeacherDTO());
+        List<SubjectDTO> subjectDTOS = new ArrayList<>();
+        mav.addObject("subjectList", subjectDTOS);
+        for (Subject subject : subjectService.getAll()) {
+            subjectDTOS.add(subjectConverter.convert(subject));
+        }
+        List<SpecialityDTO> specialityDTOS = new ArrayList<>();
+        for (Speciality speciality : specialityService.getAll()) {
+            specialityDTOS.add(specialityConverter.convert(speciality));
+        }
+        mav.addObject("specialityList", specialityDTOS);
         return mav;
     }
 
@@ -96,5 +124,32 @@ public class ExamAddingFacade {
      */
     public void setSpecialityService(final SpecialityService specialityService) {
         this.specialityService = specialityService;
+    }
+
+    /**
+     * Sets speciality converter.
+     *
+     * @param specialityConverter converter to be set.
+     */
+    public void setSpecialityConverter(final SpecialityConverter specialityConverter) {
+        this.specialityConverter = specialityConverter;
+    }
+
+    /**
+     * Sets teacher converter.
+     *
+     * @param teacherConverter converter to be set.
+     */
+    public void setTeacherConverter(final TeacherConverter teacherConverter) {
+        this.teacherConverter = teacherConverter;
+    }
+
+    /**
+     * Sets subject converter.
+     *
+     * @param subjectConverter converter to be set.
+     */
+    public void setSubjectConverter(final SubjectConverter subjectConverter) {
+        this.subjectConverter = subjectConverter;
     }
 }

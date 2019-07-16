@@ -56,7 +56,8 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
                             "WHERE speciality.id =: speciality_id", Exam.class)
                     .setParameter("speciality_id", specialityID)
                     .getResultList();
-        } catch (NoResultException ex) {
+        }
+        catch (NoResultException ex) {
             LOGGER.error("No exams found for speciality");
         }
         return exams;
@@ -72,7 +73,8 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
                     " JOIN grade.student as student " +
                     " WHERE student.id=:studentID \n ", Exam.class)
                     .setParameter("studentID", studentID).getResultList();
-        } catch (NoResultException ex) {
+        }
+        catch (NoResultException ex) {
             LOGGER.error("No exams found for student");
         }
         return exams;

@@ -1,5 +1,7 @@
 package by.yurusova.entranceExam.facades;
 
+import by.yurusova.entranceExam.converters.SpecialityConverter;
+import by.yurusova.entranceExam.dto.SpecialityDTO;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Grade;
 import by.yurusova.entranceExam.entities.Speciality;
@@ -33,6 +35,8 @@ public class ApplyingToSpecialityFacade {
 
     private GradeService gradeService;
 
+    private SpecialityConverter specialityConverter;
+
     /**
      * Method register student that mapped with user fro principal
      * for all exams of speciality with given id.
@@ -55,7 +59,8 @@ public class ApplyingToSpecialityFacade {
     }
 
     /**
-     * Method creates ModelAndView for SpecialityListPage
+     * Method creates ModelAndView for SpecialityListPage,
+     * converts speciality list to specialityDTO list,
      * and sets on model all specialties that have three exams.
      *
      * @return page with speciality list.
@@ -71,6 +76,10 @@ public class ApplyingToSpecialityFacade {
             }
         }
         specialities.removeAll(removed);
+        List<SpecialityDTO> specialityDTOS = new ArrayList<>();
+        for (Speciality speciality : specialities) {
+            specialityDTOS.add(specialityConverter.convert(speciality));
+        }
         mav.addObject("specialityList", specialities);
         return mav;
     }
@@ -94,12 +103,21 @@ public class ApplyingToSpecialityFacade {
     }
 
     /**
-     * Sets garde service.
+     * Sets grade service.
      *
      * @param gradeService service to be set.
      */
     public void setGradeService(final GradeService gradeService) {
         this.gradeService = gradeService;
+    }
+
+    /**
+     * Sets speciality converter.
+     *
+     * @param specialityConverter converter to be set.
+     */
+    public void setSpecialityConverter(final SpecialityConverter specialityConverter) {
+        this.specialityConverter = specialityConverter;
     }
 
 

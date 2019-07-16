@@ -1,5 +1,7 @@
 package by.yurusova.entranceExam.dto;
 
+import java.io.Serializable;
+
 /**
  * DTO for Teacher.
  *
@@ -8,7 +10,7 @@ package by.yurusova.entranceExam.dto;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class TeacherDTO {
+public class TeacherDTO implements Serializable {
 
     private String firstName;
 

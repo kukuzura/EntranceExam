@@ -57,11 +57,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public int getTotalGradeByID(long studentID) {
+    public int getTotalGradeByID(final long studentID) {
         Student student = studentDAO.findById(studentID);
         int totalGrade = 0;
-        for (Grade grade : student.getGrades())
+        for (Grade grade : student.getGrades()) {
             totalGrade += grade.getGrade();
+        }
         return totalGrade;
     }
 

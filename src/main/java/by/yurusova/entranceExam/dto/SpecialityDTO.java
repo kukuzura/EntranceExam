@@ -1,5 +1,7 @@
 package by.yurusova.entranceExam.dto;
 
+import java.io.Serializable;
+
 /**
  * DTO for Speciality.
  *
@@ -8,7 +10,7 @@ package by.yurusova.entranceExam.dto;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class SpecialityDTO {
+public class SpecialityDTO implements Serializable {
 
     private long id;
 

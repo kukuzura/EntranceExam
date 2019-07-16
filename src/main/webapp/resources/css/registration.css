@@ -7,16 +7,10 @@ body {
     width: 100%;
     min-height: 900px;
     margin: 3em auto;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7cac9+0,92a8d1+100 */
-    background: rgb(247, 202, 201);
-    /* Old browsers */
-    background: -moz-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, rgba(247, 202, 201, 1) 0%, rgba(146, 168, 209, 1) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    /* IE6-9 fallback on horizontal gradient */
+    background: midnightblue;
+    background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    background: linear-gradient(135deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     font-family: sans-serif;
     font-size: 10px
 
@@ -35,7 +29,7 @@ h2 {
     padding: 10px;
     text-align: center;
     font-size: 30px;
-    color: rgba(146, 168, 209, 1);
+    color: #002752;
     border-bottom: solid 1px #e5e5e5;
 }
 
@@ -125,7 +119,7 @@ label {
 a {
     left: 8px;
     horiz-align: center;
-    color: #999;
+    color: #002752;
     font-size: 16px;
     font-weight: 400;
 }

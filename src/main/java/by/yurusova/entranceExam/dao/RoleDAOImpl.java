@@ -55,7 +55,8 @@ public class RoleDAOImpl extends AbstractBaseDAO implements RoleDAO {
                     "SELECT role FROM Role role WHERE role.name LIKE: name", Role.class)
                     .setParameter("name", name)
                     .getSingleResult();
-        } catch (NoResultException e) {
+        }
+        catch (NoResultException e) {
             LOGGER.error("No role found");
         }
         return role;

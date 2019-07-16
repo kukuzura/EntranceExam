@@ -1,5 +1,7 @@
 package by.yurusova.entranceExam.dto;
 
+import java.io.Serializable;
+
 /**
  * DTO for Exam.
  *
@@ -8,7 +10,7 @@ package by.yurusova.entranceExam.dto;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class ExamDTO {
+public class ExamDTO implements Serializable {
 
     private long id;
 
@@ -31,6 +33,13 @@ public class ExamDTO {
         this.teacher = teacher;
         this.subject = subject;
         this.specialityDTO = specialityDTO;
+    }
+
+    /**
+     * Constructor for ExamDTO.
+     */
+    public ExamDTO() {
+
     }
 
     /**

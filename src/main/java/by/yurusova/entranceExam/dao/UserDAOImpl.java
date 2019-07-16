@@ -57,7 +57,8 @@ public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
                     "SELECT user FROM User user WHERE user.login LIKE: login", User.class)
                     .setParameter("login", login)
                     .getSingleResult();
-        } catch (NoResultException ex) {
+        }
+        catch (NoResultException ex) {
             LOGGER.error("No user found");
         }
         return user;

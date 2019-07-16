@@ -1,13 +1,14 @@
 package by.yurusova.entranceExam.facades;
 
+import by.yurusova.entranceExam.converters.ExamConverter;
+import by.yurusova.entranceExam.converters.StudentConverter;
+import by.yurusova.entranceExam.converters.TeacherConverter;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.Teacher;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
-import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,18 +22,19 @@ import java.security.Principal;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public class InformationPageCreationFacade {
 
-    @Autowired
     private ExamService examService;
 
-    @Autowired
     private StudentService studentService;
 
-    @Autowired
     private UserService userService;
 
+    private StudentConverter studentConverter;
+
+    private ExamConverter examConverter;
+
+    private TeacherConverter teacherConverter;
 
     /**
      * Method creates ModelAndView for student page.
@@ -90,7 +92,34 @@ public class InformationPageCreationFacade {
      *
      * @param studentService service to be set.
      */
-    public void setStudentService(StudentService studentService) {
+    public void setStudentService(final StudentService studentService) {
         this.studentService = studentService;
+    }
+
+    /**
+     * Sets student converter.
+     *
+     * @param studentConverter converter to be set.
+     */
+    public void setStudentConverter(final StudentConverter studentConverter) {
+        this.studentConverter = studentConverter;
+    }
+
+    /**
+     * Sets exam converter.
+     *
+     * @param examConverter converter to be set.
+     */
+    public void setExamConverter(final ExamConverter examConverter) {
+        this.examConverter = examConverter;
+    }
+
+    /**
+     * Sets teacher converter.
+     *
+     * @param teacherConverter converter to be set.
+     */
+    public void setTeacherConverter(final TeacherConverter teacherConverter) {
+        this.teacherConverter = teacherConverter;
     }
 }

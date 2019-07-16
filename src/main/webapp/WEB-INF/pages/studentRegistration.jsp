@@ -33,17 +33,17 @@
             </p>
             <p>
                 <label for="lastName" class="floatLabel"><spring:message code="studentRegistration.lable.lastName"/></label>
-                <input id="lastName" name="lastName" type="password">
+                <input id="lastName" name="lastName" >
                 <span><form:errors path="student.lastName"/></span>
             </p>
             <p>
                 <label for="patronymic" class="floatLabel"><spring:message code="studentRegistration.lable.patronymic"/></label>
-                <input id="patronymic" name="patronymic" type="password">
+                <input id="patronymic" name="patronymic">
                 <span><form:errors path="student.patronymic"/></span>
             </p>
             <p>
                 <label for="passportID" class="floatLabel"><spring:message code="studentRegistration.lable.passportID"/></label>
-                <input id="passportID" name="passportID" type="password">
+                <input id="passportID" name="passportID">
                 <span><form:errors path="student.patronymic"/></span>
             </p>
             <p>

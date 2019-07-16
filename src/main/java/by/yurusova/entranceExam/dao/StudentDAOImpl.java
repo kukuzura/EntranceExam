@@ -55,7 +55,8 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
                     "SELECT student FROM Student student WHERE student.passportID =: passport_id", Student.class)
                     .setParameter("passport_id", passportID)
                     .getSingleResult();
-        } catch (NoResultException ex) {
+        }
+        catch (NoResultException ex) {
             LOGGER.error("No student found ");
         }
         return student;
@@ -71,7 +72,8 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
                     " JOIN grade.exam as exam " +
                     " WHERE exam.id=:examID \n ", Student.class)
                     .setParameter("examID", examID).getResultList();
-        } catch (NoResultException ex) {
+        }
+        catch (NoResultException ex) {
             LOGGER.error("No student found for exam");
         }
         return students;
