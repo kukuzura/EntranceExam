@@ -17,13 +17,13 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
+public class StudentDAOImpl extends AbstractBaseDAO<Student> implements StudentDAO {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(SpecialityDAOImpl.class);
 
     @Override
     public Student findById(final long id) {
-        return (Student) super.findById(id, Student.class);
+        return super.findById(id, Student.class);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class StudentDAOImpl extends AbstractBaseDAO implements StudentDAO {
 
     @Override
     public List<Student> getAll() {
-        return super.getAll("from Student");
+        return super.getAll("from Student", Student.class);
     }
 
     @Transactional

@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Abstract DAO class.
  *
+ * @param <T> type of object that will be used.
  * @author Yuliya Yurusava <y.yurusava@sam-solurions.com>
  * @package by.yurusova.entranceExam.dao
  * @link http ://sam-solutions.com/
@@ -31,11 +32,12 @@ public abstract class AbstractBaseDAO<T> {
     /**
      * Returns list of objects from db.
      *
+     * @param type type of object that will be used.
      * @param queryString the query string.
      * @return list of object.
      */
-    protected List<T> getAll(final String queryString) {
-        return sessionFactory.getCurrentSession().createQuery(queryString).list();
+    protected List<T> getAll(final String queryString, final Class<T> type) {
+        return sessionFactory.getCurrentSession().createQuery(queryString, type).list();
     }
 
     /**
@@ -63,7 +65,7 @@ public abstract class AbstractBaseDAO<T> {
      * @param type type of object.
      * @return object of given type with given id.
      */
-    protected Object findById(final long id, final Class<?> type) {
+    protected T findById(final long id, final Class<T> type) {
         Session session = this.sessionFactory.getCurrentSession();
         return session.get(type, id);
     }

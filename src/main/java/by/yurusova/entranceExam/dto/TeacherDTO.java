@@ -12,6 +12,8 @@ import java.io.Serializable;
  */
 public class TeacherDTO implements Serializable {
 
+    private long id;
+
     private String firstName;
 
     private String lastName;
@@ -21,11 +23,13 @@ public class TeacherDTO implements Serializable {
     /**
      * Constructor with parameters for class TeacherDTO.
      *
+     * @param id         id of new user.
      * @param firstName  first name of new teacherDTO.
      * @param lastName   last name of new teacherDTO.
      * @param patronymic patronymic of new teacherDTO.
      */
-    public TeacherDTO(final String firstName, final String lastName, final String patronymic) {
+    public TeacherDTO(final long id, final String firstName, final String lastName, final String patronymic) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.patronymic = patronymic;
@@ -89,5 +93,23 @@ public class TeacherDTO implements Serializable {
      */
     public void setPatronymic(final String patronymic) {
         this.patronymic = patronymic;
+    }
+
+    /**
+     * Gets teacher id.
+     *
+     * @return the id.
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * Sets teacher id.
+     *
+     * @param id id to be set.
+     */
+    public void setId(final long id) {
+        this.id = id;
     }
 }

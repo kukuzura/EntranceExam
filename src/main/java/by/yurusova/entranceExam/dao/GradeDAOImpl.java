@@ -16,7 +16,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class GradeDAOImpl extends AbstractBaseDAO implements GradeDAO {
+public class GradeDAOImpl extends AbstractBaseDAO<Grade> implements GradeDAO {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(GradeDAOImpl.class);
 
@@ -47,7 +47,7 @@ public class GradeDAOImpl extends AbstractBaseDAO implements GradeDAO {
 
     @Override
     public List<Grade> getAll() {
-        return super.getAll("from Grade");
+        return super.getAll("from Grade", Grade.class);
     }
 
     @Override

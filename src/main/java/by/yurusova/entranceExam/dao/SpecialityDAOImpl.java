@@ -13,11 +13,11 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class SpecialityDAOImpl extends AbstractBaseDAO implements SpecialityDAO {
+public class SpecialityDAOImpl extends AbstractBaseDAO<Speciality> implements SpecialityDAO {
 
     @Override
     public Speciality findById(final long id) {
-        return (Speciality) super.findById(id, Speciality.class);
+        return super.findById(id, Speciality.class);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class SpecialityDAOImpl extends AbstractBaseDAO implements SpecialityDAO 
 
     @Override
     public List<Speciality> getAll() {
-        return super.getAll("from Speciality");
+        return super.getAll("from Speciality", Speciality.class);
     }
 }

@@ -56,15 +56,9 @@
 
     <bean id="userConverter" class="by.yurusova.entranceExam.converters.UserConverter"/>
 
-    <bean id="userReverseConverter" class="by.yurusova.entranceExam.converters.UserReverseConverter"/>
-
     <bean id="studentConverter" class="by.yurusova.entranceExam.converters.StudentConverter"/>
 
-    <bean id="studentReverseConverter" class="by.yurusova.entranceExam.converters.StudentReverseConverter"/>
-
     <bean id="teacherConverter" class="by.yurusova.entranceExam.converters.TeacherConverter"/>
-
-    <bean id="teacherReverseConverter" class="by.yurusova.entranceExam.converters.TeacherReverseConverter"/>
 
     <bean id="specialityConverter" class="by.yurusova.entranceExam.converters.SpecialityConverter"/>
 
@@ -83,16 +77,15 @@
     <bean id="registrationFacade" class="by.yurusova.entranceExam.facades.RegistrationFacade">
         <property name="userService" ref="userService"/>
         <property name="studentService" ref="studentService"/>
-        <property name="studentReverseConverter" ref="studentReverseConverter"/>
-        <property name="userReverseConverter" ref="userReverseConverter"/>
+        <property name="studentConverter" ref="studentConverter"/>
+        <property name="userConverter" ref="userConverter"/>
         <property name="roleService" ref="roleService"/>
-        <property name="teacherReverseConverter" ref="teacherReverseConverter"/>
+        <property name="teacherConverter" ref="teacherConverter"/>
         <property name="teacherService" ref="teacherService"/>
     </bean>
 
     <bean id="userOperationsFacade" class="by.yurusova.entranceExam.facades.UserOperationsFacade">
         <property name="userConverter" ref="userConverter"/>
-        <property name="userReverseConverter" ref="userReverseConverter"/>
         <property name="userService" ref="userService"/>
     </bean>
 
@@ -111,6 +104,7 @@
         <property name="userService" ref="userService"/>
         <property name="gradeService" ref="gradeService"/>
         <property name="specialityConverter" ref="specialityConverter"/>
+        <property name="properties" ref="appProperties"/>
     </bean>
 
     <bean id="adminOPerationWithExamFacade" class="by.yurusova.entranceExam.facades.AdminOperationWithExamFacade">
@@ -134,5 +128,6 @@
         <property name="studentConverterForRate" ref="studentConverterForRate"/>
     </bean>
 
+    <bean id="appProperties" class="by.yurusova.entranceExam.properties.ApplicationProperties"/>
 
 </beans>

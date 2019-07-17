@@ -18,7 +18,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
+public class UserDAOImpl extends AbstractBaseDAO<User> implements UserDAO {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(UserDAOImpl.class);
 
@@ -45,7 +45,7 @@ public class UserDAOImpl extends AbstractBaseDAO implements UserDAO {
 
     @Override
     public List<User> getAll() {
-        return super.getAll("from User");
+        return super.getAll("from User", User.class);
     }
 
     @Transactional

@@ -1,11 +1,11 @@
 package by.yurusova.entranceExam.dao;
 
 
-
 import by.yurusova.entranceExam.dao.interfaces.SubjectDAO;
 import by.yurusova.entranceExam.entities.Subject;
 
 import java.util.List;
+
 /**
  * Class responsible for operations with subject table.
  *
@@ -14,7 +14,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class SubjectDAOImpl extends AbstractBaseDAO implements SubjectDAO {
+public class SubjectDAOImpl extends AbstractBaseDAO<Subject> implements SubjectDAO {
 
     @Override
     public Subject findById(final long id) {
@@ -28,7 +28,7 @@ public class SubjectDAOImpl extends AbstractBaseDAO implements SubjectDAO {
 
     @Override
     public List<Subject> getAll() {
-        return super.getAll("from Subject");
+        return super.getAll("from Subject", Subject.class);
     }
 
     @Override

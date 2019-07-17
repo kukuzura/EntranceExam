@@ -1,7 +1,6 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.UserConverter;
-import by.yurusova.entranceExam.converters.UserReverseConverter;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.UserService;
@@ -22,9 +21,8 @@ public class UserOperationsFacade {
 
     private UserService userService;
 
-    private UserReverseConverter userReverseConverter;
-
     private UserConverter userConverter;
+
 
     /**
      * Method delete user by id.
@@ -79,15 +77,6 @@ public class UserOperationsFacade {
     }
 
     /**
-     * Sets user reverse converter.
-     *
-     * @param userReverseConverter converter to be set.
-     */
-    public void setUserReverseConverter(final UserReverseConverter userReverseConverter) {
-        this.userReverseConverter = userReverseConverter;
-    }
-
-    /**
      * Method creates ModelAndView for user list.
      *
      * @return page with list of users.
@@ -119,7 +108,7 @@ public class UserOperationsFacade {
      * @param userDTO userDTO to be update.
      */
     public void update(final UserDTO userDTO) {
-        User user = userReverseConverter.convert(userDTO);
+        User user = userConverter.convertBack(userDTO);
         userService.editUser(user);
     }
 }

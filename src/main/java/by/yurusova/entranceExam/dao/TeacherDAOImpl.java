@@ -13,7 +13,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class TeacherDAOImpl extends AbstractBaseDAO implements TeacherDAO {
+public class TeacherDAOImpl extends AbstractBaseDAO<Teacher> implements TeacherDAO {
 
     @Override
     public Teacher findById(final long id) {
@@ -37,6 +37,6 @@ public class TeacherDAOImpl extends AbstractBaseDAO implements TeacherDAO {
 
     @Override
     public List<Teacher> getAll() {
-        return super.getAll("from Teacher");
+        return super.getAll("from Teacher", Teacher.class);
     }
 }

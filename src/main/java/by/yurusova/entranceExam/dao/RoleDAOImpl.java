@@ -17,13 +17,13 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class RoleDAOImpl extends AbstractBaseDAO implements RoleDAO {
+public class RoleDAOImpl extends AbstractBaseDAO<Role> implements RoleDAO {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(RoleDAOImpl.class);
 
     @Override
     public Role findById(final long id) {
-        return (Role) super.findById(id, Role.class);
+        return super.findById(id, Role.class);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class RoleDAOImpl extends AbstractBaseDAO implements RoleDAO {
 
     @Override
     public List<Role> getAll() {
-        return super.getAll("from Role");
+        return super.getAll("from Role", Role.class);
     }
 
     @Override

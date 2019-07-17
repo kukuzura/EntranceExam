@@ -17,7 +17,7 @@ import org.springframework.core.convert.converter.Converter;
  */
 public class ExamReverseConverter implements Converter<ExamDTO, Exam> {
 
-    private TeacherReverseConverter teacherReverseConverter;
+    private TeacherConverter teacherReverseConverter;
 
     private SubjectReverseConverter subjectReverseConverter;
 
@@ -25,7 +25,7 @@ public class ExamReverseConverter implements Converter<ExamDTO, Exam> {
 
     @Override
     public Exam convert(final ExamDTO source) {
-        Teacher teacher = teacherReverseConverter.convert(source.getTeacher());
+        Teacher teacher = teacherReverseConverter.convertBack(source.getTeacher());
         Subject subject = subjectReverseConverter.convert(source.getSubject());
         Speciality speciality = specialityReverseConverter.convert(source.getSpeciality());
         return new Exam(source.getId(), teacher, subject, speciality);

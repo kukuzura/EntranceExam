@@ -11,7 +11,6 @@ import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -36,6 +35,8 @@ public class ApplyingToSpecialityFacade {
 
     private SpecialityConverter specialityConverter;
 
+    private ApplicationProperties properties;
+
     /**
      * Method register student that mapped with user fro principal
      * for all exams of speciality with given id.
@@ -43,7 +44,6 @@ public class ApplyingToSpecialityFacade {
      * @param id        speciality id.
      * @param principal user information.
      */
-    @Transactional
     public void applyToSpeciality(final long id, final Principal principal) {
         Speciality speciality = specialityService.findById(id);
         List<Exam> exams = speciality.getExams();
@@ -64,14 +64,13 @@ public class ApplyingToSpecialityFacade {
      *
      * @return page with speciality list.
      */
-    @Transactional
     public ModelAndView createSpecialityListPage() {
         ModelAndView mav = new ModelAndView("/specialityList.jsp");
         List<Speciality> specialities = specialityService.getAll();
         List<Speciality> removed = new ArrayList<>();
 
         for (Speciality speciality : specialities) {
-            if (speciality.getExams().size() != Integer.valueOf(new ApplicationProperties().getExamAmount())) {
+            if (speciality.getExams().size() != Integer.valueOf(properties.getExamAmount())) {
                 removed.add(speciality);
             }
         }
@@ -120,5 +119,12 @@ public class ApplyingToSpecialityFacade {
         this.specialityConverter = specialityConverter;
     }
 
-
+    /**
+     * Sets object that contains constants values.
+     *
+     * @param properties the object to be set.
+     */
+    public void setProperties(final ApplicationProperties properties) {
+        this.properties = properties;
+    }
 }

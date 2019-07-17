@@ -16,13 +16,13 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
+public class ExamDAOImpl extends AbstractBaseDAO<Exam> implements ExamDAO {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(ExamDAOImpl.class);
 
     @Override
     public Exam findById(final long id) {
-        return (Exam) super.findById(id, Exam.class);
+        return super.findById(id, Exam.class);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class ExamDAOImpl extends AbstractBaseDAO implements ExamDAO {
 
     @Override
     public List<Exam> getAll() {
-        return super.getAll("from Exam");
+        return super.getAll("from Exam", Exam.class);
     }
 
     @Override
