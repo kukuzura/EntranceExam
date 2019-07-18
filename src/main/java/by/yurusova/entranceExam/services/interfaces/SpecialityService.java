@@ -28,4 +28,11 @@ public interface SpecialityService {
      * @return the speciality.
      */
     Speciality findById(long id);
+
+    /**
+     * Updates speciality information in database.
+     *
+     * @param speciality speciality to be update.
+     */
+    void update(Speciality speciality);
 }

@@ -65,4 +65,12 @@ public interface StudentDAO {
      * @return list of students.
      */
     List<Student> findByExamID(long examID);
+
+    /**
+     * Method gets all students that applied to speciality with given id.
+     *
+     * @param specialityID the specialty id.
+     * @return list of students.
+     */
+    List<Student> findBySpecialityIDOrdered(final long specialityID);
 }

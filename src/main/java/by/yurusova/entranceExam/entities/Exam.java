@@ -1,6 +1,7 @@
 package by.yurusova.entranceExam.entities;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,6 +28,9 @@ public class Exam implements Serializable {
     @Id
     @GeneratedValue(generator = "increment")
     private long id;
+
+    @Column(name = "is_graded")
+    private boolean isGraded;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")
@@ -152,5 +156,23 @@ public class Exam implements Serializable {
      */
     public void setSpeciality(final Speciality speciality) {
         this.speciality = speciality;
+    }
+
+    /**
+     * Return exam status: grades sets or not.
+     *
+     * @return exam status.
+     */
+    public boolean isGraded() {
+        return isGraded;
+    }
+
+    /**
+     * Sets exam status: grades sets or not.
+     *
+     * @param graded the status.
+     */
+    public void setGraded(final boolean graded) {
+        isGraded = graded;
     }
 }

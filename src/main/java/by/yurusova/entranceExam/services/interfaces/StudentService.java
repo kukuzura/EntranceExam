@@ -77,5 +77,13 @@ public interface StudentService {
      * @return total grade.
      */
     int getTotalGradeByID(long studentID);
+
+    /**
+     * Gets all student that applied to speciality with given id.
+     *
+     * @param specialityID speciality id.
+     * @return list of students.
+     */
+    List<Student> findBySpecialityIDOrdered(long specialityID);
 }
 

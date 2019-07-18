@@ -43,4 +43,13 @@ public class ApplicationProperties {
     public String getExamAmount() {
         return properties.getProperty("EXAMS_AMOUNT");
     }
+
+    /**
+     * Method gets REQUIRED_STUDENT_AMOUNT value.
+     *
+     * @return student amount.
+     */
+    public String getStudentAmount() {
+        return properties.getProperty("REQUIRED_STUDENT_AMOUNT");
+    }
 }

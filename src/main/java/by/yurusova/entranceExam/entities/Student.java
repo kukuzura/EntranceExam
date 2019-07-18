@@ -49,6 +49,9 @@ public class Student implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "student")
     private List<Grade> grades;
 
+    @Column(name = "grade")
+    private int totalGrade;
+
     /**
      * Constructor for Student class.
      */
@@ -70,7 +73,6 @@ public class Student implements Serializable {
         this.lastName = lastName;
         this.patronymic = patronymic;
     }
-
 
 
     /**
@@ -197,5 +199,23 @@ public class Student implements Serializable {
      */
     public void setGrades(final List<Grade> grades) {
         this.grades = grades;
+    }
+
+    /**
+     * Gets student total grade.
+     *
+     * @return total grade.
+     */
+    public int getTotalGrade() {
+        return totalGrade;
+    }
+
+    /**
+     * Sets student total grade.
+     *
+     * @param totalGrade grade to be set.
+     */
+    public void setTotalGrade(final int totalGrade) {
+        this.totalGrade = totalGrade;
     }
 }

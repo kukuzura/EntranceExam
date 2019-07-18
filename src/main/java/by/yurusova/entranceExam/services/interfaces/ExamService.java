@@ -22,6 +22,13 @@ public interface ExamService {
     List<Exam> getAll();
 
     /**
+     * Method updates exam in db.
+     *
+     * @param exam exam to be update.
+     */
+    void update(Exam exam);
+
+    /**
      * Method saves exam.
      *
      * @param exam exam to be save.

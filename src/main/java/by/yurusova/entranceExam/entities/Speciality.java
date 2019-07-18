@@ -122,4 +122,22 @@ public class Speciality implements Serializable {
     public void setExams(final List<Exam> exams) {
         this.exams = exams;
     }
+
+    /**
+     * Method entering grade to specialty.
+     *
+     * @return entering grade.
+     */
+    public double getEnteringGrade() {
+        return enteringGrade;
+    }
+
+    /**
+     * Method sets entering grade.
+     *
+     * @param enteringGrade grade to be set.
+     */
+    public void setEnteringGrade(final double enteringGrade) {
+        this.enteringGrade = enteringGrade;
+    }
 }

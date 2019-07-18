@@ -59,7 +59,7 @@ public class InformationPageCreationFacade {
             examDTOList.add(examConverter.convert(exam));
         }
         modelAndView.addObject("examList", examDTOList);
-        modelAndView.addObject("totalGrade", studentService.getTotalGradeByID(student.getId()));
+        modelAndView.addObject("totalGrade", student.getGrade());
         return modelAndView;
     }
 
@@ -68,7 +68,8 @@ public class InformationPageCreationFacade {
      * Method creates ModelAndView for teacher page,
      * gets teacher information by login of user that bind with this teacher,
      * converter it to teacherDTO,
-     * and sets it ant it's exams(converted too) to modelAndView.
+     * and sets it ant it's exams(converted too),
+     * if this exams still not graded, to modelAndView.
      *
      * @param principal object with user information.
      * @return the ModelAndView.
@@ -81,7 +82,9 @@ public class InformationPageCreationFacade {
         modelAndView.addObject("teacher", teacherConverter.convert(teacher));
         List<ExamDTO> examDTOS = new ArrayList<>();
         for (Exam exam : teacher.getExams()) {
-            examDTOS.add(examConverter.convert(exam));
+            if (!exam.isGraded()) {
+                examDTOS.add(examConverter.convert(exam));
+            }
         }
         modelAndView.addObject("examList", teacher.getExams());
         return modelAndView;

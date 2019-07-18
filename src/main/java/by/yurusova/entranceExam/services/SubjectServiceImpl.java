@@ -20,8 +20,7 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public List<Subject> getAll() {
-        List subjects = subjectDAO.getAll();
-        return (List<Subject>) subjects;
+        return subjectDAO.getAll();
     }
 
     @Override

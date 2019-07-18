@@ -66,6 +66,11 @@ public class StudentServiceImpl implements StudentService {
         return totalGrade;
     }
 
+    @Override
+    public List<Student> findBySpecialityIDOrdered(final long specialityID) {
+        return studentDAO.findBySpecialityIDOrdered(specialityID);
+    }
+
 
     /**
      * Sets studentDAO.

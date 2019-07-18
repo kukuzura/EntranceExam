@@ -21,8 +21,12 @@ public class ExamServiceImpl implements ExamService {
 
     @Override
     public List<Exam> getAll() {
-        List exams = examDAO.getAll();
-        return (List<Exam>) exams;
+        return examDAO.getAll();
+    }
+
+    @Override
+    public void update(final Exam exam) {
+        examDAO.update(exam);
     }
 
     @Override
@@ -39,7 +43,7 @@ public class ExamServiceImpl implements ExamService {
 
     @Override
     public List<Exam> findBySpeciality(final long specialityID) {
-        return null;
+        return examDAO.findBySpeciality(specialityID);
     }
 
     @Override

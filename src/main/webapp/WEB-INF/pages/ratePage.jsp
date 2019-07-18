@@ -7,8 +7,27 @@
     <title><spring:message key="ratePage.title"/></title>
 </head>
 <body>
+<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#gradingForm").validate({});
+        $('.grade').each(function () {
+            $(this).rules('add', {
+                required: true,
+                number: true,
+                range: [1, 100],
+                messages: {
+                    required: "it's required",
+                    range: "range"
+                }
+            })
+        });
+
+    });
+</script>
 <input type="hidden" name="examID" value="${examID}">
-<form:form method="post" action="/account/rate/${examID}" modelAttribute="studentForm">
+<form:form id="gradingForm" method="post" action="/account/rate/${examID}" modelAttribute="studentForm">
     <table id="list">
         <tr>
             <th><spring:message key="ratePage.lable.passportID"/></th>
@@ -37,11 +56,13 @@
                                 readonly="true"/>
                 </td>
                 <td>
-                    <form:input path="students[${status.index}].grade" name="grade" id="grade" value=""/>
+                    <form:input path="students[${status.index}].grade" name="grade" id="grade" value=""
+                                cssClass="grade"/>
+                    <br/>
                 </td>
             <tr></tr>
         </c:forEach>
-        <input type="submit" value="<spring:message key="ratePage.button.submit"/>">
+        <input type="submit" value="<spring:message key="ratePage.button.submit"/> ">
     </table>
 </form:form>
 </body>

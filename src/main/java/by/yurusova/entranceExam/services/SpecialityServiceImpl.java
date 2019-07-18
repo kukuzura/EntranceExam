@@ -28,6 +28,11 @@ public class SpecialityServiceImpl implements SpecialityService {
         return specialityDAO.findById(id);
     }
 
+    @Override
+    public void update(final Speciality speciality) {
+        specialityDAO.update(speciality);
+    }
+
     /**
      * Method sets specialityDAO.
      *

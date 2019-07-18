@@ -130,4 +130,10 @@
 
     <bean id="appProperties" class="by.yurusova.entranceExam.properties.ApplicationProperties"/>
 
+    <bean id="calculatingEnteringGradeFacade" class="by.yurusova.entranceExam.facades.CalculationOfEnteringGradeFacade">
+        <property name="studentService" ref="studentService"/>
+        <property name="applicationProperties" ref="appProperties"/>
+        <property name="specialityService" ref="specialityService"/>
+    </bean>
+
 </beans>

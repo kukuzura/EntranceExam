@@ -3,7 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:database.properties"/>
     </bean>
@@ -45,7 +44,9 @@
 
     <bean id="roleDAO" class="by.yurusova.entranceExam.dao.RoleDAOImpl" parent="abstractDAO"/>
 
-    <bean id="studentDAO" class="by.yurusova.entranceExam.dao.StudentDAOImpl" parent="abstractDAO"/>
+    <bean id="studentDAO" class="by.yurusova.entranceExam.dao.StudentDAOImpl" parent="abstractDAO">
+        <property name="applicationProperties" ref="appProperties"/>
+    </bean>
 
     <bean id="teacherDAO" class="by.yurusova.entranceExam.dao.TeacherDAOImpl" parent="abstractDAO"/>
 
@@ -58,6 +59,5 @@
     <bean id="gradeDAO" class="by.yurusova.entranceExam.dao.GradeDAOImpl" parent="abstractDAO"/>
 
     <tx:annotation-driven />
-
 
 </beans>

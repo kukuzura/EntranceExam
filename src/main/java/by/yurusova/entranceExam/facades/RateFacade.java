@@ -31,6 +31,8 @@ public class RateFacade {
 
     private StudentConverterForRate studentConverterForRate;
 
+    private CalculationOfEnteringGradeFacade calculationOfEnteringGradeFacade;
+
     /**
      * Method creates ModelAndView for rate page,
      * finds all students that register to this exam,
@@ -57,19 +59,25 @@ public class RateFacade {
 
     /**
      * Method updates student grades in db,
-     * for all students that register for exams with id examID.
+     * for all students that register for exams with id examID,
+     * and sets isGraded flag to true.
      *
      * @param studentDTOS list of student with grades.
      * @param examID      exam id.
-     * @return teacherPage.
      */
-    public String rateStudents(final ArrayList<StudentDTO> studentDTOS, final long examID) {
+    public void rateStudents(final ArrayList<StudentDTO> studentDTOS, final long examID) {
         Exam exam = examService.findByID(examID);
-        List<Student> students = new ArrayList<>();
+        exam.setGraded(true);
         for (StudentDTO studentDTO : studentDTOS) {
+            Student student = studentConverterForRate.convertBack(studentDTO);
+            student.setTotalGrade(studentDTO.getGrade() + student.getTotalGrade());
             gradeService.updateByExamAndStudent(examID, studentDTO.getId(), studentDTO.getGrade());
+            studentService.editStudent(student);
         }
-        return "/teacherPage.jsp";
+        examService.update(exam);
+        if (calculationOfEnteringGradeFacade.isAllExamsGrated(exam.getSpeciality())) {
+            calculationOfEnteringGradeFacade.calculateAndSetEnteringGrade(exam.getSpeciality());
+        }
     }
 
     /**

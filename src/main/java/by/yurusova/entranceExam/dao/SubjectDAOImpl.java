@@ -18,7 +18,7 @@ public class SubjectDAOImpl extends AbstractBaseDAO<Subject> implements SubjectD
 
     @Override
     public Subject findById(final long id) {
-        return (Subject) super.findById(id, Subject.class);
+        return super.findById(id, Subject.class);
     }
 
     @Override
