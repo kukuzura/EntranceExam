@@ -8,38 +8,37 @@
 <html>
 
 <head>
+    <title><spring:message code="home.title"/></title>
     <link rel="stylesheet" href="/resources/css/home.css"/>
     <link rel="stylesheet" href="/resources/css/navigation.css"/>
 </head>
 
 <body>
 <ul>
-    <li ><a href="/">Home</a></li>
-    <li><a  href="<c:url value = "/specialityList"/>">Speciality List</a></li>
+    <li><a href="/"><spring:message code="home.navigation.button.home"/></a></li>
+    <li><a href="<c:url value = "/specialityList"/>"><spring:message code="home.navigation.button.speciality"/> </a>
+    </li>
     <li class="dropdown nav">
-        <a class="dropbtn">Register</a>
+        <a class="dropbtn"><spring:message code="home.navigation.dropdown.registration"/> </a>
         <div class="dropdown-content">
-            <a href="/studentRegister">Student</a>
-            <a href="/teacherRegister">Teacher</a>
+            <a href="/studentRegister"><spring:message code="home.navigation.button.studentRegistration"/></a>
+            <a href="/teacherRegister"><spring:message code="home.navigation.button.teacherRegistration"/></a>
         </div>
-    <li><a  href="<c:url value = "/login"/>">Login</a></li>
-    <li><a  href="<c:url value = "/about"/>">About</a></li>
+    <li><a href="<c:url value = "/login"/>"><spring:message code="home.navigation.button.login"/> </a></li>
+    <li><a href="<c:url value = "/about"/>"><spring:message code="home.navigation.button.about"/> </a></li>
     <li class="dropdown nav">
-        <a class="dropbtn">Locale</a>
+        <a class="dropbtn"><spring:message code="home.navigation.dropdown.locale"/> </a>
         <div class="dropdown-content">
-            <a href="?lang=en_US">ENG</a>
-            <a href="?lang=ru_RU">RUS</a>
+            <a href="?lang=en_US"><spring:message code="home.navigation.button.locale_en"/> </a>
+            <a href="?lang=ru_RU"><spring:message code="home.navigation.button.locale_ru"/> </a>
         </div>
 </ul>
 <input type="radio" id="trigger1" name="slider">
 <label for="trigger1"></label>
 <div class="slide bg1">
     <div class="title">
-        <h1>THINKING OF MAJORING IN ASTRONOMY?</h1>
-        <h2>OSU's excellent Bachelor of Science degree in Astronomy prepares you for graduate school and success in
-            industry.
-            <i class="arrow down"></i>
-        </h2>
+        <h1><spring:message code="home.navigation.text.tab1.h1"/></h1>
+        <h2><spring:message code="home.navigation.text.tab1.h2"/></h2>
     </div>
     <div>
         <p class="description">Information for Prospective Majors
@@ -70,9 +69,9 @@
             other events. Please contact the Director of Undergraduate Studies if you are interested in a major or minor
             in astronomy and astrophysics.
         <p>
-        <p>
+
             <a class="link" href="/specialityList">Speciality List</a>
-        </p>
+
     </div>
 </div>
 
@@ -81,16 +80,9 @@
 <div class="slide bg3">
     <div>
         <div class="title">
-            <h1>APPLY FOR OUR GRADUATE PROGRAM</h1>
-            <h2>The Ohio State Department of Astronomy offers a superb Ph.D. program for students interested in
-                optical/infrared observational astrophysics and theoretical astrophysics.
-            </h2>
+            <h1><spring:message code="home.navigation.text.tab2.h1"/></h1>
+            <h2><spring:message code="home.navigation.text.tab2.h2"/></h2>
         </div>
-<div>
-    <p>
-        <a class="link" href="/studentRegister">Register Now</a>
-    </p>
-</div>
     </div>
 </div>
 
@@ -99,15 +91,11 @@
 <div class="slide bg4">
     <div>
         <div class="title">
-            <h1>VISIT THE PLANETARIUM</h1>
-            <h2>The Arne Slettebak Planetarium serves the university and central-Ohio with educational programs in Astronomy and beyond.
-            </h2>
+            <h1><spring:message code="home.navigation.text.tab3.h1"/></h1>
+            <h2><spring:message code="home.navigation.text.tab1.h2"/></h2>
         </div>
-
     </div>
 </div>
-
-
 
 
 </body>

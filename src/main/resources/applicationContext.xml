@@ -6,6 +6,7 @@
 
     <import resource="classpath:database.xml"/>
     <import resource="classpath:security.xml"/>
+    <import resource="classpath*:spring-mvc-servlet.xml"/>
 
     <context:component-scan base-package="by.yurusova.entranceExam.controllers"/>
     <context:annotation-config/>
@@ -22,13 +23,17 @@
 
     <bean id="userValidator" class="by.yurusova.entranceExam.validators.UserValidator">
         <property name="userService" ref="userService"/>
-    </bean>
+        <property name="applicationProperties" ref="appProperties"/>
+     </bean>
 
     <bean id="studentValidator" class="by.yurusova.entranceExam.validators.StudentValidator">
         <property name="studentService" ref="studentService"/>
+        <property name="applicationProperties" ref="appProperties"/>
     </bean>
 
-    <bean id="teacherValidator" class="by.yurusova.entranceExam.validators.TeacherValidator"/>
+    <bean id="teacherValidator" class="by.yurusova.entranceExam.validators.TeacherValidator">
+        <property name="applicationProperties" ref="appProperties"/>
+    </bean>
 
     <bean id="studentService" class="by.yurusova.entranceExam.services.StudentServiceImpl">
         <property name="studentDAO" ref="studentDAO"/>

@@ -1,8 +1,12 @@
 package by.yurusova.entranceExam.entities;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -51,6 +55,12 @@ public class Student implements Serializable {
 
     @Column(name = "grade")
     private int totalGrade;
+
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    @ColumnDefault("NEW_STUDENT")
+    private StudentStatus status;
+
 
     /**
      * Constructor for Student class.
@@ -217,5 +227,23 @@ public class Student implements Serializable {
      */
     public void setTotalGrade(final int totalGrade) {
         this.totalGrade = totalGrade;
+    }
+
+    /**
+     * Gets student status.
+     *
+     * @return student status.
+     */
+    public StudentStatus getStatus() {
+        return status;
+    }
+
+    /**
+     * Sets student status.
+     *
+     * @param status status to be set.
+     */
+    public void setStatus(final StudentStatus status) {
+        this.status = status;
     }
 }

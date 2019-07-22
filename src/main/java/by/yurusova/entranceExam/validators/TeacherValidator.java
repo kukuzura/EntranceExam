@@ -1,6 +1,7 @@
 package by.yurusova.entranceExam.validators;
 
 import by.yurusova.entranceExam.dto.TeacherDTO;
+import by.yurusova.entranceExam.properties.ApplicationProperties;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -15,8 +16,8 @@ import static org.apache.commons.lang3.ObjectUtils.isEmpty;
  * @copyright 2019 SaM
  */
 public class TeacherValidator implements Validator {
-    private static final String ONLY_LETTERS = "^\\D+$";
-    private static final int MAX_LENGTH = 30;
+
+    private ApplicationProperties applicationProperties;
 
     @Override
     public boolean supports(final Class<?> clazz) {
@@ -35,23 +36,30 @@ public class TeacherValidator implements Validator {
         if (isEmpty(teacher.getPatronymic())) {
             errors.rejectValue("patronymic", "teacherRegistration.error.lastName.required");
         }
-        if (teacher.getFirstName().length() > MAX_LENGTH) {
+        if (teacher.getFirstName().length() > Integer.valueOf(applicationProperties.getMaxLength())) {
             errors.rejectValue("firstName", "teacherRegistration.error.firstName.length");
         }
-        if (teacher.getLastName().length() > MAX_LENGTH) {
+        if (teacher.getLastName().length() > Integer.valueOf(applicationProperties.getMaxLength())) {
             errors.rejectValue("lastName", "teacherRegistration.error.lastName.length");
         }
-        if (teacher.getPatronymic().length() > MAX_LENGTH) {
+        if (teacher.getPatronymic().length() > Integer.valueOf(applicationProperties.getMaxLength())) {
             errors.rejectValue("patronymic", "teacherRegistration.error.patronymic.length");
         }
-        if (!teacher.getFirstName().matches(ONLY_LETTERS)) {
+        if (!teacher.getFirstName().matches(applicationProperties.getOnlyLettersRegEx())) {
             errors.rejectValue("firstName", "teacherRegistration.error.firstName");
         }
-        if (!teacher.getLastName().matches(ONLY_LETTERS)) {
+        if (!teacher.getLastName().matches(applicationProperties.getOnlyLettersRegEx())) {
             errors.rejectValue("lastName", "teacherRegistration.error.lastName");
         }
-        if (!teacher.getPatronymic().matches(ONLY_LETTERS)) {
+        if (!teacher.getPatronymic().matches(applicationProperties.getOnlyLettersRegEx())) {
             errors.rejectValue("patronymic", "teacherRegistration.error.patronymic");
         }
+    }
+    /**
+     * Sets object that contains project constants.
+     * @param applicationProperties the object.
+     */
+    public void setApplicationProperties(final ApplicationProperties applicationProperties) {
+        this.applicationProperties = applicationProperties;
     }
 }

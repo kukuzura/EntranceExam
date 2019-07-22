@@ -52,4 +52,40 @@ public class ApplicationProperties {
     public String getStudentAmount() {
         return properties.getProperty("REQUIRED_STUDENT_AMOUNT");
     }
+
+    /**
+     * Gets max length of login.
+     *
+     * @return max length.
+     */
+    public String getMaxLength() {
+        return properties.getProperty("MAX_LENGTH");
+    }
+
+    /**
+     * Gets regular expression for string that contains only letters.
+     *
+     * @return the regular expression.
+     */
+    public String getOnlyLettersRegEx() {
+        return properties.getProperty("ONLY_LETTERS");
+    }
+
+    /**
+     * Gets regular expression for string that contains only numbers.
+     *
+     * @return the regular expression.
+     */
+    public String getOnlyNumbersRegEx() {
+        return properties.getProperty("ONLY_NUMBERS");
+    }
+
+    /**
+     * Gets regular expression for valid password.
+     *
+     * @return the regular expression.
+     */
+    public String getValidPassRegEx() {
+        return properties.getProperty("VALID_PASSWORD");
+    }
 }

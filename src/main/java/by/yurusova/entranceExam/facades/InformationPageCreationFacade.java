@@ -11,12 +11,14 @@ import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Facade for student and teacher information page.
@@ -40,16 +42,20 @@ public class InformationPageCreationFacade {
 
     private TeacherConverter teacherConverter;
 
+
     /**
      * Method creates ModelAndView for student page.
      * gets student information by login of user that bind with it,
-     * converter it to studentDTO, calculate total grade of student for all exams,
+     * converter it to studentDTO,
+     * sets on page message for student depends on it status,
+     * calculate total grade of student for all exams,
      * and sets it, it's exams(converted too) and total grade to modelAndView.
      *
      * @param principal object with user information.
+     * @param locale    current locale
      * @return the ModelAndView.
      */
-    public ModelAndView createStudentPage(final Principal principal) {
+    public ModelAndView createStudentPage(final Principal principal, final Locale locale) {
         ModelAndView modelAndView = new ModelAndView("/studentPage.jsp");
         User user = userService.findByLogin(principal.getName());
         StudentDTO student = studentConverter.convert(user.getStudent());
@@ -59,6 +65,27 @@ public class InformationPageCreationFacade {
             examDTOList.add(examConverter.convert(exam));
         }
         modelAndView.addObject("examList", examDTOList);
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        String message = "";
+        Object[] args = new Object[]{};
+        switch (user.getStudent().getStatus()) {
+            case NEW_STUDENT:
+                message = messageSource.getMessage("studentPage.message.haveNoExams", args, locale);
+                break;
+            case PASS_EXAMS:
+                message = messageSource.getMessage("studentPage.message.examinationInProgress", args, locale);
+                break;
+            case ENTER:
+                message = messageSource.getMessage("studentPage.message.entered", args, locale);
+                break;
+            case DID_NOT_ENTER:
+                message = messageSource.getMessage("studentPage.message.didntEntered", args, locale);
+                break;
+
+        }
+        modelAndView.addObject("message", message);
         modelAndView.addObject("totalGrade", student.getGrade());
         return modelAndView;
     }
@@ -143,4 +170,5 @@ public class InformationPageCreationFacade {
     public void setTeacherConverter(final TeacherConverter teacherConverter) {
         this.teacherConverter = teacherConverter;
     }
+
 }

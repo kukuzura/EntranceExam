@@ -10,10 +10,15 @@
     </style>
     <title><spring:message code="edit.title"/></title>
 </head>
+<script>
+    var RestPut = function (id) {
+        $.put("/updateProcess")
+    }
+</script>
 <body>
 <jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 <div class="container">
-    <form:form id="updateForm" modelAttribute="user" action="../updateProcess" method="post">
+    <form:form id="updateForm" modelAttribute="user" action="../updateProcess">
         <table>
             <tr>
                 <td>
@@ -39,7 +44,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <form:button id="update" name="update"><spring:message code="edit.button.confirm"/></form:button>
+                    <button onclick="RestPut()"><spring:message code="edit.button.confirm"/></button>
                 </td>
             </tr>
             <tr>

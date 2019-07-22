@@ -11,28 +11,57 @@
     <%@include file="/resources/css/userList.css" %>
     <%@include file="/resources/css/link.css" %>
 </style>
+<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
+<script>
+    function RestGetUpdatePage(id) {
+        $.ajax({
+            type: "get",
+            url: "/admin/userUpdate/"+id,
+            data: id,
+            success: function(html){
+                window.location.href="/admin/userUpdate/"+id;
+            }
+        })
+    };
+</script>
+<script>
+    function RestPut(id) {
+        $.put("/updateProcess")
+    }
+</script>
+<script>
+    function RestDelete(id) {
+        $.ajax({
+            type: "delete",
+            url: "/admin/userDelete"+id,
+            data: id
+        })
+    }
+</script>
 
 <body>
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
 <div style="padding-top:30px;margin-top:30px;height:1500px;">
     <table id="list">
         <tr>
-        <th width="50"><spring:message code="userList.lable.Id"/></th>
-        <th width="80"><spring:message code="userList.lable.login"/></th>
-        <th width="80"><spring:message code="userList.lable.password"/></th>
-        <th width="50"></th>
-        <th width="50"></th>
-    </tr>
+            <th width="50"><spring:message code="userList.lable.Id"/></th>
+            <th width="80"><spring:message code="userList.lable.login"/></th>
+            <th width="80"><spring:message code="userList.lable.password"/></th>
+            <th width="50"></th>
+            <th width="50"></th>
+        </tr>
         <c:forEach items="${usersList}" var="user">
             <tr>
                 <td align="center">${user.id}</td>
                 <td align="center">${user.login}</td>
                 <td align="center">${user.password}</td>
-                <td><a href="<c:url value='/admin/userUpdate/${user.id}' />"><spring:message
-                        code="userList.button.edit"/></a>
+                <td>
+                    <button onclick="RestGetUpdatePage(${user.id})"><spring:message
+                            code="userList.button.edit"/></button>
                 </td>
-                <td><a href="<c:url value='/admin/userDelete/${user.id}' />"><spring:message
-                        code="userList.button.delete"/></a>
+                <td>
+                    <button onclick="RestDelete(${user.id})"><spring:message
+                            code="userList.button.delete"/></button>
                 </td>
             </tr>
         </c:forEach>

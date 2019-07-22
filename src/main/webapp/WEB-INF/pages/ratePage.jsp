@@ -5,10 +5,12 @@
 <html>
 <head>
     <title><spring:message key="ratePage.title"/></title>
+    <link rel="stylesheet" href="/resources/css/userList.css"/>
 </head>
 <body>
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/resources/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/resources/js/additional-methods.js"></script>
 <script>
     $(document).ready(function () {
         $("#gradingForm").validate({});
@@ -16,11 +18,7 @@
             $(this).rules('add', {
                 required: true,
                 number: true,
-                range: [1, 100],
-                messages: {
-                    required: "it's required",
-                    range: "range"
-                }
+                range: [1, 100]
             })
         });
 
@@ -57,10 +55,9 @@
                 </td>
                 <td>
                     <form:input path="students[${status.index}].grade" name="grade" id="grade" value=""
-                                cssClass="grade"/>
+                                class="grade"/>
                     <br/>
                 </td>
-            <tr></tr>
         </c:forEach>
         <input type="submit" value="<spring:message key="ratePage.button.submit"/> ">
     </table>

@@ -1,6 +1,7 @@
 package by.yurusova.entranceExam.validators;
 
 import by.yurusova.entranceExam.dto.StudentDTO;
+import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -16,9 +17,8 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * @copyright 2019 SaM
  */
 public class StudentValidator implements Validator {
-    private static final String ONLY_LETTERS = "^\\D+$";
-    private static final String ONLY_NUMBERS = "[0-9]{7}";
-    private static final int MAX_LENGTH = 30;
+
+    private ApplicationProperties applicationProperties;
 
     private StudentService studentService;
 
@@ -42,25 +42,25 @@ public class StudentValidator implements Validator {
         if (isEmpty(student.getPassportID())) {
             errors.rejectValue("passportID", "studentRegistration.error.passportID.required");
         }
-        if (student.getFirstName().length() > MAX_LENGTH) {
+        if (student.getFirstName().length() > Integer.valueOf(applicationProperties.getMaxLength())) {
             errors.rejectValue("firstName", "studentRegistration.error.firstName.length");
         }
-        if (student.getLastName().length() > MAX_LENGTH) {
+        if (student.getLastName().length() > Integer.valueOf(applicationProperties.getMaxLength())) {
             errors.rejectValue("lastName", "studentRegistration.error.lastName.length");
         }
-        if (student.getPatronymic().length() > MAX_LENGTH) {
+        if (student.getPatronymic().length() > Integer.valueOf(applicationProperties.getMaxLength())) {
             errors.rejectValue("patronymic", "studentRegistration.error.patronymic.length");
         }
-        if (!student.getFirstName().matches(ONLY_LETTERS)) {
+        if (!student.getFirstName().matches(applicationProperties.getOnlyLettersRegEx())) {
             errors.rejectValue("firstName", "studentRegistration.error.firstName");
         }
-        if (!student.getLastName().matches(ONLY_LETTERS)) {
+        if (!student.getLastName().matches(applicationProperties.getOnlyLettersRegEx())) {
             errors.rejectValue("lastName", "studentRegistration.error.lastName");
         }
-        if (!student.getPatronymic().matches(ONLY_LETTERS)) {
+        if (!student.getPatronymic().matches(applicationProperties.getOnlyLettersRegEx())) {
             errors.rejectValue("patronymic", "studentRegistration.error.patronymic");
         }
-        if (!student.getPassportID().matches(ONLY_NUMBERS)) {
+        if (!student.getPassportID().matches(applicationProperties.getOnlyNumbersRegEx())) {
             errors.rejectValue("passportID", "studentRegistration.error.passportID");
         }
         if (studentService.findByPassportID(student.getPassportID()) != null) {
@@ -75,6 +75,14 @@ public class StudentValidator implements Validator {
      */
     public void setStudentService(final StudentService studentService) {
         this.studentService = studentService;
+    }
+
+    /**
+     * Sets object that contains project constants.
+     * @param applicationProperties the object.
+     */
+    public void setApplicationProperties(final ApplicationProperties applicationProperties) {
+        this.applicationProperties = applicationProperties;
     }
 }
 

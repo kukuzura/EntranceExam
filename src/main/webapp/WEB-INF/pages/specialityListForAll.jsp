@@ -5,26 +5,20 @@
 <html>
 <head>
     <title><sping:message key="specialityList.title"/></title>
-    <link rel="stylesheet" href="/resources/css/userList.css"/>
+    <link rel="stylesheet" href="/resources/css/specialityCard.css"/>
 </head>
-<body>
-<div style="padding-top:30px;margin-top:30px;height:1500px;">
-    <table id="list">
-        <tr>
-            <th><spring:message code="specialityList.lable.name"/></th>
-            <th><spring:message code="specialityList.lable.subject"/></th>
-        </tr>
-        <c:forEach items="${specialityList}" var="speciality">
-            <tr>
-                <td align="center">${speciality.name}</td>
-                <td>
-                    <c:forEach items="${speciality.exams}" var="exam">
-                        <p>${exam.subject.name}</p>
-                    </c:forEach>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
+<div class="container group">
+    <c:forEach items="${specialityList}" var="speciality">
+        <div class="grid-1-5">
+            <h2>${speciality.name}</h2>
+            <ul>
+                <c:forEach items="${speciality.exams}" var="exam">
+                    <p>${exam.subject.name}</p>
+                </c:forEach>
+            </ul>
+            <a href="/account/apply/${speciality.id}" class="button"><sping:message
+                    key="specialityList.button.apply"/></a>
+        </div>
+    </c:forEach>
 </div>
-</body>
 </html>

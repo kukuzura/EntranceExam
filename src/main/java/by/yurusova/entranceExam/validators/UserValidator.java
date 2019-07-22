@@ -1,6 +1,7 @@
 package by.yurusova.entranceExam.validators;
 
 import by.yurusova.entranceExam.dto.UserDTO;
+import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -18,9 +19,8 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * @copyright 2019 SaM
  */
 public class UserValidator implements Validator {
-    private static final String VALID_PASSWORD =
-            "^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{8,}$";
-    private static final int MAX_LENGTH = 30;
+
+    private ApplicationProperties applicationProperties;
 
     private UserService userService;
 
@@ -38,13 +38,13 @@ public class UserValidator implements Validator {
         if (isEmpty(user.getPassword())) {
             errors.rejectValue("password", "registration.error.password.required");
         }
-        if (user.getLogin().length() > MAX_LENGTH) {
+        if (user.getLogin().length() > Integer.valueOf(applicationProperties.getMaxLength())) {
             errors.rejectValue("password", "registration.error.password.length");
         }
-        if (user.getPassword().length() > MAX_LENGTH) {
+        if (user.getPassword().length() > Integer.valueOf(applicationProperties.getMaxLength())) {
             errors.rejectValue("password", "registration.error.login.length");
         }
-        if (!Pattern.matches(VALID_PASSWORD, user.getPassword())) {
+        if (!Pattern.matches(applicationProperties.getValidPassRegEx(), user.getPassword())) {
             errors.rejectValue("password", "registration.error.password.weakPassword");
         }
         if (userService.findByLogin(user.getLogin()) != null) {
@@ -59,5 +59,12 @@ public class UserValidator implements Validator {
      */
     public void setUserService(final UserService userService) {
         this.userService = userService;
+    }
+    /**
+     * Sets object that contains project constants.
+     * @param applicationProperties the object.
+     */
+    public void setApplicationProperties(final ApplicationProperties applicationProperties) {
+        this.applicationProperties = applicationProperties;
     }
 }

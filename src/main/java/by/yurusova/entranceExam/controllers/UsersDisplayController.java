@@ -53,7 +53,7 @@ public class UsersDisplayController {
      * @param user the user to update.
      * @return page with updated list of users.
      */
-    @RequestMapping(value = "/updateProcess", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateProcess", method = RequestMethod.PUT)
     public ModelAndView updateUser(@ModelAttribute("user") final UserDTO user) {
         facade.update(user);
         return facade.createUserListPage();
@@ -65,7 +65,7 @@ public class UsersDisplayController {
      * @param id the id of deleted user.
      * @return updated user list page.
      */
-    @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.DELETE)
     public ModelAndView showDelete(@PathVariable("id") final long id) {
         facade.delete(id);
         return facade.createUserListPage();

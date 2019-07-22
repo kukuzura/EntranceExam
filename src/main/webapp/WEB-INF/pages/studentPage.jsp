@@ -96,10 +96,11 @@ http://simplyaccessible.com/article/danger-aria-tabs/
             <table>
                     <c:choose>
                         <c:when test="${empty examList}">
-                            <tr><spring:message code="studentpage.message.haveNoExams"/></tr>
+                            <tr><spring:message code="studentPage.message.haveNoExams"/></tr>
                             <tr><a href="specialityList"><spring:message code="studentPage.button.apply"/></a></tr>
                         </c:when>
                         <c:otherwise>
+                            <tr>${message}</tr>
                             <tr>
                                 <th><spring:message code="studentPage.lable.speciality"/></th>
                                 <th><spring:message code="studentPage.lable.subject"/></th>

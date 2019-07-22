@@ -15,13 +15,12 @@ input {
 }
 
 label {
-    display: inline-block;
     width: 12px;
     height: 12px;
     border: solid 2px white;
     border-radius: 999px;
     background-color: transparent;
-    margin: 65vh 6px 0 6px;
+    margin: 90vh 6px 0 6px;
     z-index: 2;
     cursor: pointer;
     transition-duration: .4s;
@@ -40,9 +39,9 @@ input:focus + label {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 70%;
+    height: 100%;
     width: 100%;
-    margin-top: 10vh;
+    margin-top: 5vh;
     top: 0;
     left: 0;
     z-index: -1;
@@ -73,7 +72,7 @@ p{
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    text-align: center;
+    text-align: left;
 }
 h1 {
     text-transform: uppercase;
@@ -129,18 +128,20 @@ input:checked + label + .slide {
 }
 
 
-.link{
-    min-width: 50%;
-    margin: 10px;
-    background: #BB0000;
-    display: inline-block;
-    color: #ffffff;
-    text-transform: uppercase;
-    padding: 5px;
-}
-
 a:active .link,   a:hover .link {
     background-color: darkred;
 }
-
+.link_photo{
+    margin-top: 80vh;
+    width: 50%;
+    align-content: center;
+}
+.link{
+    color: white;
+}
+.link:hover{
+    background-color: white;
+    color: #002752;
+    text-decoration: none;
+}
 
