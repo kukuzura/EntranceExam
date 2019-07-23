@@ -50,4 +50,22 @@ public class SpecialityDTO implements Serializable {
     public String getName() {
         return name;
     }
+
+    /**
+     * Sets speciality id.
+     *
+     * @param id id to be set.
+     */
+    public void setId(final long id) {
+        this.id = id;
+    }
+
+    /**
+     * Sets speciality name.
+     *
+     * @param name name to be set.
+     */
+    public void setName(final String name) {
+        this.name = name;
+    }
 }

@@ -71,6 +71,8 @@
 
     <bean id="subjectConveter" class="by.yurusova.entranceExam.converters.SubjectConverter"/>
 
+    <bean id="subjectReverseConverter" class="by.yurusova.entranceExam.converters.SubjectReverseConverter"/>
+
     <bean id="studentConverterForRate" class="by.yurusova.entranceExam.converters.StudentConverterForRate"/>
 
     <bean id="examConverter" class="by.yurusova.entranceExam.converters.ExamConverter">
@@ -139,6 +141,18 @@
         <property name="studentService" ref="studentService"/>
         <property name="applicationProperties" ref="appProperties"/>
         <property name="specialityService" ref="specialityService"/>
+    </bean>
+
+    <bean id="subjectOperationsFacade" class="by.yurusova.entranceExam.facades.SubjectOperationsFacade">
+        <property name="subjectReverseConverter" ref="subjectReverseConverter"/>
+        <property name="subjectService" ref="subjectService"/>
+        <property name="subjectConverter" ref="subjectConveter"/>
+    </bean>
+
+    <bean id="specialityOperationsFacade" class="by.yurusova.entranceExam.facades.SpecialityOperationsFacade">
+        <property name="specialityService" ref="specialityService"/>
+        <property name="specialityConverter" ref="specialityConverter"/>
+        <property name="specialityReverseConverter" ref="specialityReverseConverter"/>
     </bean>
 
 </beans>

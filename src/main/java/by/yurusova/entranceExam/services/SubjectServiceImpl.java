@@ -28,6 +28,16 @@ public class SubjectServiceImpl implements SubjectService {
         return subjectDAO.findById(id);
     }
 
+    @Override
+    public void save(final Subject subject) {
+        subjectDAO.saveSubject(subject);
+    }
+
+    @Override
+    public void delete(final Subject subject) {
+        subjectDAO.delete(subject);
+    }
+
     /**
      * Sets subjectDAO.
      *

@@ -42,6 +42,7 @@ public class UsersDisplayController {
      * @param id the user id.
      * @return edit page.
      */
+
     @RequestMapping(value = "/userUpdate/{id}", method = RequestMethod.GET)
     public ModelAndView showEdit(@PathVariable("id") final long id) {
         return facade.createUpdatePage(id);

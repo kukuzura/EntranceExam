@@ -3,6 +3,7 @@ package by.yurusova.entranceExam.facades;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Student;
+import by.yurusova.entranceExam.entities.StudentStatus;
 import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
@@ -43,14 +44,28 @@ public class CalculationOfEnteringGradeFacade {
     /**
      * Method calculate entering grade of given speciality
      * and updates it information in database.
+     * Students that gave enough grade gets status ENTERED,
+     * DID_NOT_ENTER otherwise.
      * Entering grade is grade of tenth student
      * from list that ordered by total student grade.
      *
      * @param speciality speciality to calculate grade.
      */
     public void calculateAndSetEnteringGrade(final Speciality speciality) {
-        List<Student> students = studentService.findBySpecialityIDOrdered(speciality.getId());
-        speciality.setEnteringGrade(students.get(Integer.valueOf(applicationProperties.getStudentAmount()) - 1).getTotalGrade());
+        List<Student> enteredStudents = studentService.findBySpecialityIDOrdered(speciality.getId());
+        speciality.setEnteringGrade(enteredStudents
+                        .get(Integer.valueOf(applicationProperties.getStudentAmount()) - 1)
+                        .getTotalGrade());
+        for (Student student : enteredStudents) {
+            student.setStatus(StudentStatus.ENTER);
+            studentService.editStudent(student);
+        }
+        List<Student> students = studentService.getAll();
+        students.removeAll(enteredStudents);
+        for (Student student : students) {
+            student.setStatus(StudentStatus.DID_NOT_ENTER);
+            studentService.editStudent(student);
+        }
         specialityService.update(speciality);
     }
 

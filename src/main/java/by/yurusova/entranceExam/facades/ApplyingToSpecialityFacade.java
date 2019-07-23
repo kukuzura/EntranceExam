@@ -6,6 +6,7 @@ import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Grade;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Student;
+import by.yurusova.entranceExam.entities.StudentStatus;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
@@ -49,6 +50,7 @@ public class ApplyingToSpecialityFacade {
         List<Exam> exams = speciality.getExams();
         User user = userService.findByLogin(principal.getName());
         Student student = user.getStudent();
+        student.setStatus(StudentStatus.PASS_EXAMS);
         for (Exam exam : exams) {
             Grade grade = new Grade();
             grade.setExam(exam);
@@ -65,7 +67,7 @@ public class ApplyingToSpecialityFacade {
      * @return page with speciality list.
      */
     public ModelAndView createSpecialityListPage() {
-        ModelAndView mav = new ModelAndView("/specialityList.jsp");
+        ModelAndView mav = new ModelAndView("/adminSpecialityList.jsp");
         List<Speciality> specialities = specialityService.getAll();
         List<Speciality> removed = new ArrayList<>();
 

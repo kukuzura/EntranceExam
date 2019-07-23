@@ -50,4 +50,21 @@ public class SubjectDTO implements Serializable {
     public String getName() {
         return name;
     }
+
+    /**
+     * Sets subject id.
+     *
+     * @param id id to be set.
+     */
+    public void setId(final long id) {
+        this.id = id;
+    }
+
+    /**
+     * Sets subject name.
+     * @param name name to be set.
+     */
+    public void setName(final String name) {
+        this.name = name;
+    }
 }

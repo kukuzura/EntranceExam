@@ -10,15 +10,11 @@
     </style>
     <title><spring:message code="edit.title"/></title>
 </head>
-<script>
-    var RestPut = function (id) {
-        $.put("/updateProcess")
-    }
-</script>
+
 <body>
 <jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 <div class="container">
-    <form:form id="updateForm" modelAttribute="user" action="../updateProcess">
+    <form id="editForm" modelAttribute="user">
         <table>
             <tr>
                 <td>
@@ -27,30 +23,46 @@
             </tr>
             <tr>
                 <td>
-                    <form:label path="login"><spring:message code="edit.lable.login"/></form:label>
+                    <label path="login"><spring:message code="edit.lable.login"/></label>
                 </td>
                 <td>
-                    <form:input path="login" name="login" id="login"/>
+                    <input path="login" type="text" id="login"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <form:label path="password"><spring:message code="edit.lable.password"/></form:label>
+                    <label path="password"><spring:message code="edit.lable.password"/></label>
                 </td>
                 <td>
-                    <form:password path="password" name="password" id="password"/>
+                    <input path="password" type="password" id="password"/>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                    <button onclick="RestPut()"><spring:message code="edit.button.confirm"/></button>
+                    <input type="submit" id="submit" value="<spring:message code="edit.button.confirm"/>"/>
                 </td>
             </tr>
             <tr>
             </tr>
         </table>
-    </form:form>
+    </form>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#editForm').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'PUT',
+                url: '/updateProcess',
+                data : $(this).attr('user'),
+                success: function () {
+                    window.location.href='/admin/updateProcess'
+                }
+
+            });
+        });
+    });
+</script>
 </body>
 </html>

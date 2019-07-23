@@ -25,14 +25,9 @@
     };
 </script>
 <script>
-    function RestPut(id) {
-        $.put("/updateProcess")
-    }
-</script>
-<script>
     function RestDelete(id) {
         $.ajax({
-            type: "delete",
+            type: "DELETE",
             url: "/admin/userDelete"+id,
             data: id
         })

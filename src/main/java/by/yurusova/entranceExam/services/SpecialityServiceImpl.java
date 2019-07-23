@@ -33,6 +33,16 @@ public class SpecialityServiceImpl implements SpecialityService {
         specialityDAO.update(speciality);
     }
 
+    @Override
+    public void save(final Speciality speciality) {
+        specialityDAO.saveSpeciality(speciality);
+    }
+
+    @Override
+    public void delete(final Speciality speciality) {
+        specialityDAO.delete(speciality);
+    }
+
     /**
      * Method sets specialityDAO.
      *

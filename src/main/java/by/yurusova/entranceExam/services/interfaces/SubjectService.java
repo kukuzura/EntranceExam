@@ -28,4 +28,18 @@ public interface SubjectService {
      * @return the speciality.
      */
     Subject findById(long id);
+
+    /**
+     * Method saves subject to database.
+     *
+     * @param subject subject to be save.
+     */
+    void save(Subject subject);
+
+    /**
+     * Method delete speciality from database.
+     *
+     * @param subject subject to be delete.
+     */
+    void delete(Subject subject);
 }

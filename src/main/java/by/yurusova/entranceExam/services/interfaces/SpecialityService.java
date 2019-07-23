@@ -35,4 +35,18 @@ public interface SpecialityService {
      * @param speciality speciality to be update.
      */
     void update(Speciality speciality);
+
+    /**
+     * Method saves speciality o database.
+     *
+     * @param speciality the speciality to be save.
+     */
+    void save(Speciality speciality);
+
+    /**
+     * Method delete speciality from database.
+     *
+     * @param speciality the speciality to be set.
+     */
+    void delete(Speciality speciality);
 }
