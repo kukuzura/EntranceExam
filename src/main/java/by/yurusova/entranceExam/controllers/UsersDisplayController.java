@@ -4,8 +4,8 @@ import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.facades.UserOperationsFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -51,12 +51,12 @@ public class UsersDisplayController {
     /**
      * Method updates user information.
      *
-     * @param user the user to update.
+     * @param userDTO userDTO to convert to user.
      * @return page with updated list of users.
      */
     @RequestMapping(value = "/updateProcess", method = RequestMethod.PUT)
-    public ModelAndView updateUser(@ModelAttribute("user") final UserDTO user) {
-        facade.update(user);
+    public ModelAndView updateUser(@RequestBody final UserDTO userDTO) {
+        facade.update(userDTO);
         return facade.createUserListPage();
     }
 

@@ -67,7 +67,7 @@ public class UserDTO implements Serializable {
     /**
      * Sets password.
      *
-     * @param password passwprd to be set.
+     * @param password password to be set.
      */
     public void setPassword(final String password) {
         this.password = password;

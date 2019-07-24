@@ -10,11 +10,33 @@
     </style>
     <title><spring:message code="edit.title"/></title>
 </head>
+<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var login = $('#login').val();
+        var password = $('#password').val();
+        var id = $('#id').val();
+        $('#editForm').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'PUT',
+                url: '/admin/updateProcess',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                // data: "id=" + id + "&login=" + login + "&password=" + password,
+                data: JSON.stringify({"id": id, "login": login, "password": password}),
+                success: function () {
+                    window.location.href = '/admin/updateProcess'
+                }
 
+            });
+        });
+    });
+</script>
 <body>
 <jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 <div class="container">
-    <form id="editForm" modelAttribute="user">
+    <form:form id="editForm" modelAttribute="user">
         <table>
             <tr>
                 <td>
@@ -26,7 +48,7 @@
                     <label path="login"><spring:message code="edit.lable.login"/></label>
                 </td>
                 <td>
-                    <input path="login" type="text" id="login"/>
+                    <form:input path="login" type="text" id="login"/>
                 </td>
             </tr>
             <tr>
@@ -34,7 +56,7 @@
                     <label path="password"><spring:message code="edit.lable.password"/></label>
                 </td>
                 <td>
-                    <input path="password" type="password" id="password"/>
+                    <form:input path="password" type="password" id="password"/>
                 </td>
             </tr>
             <tr>
@@ -46,23 +68,7 @@
             <tr>
             </tr>
         </table>
-    </form>
+    </form:form>
 </div>
-<script>
-    $(document).ready(function () {
-        $('#editForm').submit(function (e) {
-            e.preventDefault();
-            $.ajax({
-                type: 'PUT',
-                url: '/updateProcess',
-                data : $(this).attr('user'),
-                success: function () {
-                    window.location.href='/admin/updateProcess'
-                }
-
-            });
-        });
-    });
-</script>
 </body>
 </html>
