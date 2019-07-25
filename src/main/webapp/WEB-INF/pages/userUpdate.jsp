@@ -13,22 +13,22 @@
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
 <script>
     $(document).ready(function () {
-        var login = $('#login').val();
-        var password = $('#password').val();
-        var id = $('#id').val();
         $('#editForm').submit(function (e) {
+            var login = $('#login').val();
+            var password = $('#password').val();
+            var id = $('#id').val();
             e.preventDefault();
             $.ajax({
                 type: 'PUT',
                 url: '/admin/updateProcess',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                // data: "id=" + id + "&login=" + login + "&password=" + password,
                 data: JSON.stringify({"id": id, "login": login, "password": password}),
-                success: function () {
-                    window.location.href = '/admin/updateProcess'
-                }
-
+                success: $.ajax({
+                    type: 'GET',
+                    url: '/admin/userList',
+                    success: window.location.href = "/admin/userList"
+                })
             });
         });
     });
@@ -56,7 +56,7 @@
                     <label path="password"><spring:message code="edit.lable.password"/></label>
                 </td>
                 <td>
-                    <form:input path="password" type="password" id="password"/>
+                    <input name="password" type="password" id="password"/>
                 </td>
             </tr>
             <tr>

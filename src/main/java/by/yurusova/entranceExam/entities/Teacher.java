@@ -1,6 +1,5 @@
 package by.yurusova.entranceExam.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,7 +37,7 @@ public class Teacher implements Serializable {
     @Column(name = "patronymic")
     private String patronymic;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
 

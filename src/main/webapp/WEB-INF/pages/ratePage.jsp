@@ -5,7 +5,7 @@
 <html>
 <head>
     <title><spring:message key="ratePage.title"/></title>
-    <link rel="stylesheet" href="/resources/css/userList.css"/>
+    <link rel="stylesheet" href="/resources/css/table.css"/>
 </head>
 <body>
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>

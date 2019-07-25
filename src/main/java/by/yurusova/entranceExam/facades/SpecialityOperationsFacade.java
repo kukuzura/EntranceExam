@@ -1,7 +1,6 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.SpecialityConverter;
-import by.yurusova.entranceExam.converters.SpecialityReverseConverter;
 import by.yurusova.entranceExam.dto.SpecialityDTO;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
@@ -21,8 +20,6 @@ import java.util.List;
 public class SpecialityOperationsFacade {
 
     private SpecialityService specialityService;
-
-    private SpecialityReverseConverter specialityReverseConverter;
 
     private SpecialityConverter specialityConverter;
 
@@ -49,7 +46,7 @@ public class SpecialityOperationsFacade {
      * @param specialityDTO fto to be convert.
      */
     public void addSpeciality(final SpecialityDTO specialityDTO) {
-        Speciality speciality = specialityReverseConverter.convert(specialityDTO);
+        Speciality speciality = specialityConverter.convertBack(specialityDTO);
         specialityService.save(speciality);
     }
 
@@ -71,15 +68,6 @@ public class SpecialityOperationsFacade {
      */
     public void setSpecialityService(final SpecialityService specialityService) {
         this.specialityService = specialityService;
-    }
-
-    /**
-     * Sets specialty reverse converter.
-     *
-     * @param specialityReverseConverter converter to be set.
-     */
-    public void setSpecialityReverseConverter(final SpecialityReverseConverter specialityReverseConverter) {
-        this.specialityReverseConverter = specialityReverseConverter;
     }
 
     /**

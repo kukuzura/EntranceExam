@@ -24,7 +24,7 @@
     <bean id="userValidator" class="by.yurusova.entranceExam.validators.UserValidator">
         <property name="userService" ref="userService"/>
         <property name="applicationProperties" ref="appProperties"/>
-     </bean>
+    </bean>
 
     <bean id="studentValidator" class="by.yurusova.entranceExam.validators.StudentValidator">
         <property name="studentService" ref="studentService"/>
@@ -67,11 +67,7 @@
 
     <bean id="specialityConverter" class="by.yurusova.entranceExam.converters.SpecialityConverter"/>
 
-    <bean id="specialityReverseConverter" class="by.yurusova.entranceExam.converters.SpecialityReverseConverter"/>
-
     <bean id="subjectConveter" class="by.yurusova.entranceExam.converters.SubjectConverter"/>
-
-    <bean id="subjectReverseConverter" class="by.yurusova.entranceExam.converters.SubjectReverseConverter"/>
 
     <bean id="studentConverterForRate" class="by.yurusova.entranceExam.converters.StudentConverterForRate"/>
 
@@ -144,7 +140,6 @@
     </bean>
 
     <bean id="subjectOperationsFacade" class="by.yurusova.entranceExam.facades.SubjectOperationsFacade">
-        <property name="subjectReverseConverter" ref="subjectReverseConverter"/>
         <property name="subjectService" ref="subjectService"/>
         <property name="subjectConverter" ref="subjectConveter"/>
     </bean>
@@ -152,7 +147,6 @@
     <bean id="specialityOperationsFacade" class="by.yurusova.entranceExam.facades.SpecialityOperationsFacade">
         <property name="specialityService" ref="specialityService"/>
         <property name="specialityConverter" ref="specialityConverter"/>
-        <property name="specialityReverseConverter" ref="specialityReverseConverter"/>
     </bean>
 
 </beans>

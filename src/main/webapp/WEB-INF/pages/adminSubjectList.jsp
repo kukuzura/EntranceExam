@@ -4,13 +4,17 @@
 <html>
 <head>
     <title><spring:message key="adminSubjectList.title"/></title>
+    <link rel="stylesheet" href="/resources/css/table.css"/>
+    <link rel="stylesheet" href="/resources/css/link.css"/>
 </head>
 <body>
+<jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
+<div style="padding-top:30px;margin-top:30px;height:1500px;">
 <table id="list">
     <tr>
-        <th width="50"><spring:message key="adminSubjectList.label.id"/></th>
-        <th width="80"><spring:message key="adminSubjectList.label"/></th>
-        <th width="50"></th>
+        <th ><spring:message key="adminSubjectList.label.id"/></th>
+        <th><spring:message key="adminSubjectList.label"/></th>
+        <th></th>
     </tr>
     <c:forEach items="${subjectList}" var="subject">
         <tr>
@@ -22,7 +26,8 @@
             </td>
         </tr>
     </c:forEach>
-    <a href="/admin/addSubject"><spring:message key="adminSubjectList.button.addSpeciality"/> </a>
 </table>
+    <a href="/admin/addSubject"><spring:message key="adminSubjectList.button.addSpeciality"/> </a>
+</div>
 </body>
 </html>

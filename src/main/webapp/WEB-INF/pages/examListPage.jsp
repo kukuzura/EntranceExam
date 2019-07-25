@@ -5,12 +5,13 @@
 <html>
 <head>
     <title><spring:message code="examList.title"/></title>
-    <link rel="stylesheet" href="/resources/css/userList.css"/>
+    <link rel="stylesheet" href="/resources/css/table.css"/>
     <link rel="stylesheet" href="/resources/css/select.css"/>
     <link rel="stylesheet" href="/resources/css/link.css"/>
 </head>
 <body>
-
+<jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
+<div style="padding-top:30px;margin-top:30px;height:1500px;">
 <table id="list">
     <tr>
         <th><spring:message code="examList.label.id"/></th>
@@ -32,6 +33,7 @@
 </table>
 <div align="center" >
 <a href="/admin/addExam"><spring:message code="addingExam.button.addExam"/></a>
+</div>
 </div>
 </body>
 </html>

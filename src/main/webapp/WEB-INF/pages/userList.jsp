@@ -8,8 +8,7 @@
 </head>
 
 <style>
-    <%@include file="/resources/css/userList.css" %>
-    <%@include file="/resources/css/link.css" %>
+    <%@include file="/resources/css/table.css" %>
 </style>
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
 <script>
@@ -24,12 +23,16 @@
         })
     };
 </script>
+<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
 <script>
     function RestDelete(id) {
         $.ajax({
             type: "DELETE",
-            url: "/admin/userDelete"+id,
-            data: id
+            url: "/admin/userDelete/"+id,
+            data: id,
+            success: function(){
+                window.location.href="/admin/userList";
+            }
         })
     }
 </script>

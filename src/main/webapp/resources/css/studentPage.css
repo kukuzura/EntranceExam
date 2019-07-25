@@ -1,88 +1,126 @@
-/*
- CSS for the main interaction
-*/
-.tabset > input[type="radio"] {
-    position: absolute;
-    left: -200vw;
+/**
+ * Tabs
+ */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+/ / make sure it wraps
 }
 
-.tabset .tab-panel {
+.tabs label {
+    order: 1;
+/ / Put the labels first display: block;
+    padding: 1rem 2rem;
+    margin-right: 0.2rem;
+    cursor: pointer;
+    background: rgba(146, 168, 209, 1);;
+    font-weight: bold;
+    transition: background ease 0.2s;
+}
+
+.tabs .tab {
+    order: 99;
+/ / Put the tabs last flex-grow: 1;
+    width: 100%;
+    display: none;
+    padding: 1rem;
+    background: #fff;
+    min-height: 50vh;
+}
+
+.tabs input[type="radio"] {
     display: none;
 }
 
-.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
-.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
-.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
-.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
-.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
-.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+.tabs input[type="radio"]:checked + label {
+    background: #fff;
+}
+
+.tabs input[type="radio"]:checked + label + .tab {
     display: block;
 }
 
-/*
- Styling
-*/
-body {
-    font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
-    color: #333;
-    font-weight: 300;
+@media (max-width: 45em) {
+    .tabs .tab,
+    .tabs label {
+        order: initial;
+    }
+
+    .tabs label {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 0.2rem;
+    }
 }
 
-.tabset > label {
+/**
+ * Generic Styling
+*/
+body {
+    background: midnightblue;
+    background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    background: linear-gradient(135deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 10vh;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 60rem;
+    margin: 0 auto;
+    font-size: 112%;
+}
+
+.label {
+    color: #999;
+    font-size: 0.75em;
+    margin: 3vh;
+}
+
+.line {
+    margin-top: 2vh;
+}
+.first{
+    margin-top: 7vh;
+}
+
+table{
+    margin-top: 10vh;
+}
+
+.dropbtn {
+    order: 1;
+    cursor: pointer;
+    background: rgba(146, 168, 209, 1);;
+    transition: background ease 0.2s;
+    border: none;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.dropdown {
     position: relative;
     display: inline-block;
-    padding: 15px 15px 25px;
-    border: 1px solid transparent;
-    border-bottom: 0;
-    cursor: pointer;
-    font-weight: 600;
 }
 
-.tabset > label::after {
-    content: "";
+.dropdown-content {
+    display: none;
     position: absolute;
-    left: 15px;
-    bottom: 10px;
-    width: 22px;
-    height: 4px;
-    background: #8d8d8d;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-.tabset > label:hover,
-.tabset > input:focus + label {
-    color: #06c;
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
-.tabset > label:hover::after,
-.tabset > input:focus + label::after,
-.tabset > input:checked + label::after {
-    background: #06c;
-}
+.dropdown-content a:hover {background-color: #ddd;}
 
-.tabset > input:checked + label {
-    border-color: #ccc;
-    border-bottom: 1px solid #fff;
-    margin-bottom: -1px;
-}
-
-.tab-panel {
-    padding: 30px 0;
-    border-top: 1px solid #ccc;
-}
-
-/*
- Demo purposes only
-*/
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-body {
-    padding: 30px;
-}
-
-.tabset {
-    max-width: 65em;
-}
+.dropdown:hover .dropdown-content {display: block;}

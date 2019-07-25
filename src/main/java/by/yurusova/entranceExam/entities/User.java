@@ -47,10 +47,10 @@ public class User implements Serializable {
     )
     private List<Role> roles;
 
-    @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, mappedBy = "user")
+    @OneToOne(cascade = {CascadeType.REFRESH}, mappedBy = "user")
     private Student student;
 
-    @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.PERSIST}, mappedBy = "user")
+    @OneToOne(cascade = {CascadeType.REFRESH}, mappedBy = "user")
     private Teacher teacher;
 
     /**

@@ -46,7 +46,7 @@ public class Student implements Serializable {
     @Column(name = "patronymic")
     private String patronymic;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
 

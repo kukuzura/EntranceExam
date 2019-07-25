@@ -1,7 +1,6 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.SubjectConverter;
-import by.yurusova.entranceExam.converters.SubjectReverseConverter;
 import by.yurusova.entranceExam.dto.SubjectDTO;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.services.interfaces.SubjectService;
@@ -21,8 +20,6 @@ import java.util.List;
 public class SubjectOperationsFacade {
 
     private SubjectService subjectService;
-
-    private SubjectReverseConverter subjectReverseConverter;
 
     private SubjectConverter subjectConverter;
 
@@ -58,7 +55,7 @@ public class SubjectOperationsFacade {
      * @param subjectDTO dto to be convert.
      */
     public void addSubject(final SubjectDTO subjectDTO) {
-        Subject subject = subjectReverseConverter.convert(subjectDTO);
+        Subject subject = subjectConverter.convertBack(subjectDTO);
         subjectService.save(subject);
     }
 
@@ -69,15 +66,6 @@ public class SubjectOperationsFacade {
      */
     public void setSubjectService(final SubjectService subjectService) {
         this.subjectService = subjectService;
-    }
-
-    /**
-     * Sets subject reverse converter.
-     *
-     * @param subjectReverseConverter converter to be set.
-     */
-    public void setSubjectReverseConverter(final SubjectReverseConverter subjectReverseConverter) {
-        this.subjectReverseConverter = subjectReverseConverter;
     }
 
     /**
