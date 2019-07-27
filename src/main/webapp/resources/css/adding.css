@@ -4,58 +4,22 @@ body {
     background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     background: linear-gradient(135deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     color: white;
-    text-transform: uppercase;
     font-size: 20px;
     font-weight: 900;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-div {
-    margin: 20px;
-}
-
-.styled-select {
-    height: 5vh;
-    overflow: hidden;
-    width: 45vh;
+input {
+    color: white;
+    border: 1px solid white;
     background-color: transparent;
-}
-
-.styled-select select {
-    background: transparent;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 25%;
     font-size: 18px;
-    height: 5vh;
-    padding: 5px;
-    width: 45vh;
-    border: gray dot-dash;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
-.styled-select option {
-    background-color: floralwhite;
-    height: 7vh;
-}
-
-.styled-select.slate {
-    height: 7vh;
-    width: 45vh;
-}
-
-.styled-select.slate select {
-    border: 1px solid #ccc;
-    font-size: 16px;
-    height: 7vh;
-    width: 47vh;
-}
-
-.blue {
-    background-color: honeydew
-}
-
-.blue select {
-    color: gray;
-}
-
-
 button {
     padding: 15px 30px;
     font-size: 20px;

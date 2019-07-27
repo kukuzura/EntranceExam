@@ -14,30 +14,27 @@
             <h2><spring:message code="teacherRegistration.title"/></h2>
             <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.login"/></label>
-                <input type="text" name="login"/>
+                <form:input type="text" name="login" path="user.login"/>
                 <span><form:errors path="user.login"/></span>
             </p>
             <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.password"/></label>
-                <input type="password" name="password"/>
+                <form:input type="password" name="password" path="user.password"/>
                 <span><form:errors path="user.password"/></span>
             </p>
             <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.firstName"/></label>
-                <input type="text" name="firstName"
-                       placeholder="<spring:message code="teacherRegistration.placeholder.firstName"/>"/>
+                <form:input type="text" name="firstName" path="student.firstName"/>
                 <span><form:errors path="teacher.firstName"/></span>
             </p>
             <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.lastName"/></label>
-                <input type="text" name="lastName"
-                       placeholder="<spring:message code="teacherRegistration.placeholder.lastName"/>"/>
+                <form:input type="text" name="lastName" path="student.lastName"/>
                 <span><form:errors path="teacher.lastName"/></span>
             </p>
             <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.patronymic"/></label>
-                <input type="text" name="patronymic"
-                       placeholder="<spring:message code="teacherRegistration.placeholder.patronymic"/>"/>
+                <form:input type="text" name="patronymic" path="student.patronymic"/>
                 <span><form:errors path="teacher.patronymic"/></span>
             </p>
             <a style="color: #6c757d ; margin: 10px" href="/login">Already have an account</a>

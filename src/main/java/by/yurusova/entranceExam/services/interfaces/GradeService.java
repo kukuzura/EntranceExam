@@ -36,4 +36,13 @@ public interface GradeService {
      * @param studentID student id
      */
     void updateByExamAndStudent(long examID, long studentID, int grade);
+
+    /**
+     * Method gets student grade for exam with given id.
+     *
+     * @param examID    id of exam.
+     * @param studentID id of student.
+     * @return the grade.
+     */
+    int findByExamAndStudent(long examID, long studentID);
 }

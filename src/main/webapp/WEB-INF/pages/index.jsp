@@ -40,39 +40,6 @@
         <h1><spring:message code="home.navigation.text.tab1.h1"/></h1>
         <h2><spring:message code="home.navigation.text.tab1.h2"/></h2>
     </div>
-    <div>
-        <p class="description">Information for Prospective Majors
-            The Ohio State Department of Astronomy offers an excellent Bachelor of Science degree in Astronomy and
-            Astrophysics. This program provides superb preparation for students who plan to pursue graduate study and
-            become professional astronomers and astrophysicists, as well as a diverse array of other graduate and
-            professional programs.
-
-            Our students obtain a strong background in physics and applied mathematics, and take courses in programming
-            and data analysis, in addition to topics in modern astrophysics. The recommended curriculum includes a
-            complete list of the required courses and various options for electives. This coursework teaches important
-            critical thinking and problem solving skills, as well as the mathematical, statistical, and programming
-            methods that are at the heart of most technical fields. Many graduates of our program have pursued graduate
-            research in astronomy or physics, and many others have pursued a variety of careers including in software
-            development, science writing, research scientist positions in industry, and secondary education.
-
-            Students often get involved in undergraduate research, either in astronomy and astrophysics, or in a related
-            department such as physics, chemistry, and math. Our faculty are very active researchers, and most work with
-            undergraduate students (and graduate students) on research projects, in addition to teaching classes. The
-            best way to get involved with research in the department is through our Summer Undergraduate Research
-            Program. There are also numerous other opportunities to conduct research at other departments and
-            observatories around the country and even around the world.
-
-            There are also many other ways to get involved with the activities in the Department of Astronomy. One great
-            way is through our morning Astronomy Coffee that meets daily at 10:30am in 4054 McPherson. There is also a
-            weekly Astronomy Colloquium, the weekly Center for Cosmology and Astroparticle Physics (CCAPP) seminar,
-            activities organized by the undergraduate Ohio State Astronomical Society, a public lecture series, and many
-            other events. Please contact the Director of Undergraduate Studies if you are interested in a major or minor
-            in astronomy and astrophysics.
-        <p>
-
-            <a class="link" href="/specialityList">Speciality List</a>
-
-    </div>
 </div>
 
 <input type="radio" id="trigger2" name="slider" checked autofocus>

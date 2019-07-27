@@ -4,24 +4,13 @@
 <html>
 <head>
     <title><spring:message key="addSubject.title"/></title>
+    <link rel="stylesheet" href="/resources/css/adding.css"/>
 </head>
 <body>
 <form:form modelAttribute="subject" method="post">
-    <table>
-        <tr>
-            <td>
-                <form:label path="name"><spring:message key="addSubject.label.name"/></form:label>
-            </td>
-            <td>
-                <form:input path="name" name="name" id="name"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form:button id="submit" name="submit"><spring:message key="addSubject.button.confirm"/></form:button>
-            </td>
-        </tr>
-    </table>
+    <label><form:label path="name"><spring:message key="addSubject.label.name"/></form:label></label>
+    <p><form:input path="name" name="name" id="name"/></p>
+    <p><form:button id="submit" name="submit"><spring:message key="addSubject.button.confirm"/></form:button></p>
 </form:form>
 </body>
 </html>

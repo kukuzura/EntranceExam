@@ -9,6 +9,7 @@ import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Teacher;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
+import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -17,8 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 /**
  * Facade for student and teacher information page.
@@ -42,6 +45,8 @@ public class InformationPageCreationFacade {
 
     private TeacherConverter teacherConverter;
 
+    private GradeService gradeService;
+
 
     /**
      * Method creates ModelAndView for student page.
@@ -60,11 +65,11 @@ public class InformationPageCreationFacade {
         User user = userService.findByLogin(principal.getName());
         StudentDTO student = studentConverter.convert(user.getStudent());
         modelAndView.addObject("student", student);
-        List<ExamDTO> examDTOList = new ArrayList<ExamDTO>();
+        Map<ExamDTO, Integer> examsAndGrades = new HashMap<>();
         for (Exam exam : examService.findByStudent(student.getId())) {
-            examDTOList.add(examConverter.convert(exam));
+            examsAndGrades.put(examConverter.convert(exam), gradeService.findByExamAndStudent(exam.getId(), student.getId()));
         }
-        modelAndView.addObject("examList", examDTOList);
+        modelAndView.addObject("examAndGradesMap", examsAndGrades);
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("messages");
         messageSource.setDefaultEncoding("UTF-8");
@@ -171,4 +176,12 @@ public class InformationPageCreationFacade {
         this.teacherConverter = teacherConverter;
     }
 
+    /**
+     * Sets grade service.
+     *
+     * @param gradeService service to be set.
+     */
+    public void setGradeService(final GradeService gradeService) {
+        this.gradeService = gradeService;
+    }
 }

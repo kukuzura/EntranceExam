@@ -5,6 +5,7 @@ a {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 a:link:active, a:link:hover {

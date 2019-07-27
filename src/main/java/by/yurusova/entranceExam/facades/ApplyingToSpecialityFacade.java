@@ -67,16 +67,8 @@ public class ApplyingToSpecialityFacade {
      * @return page with speciality list.
      */
     public ModelAndView createSpecialityListPage() {
-        ModelAndView mav = new ModelAndView("/adminSpecialityList.jsp");
-        List<Speciality> specialities = specialityService.getAll();
-        List<Speciality> removed = new ArrayList<>();
-
-        for (Speciality speciality : specialities) {
-            if (speciality.getExams().size() != Integer.valueOf(properties.getExamAmount())) {
-                removed.add(speciality);
-            }
-        }
-        specialities.removeAll(removed);
+        ModelAndView mav = new ModelAndView("/specialityListForAll.jsp");
+        List<Speciality> specialities = specialityService.getAllWithExamsAmount(Integer.valueOf(properties.getExamAmount()));
         List<SpecialityDTO> specialityDTOS = new ArrayList<>();
         for (Speciality speciality : specialities) {
             specialityDTOS.add(specialityConverter.convert(speciality));

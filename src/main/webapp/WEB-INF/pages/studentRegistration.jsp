@@ -18,32 +18,32 @@
             <h2><spring:message code="studentRegistration.title"/></h2>
             <p>
                 <label for="login" class="floatLabel"><spring:message code="studentRegistration.lable.login"/></label>
-                <input id="login" name="login" type="text"/>
+                <form:input id="login" name="login" type="text" path="user.login"/>
                 <span><form:errors path="user.login"/></span>
             </p>
             <p>
                 <label for="password" class="floatLabel"><spring:message code="studentRegistration.lable.password"/></label>
-                <input id="password" name="password" type="password">
+                <form:input id="password" name="password" type="password" path="user.password"/>
                 <span><form:errors path="user.password"/></span>
             </p>
             <p>
                 <label for="firstName" class="floatLabel"><spring:message code="studentRegistration.lable.firstName"/></label>
-                <input id="firstName" name="firstName" type="password">
+                <form:input id="firstName" name="firstName" type="text" path="student.firstName"/>
                 <span><form:errors path="student.firstName"/></span>
             </p>
             <p>
                 <label for="lastName" class="floatLabel"><spring:message code="studentRegistration.lable.lastName"/></label>
-                <input id="lastName" name="lastName" >
+                <form:input id="lastName" name="lastName" type="text"  path="student.lastName"/>
                 <span><form:errors path="student.lastName"/></span>
             </p>
             <p>
                 <label for="patronymic" class="floatLabel"><spring:message code="studentRegistration.lable.patronymic"/></label>
-                <input id="patronymic" name="patronymic">
+                <form:input id="patronymic" name="patronymic" type="text" path="student.patronymic"/>
                 <span><form:errors path="student.patronymic"/></span>
             </p>
             <p>
                 <label for="passportID" class="floatLabel"><spring:message code="studentRegistration.lable.passportID"/></label>
-                <input id="passportID" name="passportID">
+                <form:input id="passportID" name="passportID" type="text" path="student.passportID"/>
                 <span><form:errors path="student.patronymic"/></span>
             </p>
             <p>

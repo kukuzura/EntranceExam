@@ -37,6 +37,11 @@ public class GradeServiceImpl implements GradeService {
         gradeDAO.update(gradeObj);
     }
 
+    @Override
+    public int findByExamAndStudent(final long examID, final long studentID) {
+        return gradeDAO.getByStudentAndExam(studentID, examID).getGrade();
+    }
+
     /**
      * Method sets gradedDAO.
      *

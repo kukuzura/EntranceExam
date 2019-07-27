@@ -1,13 +1,25 @@
+body{
+    background: midnightblue;
+    background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    background: linear-gradient(135deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 #list {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    background-color: white;
 }
 
 #list td, #list th {
     border: 1px solid #ddd;
     padding: 8px;
     align-content: center;
+}
+
+#list tr {
+    color: black;
 }
 
 #list tr:nth-child(even) {
@@ -24,4 +36,24 @@
     text-align: center;
     background-color: #002752;
     color: white;
+}
+
+.add_button {
+    align-self: center;
+    margin-left: 85vh;
+    margin-top: 5vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
+}
+
+button {
+    padding: 1vh 4vh 1vh 4vh ;
+    font-size: 14px;
+    color: white;
+    background-color: #002752 ;
+    border: 2px solid white;
+    cursor: pointer;
+    width: max-content;
+    transition: 0.25s ease;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

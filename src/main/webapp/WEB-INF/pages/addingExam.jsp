@@ -7,41 +7,31 @@
 <head>
     <title><spring:message code="addingExam.title"/></title>
     <link rel="stylesheet" href="/resources/css/link.css"/>
+    <link rel="stylesheet" href="/resources/css/select.css"/>
 </head>
 <body>
-<form:form method="post" commandName="exam">
-    <table>
-        <tr>
-            <td>
-                <label><spring:message code="addingExam.label.speciality"/></label>
-            </td>
-            <td>
-                <form:select path="speciality">
-                    <form:options items="${specialityList}" itemValue="id" itemLabel="name"/>
-                </form:select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label><spring:message code="addingExam.label.subject"/></label>
-            </td>
-            <td>
-                <form:select path="subject">
-                    <form:options items="${subjectList}" itemValue="id" itemLabel="name"/>
-                </form:select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label><spring:message code="addingExam.label.teacher"/></label>
-            </td>
-            <td>
-                <form:select path="teacher">
-                    <form:options items="${teacherList}" itemValue="id" itemLabel="lastName"/>
-                </form:select>
-            </td>
-            <button><spring:message code="addingExam.button.confirm"/></button>
-    </table>
+<div align="center">
+<form:form method="post" commandName="exam" >
+    <label><spring:message code="addingExam.label.speciality"/></label>
+    <div class="styled-select blue semi-square">
+        <form:select path="speciality">
+            <form:options items="${specialityList}" itemValue="id" itemLabel="name"/>
+        </form:select>
+    </div>
+    <label><spring:message code="addingExam.label.subject"/></label>
+    <div class="styled-select blue semi-square">
+        <form:select path="subject">
+            <form:options items="${subjectList}" itemValue="id" itemLabel="name"/>
+        </form:select>
+    </div>
+    <label><spring:message code="addingExam.label.teacher"/></label>
+    <div class="styled-select blue semi-square">
+        <form:select path="teacher">
+            <form:options items="${teacherList}" itemValue="id" itemLabel="lastName"/>
+        </form:select>
+    </div>
+    <button><spring:message code="addingExam.button.confirm"/></button>
 </form:form>
+</div>
 </body>
 </html>

@@ -6,7 +6,6 @@
 <head>
     <title><spring:message code="examList.title"/></title>
     <link rel="stylesheet" href="/resources/css/table.css"/>
-    <link rel="stylesheet" href="/resources/css/select.css"/>
     <link rel="stylesheet" href="/resources/css/link.css"/>
 </head>
 <body>
@@ -32,7 +31,7 @@
     </c:forEach>
 </table>
 <div align="center" >
-<a href="/admin/addExam"><spring:message code="addingExam.button.addExam"/></a>
+<a  href="/admin/addExam"><spring:message code="addingExam.button.addExam"/></a>
 </div>
 </div>
 </body>

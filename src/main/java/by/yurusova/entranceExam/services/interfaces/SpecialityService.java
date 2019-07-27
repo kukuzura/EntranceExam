@@ -49,4 +49,12 @@ public interface SpecialityService {
      * @param speciality the speciality to be set.
      */
     void delete(Speciality speciality);
+
+    /**
+     * Method gets specialities with given amount of exams.
+     *
+     * @param examsAmount amount of exams.
+     * @return list of specialities.
+     */
+    List<Speciality> getAllWithExamsAmount(int examsAmount);
 }

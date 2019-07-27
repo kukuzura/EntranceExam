@@ -27,7 +27,7 @@
         </tr>
     </c:forEach>
 </table>
-    <a href="/admin/addSubject"><spring:message key="adminSubjectList.button.addSpeciality"/> </a>
+    <a class="add_button" href="/admin/addSubject"><spring:message key="adminSubjectList.button.addSpeciality"/> </a>
 </div>
 </body>
 </html>

@@ -4,6 +4,7 @@ import by.yurusova.entranceExam.dao.interfaces.SpecialityDAO;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,6 +42,19 @@ public class SpecialityServiceImpl implements SpecialityService {
     @Override
     public void delete(final Speciality speciality) {
         specialityDAO.delete(speciality);
+    }
+
+    @Override
+    public List<Speciality> getAllWithExamsAmount(final int examsAmount) {
+        List<Speciality> specialities = specialityDAO.getAll();
+        List<Speciality> removed = new ArrayList<>();
+        for (Speciality speciality : specialities) {
+            if (speciality.getExams().size() != examsAmount) {
+                removed.add(speciality);
+            }
+        }
+        specialities.removeAll(removed);
+        return specialities;
     }
 
     /**

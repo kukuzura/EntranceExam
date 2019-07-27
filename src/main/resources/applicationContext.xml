@@ -122,6 +122,7 @@
         <property name="teacherConverter" ref="teacherConverter"/>
         <property name="examConverter" ref="examConverter"/>
         <property name="studentConverter" ref="studentConverterForRate"/>
+        <property name="gradeService" ref="gradeService"/>
     </bean>
 
     <bean id="rateFacade" class="by.yurusova.entranceExam.facades.RateFacade">
