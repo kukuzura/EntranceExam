@@ -1,0 +1,19 @@
+input {
+    display: block;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+input[type="text"],
+input[type="password"] {
+    background: #fff;
+    border: none;
+    font-size: 1.2em;
+}
+
+button{
+    margin-top: 4vh;
+    margin-left: 90vh;
+}

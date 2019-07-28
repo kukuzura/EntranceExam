@@ -6,6 +6,7 @@
 <head>
     <title><spring:message key="ratePage.title"/></title>
     <link rel="stylesheet" href="/resources/css/table.css"/>
+    <link rel="stylesheet" href="/resources/css/rate.css"/>
 </head>
 <body>
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
@@ -59,8 +60,8 @@
                     <br/>
                 </td>
         </c:forEach>
-        <input type="submit" value="<spring:message key="ratePage.button.submit"/> ">
     </table>
+    <form:button><spring:message key="ratePage.button.submit"/></form:button>
 </form:form>
 </body>
 </html>
