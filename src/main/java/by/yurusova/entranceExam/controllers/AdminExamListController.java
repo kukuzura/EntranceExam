@@ -44,4 +44,13 @@ public class AdminExamListController {
         facade.deleteExam(id);
         return facade.createExamListPage();
     }
+
+    /**
+     * Sets admin operation with exam facade.
+     *
+     * @param facade facade to be set.
+     */
+    public void setFacade(final AdminOperationWithExamFacade facade) {
+        this.facade = facade;
+    }
 }

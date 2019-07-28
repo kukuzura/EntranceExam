@@ -24,7 +24,7 @@ public class Role implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(generator = "increment")
-    private Long id;
+    private long id;
 
     @Column(name = "name")
     private String name;
@@ -46,7 +46,7 @@ public class Role implements Serializable {
      *
      * @param id role id to be set.
      */
-    public void setId(final Long id) {
+    public void setId(final long id) {
         this.id = id;
     }
 
