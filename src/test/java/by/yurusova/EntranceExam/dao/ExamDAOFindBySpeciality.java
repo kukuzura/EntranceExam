@@ -61,4 +61,12 @@ public class ExamDAOFindBySpeciality {
         assertNotNull(examDAO.findBySpeciality(1));
     }
 
+    @After
+    public void after(){
+        teacherDAO.delete(teacherDAO.findById(1));
+        subjectDAO.delete(subjectDAO.findById(1));
+        specialityDAO.delete(specialityDAO.findById(1));
+        examDAO.delete(examDAO.findById(1));
+    }
+
 }

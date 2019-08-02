@@ -1,8 +1,8 @@
 package by.yurusova.EntranceExam.controllers;
 
-import by.yurusova.entranceExam.controllers.AdminExamListController;
-import by.yurusova.entranceExam.entities.Exam;
-import by.yurusova.entranceExam.services.interfaces.ExamService;
+import by.yurusova.entranceExam.controllers.UsersDisplayController;
+import by.yurusova.entranceExam.entities.User;
+import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,20 +17,20 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.Assert.assertNull;
+import static junit.framework.TestCase.assertNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test.xml", "classpath:test-database.xml"})
 @Transactional
-public class AdminExamListControllerTest {
+public class AdminUserListControllerTest {
 
     private MockMvc mockMvc;
 
     @Autowired
-    private AdminExamListController controller;
+    private UsersDisplayController controller;
 
     @Autowired
-    private ExamService examService;
+    private UserService userService;
 
     @Before
     public void setUp() {
@@ -38,9 +38,26 @@ public class AdminExamListControllerTest {
     }
 
     @Before
-    public void beforeGet() {
-        Exam exam = new Exam();
-        examService.saveExam(exam);
+    public void beforeDelete() {
+        User user = new User();
+        user.setId(1);
+        user.setPassword("");
+        userService.addUser(user);
+    }
+
+    @Test
+    public void testDelete() {
+        ResultMatcher ok = MockMvcResultMatchers.status()
+                .isOk();
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.delete("http://localhost:9090/admin/userDelete/1");
+        try {
+            this.mockMvc.perform(builder)
+                    .andExpect(ok);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertNull(userService.findById(1));
+
     }
 
     @Test
@@ -48,50 +65,28 @@ public class AdminExamListControllerTest {
         ResultMatcher ok = MockMvcResultMatchers.status()
                 .isOk();
         ResultMatcher view = MockMvcResultMatchers.view()
-                .name("/examListPage.jsp");
-        ResultMatcher resultList = MockMvcResultMatchers
-                .model()
-                .attribute("examList", examService.getAll());
+                .name("/userList.jsp");
 
-
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/examList");
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/userList");
         try {
             this.mockMvc.perform(builder)
                     .andExpect(ok)
-                    .andExpect(view)
-                    .andExpect(resultList);
+                    .andExpect(view);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Before
-    public void beforeDelete() {
-        Exam exam = new Exam();
-        exam.setId(2);
-        examService.saveExam(exam);
+    public void setMockMvc(MockMvc mockMvc) {
+        this.mockMvc = mockMvc;
     }
 
-    @Test
-    public void testDelete() {
-        ResultMatcher ok = MockMvcResultMatchers.status()
-                .isOk();
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/examDelete/2");
-        try {
-            this.mockMvc.perform(builder)
-                    .andExpect(ok)
-                    .andExpect(MockMvcResultMatchers.redirectedUrl("http://localhost:9090/admin/examList"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        assertNull(examService.findByID(2));
-    }
-
-    public void setExamService(ExamService examService) {
-        this.examService = examService;
-    }
-
-    public void setController(AdminExamListController controller) {
+    public void setController(UsersDisplayController controller) {
         this.controller = controller;
     }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
 }

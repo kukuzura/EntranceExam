@@ -38,8 +38,14 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="encoder"
+          class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <constructor-arg name="strength" value="11"/>
+    </bean>
+
     <bean id="userService" class="by.yurusova.entranceExam.services.UserServiceImpl">
         <property name="userDAO" ref="userDAO"/>
+        <property name="bCryptPasswordEncoder" ref="encoder"/>
     </bean>
 
     <bean id="abstractDAO" class="by.yurusova.entranceExam.dao.AbstractBaseDAO" abstract="true">

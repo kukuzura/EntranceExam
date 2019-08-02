@@ -8,6 +8,7 @@ import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.entities.Teacher;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,9 +42,6 @@ public class ExamDeleteTest {
         Teacher teacher = new Teacher();
         Subject subject = new Subject();
         Speciality speciality = new Speciality();
-        teacher.setId(1);
-        speciality.setId(1);
-        subject.setId(1);
         teacherDAO.saveTeacher(teacher);
         subjectDAO.saveSubject(subject);
         specialityDAO.saveSpeciality(speciality);
@@ -54,12 +52,19 @@ public class ExamDeleteTest {
         Exam exam = new Exam();
         exam.setId(1);
         examDAO.delete(exam);
-        Teacher teacher = teacherDAO.findById(1);
-        Subject subject = subjectDAO.findById(1);
-        Speciality speciality = specialityDAO.findById(1);
+        Teacher teacher = teacherDAO.findById(3);
+        Subject subject = subjectDAO.findById(3);
+        Speciality speciality = specialityDAO.findById(3);
         assertNotNull(teacher);
         assertNotNull(speciality);
         assertNotNull(subject);
+    }
+
+    @After
+    public void after() {
+        teacherDAO.delete(teacherDAO.findById(3));
+        specialityDAO.delete(specialityDAO.findById(3));
+        subjectDAO.delete(subjectDAO.findById(3));
     }
 }
 

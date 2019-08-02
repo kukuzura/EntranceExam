@@ -2,6 +2,7 @@ package by.yurusova.EntranceExam.dao;
 
 import by.yurusova.entranceExam.dao.interfaces.UserDAO;
 import by.yurusova.entranceExam.entities.User;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,5 +35,10 @@ public class UserDAOImplTest {
     public void testFindAllUsers() {
         List<User> users = userDAO.getAll();
         assertEquals("check User has been created", 1, users.size());
+    }
+
+    @After
+    public void after() {
+        userDAO.delete(userDAO.findById(1));
     }
 }

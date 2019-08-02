@@ -12,6 +12,8 @@ import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.entities.Teacher;
+import org.hibernate.SessionFactory;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +21,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -55,10 +55,6 @@ public class ExamDAOFindByStudentTest {
         Student student = new Student();
         Grade grade = new Grade();
         Speciality speciality = new Speciality();
-        teacher.setId(1);
-        speciality.setId(1);
-        subject.setId(1);
-        student.setId(1);
         studentDAO.saveStudent(student);
         grade.setStudent(student);
         teacherDAO.saveTeacher(teacher);
@@ -74,7 +70,15 @@ public class ExamDAOFindByStudentTest {
 
     @Test
     public void test(){
-        List<Grade> grades = gradeDAO.getAll();
         assertNotNull(examDAO.findByStudent(1));
     }
+
+    @After
+    public void after(){
+        teacherDAO.delete(teacherDAO.findById(2));
+        subjectDAO.delete(subjectDAO.findById(2));
+        specialityDAO.delete(specialityDAO.findById(2));
+        examDAO.delete(examDAO.findById(2));
+    }
+
 }

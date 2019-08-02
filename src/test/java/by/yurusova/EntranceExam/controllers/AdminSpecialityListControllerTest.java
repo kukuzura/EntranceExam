@@ -1,10 +1,8 @@
 package by.yurusova.EntranceExam.controllers;
 
-import by.yurusova.entranceExam.controllers.AdminExamListController;
 import by.yurusova.entranceExam.controllers.AdminSpecialityListController;
-import by.yurusova.entranceExam.entities.Exam;
+import by.yurusova.entranceExam.converters.SpecialityListConverter;
 import by.yurusova.entranceExam.entities.Speciality;
-import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,9 +32,17 @@ public class AdminSpecialityListControllerTest {
     @Autowired
     private SpecialityService specialityService;
 
+    @Autowired
+    private SpecialityListConverter specialityListConverter;
+
     @Before
     public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+    }
+
+    @Before
+    public void beforeGet() {
+        specialityService.save(new Speciality());
     }
 
     @Test
@@ -45,12 +51,16 @@ public class AdminSpecialityListControllerTest {
                 .isOk();
         ResultMatcher view = MockMvcResultMatchers.view()
                 .name("/adminSpecialityList.jsp");
+        ResultMatcher result = MockMvcResultMatchers
+                .model()
+                .attribute("specialityList", specialityListConverter.convertList(specialityService.getAll()));
 
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/specialityList");
         try {
             this.mockMvc.perform(builder)
                     .andExpect(ok)
-                    .andExpect(view);
+                    .andExpect(view)
+                    .andExpect(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -59,7 +69,6 @@ public class AdminSpecialityListControllerTest {
     @Before
     public void beforeDelete() {
         Speciality speciality = new Speciality();
-        speciality.setId(1);
         specialityService.save(speciality);
     }
 
@@ -67,14 +76,14 @@ public class AdminSpecialityListControllerTest {
     public void testDelete() {
         ResultMatcher ok = MockMvcResultMatchers.status()
                 .isOk();
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/specialityDelete/1");
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/specialityDelete/2");
         try {
             this.mockMvc.perform(builder)
                     .andExpect(ok);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        assertNull(specialityService.findById(1));
+        assertNull(specialityService.findById(2));
 
     }
 
@@ -85,5 +94,9 @@ public class AdminSpecialityListControllerTest {
 
     public void setSpecialityService(SpecialityService specialityService) {
         this.specialityService = specialityService;
+    }
+
+    public void setSpecialityListConverter(SpecialityListConverter specialityListConverter) {
+        this.specialityListConverter = specialityListConverter;
     }
 }

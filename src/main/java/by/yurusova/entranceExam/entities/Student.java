@@ -1,7 +1,5 @@
 package by.yurusova.entranceExam.entities;
 
-import org.hibernate.annotations.ColumnDefault;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -58,7 +56,6 @@ public class Student implements Serializable {
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    @ColumnDefault("NEW_STUDENT")
     private StudentStatus status;
 
 

@@ -22,4 +22,5 @@ public class SubjectConverter implements TwoWayConverter<Subject, SubjectDTO> {
     public Subject convertBack(final SubjectDTO target) {
         return new Subject(target.getId(), target.getName());
     }
+
 }

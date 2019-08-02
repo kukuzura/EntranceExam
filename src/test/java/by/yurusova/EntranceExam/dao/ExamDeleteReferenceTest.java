@@ -40,14 +40,11 @@ public class ExamDeleteReferenceTest extends TestCase {
 
 
     @Before
-    public void beforeDeleteReference(){
+    public void beforeDeleteReference() {
         Exam exam = new Exam();
         Teacher teacher = new Teacher();
         Subject subject = new Subject();
         Speciality speciality = new Speciality();
-        teacher.setId(1);
-        speciality.setId(1);
-        subject.setId(1);
         teacherDAO.saveTeacher(teacher);
         subjectDAO.saveSubject(subject);
         specialityDAO.saveSpeciality(speciality);
@@ -58,16 +55,21 @@ public class ExamDeleteReferenceTest extends TestCase {
     }
 
     @Test
-    public void deleteExamReferences(){
-        Teacher teacher = teacherDAO.findById(1);
+    public void deleteExamReferences() {
+        Teacher teacher = teacherDAO.findById(5);
         teacherDAO.delete(teacher);
-        assertNotNull(examDAO.findById(1));
-        Subject subject = subjectDAO.findById(1);
+        assertNotNull(examDAO.findById(4));
+        Subject subject = subjectDAO.findById(5);
         subjectDAO.delete(subject);
-        assertNotNull(examDAO.findById(1));
-        Speciality speciality = specialityDAO.findById(1);
+        assertNotNull(examDAO.findById(4));
+        Speciality speciality = specialityDAO.findById(5);
         specialityDAO.delete(speciality);
-        assertNotNull(examDAO.findById(1));
+        assertNotNull(examDAO.findById(4));
+    }
+
+    @After
+    public void after() {
+        examDAO.delete(examDAO.findById(4));
     }
 
 

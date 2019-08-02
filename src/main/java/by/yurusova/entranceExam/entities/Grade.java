@@ -89,4 +89,13 @@ public class Grade implements Serializable {
     public void setGrade(final int grade) {
         this.grade = grade;
     }
+
+    /**
+     * Sets grades id.
+     *
+     * @param id id to be set.
+     */
+    public void setId(final long id) {
+        this.id = id;
+    }
 }

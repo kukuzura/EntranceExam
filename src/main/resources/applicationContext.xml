@@ -148,6 +148,15 @@
     <bean id="specialityOperationsFacade" class="by.yurusova.entranceExam.facades.SpecialityOperationsFacade">
         <property name="specialityService" ref="specialityService"/>
         <property name="specialityConverter" ref="specialityConverter"/>
+        <property name="specialityListConverter" ref="specialityListConverter"/>
+    </bean>
+
+    <bean id="specialityListConverter" class="by.yurusova.entranceExam.converters.SpecialityListConverter">
+        <property name="specialityConverter" ref="specialityConverter"/>
+    </bean>
+
+    <bean id="subjectListConverter" class="by.yurusova.entranceExam.converters.SubjectListConverter">
+        <property name="subjectConverter" ref="subjectConveter"/>
     </bean>
 
 </beans>

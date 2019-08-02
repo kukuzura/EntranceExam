@@ -41,9 +41,6 @@ public class SaveExamTest {
         Teacher teacher = new Teacher();
         Subject subject = new Subject();
         Speciality speciality = new Speciality();
-        teacher.setId(1);
-        speciality.setId(1);
-        subject.setId(1);
         teacherDAO.saveTeacher(teacher);
         subjectDAO.saveSubject(subject);
         specialityDAO.saveSpeciality(speciality);
@@ -52,14 +49,22 @@ public class SaveExamTest {
     @Test
     public void saveExamTest() {
         Exam exam = new Exam();
-        Teacher teacher = teacherDAO.findById(1);
-        Subject subject = subjectDAO.findById(1);
-        Speciality speciality = specialityDAO.findById(1);
+        Teacher teacher = teacherDAO.findById(4);
+        Subject subject = subjectDAO.findById(4);
+        Speciality speciality = specialityDAO.findById(4);
         exam.setSpeciality(speciality);
         exam.setTeacher(teacher);
         exam.setSubject(subject);
         examDAO.saveExam(exam);
         assertEquals("table is empaty", 1, examDAO.getAll().size());
+    }
+
+    @After
+    public void after(){
+        teacherDAO.delete(teacherDAO.findById(4));
+        subjectDAO.delete(subjectDAO.findById(4));
+        specialityDAO.delete(specialityDAO.findById(4));
+        examDAO.delete(examDAO.findById(3));
     }
 
 

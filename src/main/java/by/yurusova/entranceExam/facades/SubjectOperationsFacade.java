@@ -1,12 +1,12 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.SubjectConverter;
+import by.yurusova.entranceExam.converters.SubjectListConverter;
 import by.yurusova.entranceExam.dto.SubjectDTO;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.services.interfaces.SubjectService;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +22,8 @@ public class SubjectOperationsFacade {
     private SubjectService subjectService;
 
     private SubjectConverter subjectConverter;
+
+    private SubjectListConverter subjectListConverter;
 
     /**
      * Sets subject converter.
@@ -41,11 +43,7 @@ public class SubjectOperationsFacade {
     public ModelAndView createSubjectList() {
         ModelAndView modelAndView = new ModelAndView("/adminSubjectList.jsp");
         List<Subject> subjectList = subjectService.getAll();
-        List<SubjectDTO> subjectDTOS = new ArrayList<>();
-        for (Subject subject : subjectList) {
-            subjectDTOS.add(subjectConverter.convert(subject));
-        }
-        modelAndView.addObject("subjectList", subjectDTOS);
+        modelAndView.addObject("subjectList", subjectListConverter.convertList(subjectList));
         return modelAndView;
     }
 
@@ -77,5 +75,14 @@ public class SubjectOperationsFacade {
         Subject subject = new Subject();
         subject.setId(id);
         subjectService.delete(subject);
+    }
+
+    /**
+     * Sets subject list converter.
+     *
+     * @param subjectListConverter converter ti be set.
+     */
+    public void setSubjectListConverter(final SubjectListConverter subjectListConverter) {
+        this.subjectListConverter = subjectListConverter;
     }
 }

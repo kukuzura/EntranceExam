@@ -1,12 +1,12 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.SpecialityConverter;
+import by.yurusova.entranceExam.converters.SpecialityListConverter;
 import by.yurusova.entranceExam.dto.SpecialityDTO;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +23,8 @@ public class SpecialityOperationsFacade {
 
     private SpecialityConverter specialityConverter;
 
+    private SpecialityListConverter specialityListConverter;
+
     /**
      * Method creates ModelAndVies for speciality list page,
      * converts it to list of specialityDTO and sets on modelAndView.
@@ -32,11 +34,7 @@ public class SpecialityOperationsFacade {
     public ModelAndView createSpecialityList() {
         ModelAndView modelAndView = new ModelAndView("/adminSpecialityList.jsp");
         List<Speciality> specialityList = specialityService.getAll();
-        List<SpecialityDTO> specialityDTOS = new ArrayList<>();
-        for (Speciality speciality : specialityList) {
-            specialityDTOS.add(specialityConverter.convert(speciality));
-        }
-        modelAndView.addObject("specialityList", specialityDTOS);
+        modelAndView.addObject("specialityList", specialityListConverter.convertList(specialityList));
         return modelAndView;
     }
 
@@ -79,4 +77,12 @@ public class SpecialityOperationsFacade {
         this.specialityConverter = specialityConverter;
     }
 
+    /**
+     * Sets speciality list converter.
+     *
+     * @param specialityListConverter converter to be set.
+     */
+    public void setSpecialityListConverter(final SpecialityListConverter specialityListConverter) {
+        this.specialityListConverter = specialityListConverter;
+    }
 }

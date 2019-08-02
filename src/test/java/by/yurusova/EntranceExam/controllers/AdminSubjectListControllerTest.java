@@ -1,8 +1,11 @@
 package by.yurusova.EntranceExam.controllers;
 
-import by.yurusova.entranceExam.controllers.AdminExamListController;
-import by.yurusova.entranceExam.entities.Exam;
-import by.yurusova.entranceExam.services.interfaces.ExamService;
+import by.yurusova.entranceExam.controllers.AdminSubjectListController;
+import by.yurusova.entranceExam.converters.SubjectConverter;
+import by.yurusova.entranceExam.converters.SubjectListConverter;
+import by.yurusova.entranceExam.entities.Subject;
+import by.yurusova.entranceExam.services.interfaces.SpecialityService;
+import by.yurusova.entranceExam.services.interfaces.SubjectService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,15 +25,17 @@ import static org.junit.Assert.assertNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test.xml", "classpath:test-database.xml"})
 @Transactional
-public class AdminExamListControllerTest {
-
+public class AdminSubjectListControllerTest {
     private MockMvc mockMvc;
 
     @Autowired
-    private AdminExamListController controller;
+    private AdminSubjectListController controller;
 
     @Autowired
-    private ExamService examService;
+    private SubjectService subjectService;
+
+    @Autowired
+    private SubjectListConverter subjectListConverter;
 
     @Before
     public void setUp() {
@@ -39,8 +44,7 @@ public class AdminExamListControllerTest {
 
     @Before
     public void beforeGet() {
-        Exam exam = new Exam();
-        examService.saveExam(exam);
+        subjectService.save(new Subject());
     }
 
     @Test
@@ -48,18 +52,17 @@ public class AdminExamListControllerTest {
         ResultMatcher ok = MockMvcResultMatchers.status()
                 .isOk();
         ResultMatcher view = MockMvcResultMatchers.view()
-                .name("/examListPage.jsp");
-        ResultMatcher resultList = MockMvcResultMatchers
+                .name("/adminSubjectList.jsp");
+        ResultMatcher result = MockMvcResultMatchers
                 .model()
-                .attribute("examList", examService.getAll());
+                .attribute("subjectList", subjectListConverter.convertList(subjectService.getAll()));
 
-
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/examList");
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/subjectList");
         try {
             this.mockMvc.perform(builder)
                     .andExpect(ok)
                     .andExpect(view)
-                    .andExpect(resultList);
+                    .andExpect(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,31 +70,32 @@ public class AdminExamListControllerTest {
 
     @Before
     public void beforeDelete() {
-        Exam exam = new Exam();
-        exam.setId(2);
-        examService.saveExam(exam);
+        Subject subject = new Subject();
+        subject.setId(1);
+        subjectService.save(subject);
     }
 
     @Test
     public void testDelete() {
         ResultMatcher ok = MockMvcResultMatchers.status()
                 .isOk();
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/examDelete/2");
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/subjectDelete/1");
         try {
             this.mockMvc.perform(builder)
-                    .andExpect(ok)
-                    .andExpect(MockMvcResultMatchers.redirectedUrl("http://localhost:9090/admin/examList"));
+                    .andExpect(ok);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        assertNull(examService.findByID(2));
+        assertNull(subjectService.findById(1));
+
     }
 
-    public void setExamService(ExamService examService) {
-        this.examService = examService;
-    }
 
-    public void setController(AdminExamListController controller) {
+    public void setController(AdminSubjectListController controller) {
         this.controller = controller;
+    }
+
+    public void setSubjectListConverter(SubjectListConverter subjectListConverter) {
+        this.subjectListConverter = subjectListConverter;
     }
 }
