@@ -15,7 +15,12 @@ public class TeacherConverter implements TwoWayConverter<Teacher, TeacherDTO> {
 
     @Override
     public TeacherDTO convert(final Teacher source) {
-        return new TeacherDTO(source.getId(), source.getFirstName(), source.getLastName(), source.getPatronymic());
+        if (source != null) {
+            return new TeacherDTO(source.getId(), source.getFirstName(), source.getLastName(), source.getPatronymic());
+        }
+        else {
+            return null;
+        }
     }
 
     @Override

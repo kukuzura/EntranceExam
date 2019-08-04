@@ -24,17 +24,17 @@
             </p>
             <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.firstName"/></label>
-                <form:input type="text" name="firstName" path="student.firstName"/>
+                <form:input type="text" name="firstName" path="teacher.firstName"/>
                 <span><form:errors path="teacher.firstName"/></span>
             </p>
             <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.lastName"/></label>
-                <form:input type="text" name="lastName" path="student.lastName"/>
+                <form:input type="text" name="lastName" path="teacher.lastName"/>
                 <span><form:errors path="teacher.lastName"/></span>
             </p>
             <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.patronymic"/></label>
-                <form:input type="text" name="patronymic" path="student.patronymic"/>
+                <form:input type="text" name="patronymic" path="teacher.patronymic"/>
                 <span><form:errors path="teacher.patronymic"/></span>
             </p>
             <a style="color: #6c757d ; margin: 10px" href="/login">Already have an account</a>

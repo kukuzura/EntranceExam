@@ -22,7 +22,7 @@
             <td align="center">${subject.name}</td>
             <td>
                 <a href="/admin/subjectDelete/${subject.id}"><spring:message
-                        key="adminSubjectList.label"/></a>
+                        key="adminSubjectList.button.delete"/></a>
             </td>
         </tr>
     </c:forEach>

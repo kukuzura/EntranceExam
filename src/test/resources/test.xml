@@ -89,6 +89,7 @@
     <bean id="userOperationsFacade" class="by.yurusova.entranceExam.facades.UserOperationsFacade">
         <property name="userConverter" ref="userConverter"/>
         <property name="userService" ref="userService"/>
+        <property name="userListConverter" ref="userListConverter"/>
     </bean>
 
     <bean id="examAddingFacade" class="by.yurusova.entranceExam.facades.ExamAddingFacade">
@@ -156,5 +157,10 @@
     <bean id="subjectListConverter" class="by.yurusova.entranceExam.converters.SubjectListConverter">
         <property name="subjectConverter" ref="subjectConveter"/>
     </bean>
+
+    <bean id="userListConverter" class="by.yurusova.entranceExam.converters.UserListConverter">
+        <property name="userConverter" ref="userConverter"/>
+    </bean>
+
 
 </beans>

@@ -2,7 +2,6 @@ package by.yurusova.entranceExam.entities;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,7 +32,7 @@ public class Speciality implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "speciality", cascade = {CascadeType.REFRESH, CascadeType.PERSIST})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "speciality")
     private List<Exam> exams;
 
     @Column(name = "entering_grade")

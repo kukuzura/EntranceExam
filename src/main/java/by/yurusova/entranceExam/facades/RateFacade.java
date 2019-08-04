@@ -5,6 +5,7 @@ import by.yurusova.entranceExam.dto.StudentDTO;
 import by.yurusova.entranceExam.dto.StudentForm;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Student;
+import by.yurusova.entranceExam.entities.StudentStatus;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
@@ -65,11 +66,12 @@ public class RateFacade {
      * @param studentDTOS list of student with grades.
      * @param examID      exam id.
      */
-    public void rateStudents(final ArrayList<StudentDTO> studentDTOS, final long examID) {
+    public void rateStudents(final List<StudentDTO> studentDTOS, final long examID) {
         Exam exam = examService.findByID(examID);
         exam.setGraded(true);
         for (StudentDTO studentDTO : studentDTOS) {
-            Student student = studentConverterForRate.convertBack(studentDTO);
+            Student student = studentService.findById(studentDTO.getId());
+            student.setStatus(StudentStatus.PASS_EXAMS);
             student.setTotalGrade(studentDTO.getGrade() + student.getTotalGrade());
             gradeService.updateByExamAndStudent(examID, studentDTO.getId(), studentDTO.getGrade());
             studentService.editStudent(student);
@@ -114,5 +116,14 @@ public class RateFacade {
      */
     public void setStudentConverterForRate(final StudentConverterForRate studentConverterForRate) {
         this.studentConverterForRate = studentConverterForRate;
+    }
+
+    /**
+     * Sets facade for calculating entering grade.
+     *
+     * @param calculationOfEnteringGradeFacade facade to be set.
+     */
+    public void setCalculationOfEnteringGradeFacade(final CalculationOfEnteringGradeFacade calculationOfEnteringGradeFacade) {
+        this.calculationOfEnteringGradeFacade = calculationOfEnteringGradeFacade;
     }
 }

@@ -35,7 +35,9 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public void delete(final Subject subject) {
-        subjectDAO.delete(subject);
+        if (subject != null) {
+            subjectDAO.delete(subject);
+        }
     }
 
     /**

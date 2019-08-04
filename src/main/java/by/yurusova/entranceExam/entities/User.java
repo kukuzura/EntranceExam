@@ -3,7 +3,6 @@ package by.yurusova.entranceExam.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +38,7 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(cascade = {CascadeType.REFRESH})
+    @ManyToMany
     @JoinTable(
             name = "examsdb.user_role",
             joinColumns = {@JoinColumn(name = "user_id")},

@@ -12,7 +12,6 @@ import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -64,33 +63,13 @@ public class InformationPageCreationFacade {
         ModelAndView modelAndView = new ModelAndView("/studentPage.jsp");
         User user = userService.findByLogin(principal.getName());
         StudentDTO student = studentConverter.convert(user.getStudent());
+        student.setGrade(user.getStudent().getTotalGrade());
         modelAndView.addObject("student", student);
         Map<ExamDTO, Integer> examsAndGrades = new HashMap<>();
         for (Exam exam : examService.findByStudent(student.getId())) {
             examsAndGrades.put(examConverter.convert(exam), gradeService.findByExamAndStudent(exam.getId(), student.getId()));
         }
         modelAndView.addObject("examAndGradesMap", examsAndGrades);
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("messages");
-        messageSource.setDefaultEncoding("UTF-8");
-        String message = "";
-        Object[] args = new Object[]{};
-        switch (user.getStudent().getStatus()) {
-            case NEW_STUDENT:
-                message = messageSource.getMessage("studentPage.message.haveNoExams", args, locale);
-                break;
-            case PASS_EXAMS:
-                message = messageSource.getMessage("studentPage.message.examinationInProgress", args, locale);
-                break;
-            case ENTER:
-                message = messageSource.getMessage("studentPage.message.entered", args, locale);
-                break;
-            case DID_NOT_ENTER:
-                message = messageSource.getMessage("studentPage.message.didntEntered", args, locale);
-                break;
-
-        }
-        modelAndView.addObject("message", message);
         modelAndView.addObject("totalGrade", student.getGrade());
         return modelAndView;
     }
@@ -118,7 +97,7 @@ public class InformationPageCreationFacade {
                 examDTOS.add(examConverter.convert(exam));
             }
         }
-        modelAndView.addObject("examList", teacher.getExams());
+        modelAndView.addObject("examList", examDTOS);
         return modelAndView;
     }
 

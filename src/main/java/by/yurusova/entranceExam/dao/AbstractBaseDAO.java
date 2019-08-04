@@ -46,7 +46,7 @@ public abstract class AbstractBaseDAO<T> {
      * @param object the updated object.
      */
     protected void update(final T object) {
-        this.sessionFactory.getCurrentSession().merge(object);
+        this.sessionFactory.getCurrentSession().update(object);
     }
 
     /**

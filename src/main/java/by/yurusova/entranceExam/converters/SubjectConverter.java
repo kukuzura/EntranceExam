@@ -15,7 +15,12 @@ public class SubjectConverter implements TwoWayConverter<Subject, SubjectDTO> {
 
     @Override
     public SubjectDTO convert(final Subject source) {
-        return new SubjectDTO(source.getId(), source.getName());
+        if (source != null) {
+            return new SubjectDTO(source.getId(), source.getName());
+        }
+        else {
+            return null;
+        }
     }
 
     @Override

@@ -48,5 +48,14 @@ public class RatePageController {
         rateFacade.rateStudents(studentForm.getStudents(), examId);
         return "redirect: /account/teacherPage";
     }
+
+    /**
+     * Sets rate facade.
+     *
+     * @param rateFacade facade to be set.
+     */
+    public void setRateFacade(final RateFacade rateFacade) {
+        this.rateFacade = rateFacade;
+    }
 }
 

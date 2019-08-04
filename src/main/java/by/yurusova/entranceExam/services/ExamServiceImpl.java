@@ -36,9 +36,10 @@ public class ExamServiceImpl implements ExamService {
 
     @Override
     public void deleteExam(final long id) {
-        Exam exam = new Exam();
-        exam.setId(id);
-        examDAO.delete(exam);
+        Exam exam = examDAO.findById(id);
+        if (exam != null) {
+            examDAO.delete(exam);
+        }
     }
 
     @Override

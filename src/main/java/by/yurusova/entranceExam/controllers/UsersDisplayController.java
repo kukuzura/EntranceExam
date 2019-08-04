@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -54,11 +55,14 @@ public class UsersDisplayController {
      * Method updates user information.
      *
      * @param userDTO userDTO to convert to user.
+     * @return userDTO object.
      */
-    @RequestMapping(value = "/updateProcess", method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateProcess", method = RequestMethod.PUT, consumes = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public void updateUser(@RequestBody final UserDTO userDTO) {
+    public @ResponseBody
+    UserDTO updateUser(@RequestBody final UserDTO userDTO) {
         facade.update(userDTO);
+        return userDTO;
     }
 
     /**
@@ -72,5 +76,13 @@ public class UsersDisplayController {
         facade.delete(id);
     }
 
+    /**
+     * Sets user operations facade.
+     *
+     * @param facade facade to be set.
+     */
+    public void setFacade(final UserOperationsFacade facade) {
+        this.facade = facade;
+    }
 
 }

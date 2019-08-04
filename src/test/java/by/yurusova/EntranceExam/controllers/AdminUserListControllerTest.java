@@ -1,6 +1,7 @@
 package by.yurusova.EntranceExam.controllers;
 
 import by.yurusova.entranceExam.controllers.UsersDisplayController;
+import by.yurusova.entranceExam.converters.UserConverter;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.junit.Before;
@@ -32,6 +33,9 @@ public class AdminUserListControllerTest {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserConverter userConverter;
+
     @Before
     public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
@@ -49,7 +53,8 @@ public class AdminUserListControllerTest {
     public void testDelete() {
         ResultMatcher ok = MockMvcResultMatchers.status()
                 .isOk();
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.delete("http://localhost:9090/admin/userDelete/1");
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders
+                .delete("http://localhost:9090/admin/userDelete/1");
         try {
             this.mockMvc.perform(builder)
                     .andExpect(ok);
@@ -77,6 +82,26 @@ public class AdminUserListControllerTest {
         }
     }
 
+    @Test
+    public void testUpdateGetPage() {
+        ResultMatcher ok = MockMvcResultMatchers.status()
+                .isOk();
+        ResultMatcher view = MockMvcResultMatchers.view()
+                .name("/userUpdate.jsp");
+        ResultMatcher user = MockMvcResultMatchers
+                .request().attribute("user", userService.findById(1));
+        MockHttpServletRequestBuilder builderGet = MockMvcRequestBuilders.get("http://localhost:9090/admin/userUpdate/1");
+
+        try {
+            this.mockMvc.perform(builderGet)
+                    .andExpect(ok)
+                    .andExpect(view)
+                    .andExpect(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setMockMvc(MockMvc mockMvc) {
         this.mockMvc = mockMvc;
     }
@@ -89,4 +114,7 @@ public class AdminUserListControllerTest {
         this.userService = userService;
     }
 
+    public void setUserConverter(UserConverter userConverter) {
+        this.userConverter = userConverter;
+    }
 }

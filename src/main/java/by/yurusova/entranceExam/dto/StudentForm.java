@@ -1,7 +1,7 @@
 package by.yurusova.entranceExam.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class that contains list of studentDTO.
@@ -14,14 +14,14 @@ import java.util.ArrayList;
  */
 public class StudentForm implements Serializable {
 
-    private ArrayList<StudentDTO> students;
+    private List<StudentDTO> students;
 
     /**
      * Gets student list.
      *
      * @return list of studentDTO.
      */
-    public ArrayList<StudentDTO> getStudents() {
+    public List<StudentDTO> getStudents() {
         return students;
     }
 
@@ -30,7 +30,7 @@ public class StudentForm implements Serializable {
      *
      * @param students list to be set.
      */
-    public void setStudents(final ArrayList<StudentDTO> students) {
+    public void setStudents(final List<StudentDTO> students) {
         this.students = students;
     }
 

@@ -1,13 +1,11 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.UserConverter;
+import by.yurusova.entranceExam.converters.UserListConverter;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Facade for operations with users.
@@ -23,6 +21,8 @@ public class UserOperationsFacade {
 
     private UserConverter userConverter;
 
+    private UserListConverter userListConverter;
+
 
     /**
      * Method delete user by id.
@@ -31,20 +31,6 @@ public class UserOperationsFacade {
      */
     public void delete(final long userID) {
         userService.deleteUser(userID);
-    }
-
-    /**
-     * Method gets all users from db and converts then to UserDTO.
-     *
-     * @return list of userDTO.
-     */
-    public List<UserDTO> getAll() {
-        List<User> users = userService.getAll();
-        List<UserDTO> dtoList = new ArrayList<UserDTO>();
-        for (User user : users) {
-            dtoList.add(userConverter.convert(user));
-        }
-        return dtoList;
     }
 
     /**
@@ -83,8 +69,7 @@ public class UserOperationsFacade {
      */
     public ModelAndView createUserListPage() {
         ModelAndView mav = new ModelAndView("/userList.jsp");
-        List<UserDTO> users = getAll();
-        mav.addObject("usersList", users);
+        mav.addObject("usersList", userListConverter.convertList(userService.getAll()));
         return mav;
     }
 
@@ -108,7 +93,18 @@ public class UserOperationsFacade {
      * @param userDTO userDTO to be update.
      */
     public void update(final UserDTO userDTO) {
-        User user = userConverter.convertBack(userDTO);
+        User user = userService.findById(userDTO.getId());
+        user.setLogin(userDTO.getLogin());
+        user.setPassword(userDTO.getPassword());
         userService.editUser(user);
+    }
+
+    /**
+     * Sets user list converter.
+     *
+     * @param userListConverter converter to be set.
+     */
+    public void setUserListConverter(final UserListConverter userListConverter) {
+        this.userListConverter = userListConverter;
     }
 }

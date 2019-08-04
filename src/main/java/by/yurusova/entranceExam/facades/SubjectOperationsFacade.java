@@ -72,8 +72,7 @@ public class SubjectOperationsFacade {
      * @param id the id.
      */
     public void deleteSubject(final long id) {
-        Subject subject = new Subject();
-        subject.setId(id);
+        Subject subject = subjectService.findById(id);
         subjectService.delete(subject);
     }
 

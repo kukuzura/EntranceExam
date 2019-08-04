@@ -54,8 +54,7 @@ public class SpecialityOperationsFacade {
      * @param id the id.
      */
     public void deleteSpeciality(final long id) {
-        Speciality speciality = new Speciality();
-        speciality.setId(id);
+        Speciality speciality = specialityService.findById(id);
         specialityService.delete(speciality);
     }
 

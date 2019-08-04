@@ -38,4 +38,22 @@ public class SpecialityListForAllController {
         return modelAndView;
     }
 
+    /**
+     * Sets speciality service.
+     *
+     * @param specialityService service to be set.
+     */
+    public void setSpecialityService(final SpecialityService specialityService) {
+        this.specialityService = specialityService;
+    }
+
+    /**
+     * Sets object that contains application constants.
+     *
+     * @param properties the object.
+     */
+    public void setProperties(final ApplicationProperties properties) {
+        this.properties = properties;
+    }
+
 }

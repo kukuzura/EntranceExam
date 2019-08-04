@@ -41,7 +41,9 @@ public class SpecialityServiceImpl implements SpecialityService {
 
     @Override
     public void delete(final Speciality speciality) {
-        specialityDAO.delete(speciality);
+        if (speciality != null) {
+            specialityDAO.delete(speciality);
+        }
     }
 
     @Override
