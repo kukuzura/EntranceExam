@@ -1,6 +1,7 @@
 create table role
 (
-    id   int auto_increment primary key,
+    id   int auto_increment
+        primary key,
     name varchar(50) not null,
     constraint role_name_uindex
         unique (name)
@@ -8,20 +9,23 @@ create table role
 
 create table speciality
 (
-    id             int auto_increment primary key,
+    id             int auto_increment
+        primary key,
     name           varchar(50)      null,
     entering_grade double default 0 not null
 );
 
 create table subject
 (
-    id   int auto_increment primary key,
+    id   int auto_increment
+        primary key,
     name varchar(30) null
 );
 
 create table user
 (
-    id       int auto_increment primary key,
+    id       int auto_increment
+        primary key,
     login    varchar(50) null,
     password longblob    null
 );
@@ -50,7 +54,8 @@ alter table student
 
 create table teacher
 (
-    id         int auto_increment primary key,
+    id         int auto_increment
+        primary key,
     first_name varchar(30) null,
     last_name  varchar(30) null,
     patronymic varchar(30) null,
@@ -62,7 +67,8 @@ create table teacher
 
 create table exam
 (
-    id            int auto_increment primary key,
+    id            int auto_increment
+        primary key,
     teacher_id    int                  null,
     subject_id    int                  null,
     speciality_id int                  null,
@@ -83,13 +89,13 @@ create table grade
     student_id int           null,
     exam_id    int           null,
     grade      int default 0 null,
-    id         int auto_increment primary key,
+    id         int auto_increment
+        primary key,
     constraint grade_exam_id_fk
         foreign key (exam_id) references exam (id)
-            on update cascade on delete cascade,
+            on update cascade on delete set null,
     constraint grade_student_id_fk
         foreign key (student_id) references student (id)
-            on update cascade on delete cascade
 );
 
 create table user_role
@@ -97,10 +103,8 @@ create table user_role
     user_id int null,
     role_id int null,
     constraint user_role_role_id_fk
-        foreign key (role_id) references role (id)
-            on update cascade on delete cascade,
+        foreign key (role_id) references role (id),
     constraint user_role_user_id_fk
         foreign key (user_id) references user (id)
-            on update cascade on delete cascade
 );
 
