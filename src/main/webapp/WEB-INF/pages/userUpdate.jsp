@@ -11,32 +11,10 @@
     <title><spring:message code="edit.title"/></title>
 </head>
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#editForm').submit(function (e) {
-            var login = $('#login').val();
-            var password = $('#password').val();
-            var id = $('#id').val();
-            e.preventDefault();
-            $.ajax({
-                type: 'PUT',
-                url: '/admin/updateProcess',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify({"id": id, "login": login, "password": password}),
-                success: $.ajax({
-                    type: 'GET',
-                    url: '/admin/userList',
-                    success: window.location.href = "/admin/userList"
-                })
-            });
-        });
-    });
-</script>
+<script type="text/javascript" src="/resources/js/updateUser.js"></script>
 <body>
-<jsp:include page="/WEB-INF/pages/navigation.jsp"/>
 <div class="container">
-    <form:form id="editForm" modelAttribute="user">
+    <form:form id="editForm" modelAttribute="user" >
         <table>
             <tr>
                 <td>

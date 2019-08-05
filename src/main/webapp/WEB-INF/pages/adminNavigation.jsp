@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
-    <link rel="stylesheet" href="/resources/css/adminNavigation.css"/>
+    <link rel="stylesheet" href="/resources/css/navigation.css"/>
 </head>
 
 <div class="menu">

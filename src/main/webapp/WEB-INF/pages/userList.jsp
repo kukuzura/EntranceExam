@@ -11,31 +11,8 @@
     <%@include file="/resources/css/table.css" %>
 </style>
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-<script>
-    function RestGetUpdatePage(id) {
-        $.ajax({
-            type: "get",
-            url: "/admin/userUpdate/"+id,
-            data: id,
-            success: function(){
-                window.location.href="/admin/userUpdate/"+id;
-            }
-        })
-    };
-</script>
-<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-<script>
-    function RestDelete(id) {
-        $.ajax({
-            type: "DELETE",
-            url: "/admin/userDelete/"+id,
-            data: id,
-            success: function(){
-                window.location.href="/admin/userList";
-            }
-        })
-    }
-</script>
+<script type="text/javascript" src="/resources/js/deleteUser.js"></script>
+<script type="text/javascript" src="/resources/js/getUpdatePage.js"></script>
 
 <body>
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
