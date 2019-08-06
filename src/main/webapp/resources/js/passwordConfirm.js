@@ -9,5 +9,8 @@ function validatePassword() {
             confirm_password: "Enter Confirm Password Same as Password"
         },
         errorElement: 'span'
-    })
-};
+    });
+    if (validator.form()) {
+        $("#registrationForm").submit();
+    }
+}
