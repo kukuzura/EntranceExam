@@ -10,25 +10,26 @@
 <body>
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
 <div style="padding-top:30px;margin-top:30px;height:1500px;">
-<table id="list">
-    <tr>
-        <th><spring:message key="adminSpecialityList.label.id"/></th>
-        <th><spring:message key="adminSpecialityList.label.name"/></th>
-        <th></th>
-    </tr>
-    <c:forEach items="${specialityList}" var="speciality">
+    <table id="list">
         <tr>
-            <td align="center">${speciality.id}</td>
-            <td align="center">${speciality.name}</td>
-            <td>
-                <a href="/admin/specialityDelete/${speciality.id}"><spring:message
-                        key="adminSpecialityList.button.delete"/>
-                </a>
-            </td>
+            <th><spring:message key="adminSpecialityList.label.id"/></th>
+            <th><spring:message key="adminSpecialityList.label.name"/></th>
+            <th></th>
         </tr>
-    </c:forEach>
-</table>
-    <a class="add_button" href="/admin/addSpeciality"><spring:message key="adminSpecialityList.button.addSpeciality"/></a>
+        <c:forEach items="${specialityList}" var="speciality">
+            <tr>
+                <td align="center">${speciality.id}</td>
+                <td align="center">${speciality.name}</td>
+                <td>
+                    <a href="/admin/specialityDelete/${speciality.id}"><spring:message
+                            key="adminSpecialityList.button.delete"/>
+                    </a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    <a class="add_button" href="/admin/addSpeciality"><spring:message
+            key="adminSpecialityList.button.addSpeciality"/></a>
 </div>
 </body>
 </html>

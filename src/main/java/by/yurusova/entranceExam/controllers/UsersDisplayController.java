@@ -3,9 +3,11 @@ package by.yurusova.entranceExam.controllers;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.facades.UserOperationsFacade;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -52,11 +54,9 @@ public class UsersDisplayController {
      * @param userDTO userDTO to convert to user.
      * @return userDTO object.
      */
-    @RequestMapping(value = "/updateProcess", method = RequestMethod.PUT, consumes = "application/json")
-    @ResponseStatus(HttpStatus.OK)
-    public ModelAndView updateUser(@RequestBody final UserDTO userDTO) {
+    @RequestMapping(value = "/updateProcess", method = RequestMethod.PUT)
+    public void updateUser(@RequestBody final UserDTO userDTO) {
         facade.update(userDTO);
-        return facade.createUserListPage();
     }
 
     /**
@@ -65,7 +65,6 @@ public class UsersDisplayController {
      * @param id the id of deleted user.
      */
     @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.OK)
     public void showDelete(@PathVariable("id") final long id) {
         facade.delete(id);
     }

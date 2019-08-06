@@ -9,8 +9,8 @@
 
 <head>
     <title><spring:message code="home.title"/></title>
-    <link rel="stylesheet" href="/resources/css/home.css"/>
-    <link rel="stylesheet" href="/resources/css/navigation.css"/>
+    <link rel="stylesheet" href="<c:url value = "/resources/css/navigation.css"/>"/>
+    <link rel="stylesheet" href="<c:url value = "/resources/css/home.css"/>"/>
 </head>
 
 <body>

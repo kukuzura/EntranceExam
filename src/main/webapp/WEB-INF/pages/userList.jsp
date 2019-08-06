@@ -26,7 +26,7 @@
             <th width="50"></th>
         </tr>
         <c:forEach items="${usersList}" var="user">
-            <tr>
+            <tr id=${user.id}>
                 <td align="center">${user.id}</td>
                 <td align="center">${user.login}</td>
                 <td align="center">${user.password}</td>
