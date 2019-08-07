@@ -52,7 +52,6 @@ public class UsersDisplayController {
      * Method updates user information.
      *
      * @param userDTO userDTO to convert to user.
-     * @return userDTO object.
      */
     @RequestMapping(value = "/updateProcess", method = RequestMethod.PUT)
     public void updateUser(@RequestBody final UserDTO userDTO) {

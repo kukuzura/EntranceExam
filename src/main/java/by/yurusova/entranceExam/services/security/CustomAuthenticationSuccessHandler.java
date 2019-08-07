@@ -25,14 +25,15 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                                         final HttpServletResponse httpServletResponse,
                                         final Authentication authentication) throws IOException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
+        String contextPath = httpServletRequest.getContextPath();
         if (roles.contains("ROLE_ADMIN")) {
-            httpServletResponse.sendRedirect("/admin/adminPage");
+            httpServletResponse.sendRedirect(contextPath + "/admin/adminPage");
         }
         if (roles.contains("ROLE_TEACHER")) {
-            httpServletResponse.sendRedirect("/account/teacherPage");
+            httpServletResponse.sendRedirect(contextPath + "/account/teacherPage");
         }
         if (roles.contains("ROLE_STUDENT")) {
-            httpServletResponse.sendRedirect("/account/studentPage");
+            httpServletResponse.sendRedirect(contextPath + "/account/studentPage");
         }
     }
 }

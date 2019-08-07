@@ -1,17 +1,74 @@
-ul {
+/*ul {*/
+/*    list-style-type: none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    overflow: hidden;*/
+/*    background-color: #002752;*/
+/*}*/
+
+/*li {*/
+/*    float: left;*/
+/*    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+/*}*/
+
+/*li a {*/
+/*    display: block;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    padding: 14px 16px;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*a:hover {*/
+/*    background-color: midnightblue;*/
+/*}*/
+
+/*li .main-navigation-dropdown {*/
+/*    display: inline-block;*/
+/*}*/
+
+/*a .main-navigation-dropdown-content {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    background-color: #002752;*/
+/*    min-width: 160px;*/
+/*    z-index: 1;*/
+/*}*/
+
+/*a .main-navigation-dropdown-content {*/
+/*    color: white;*/
+/*    padding: 12px 16px;*/
+/*    text-decoration: none;*/
+/*    display: block;*/
+/*    text-align: left;*/
+/*}*/
+
+/*a.main-navigation-dropdown-content {*/
+/*    background-color: midnightblue;*/
+/*}*/
+
+/*.main-navigation-dropdown:hover .main-navigation-dropdown-content {*/
+/*    display: block;*/
+/*}*/
+
+/*.logout {*/
+/*    float: right;*/
+/*}*/
+ul.main-navigation {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #002752;
+    width: 100%;
 }
 
-li {
+.main-navigation li {
     float: left;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-li a  {
+.main-navigation li a, .main-navigation .dropbtn {
     display: block;
     color: white;
     text-align: center;
@@ -19,14 +76,16 @@ li a  {
     text-decoration: none;
 }
 
-li a:hover {
+.main-navigation li a:hover, .main-navigation .dropdown:hover .dropbtn {
     background-color: midnightblue;
+    cursor: pointer;
 }
-li.dropdown {
+
+.main-navigation li.dropdown {
     display: inline-block;
 }
 
-.dropdown-content {
+.main-navigation .dropdown-content {
     display: none;
     position: absolute;
     background-color: #002752;
@@ -34,7 +93,7 @@ li.dropdown {
     z-index: 1;
 }
 
-.dropdown-content a {
+.main-navigation .dropdown-content a {
     color: white;
     padding: 12px 16px;
     text-decoration: none;
@@ -42,14 +101,10 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover {
+.main-navigation .dropdown-content a:hover {
     background-color: midnightblue;
 }
 
-.dropdown:hover .dropdown-content {
+.main-navigation .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.logout {
-    float: right;
 }

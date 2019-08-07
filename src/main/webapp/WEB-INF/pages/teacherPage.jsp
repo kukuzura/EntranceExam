@@ -9,10 +9,9 @@
 
 <head>
     <title><spring:message code="teacherPage.title"/></title>
-    <link rel="stylesheet" href="/resources/css/studentPage.css">
-    <link rel="stylesheet" href="/resources/css/table.css">
-    <link rel="stylesheet" href="/resources/css/link.css">
+    <jsp:include page="head.jsp"/>
 </head>
+<body class="studentPage">
 <div class="tabs">
     <input type="radio" name="tabs" id="tabone" checked="checked">
     <label for="tabone"><spring:message code="teacherNavigation.button.teacherPage"/></label>
@@ -80,6 +79,7 @@
         </div>
     </label>
 </div>
+</body>
 </html>
 
 

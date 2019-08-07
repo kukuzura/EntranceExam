@@ -5,13 +5,9 @@
 <html>
 <head>
     <title><spring:message key="ratePage.title"/></title>
-    <link rel="stylesheet" href="/resources/css/table.css"/>
-    <link rel="stylesheet" href="/resources/css/rate.css"/>
+    <jsp:include page="head.jsp"/>
 </head>
 <body>
-<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/resources/js/additional-methods.js"></script>
 <script>
     $(document).ready(function () {
         $("#gradingForm").validate({});

@@ -1,7 +1,7 @@
 function RestDelete(id) {
     $.ajax({
         type: "DELETE",
-        url: "/admin/userDelete/" + id,
+        url: "../admin/userDelete/" + id,
         success: $('#' + id).remove()
     })
 }

@@ -5,9 +5,9 @@
 <html>
 <head>
     <title><spring:message code="teacherRegistration.title"/></title>
-    <link rel="stylesheet" href="/resources/css/registration.css"/>
+    <jsp:include page="head.jsp"/>
 </head>
-<body>
+<body class="registration-and-login">
 <div class="container">
     <div class="form-group">
         <form method="post">

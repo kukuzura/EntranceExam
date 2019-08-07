@@ -1,20 +1,11 @@
-body, html {
+body.home, html.home {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-align: center;
 }
 
-
-input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    text-align: center;
-    align-self: center;
-}
-
-label {
+.home label {
     width: 12px;
     height: 12px;
     border: solid 2px white;
@@ -32,6 +23,10 @@ input:checked + label {
 
 input:focus + label {
     box-shadow: 0 0 0 2px teal, 0 0 18px white;
+}
+
+.none-display {
+    display: none;
 }
 
 .slide {
@@ -55,7 +50,7 @@ input:checked ~ .slide {
 }
 
 .bg1{
-    background-image: url("/resources/images/astronaut-11080_1280.jpg");
+    background-image: url("../images/astronaut-11080_1280.jpg");
     background-color:  rgba(0,0,0,0.5);
     background-blend-mode: overlay;
 
@@ -74,7 +69,8 @@ p{
     color: white;
     text-align: left;
 }
-h1 {
+
+.home h1 {
     text-transform: uppercase;
     margin: 0;
     font-size: 3rem;
@@ -97,21 +93,21 @@ input:checked + label + .slide {
 }
 
 .bg2 {
-    background-image:  url("/resources/images/telescope3.jpg");
+    background-image: url("../images/telescope3.jpg");
 )
 }
 
 .bg3 {
-    background-image:  url("/resources/images/telescopeh.jpg");
+    background-image: url("../images/telescopeh.jpg");
 )
 }
 
 .bg4 {
-    background-image:  url("/resources/images/Observatory.jpg");
+    background-image: url("../images/Observatory.jpg");
 )
 }
 
-.container {
+.home .container {
     background: #fff;
     padding-left: 4em;
     padding-right: 4em;
@@ -128,18 +124,11 @@ input:checked + label + .slide {
 }
 
 
-a:active .link,   a:hover .link {
-    background-color: darkred;
-}
-.link_photo{
-    margin-top: 80vh;
-    width: 50%;
-    align-content: center;
-}
-.link{
+.link-home {
     color: white;
 }
-.link:hover{
+
+.link-home:hover {
     background-color: white;
     color: #002752;
     text-decoration: none;

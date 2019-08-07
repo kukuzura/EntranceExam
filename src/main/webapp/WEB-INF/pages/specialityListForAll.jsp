@@ -5,7 +5,7 @@
 <html>
 <head>
     <title><sping:message key="specialityList.title"/></title>
-    <link rel="stylesheet" href="/resources/css/specialityCard.css"/>
+    <jsp:include page="head.jsp"/>
 </head>
 <div class="container group">
     <c:forEach items="${specialityList}" var="speciality">

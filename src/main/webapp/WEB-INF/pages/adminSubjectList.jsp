@@ -4,10 +4,9 @@
 <html>
 <head>
     <title><spring:message key="adminSubjectList.title"/></title>
-    <link rel="stylesheet" href="/resources/css/table.css"/>
-    <link rel="stylesheet" href="/resources/css/link.css"/>
+    <jsp:include page="head.jsp"/>
 </head>
-<body>
+<body class="table">
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
 <div style="padding-top:30px;margin-top:30px;height:1500px;">
 <table id="list">
@@ -21,13 +20,13 @@
             <td align="center">${subject.id}</td>
             <td align="center">${subject.name}</td>
             <td>
-                <a href="/admin/subjectDelete/${subject.id}"><spring:message
+                <a class="simple-link" href="/admin/subjectDelete/${subject.id}"><spring:message
                         key="adminSubjectList.button.delete"/></a>
             </td>
         </tr>
     </c:forEach>
 </table>
-    <a class="add_button" href="/admin/addSubject"><spring:message key="adminSubjectList.button.addSpeciality"/> </a>
+    <a class="simple-link add_button" href="/admin/addSubject"><spring:message key="adminSubjectList.button.addSpeciality"/> </a>
 </div>
 </body>
 </html>

@@ -2,12 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
-    <link rel="stylesheet" href="/resources/css/navigation.css"/>
+    <jsp:include page="head.jsp"/>
 </head>
 
-<div class="menu">
-    <div class="menuContent">
-        <ul>
+        <ul class="main-navigation">
             <li><a href="/"><spring:message code="adminNavigation.button.home"/></a></li>
             <li><a href="<c:url value = "/admin/userList"/>"><spring:message
                     code="adminNavigation.button.userList"/></a>
@@ -28,5 +26,3 @@
             <li class="logout"><a href="<c:url value = "/logout"/>"><spring:message
                     code="adminNavigation.button.logout"/></a></li>
         </ul>
-    </div>
-</div>

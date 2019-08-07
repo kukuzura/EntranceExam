@@ -23,6 +23,9 @@ public class ExamAddingController {
     @Autowired
     private ExamAddingFacade facade;
 
+    @Autowired
+    private AdminExamListController examListController;
+
     /**
      * Method shows exam adding page.
      *
@@ -42,10 +45,10 @@ public class ExamAddingController {
      * @return exam list page.
      */
     @RequestMapping(value = "addExam", method = RequestMethod.POST)
-    public String addExam(@ModelAttribute("teacher") final String teacherID,
-                          @ModelAttribute("subject") final String subjectID,
-                          @ModelAttribute("speciality") final String specialityID) {
+    public ModelAndView addExam(@ModelAttribute("teacher") final String teacherID,
+                                @ModelAttribute("subject") final String subjectID,
+                                @ModelAttribute("speciality") final String specialityID) {
         facade.addExam(teacherID, subjectID, specialityID);
-        return "redirect: /admin/examList";
+        return examListController.showExamList();
     }
 }

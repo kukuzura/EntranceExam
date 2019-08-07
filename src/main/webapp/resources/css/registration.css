@@ -1,9 +1,10 @@
+
 @import 'https://fonts.googleapis.com/css?family=Roboto:100,300';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.min.css';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
 @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,700';
 
-body {
+body.registration-and-login  {
     width: 100%;
     min-height: 900px;
     margin: 3em auto;
@@ -16,7 +17,7 @@ body {
 
 }
 
-form {
+.registration-and-login form{
     background: #fff;
     padding: 4em 4em 2em;
     max-width: 400px;
@@ -24,7 +25,7 @@ form {
     border-radius: 2px;
 }
 
-h2 {
+.registration-and-login h2 {
     margin: 0 0 50px 0;
     padding: 10px;
     text-align: center;
@@ -33,12 +34,12 @@ h2 {
     border-bottom: solid 1px #e5e5e5;
 }
 
-p {
+.registration-and-login  p {
     margin: 0 0 3em 0;
     position: relative;
 }
 
-input {
+.registration-and-login input {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -46,8 +47,8 @@ input {
     margin: 0;
 }
 
-input[type="text"],
-input[type="password"] {
+.registration-and-login input[type="text"],
+.registration-and-login input[type="password"] {
     background: #fff;
     border: 1px solid #dbdbdb;
     font-size: 1.6em;
@@ -55,24 +56,24 @@ input[type="password"] {
     border-radius: 2px;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+.registration-and-login input[type="text"]:focus,
+.registration-and-login input[type="password"]:focus {
     background: #fff
 }
 
-span {
+.registration-and-login span {
     display: block;
     color: #e4606d;
     padding: 2px 5px;
 }
 
-.login-error {
+.registration-and-login .login-error {
     margin-bottom: 10px;
     margin-top: -30px;
     font-size: 14px;
 }
 
-input[type="submit"] {
+.registration-and-login input[type="submit"] {
     background: rgba(146, 168, 209, 1);
     box-shadow: 0 3px 0 0 rgba(148, 186, 101, 0.2);
     border-radius: 2px;
@@ -88,16 +89,16 @@ input[type="submit"] {
     text-shadow: 0 1px darkcyan;
 }
 
-input[type="submit"]:hover {
+.registration-and-login input[type="submit"]:hover {
     background: cornflowerblue;
     text-shadow: 0 1px 3px rgba(148, 200, 110, 0.4);
 }
 
-input[type="submit"]:hover {
+.registration-and-login input[type="submit"]:hover {
 
 }
 
-label {
+.registration-and-login label{
     position: absolute;
     left: 8px;
     top: 12px;
@@ -110,13 +111,13 @@ label {
 @include transition(color .3 s, top .3 s, background-color .8 s);
 }
 
-.floatLabel {
+.registration-and-login .floatLabel {
     top: -11px;
     background-color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
 }
 
-a {
+.registration-and-login a {
     left: 8px;
     horiz-align: center;
     color: #002752;

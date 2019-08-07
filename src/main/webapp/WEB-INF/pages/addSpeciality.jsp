@@ -4,8 +4,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <link rel="stylesheet" href="/resources/css/adding.css"/>
     <title><spring:message code="addSpeciality.title"/></title>
+    <jsp:include page="head.jsp"/>
 </head>
 <body>
 <form:form modelAttribute="speciality" method="post">

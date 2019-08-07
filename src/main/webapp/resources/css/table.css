@@ -1,4 +1,4 @@
-body{
+body.table{
     background: midnightblue;
     background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
@@ -46,7 +46,7 @@ body{
     padding-right: 4vh;
 }
 
-button {
+.table-button {
     padding: 1vh 4vh 1vh 4vh ;
     font-size: 14px;
     color: white;

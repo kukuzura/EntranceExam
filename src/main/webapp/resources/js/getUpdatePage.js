@@ -3,8 +3,6 @@ function RestGetUpdatePage(id) {
         type: "get",
         url: "/admin/userUpdate/"+id,
         data: id,
-        success: function(){
-            window.location.href="/admin/userUpdate/"+id;
-        }
+        success: window.location.href = "../admin/userUpdate/" + id
     })
 }

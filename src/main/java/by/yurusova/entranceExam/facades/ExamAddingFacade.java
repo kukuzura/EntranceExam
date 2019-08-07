@@ -77,6 +77,8 @@ public class ExamAddingFacade {
         }
         mav.addObject("teacherList", teacherDTOList);
         mav.addObject("teacher", new TeacherDTO());
+        mav.addObject("speciality", new SpecialityDTO());
+        mav.addObject("subject", new SubjectDTO());
         List<SubjectDTO> subjectDTOS = new ArrayList<>();
         mav.addObject("subjectList", subjectDTOS);
         for (Subject subject : subjectService.getAll()) {

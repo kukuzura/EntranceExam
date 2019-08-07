@@ -1,14 +1,12 @@
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
 
-html {
+html.specialty-card {
     box-sizing: border-box;
     height: 100%;
 }
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-body{
+
+body.specialty-card {
     background-color: #3B2D42;
     background-repeat: no-repeat;
 @include filter-gradient(#53455b, #201e22, horizontal);
@@ -20,17 +18,20 @@ body{
     line-height: 1.5;
     padding: 2.5em 0;
 }
-.container {
+
+.specialty-card .container {
     margin: 0 auto;
     width: 90%;
     max-width: 1200px;
 }
-.group:after {
+
+.specialty-card .group:after {
     content: "";
     display: table;
     clear: both;
 }
-.grid-1-5 {
+
+.specialty-card .grid-1-5 {
     border: 2px solid #5d4e65;
     min-height: 400px;
     padding: 1.25em;
@@ -71,7 +72,7 @@ body{
 }
 
 }
-.grid-1-5:hover {
+.specialty-card .grid-1-5:hover {
     background-color: #332739;
 @include filter-gradient(#53455b, #201d22, vertical);
 @include background-image(linear-gradient(top,  rgba(83,69,91,1) 0%,rgba(32,29,34,1) 100%));
@@ -105,36 +106,41 @@ body{
   @include background-image(linear-gradient(left,  rgba(238,122,54,1) 0%,rgba(235,73,93,1) 100%));
   }
 }
-h2, h3, p, ul {
+.specialty-card .specialityCard-text h2.specialty-card, h3.specialty-card, p.specialty-card, ul.specialty-card {
     margin: 0
 }
-h2 {
+
+.specialty-card .speciality-card-h2 {
     font-size: 2em;
     font-weight: 400;
     margin: 0 0 0.5em;
 }
-h3 {
+
+.specialty-card h3 {
     font-size: 1.5em;
     letter-spacing: 0.0625em;
     margin: 0 0 0.3333333333333333em;
 }
-p {
+
+.speciality-card p {
     font-size: 1.075em;
 }
-p, ul {
+
+.speciality-card p, .speciality-card ul {
     margin:0 0 1.5em
 }
-ul {
+
+.speciality-card ul {
     color: cornflowerblue;
     font-size: 1.05em;
     list-style-type: none;
     padding: 0;
+}
 
-li {
+.speciality-card li {
     margin: 0 0 0.8333333333333333em;
 }
-}
-.button {
+.speciality-card .button {
     background-color: steelblue;
     border-radius: 20px;
     color: #fff;
@@ -148,7 +154,8 @@ li {
     text-decoration: none;
     width: 120px;
 }
-.uppercase, .button, h2 {
+
+.uppercase, .button, h2.speciality-card {
     text-transform: uppercase;
 }
 sup, .small {

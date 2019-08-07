@@ -5,16 +5,9 @@
 <html>
 <head>
     <title><spring:message code="userList.title"/></title>
+    <jsp:include page="head.jsp"/>
 </head>
-
-<style>
-    <%@include file="/resources/css/table.css" %>
-</style>
-<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/deleteUser.js"></script>
-<script type="text/javascript" src="/resources/js/getUpdatePage.js"></script>
-
-<body>
+<body class="table">
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
 <div style="padding-top:30px;margin-top:30px;height:1500px;">
     <table id="list">
@@ -31,11 +24,11 @@
                 <td align="center">${user.login}</td>
                 <td align="center">${user.password}</td>
                 <td>
-                    <button onclick="RestGetUpdatePage(${user.id})"><spring:message
+                    <button class="table-button" onclick="RestGetUpdatePage(${user.id})"><spring:message
                             code="userList.button.edit"/></button>
                 </td>
                 <td>
-                    <button onclick="RestDelete(${user.id})"><spring:message
+                    <button class="table-button" onclick="RestDelete(${user.id})"><spring:message
                             code="userList.button.delete"/></button>
                 </td>
             </tr>

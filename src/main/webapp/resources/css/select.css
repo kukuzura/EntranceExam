@@ -1,4 +1,4 @@
-body {
+body.select {
     background: midnightblue;
     background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
@@ -10,7 +10,7 @@ body {
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-div {
+div.select {
     margin: 20px;
 }
 
@@ -56,7 +56,7 @@ div {
 }
 
 
-button {
+button.select {
     padding: 15px 30px;
     font-size: 20px;
     font-weight: 900;

@@ -4,7 +4,7 @@
 <html>
 <head>
     <title><spring:message key="addSubject.title"/></title>
-    <link rel="stylesheet" href="/resources/css/adding.css"/>
+    <jsp:include page="head.jsp"/>
 </head>
 <body>
 <form:form modelAttribute="subject" method="post">

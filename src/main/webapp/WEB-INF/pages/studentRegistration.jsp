@@ -6,13 +6,9 @@
 
 <head>
     <title><spring:message code="studentRegistration.title"/></title>
+    <jsp:include page="head.jsp"/>
 </head>
-<script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/resources/js/additional-methods.js"></script>
-<script type="text/javascript" src="/resources/js/passwordConfirm.js">
-</script>
-<body>
+<body class="registration-and-login">
 <div class="container">
     <div class="form-group">
         <form id="registrationForm" name="registrationForm" method="post">
@@ -67,8 +63,3 @@
 </body>
 
 </html>
-<style>
-
-    <%@include file="/resources/css/errors.css" %>
-    <%@include file="/resources/css/registration.css" %>
-</style>

@@ -7,13 +7,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" ; charset=utf-8">
     <title><spring:message key="login.title"/></title>
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
-    <link rel="stylesheet" href="/resources/css/registration.css"/>
+    <jsp:include page="head.jsp"/>
 </head>
 
-<body>
-<div class="container">
+<body class="registration-and-login">
     <div class="form-group">
         <form:form method="post">
             <h2><spring:message key="login.title"/></h2>
@@ -31,6 +28,5 @@
             <input type="submit" value="<spring:message key="login.button.confirm"/>" id="submit">
         </form:form>
     </div>
-</div>
 </body>
 </html>

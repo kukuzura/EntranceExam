@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
-    <link rel="stylesheet" href="/resources/css/navigation.css"/>
+    <jsp:include page="head.jsp"/>
 </head>
 
 <ul>

@@ -6,11 +6,11 @@ $(document).ready(function () {
         e.preventDefault();
         $.ajax({
             type: 'PUT',
-            url: '/admin/updateProcess',
+            url: '../updateProcess',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify({"id": id, "login": login, "password": password}),
-            success: window.location.href = "/admin/userList"
+            success: window.location.href = "../userList"
         });
     });
 });

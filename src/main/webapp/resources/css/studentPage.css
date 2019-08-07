@@ -1,26 +1,22 @@
-/**
- * Tabs
- */
+
 .tabs {
     display: flex;
     flex-wrap: wrap;
-/ / make sure it wraps
 }
 
 .tabs label {
     order: 1;
-/ / Put the labels first display: block;
     padding: 1rem 2rem;
     margin-right: 0.2rem;
     cursor: pointer;
-    background: rgba(146, 168, 209, 1);;
+    color: white;
+    background:  #002752;
     font-weight: bold;
     transition: background ease 0.2s;
 }
 
 .tabs .tab {
     order: 99;
-/ / Put the tabs last flex-grow: 1;
     width: 100%;
     display: none;
     padding: 1rem;
@@ -34,6 +30,7 @@
 
 .tabs input[type="radio"]:checked + label {
     background: #fff;
+    color:  #002752;
 }
 
 .tabs input[type="radio"]:checked + label + .tab {
@@ -53,10 +50,7 @@
     }
 }
 
-/**
- * Generic Styling
-*/
-body {
+body.studentPage {
     background: midnightblue;
     background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
@@ -64,7 +58,7 @@ body {
     min-height: 100vh;
     box-sizing: border-box;
     padding-top: 10vh;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
     line-height: 1.5;
     max-width: 60rem;
@@ -89,39 +83,40 @@ table{
     margin-top: 10vh;
 }
 
-.dropbtn {
+.studentPage .dropbtn {
     order: 1;
     cursor: pointer;
-    background: rgba(146, 168, 209, 1);;
+    background:  #002752;
+    color: white;
     transition: background ease 0.2s;
     border: none;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 17px;
     font-weight: bold;
 }
 
-.dropdown {
+.studentPage .dropdown {
     position: relative;
     display: inline-block;
 }
 
-.dropdown-content {
+.studentPage .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color:  #002752;
+    color: white;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
-.dropdown-content a {
-    color: black;
+.studentPage .dropdown-content a {
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
-    background: rgba(146, 168, 209, 1);;
+    background:  #002752;
     display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.studentPage .dropdown-content a:hover {background-color: #ddd;}
 
-.dropdown:hover .dropdown-content {display: block;}
+.studentPage .dropdown:hover .dropdown-content {display: block;}

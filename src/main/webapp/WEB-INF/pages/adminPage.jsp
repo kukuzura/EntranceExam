@@ -8,7 +8,8 @@
 <html>
 
 <head>
-<title><spring:message code="adminPage.title"/></title>
+    <title><spring:message code="adminPage.title"/></title>
+    <jsp:include page="head.jsp"/>
 </head>
 
 <body>
