@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
 /**
@@ -31,12 +32,16 @@ public class StudentSpecialityApplyController {
      *
      * @param id        the id.
      * @param principal object that contains username.
+     * @param httpServletRequest request information.
      * @return student information page.
      */
     @RequestMapping(value = "apply/{id}", method = RequestMethod.GET)
-    String applyToSpeciality(@PathVariable("id") final long id, final Principal principal) {
+    String applyToSpeciality(@PathVariable("id") final long id,
+                             final Principal principal,
+                             final HttpServletRequest httpServletRequest) {
         applyingToSpecialityFacade.applyToSpeciality(id, principal);
-        return "/studentPage.jsp";
+        String contextPath = httpServletRequest.getContextPath();
+        return "redirect:" + contextPath + "/account/studentPage";
     }
 
     /**

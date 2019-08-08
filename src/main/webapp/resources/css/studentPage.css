@@ -79,10 +79,6 @@ body.studentPage {
     margin-top: 7vh;
 }
 
-table{
-    margin-top: 10vh;
-}
-
 .studentPage .dropbtn {
     order: 1;
     cursor: pointer;

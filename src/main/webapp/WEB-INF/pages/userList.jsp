@@ -6,10 +6,10 @@
 <head>
     <title><spring:message code="userList.title"/></title>
     <jsp:include page="head.jsp"/>
+    <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
 </head>
 <body class="table">
-<jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
-<div style="padding-top:30px;margin-top:30px;height:1500px;">
+<div>
     <table id="list">
         <tr>
             <th width="50"><spring:message code="userList.lable.Id"/></th>

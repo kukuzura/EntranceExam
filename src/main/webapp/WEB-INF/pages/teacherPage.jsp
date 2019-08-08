@@ -48,7 +48,8 @@
                                 <p>${exam.subject.name}</p>
                             </td>
                             <td>
-                                <a href="rate/${exam.id}"><spring:message code="teacherPage.button.grading"/></a>
+                                <a class="simple-link" href="rate/${exam.id}"><spring:message
+                                        code="teacherPage.button.grading"/></a>
                             </td>
                         </tr>
                     </c:forEach>

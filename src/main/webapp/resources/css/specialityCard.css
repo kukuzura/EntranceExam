@@ -1,12 +1,12 @@
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
 
-html.specialty-card {
+html.speciality-card {
     box-sizing: border-box;
     height: 100%;
 }
 
-body.specialty-card {
+.speciality-card body {
     background-color: #3B2D42;
     background-repeat: no-repeat;
 @include filter-gradient(#53455b, #201e22, horizontal);
@@ -19,19 +19,19 @@ body.specialty-card {
     padding: 2.5em 0;
 }
 
-.specialty-card .container {
+.speciality-card .container {
     margin: 0 auto;
     width: 90%;
     max-width: 1200px;
 }
 
-.specialty-card .group:after {
+.speciality-card .group:after {
     content: "";
     display: table;
     clear: both;
 }
 
-.specialty-card .grid-1-5 {
+.speciality-card .grid-1-5 {
     border: 2px solid #5d4e65;
     min-height: 400px;
     padding: 1.25em;
@@ -72,7 +72,7 @@ body.specialty-card {
 }
 
 }
-.specialty-card .grid-1-5:hover {
+.speciality-card .grid-1-5:hover {
     background-color: #332739;
 @include filter-gradient(#53455b, #201d22, vertical);
 @include background-image(linear-gradient(top,  rgba(83,69,91,1) 0%,rgba(32,29,34,1) 100%));
@@ -106,17 +106,17 @@ body.specialty-card {
   @include background-image(linear-gradient(left,  rgba(238,122,54,1) 0%,rgba(235,73,93,1) 100%));
   }
 }
-.specialty-card .specialityCard-text h2.specialty-card, h3.specialty-card, p.specialty-card, ul.specialty-card {
+.speciality-card .specialityCard-text h2.speciality-card, h3.speciality-card, p.speciality-card, ul.speciality-card {
     margin: 0
 }
 
-.specialty-card .speciality-card-h2 {
+.speciality-card-h2 {
     font-size: 2em;
     font-weight: 400;
     margin: 0 0 0.5em;
 }
 
-.specialty-card h3 {
+.speciality-card h3 {
     font-size: 1.5em;
     letter-spacing: 0.0625em;
     margin: 0 0 0.3333333333333333em;
@@ -140,7 +140,7 @@ body.specialty-card {
 .speciality-card li {
     margin: 0 0 0.8333333333333333em;
 }
-.speciality-card .button {
+.button-apply {
     background-color: steelblue;
     border-radius: 20px;
     color: #fff;
@@ -155,7 +155,7 @@ body.specialty-card {
     width: 120px;
 }
 
-.uppercase, .button, h2.speciality-card {
+.uppercase, .button, .speciality-card h2 {
     text-transform: uppercase;
 }
 sup, .small {

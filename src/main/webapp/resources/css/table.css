@@ -1,4 +1,4 @@
-body.table{
+body.table {
     background: midnightblue;
     background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
@@ -46,7 +46,7 @@ body.table{
     padding-right: 4vh;
 }
 
-.table-button {
+.table button {
     padding: 1vh 4vh 1vh 4vh ;
     font-size: 14px;
     color: white;
@@ -55,5 +55,19 @@ body.table{
     cursor: pointer;
     width: max-content;
     transition: 0.25s ease;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.rate-button {
+    padding: 1vh 4vh 1vh 4vh;
+    font-size: 14px;
+    color: white;
+    background-color: #002752;
+    border: 2px solid white;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 4vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

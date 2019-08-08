@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Controller for page of student rating.
  *
@@ -41,12 +43,16 @@ public class RatePageController {
      *
      * @param examId      id of exam whose register students rates are set.
      * @param studentForm container that contains list of studentDTO.
+     * @param httpServletRequest request information.
      * @return teacher page.
      */
     @RequestMapping(value = "rate/{id}", method = RequestMethod.POST)
-    public String setRates(@PathVariable("id") final long examId, @ModelAttribute("studentForm") final StudentForm studentForm) {
+    public String setRates(@PathVariable("id") final long examId,
+                           @ModelAttribute("studentForm") final StudentForm studentForm,
+                           final HttpServletRequest httpServletRequest) {
         rateFacade.rateStudents(studentForm.getStudents(), examId);
-        return "redirect: /account/teacherPage";
+        String contextPath = httpServletRequest.getContextPath();
+        return "redirect:" + contextPath + "/account/teacherPage";
     }
 
     /**

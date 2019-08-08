@@ -56,7 +56,8 @@ input:checked ~ .slide {
 
 )
 }
-p{
+
+.home p {
     margin-top: 80vh;
     vertical-align: bottom;
 }

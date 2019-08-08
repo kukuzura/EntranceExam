@@ -1,19 +1,26 @@
-input.rate {
+body.rate{
+    background: midnightblue;
+    background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    background: linear-gradient(135deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rate input {
     display: block;
     box-sizing: border-box;
+    background-color: transparent;
     outline: none;
     margin: 0;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-input.rate[type="text"],
-input.rate[type="password"] {
-    background: #fff;
+.rate input[type="text"],
+.rate input[type="password"] {
+    background-color: transparent;
     border: none;
     font-size: 1.2em;
-}
-
-button.rate{
-    margin-top: 4vh;
-    margin-left: 90vh;
 }

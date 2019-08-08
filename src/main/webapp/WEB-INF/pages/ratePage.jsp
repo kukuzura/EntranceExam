@@ -7,20 +7,7 @@
     <title><spring:message key="ratePage.title"/></title>
     <jsp:include page="head.jsp"/>
 </head>
-<body>
-<script>
-    $(document).ready(function () {
-        $("#gradingForm").validate({});
-        $('.grade').each(function () {
-            $(this).rules('add', {
-                required: true,
-                number: true,
-                range: [1, 100]
-            })
-        });
-
-    });
-</script>
+<body class="rate">
 <input type="hidden" name="examID" value="${examID}">
 <form:form id="gradingForm" method="post" action="/account/rate/${examID}" modelAttribute="studentForm">
     <table id="list">
@@ -57,7 +44,7 @@
                 </td>
         </c:forEach>
     </table>
-    <form:button><spring:message key="ratePage.button.submit"/></form:button>
+    <form:button class="rate-button"><spring:message key="ratePage.button.submit"/></form:button>
 </form:form>
 </body>
 </html>
