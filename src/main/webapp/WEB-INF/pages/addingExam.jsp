@@ -8,7 +8,7 @@
     <title><spring:message code="addingExam.title"/></title>
     <jsp:include page="head.jsp"/>
 </head>
-<body>
+<body class="adding-page">
 <div align="center">
     <form:form method="post" commandName="exam" action="${pageContext.request.contextPath}/admin/addExam">
         <label><spring:message code="addingExam.label.speciality"/></label>
@@ -29,7 +29,7 @@
                 <form:options items="${teacherList}" itemValue="id" itemLabel="lastName"/>
             </form:select>
         </div>
-        <button><spring:message code="addingExam.button.confirm"/></button>
+        <button class="add_button"><spring:message code="addingExam.button.confirm"/></button>
     </form:form>
 </div>
 </body>

@@ -9,7 +9,7 @@
 </head>
 <body class="rate">
 <input type="hidden" name="examID" value="${examID}">
-<form:form id="gradingForm" method="post" action="/account/rate/${examID}" modelAttribute="studentForm">
+<form:form id="gradingForm" method="post" action="${pageContext.request.contextPath}/account/rate/${examID}" modelAttribute="studentForm">
     <table id="list">
         <tr>
             <th><spring:message key="ratePage.lable.passportID"/></th>

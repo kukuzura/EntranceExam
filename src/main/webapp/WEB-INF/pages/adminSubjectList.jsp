@@ -8,25 +8,26 @@
 </head>
 <body class="table">
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
-<div style="padding-top:30px;margin-top:30px;height:1500px;">
-<table id="list">
-    <tr>
-        <th ><spring:message key="adminSubjectList.label.id"/></th>
-        <th><spring:message key="adminSubjectList.label"/></th>
-        <th></th>
-    </tr>
-    <c:forEach items="${subjectList}" var="subject">
+<div>
+    <table id="list">
         <tr>
-            <td align="center">${subject.id}</td>
-            <td align="center">${subject.name}</td>
-            <td>
-                <a class="simple-link" href="/admin/subjectDelete/${subject.id}"><spring:message
-                        key="adminSubjectList.button.delete"/></a>
-            </td>
+            <th><spring:message key="adminSubjectList.label.id"/></th>
+            <th><spring:message key="adminSubjectList.label"/></th>
+            <th></th>
         </tr>
-    </c:forEach>
-</table>
-    <a class="simple-link add_button" href="/admin/addSubject"><spring:message key="adminSubjectList.button.addSpeciality"/> </a>
+        <c:forEach items="${subjectList}" var="subject">
+            <tr>
+                <td align="center">${subject.id}</td>
+                <td align="center">${subject.name}</td>
+                <td>
+                    <a class="simple-link" href="<c:url value="/admin/subjectDelete/${subject.id}"/>"><spring:message
+                            key="adminSubjectList.button.delete"/></a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    <a class="simple-link add_button" href="<c:url value="/admin/addSubject"/>"><spring:message
+            key="adminSubjectList.button.addSpeciality"/> </a>
 </div>
 </body>
 </html>

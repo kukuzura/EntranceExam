@@ -54,7 +54,7 @@
                 <span><form:errors path="student.patronymic"/></span>
             </p>
             <p>
-                <a style="text-decoration: underline" href="/login">Already have an account?</a>
+                <a style="text-decoration: underline" href="<c:out value="/login"/>">Already have an account?</a>
                 <input type="submit" onclick="validatePassword()" value="<spring:message code="studentRegistration.button.confirm"/>" id="submit">
             </p>
         </form>

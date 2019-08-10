@@ -1,8 +1,9 @@
 function RestGetUpdatePage(id) {
+    var contextPath = "${pageContext.request.contextPath}";
     $.ajax({
         type: "get",
-        url: "/admin/userUpdate/"+id,
+        url: "userUpdate/" + id,
         data: id,
-        success: window.location.href = "../admin/userUpdate/" + id
+        success: window.location.href = "userUpdate/" + id
     })
 }

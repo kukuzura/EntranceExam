@@ -63,8 +63,8 @@
         <div class="dropdown">
             <button class="dropbtn"><spring:message code="teacherPage.button.navigation"/></button>
             <div class="dropdown-content">
-                <a href="/logout"> <spring:message code="teacherPage.button.logout"/></a>
-                <a href="/"><spring:message code="teacherPage.button.home"/> </a>
+                <a href="<c:url value="/logout"/>"><spring:message code="teacherPage.button.logout"/></a>
+                <a href="<c:url value="/"/>"><spring:message code="teacherPage.button.home"/> </a>
             </div>
         </div>
     </label>

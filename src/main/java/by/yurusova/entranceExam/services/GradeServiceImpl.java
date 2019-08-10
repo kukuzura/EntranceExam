@@ -39,6 +39,7 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public int findByExamAndStudent(final long examID, final long studentID) {
+        Grade grade = gradeDAO.getByStudentAndExam(studentID, examID);
         return gradeDAO.getByStudentAndExam(studentID, examID).getGrade();
     }
 

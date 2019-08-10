@@ -20,5 +20,5 @@
 <script type="text/javascript" src="<c:url value = "/resources/js/deleteUser.js"/>"></script>
 <script type="text/javascript" src="<c:url value = "/resources/js/passwordConfirm.js"/>"></script>
 <script type="text/javascript" src="<c:url value = "/resources/js/checkGrades.js"/>"></script>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="contextPath" scope="application" value="${pageContext.request.contextPath}"/>
 

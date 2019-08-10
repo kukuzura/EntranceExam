@@ -9,12 +9,13 @@
 
 <head>
     <title><spring:message code="home.title"/></title>
-    <jsp:include page="head.jsp"/>
 </head>
 
+
 <body class="home">
+<jsp:include page="head.jsp"/>
 <ul class="main-navigation">
-    <li><a href="/"><spring:message code="home.navigation.button.home"/></a></li>
+    <li><a href="<c:url value="/"/>"><spring:message code="home.navigation.button.home"/></a></li>
     <li><a href="<c:url value = "/specialityList"/>"><spring:message
             code="home.navigation.button.speciality"/> </a>
     </li>
@@ -59,7 +60,7 @@
     </div>
 </div>
 
-<input class="none-display"  type="radio" id="trigger3" name="slider">
+<input class="none-display" type="radio" id="trigger3" name="slider">
 <label for="trigger3"></label>
 <div class="slide bg4">
     <div>

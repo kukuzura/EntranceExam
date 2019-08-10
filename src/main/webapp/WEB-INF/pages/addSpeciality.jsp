@@ -7,11 +7,11 @@
     <title><spring:message code="addSpeciality.title"/></title>
     <jsp:include page="head.jsp"/>
 </head>
-<body>
+<body class="adding-page">
 <form:form modelAttribute="speciality" method="post">
     <p><form:label path="name"><spring:message code="addSpeciality.label.name"/></form:label></p>
     <p><form:input path="name" name="name" id="name"/></p>
-    <p><form:button id="submit" name="submit"><spring:message
+    <p><form:button class="add_button" id="submit" name="submit"><spring:message
             code="addSpeciality.button.confirm"/></form:button></p>
 </form:form>
 </body>

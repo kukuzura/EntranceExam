@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
@@ -37,7 +38,7 @@
                 <form:input type="text" name="patronymic" path="teacher.patronymic"/>
                 <span><form:errors path="teacher.patronymic"/></span>
             </p>
-            <a style="color: #6c757d ; margin: 10px" href="/login">Already have an account</a>
+            <a style="color: #6c757d ; margin: 10px" href="<c:url value="/login"/>">Already have an account</a>
             <input type="submit" value="<spring:message code="teacherRegistration.button.confirm"/>"/>
         </form>
     </div>

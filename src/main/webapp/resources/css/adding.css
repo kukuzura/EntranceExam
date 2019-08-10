@@ -1,4 +1,4 @@
-body.adding-exam {
+body.adding-page {
     background: midnightblue;
     background: -moz-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     background: -webkit-linear-gradient(-45deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
@@ -9,7 +9,7 @@ body.adding-exam {
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-input.adding-exam {
+.adding-page input {
     color: white;
     border: 1px solid white;
     background-color: transparent;
@@ -20,7 +20,7 @@ input.adding-exam {
     font-size: 18px;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-button.adding-exam {
+.adding-page button {
     padding: 15px 30px;
     font-size: 20px;
     font-weight: 900;

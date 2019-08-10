@@ -6,7 +6,7 @@
     <title><spring:message key="addSubject.title"/></title>
     <jsp:include page="head.jsp"/>
 </head>
-<body>
+<body class="adding-page">
 <form:form modelAttribute="subject" method="post">
     <label><form:label path="name"><spring:message key="addSubject.label.name"/></form:label></label>
     <p><form:input path="name" name="name" id="name"/></p>
