@@ -9,11 +9,11 @@
 
 <head>
     <title><spring:message code="home.title"/></title>
+    <jsp:include page="head.jsp"/>
 </head>
 
 
 <body class="home">
-<jsp:include page="head.jsp"/>
 <ul class="main-navigation">
     <li><a href="<c:url value="/"/>"><spring:message code="home.navigation.button.home"/></a></li>
     <li><a href="<c:url value = "/specialityList"/>"><spring:message

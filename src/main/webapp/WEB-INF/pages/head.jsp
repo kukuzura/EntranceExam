@@ -21,4 +21,5 @@
 <script type="text/javascript" src="<c:url value = "/resources/js/passwordConfirm.js"/>"></script>
 <script type="text/javascript" src="<c:url value = "/resources/js/checkGrades.js"/>"></script>
 <c:set var="contextPath" scope="application" value="${pageContext.request.contextPath}"/>
+<link rel="icon" type="image/png" href="<c:url value="/resources/images/favicon-96x96.png"/>">
 
