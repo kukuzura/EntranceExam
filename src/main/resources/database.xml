@@ -7,12 +7,12 @@
         <property name="location" value="classpath:database.properties"/>
     </bean>
 
-
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${database.driverClassName}"/>
         <property name="url" value="${database.url}"/>
         <property name="username" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
+        <property name="connectionProperties" value="jpa.hibernate.ddl-auto=create"/>
     </bean>
 
     <bean id="sessionFactory"
@@ -27,6 +27,7 @@
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.connection.charSet">utf-8</prop>
+                <prop key="jpa.hibernate.ddl-auto">create</prop>
                 <prop key="current_session_context_class">thread</prop>
             </props>
         </property>
@@ -58,6 +59,6 @@
 
     <bean id="gradeDAO" class="by.yurusova.entranceExam.dao.GradeDAOImpl" parent="abstractDAO"/>
 
-    <tx:annotation-driven />
+    <tx:annotation-driven/>
 
 </beans>

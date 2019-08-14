@@ -87,6 +87,8 @@
         <property name="teacherService" ref="teacherService"/>
     </bean>
 
+
+
     <bean id="userOperationsFacade" class="by.yurusova.entranceExam.facades.UserOperationsFacade">
         <property name="userConverter" ref="userConverter"/>
         <property name="userService" ref="userService"/>
