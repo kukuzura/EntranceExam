@@ -14,32 +14,7 @@
 
 
 <body class="home">
-<ul class="main-navigation">
-    <li><a href="<c:url value="/"/>"><spring:message code="home.navigation.button.home"/></a></li>
-    <li><a href="<c:url value = "/specialityList"/>"><spring:message
-            code="home.navigation.button.speciality"/> </a>
-    </li>
-    <li class="dropdown">
-        <a class="dropbtn"><spring:message code="home.navigation.dropdown.registration"/> </a>
-        <div class="dropdown-content">
-
-            <a href="<c:url value = "/studentRegister"/>"><spring:message
-                    code="home.navigation.button.studentRegistration"/></a>
-            <a href="<c:url value = "/teacherRegister"/>"><spring:message
-                    code="home.navigation.button.teacherRegistration"/></a>
-        </div>
-    <li><a href="<c:url value = "/login"/>"><spring:message
-            code="home.navigation.button.login"/> </a></li>
-    <li><a href="<c:url value = "/about"/>"><spring:message code="home.navigation.button.about"/> </a></li>
-    <li class="dropdown">
-        <a class="dropbtn"><spring:message code="home.navigation.dropdown.locale"/> </a>
-        <div class="dropdown-content">
-            <a href="<c:url value = "?lang=en_US"/>"><spring:message code="home.navigation.button.locale_en"/> </a>
-            <a href="<c:url value = "?lang=ru_RU"/>"><spring:message code="home.navigation.button.locale_ru"/> </a>
-        </div>
-</ul>
-
-
+<jsp:include page="mainNavigation.jsp"/>
 <input class="none-display" type="radio" id="trigger1" name="slider">
 <label for="trigger1"></label>
 <div class="slide bg1">

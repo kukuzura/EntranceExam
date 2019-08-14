@@ -24,6 +24,11 @@
                 <span><form:errors path="user.password"/></span>
             </p>
             <p>
+                <label for="confirm_password" class="floatLabel"><spring:message
+                        code="studentRegistration.label.passwordConfirm"/></label>
+                <input id="confirm_password" name="confirm_password" type="password"/>
+            </p>
+            <p>
                 <label class="floatLabel"><spring:message code="teacherRegistration.lable.firstName"/></label>
                 <form:input type="text" name="firstName" path="teacher.firstName"/>
                 <span><form:errors path="teacher.firstName"/></span>
@@ -39,7 +44,7 @@
                 <span><form:errors path="teacher.patronymic"/></span>
             </p>
             <a style="color: #6c757d ; margin: 10px" href="<c:url value="/login"/>">Already have an account</a>
-            <input type="submit" value="<spring:message code="teacherRegistration.button.confirm"/>"/>
+            <input type="submit" onclick="validatePassword()" value="<spring:message code="teacherRegistration.button.confirm"/>"/>
         </form>
     </div>
 </div>

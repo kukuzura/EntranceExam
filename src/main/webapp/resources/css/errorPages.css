@@ -1,0 +1,73 @@
+.forbidden-error-page {
+    background-size: cover;
+    color: gray;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 50px;
+}
+
+.forbidden-error-page h1, h3 {
+    margin: 3vh;
+}
+
+.forbidden-error-page a {
+    padding: 5px 15px 5px 15px;
+    text-decoration: none;
+    border: 3px solid gray;
+    color: gray;
+}
+
+.forbidden-error-page a:hover {
+    background: darkcyan;
+    font-weight: bolder;
+    color: white;
+}
+
+.internal-error-page {
+    margin: -2vh;
+    display: grid;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    background: rgb(78, 67, 148);
+    color: white;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 40px;
+}
+
+.internal-error-page h1, h3 {
+    margin: 1vh;
+}
+
+.astronaut-image {
+    float: right;
+}
+
+.error-page-404 {
+    background: black;
+    background-size: cover;
+    color: white;
+    display: inline-flex;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 50px;
+}
+
+.text-left {
+    margin: 10vh;
+    margin-left: 20vh;
+}
+
+.text-left a {
+    padding: 0 10px 0 10px;
+    text-decoration: none;
+    border: 3px solid white;
+    border-radius: 20px;
+    color: white;
+}
+
+.text-left a:hover {
+    background: gray;
+    font-weight: bolder;
+}

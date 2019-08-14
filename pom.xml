@@ -19,6 +19,25 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.version>4.3.22.RELEASE</spring.version>
         <security.version>4.2.11.RELEASE</security.version>
+        <junit.version>4.12</junit.version>
+        <spring-security-taglibs.version>3.2.0.RELEASE</spring-security-taglibs.version>
+        <hibernate-core.version>5.3.6.Final</hibernate-core.version>
+        <javax.servlet-api.version>3.0.1</javax.servlet-api.version>
+        <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <jstl.version>1.2</jstl.version>
+        <org.slf4j.version>1.7.6</org.slf4j.version>
+        <log4j.version>1.2.12</log4j.version>
+        <javax.validation.version>2.0.1.Final</javax.validation.version>
+        <h2.version>1.4.196</h2.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <org.springframework.binding.version>2.0.5.RELEASE</org.springframework.binding.version>
+        <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
+        <jackson.core.version>2.10.0.pr1</jackson.core.version>
+        <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
+        <tomcat7-maven-plugin.version>2.3-SNAPSHOT</tomcat7-maven-plugin.version>
+        <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
+        <maven-compiler.version>3.1</maven-compiler.version>
     </properties>
 
     <dependencies>
@@ -71,7 +90,7 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
-            <version>3.2.0.RELEASE</version>
+            <version>${spring-security-taglibs.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -81,29 +100,29 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.3.6.Final</version>
+            <version>${hibernate-core.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
+            <version>${javax.servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.11</version>
+            <version>${mysql-connector-java.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
+            <version>${commons-dbcp.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -113,64 +132,59 @@
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <version>${jstl.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.6</version>
+            <version>${org.slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.6</version>
+            <version>${org.slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.12</version>
+            <version>${log4j.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
+            <version>${javax.validation.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>5.3.6.Final</version>
+            <version>${hibernate-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.196</version>
+            <version>${h2.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
+            <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.webflow</groupId>
             <artifactId>org.springframework.binding</artifactId>
-            <version>2.0.5.RELEASE</version>
+            <version>${org.springframework.binding.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>findbugs-maven-plugin</artifactId>
-            <version>3.0.5</version>
+            <version>${findbugs-maven-plugin.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.10.0.pr1</version>
+            <version>${jackson.core.version}</version>
         </dependency>
     </dependencies>
 
@@ -181,13 +195,13 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.7</version>
+                    <version>${maven-deploy-plugin.version}</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
-                    <version>2.3-SNAPSHOT</version>
+                    <version>${tomcat7-maven-plugin.version}</version>
                 </plugin>
 
             </plugins>
@@ -196,7 +210,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.17</version>
+                <version>${maven-checkstyle-plugin.version}</version>
                 <configuration>
                     <configLocation>config/checkstyle.xml</configLocation>
                     <consoleOutput>true</consoleOutput>
@@ -209,6 +223,20 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.4</version>
             </plugin>
         </plugins>
     </build>

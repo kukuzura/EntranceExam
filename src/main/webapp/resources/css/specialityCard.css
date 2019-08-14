@@ -1,4 +1,3 @@
-
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
 
 html.speciality-card {
@@ -10,13 +9,12 @@ html.speciality-card {
     background-color: #3B2D42;
     background-repeat: no-repeat;
 @include filter-gradient(#53455b, #201e22, horizontal);
-@include background-image(radial-gradient(circle at top,  rgba(83,69,91,1) 0,rgba(32,30,34,1) 70%));
+@include background-image(radial-gradient(circle at top, rgba(83, 69, 91, 1) 0, rgba(32, 30, 34, 1) 70 %));
     color: #fff;
     font-family: 'Lato', sans-serif;
     font-size: 100%;
     min-height: 100%;
     line-height: 1.5;
-    padding: 2.5em 0;
 }
 
 .speciality-card .container {
@@ -57,6 +55,7 @@ html.speciality-card {
 &:nth-child(3n+1) {
     clear: left;
 }
+
 &:nth-child(odd) {
      clear: none;
  }
@@ -66,45 +65,56 @@ html.speciality-card {
 & {
     width: 20%;
 }
-&:nth-child(odd), &:nth-child(3n+1) {
-                       clear: none;
-                   }
+&:nth-child(odd),
+
+&:nth-child(3n+1) {
+     clear: none;
+ }
 }
 
 }
 .speciality-card .grid-1-5:hover {
     background-color: #332739;
 @include filter-gradient(#53455b, #201d22, vertical);
-@include background-image(linear-gradient(top,  rgba(83,69,91,1) 0%,rgba(32,29,34,1) 100%));
+@include background-image(linear-gradient(top, rgba(83, 69, 91, 1) 0 %, rgba(32, 29, 34, 1) 100 %));
     border-top: 2px solid #ec7a37;
     border-bottom: 2px solid #ff4f69;
     box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 1);
     transform: scale(1.025);
     z-index: 2;
 
-&:before, &:after {
-               content: "";
-               position: absolute;
-               background-color: rgb(246,125,53);
-           @include filter-gradient(#f67d35, #ff4f68, vertical);
-           @include background-image(linear-gradient(top,  rgba(246,125,53,1) 0%,rgba(255,79,104,1) 100%));
-               top: -2px;
-               bottom: -2px;
-               width: 2px;
-           }
+&
+:before,
 
-&:before {
-     left: -2px;
- }
-&:after {
-     right: -2px;
- }
+&
+:after {
+    content: "";
+    position: absolute;
+    background-color: rgb(246, 125, 53);
+@include filter-gradient(#f67d35, #ff4f68, vertical);
+@include background-image(linear-gradient(top, rgba(246, 125, 53, 1) 0 %, rgba(255, 79, 104, 1) 100 %));
+    top: -2px;
+    bottom: -2px;
+    width: 2px;
+}
 
-& .button {
-      background-color: rgb(238,122,54);
-  @include filter-gradient(#ee7a36, #eb495d, horizontal);
-  @include background-image(linear-gradient(left,  rgba(238,122,54,1) 0%,rgba(235,73,93,1) 100%));
-  }
+&
+:before {
+    left: -2px;
+}
+
+&
+:after {
+    right: -2px;
+}
+
+&
+.button {
+    background-color: rgb(238, 122, 54);
+@include filter-gradient(#ee7a36, #eb495d, horizontal);
+@include background-image(linear-gradient(left, rgba(238, 122, 54, 1) 0 %, rgba(235, 73, 93, 1) 100 %));
+}
+
 }
 .speciality-card .specialityCard-text h2.speciality-card, h3.speciality-card, p.speciality-card, ul.speciality-card {
     margin: 0
@@ -119,7 +129,7 @@ html.speciality-card {
 .speciality-card h3 {
     font-size: 1.5em;
     letter-spacing: 0.0625em;
-    margin: 0 0 0.3333333333333333em;
+    margin: 0;
 }
 
 .speciality-card p {
@@ -127,7 +137,7 @@ html.speciality-card {
 }
 
 .speciality-card p, .speciality-card ul {
-    margin:0 0 1.5em
+    margin: 0;
 }
 
 .speciality-card ul {
@@ -138,8 +148,9 @@ html.speciality-card {
 }
 
 .speciality-card li {
-    margin: 0 0 0.8333333333333333em;
+    margin: 0;
 }
+
 .button-apply {
     background-color: steelblue;
     border-radius: 20px;
@@ -158,6 +169,7 @@ html.speciality-card {
 .uppercase, .button, .speciality-card h2 {
     text-transform: uppercase;
 }
+
 sup, .small {
     font-size: 0.6125em;
 }

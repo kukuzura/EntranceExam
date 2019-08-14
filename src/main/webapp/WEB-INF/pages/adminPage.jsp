@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="html" uri="http://struts.apache.org/tags-html" %>
 
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
@@ -14,6 +15,9 @@
 
 <body>
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
+<div class="admin-gif">
+    <img src="<c:url value="/resources/images/linn-7757.gif"/>"/>
+</div>
 </body>
 
 </html>

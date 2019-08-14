@@ -11,6 +11,7 @@
 </head>
 
 <body class="registration-and-login">
+<jsp:include page="mainNavigation.jsp"/>
     <div class="form-group">
         <form:form method="post">
             <h2><spring:message key="login.title"/></h2>

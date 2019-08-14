@@ -8,7 +8,7 @@
 </head>
 <body class="table">
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
-<div style>
+<div class="table-container">
     <table id="list">
         <tr>
             <th><spring:message key="adminSpecialityList.label.id"/></th>
@@ -28,8 +28,8 @@
             </tr>
         </c:forEach>
     </table>
+</div>
     <a class="simple-link add_button" href="<c:url value = "/admin/addSpeciality"/>"><spring:message
             key="adminSpecialityList.button.addSpeciality"/></a>
-</div>
 </body>
 </html>

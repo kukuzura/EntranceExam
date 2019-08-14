@@ -9,7 +9,7 @@
 </head>
 <body class="table">
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
-<div style="padding-top:30px;margin-top:30px;height:1500px;">
+<div class="table-container">
 <table id="list">
     <tr>
         <th><spring:message code="examList.label.id"/></th>
@@ -30,9 +30,9 @@
         <tr></tr>
     </c:forEach>
 </table>
+</div>
 <div align="center" >
     <a class="simple-link add_button" href="<c:url value='/admin/addExam'/>"><spring:message code="addingExam.button.addExam"/></a>
-</div>
 </div>
 </body>
 </html>

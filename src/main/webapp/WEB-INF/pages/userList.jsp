@@ -9,7 +9,7 @@
     <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
 </head>
 <body class="table">
-<div>
+<div class="table-container">
     <table id="list">
         <tr>
             <th width="50"><spring:message code="userList.lable.Id"/></th>

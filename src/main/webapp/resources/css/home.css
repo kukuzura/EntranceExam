@@ -95,16 +95,22 @@ input:checked + label + .slide {
 
 .bg2 {
     background-image: url("../images/telescope3.jpg");
+    background-color:  rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
 )
 }
 
 .bg3 {
     background-image: url("../images/telescopeh.jpg");
+    background-color:  rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
 )
 }
 
 .bg4 {
     background-image: url("../images/Observatory.jpg");
+    background-color:  rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
 )
 }
 
@@ -135,3 +141,8 @@ input:checked + label + .slide {
     text-decoration: none;
 }
 
+.admin-gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

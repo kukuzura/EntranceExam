@@ -5,6 +5,14 @@ body.table {
     background: linear-gradient(135deg, #002752 0%, rgba(146, 168, 209, 1) 100%);
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.table-container{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #list {
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-collapse: collapse;
