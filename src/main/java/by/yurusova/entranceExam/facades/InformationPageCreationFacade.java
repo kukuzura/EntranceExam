@@ -30,6 +30,7 @@ import java.util.Map;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class InformationPageCreationFacade {
 
     private ExamService examService;
@@ -85,7 +86,6 @@ public class InformationPageCreationFacade {
      * @param principal object with user information.
      * @return the ModelAndView.
      */
-    @Transactional
     public ModelAndView createTeacherPage(final Principal principal) {
         ModelAndView modelAndView = new ModelAndView("/teacherPage.jsp");
         User user = userService.findByLogin(principal.getName());

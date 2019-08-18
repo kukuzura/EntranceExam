@@ -77,8 +77,8 @@ html.speciality-card {
     background-color: #332739;
 @include filter-gradient(#53455b, #201d22, vertical);
 @include background-image(linear-gradient(top, rgba(83, 69, 91, 1) 0 %, rgba(32, 29, 34, 1) 100 %));
-    border-top: 2px solid #ec7a37;
-    border-bottom: 2px solid #ff4f69;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
     box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 1);
     transform: scale(1.025);
     z-index: 2;

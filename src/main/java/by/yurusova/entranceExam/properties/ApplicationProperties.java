@@ -88,4 +88,13 @@ public class ApplicationProperties {
     public String getValidPassRegEx() {
         return properties.getProperty("VALID_PASSWORD");
     }
+
+    /**
+     * Gets amount of records on page.
+     *
+     * @return amount of records.
+     */
+    public String getAmountOfRecordsPerPage() {
+        return properties.getProperty("RECORDS_ON_PAGE");
+    }
 }

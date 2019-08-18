@@ -35,5 +35,21 @@
         </c:forEach>
     </table>
 </div>
+<div class="page-numbers">
+<table>
+    <tr>
+        <c:forEach begin="1" end="${noOfPages}" var="i">
+            <c:choose>
+                <c:when test="${currentPage eq i}">
+                    <td>${i}</td>
+                </c:when>
+                <c:otherwise>
+                    <td><a href="<c:url value="/admin/userList?page=${i}"/>">${i}</a></td>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+    </tr>
+</table>
+</div>
 </body>
 </html>

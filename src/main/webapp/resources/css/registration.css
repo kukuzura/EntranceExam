@@ -8,8 +8,9 @@ body.registration-and-login  {
     width: 100%;
     height: 100vh;
     margin: auto;
-    /*background-image: url("../images/31009.jpg");*/
+    background-image: url("../images/zvezdnoe_nebo_derevya_zvezdy_noch_118267_1600x1200.jpg");
     background-color:  rgba(0,0,0,0.5);
+    background-size: cover;
     background-blend-mode: overlay;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
@@ -22,7 +23,7 @@ body.registration-and-login  {
 }
 
 .registration-and-login form{
-    background: #fff;
+    background: rgba(255,255,255,0.3);
     padding: 4em 4em 2em;
     max-width: 400px;
     border-radius: 2px;
@@ -30,16 +31,15 @@ body.registration-and-login  {
 }
 
 .registration-and-login h2 {
-    margin: 0 0 50px 0;
+    margin: 0 ;
     padding: 10px;
     text-align: center;
-    font-size: 30px;
-    color: #002752;
-    border-bottom: solid 1px #e5e5e5;
+    font-size: 50px;
+    color: white;
 }
 
 .registration-and-login  p {
-    margin: 0 0 3em 0;
+    margin: 0 0 1vh 0;
     position: relative;
 }
 
@@ -53,8 +53,8 @@ body.registration-and-login  {
 
 .registration-and-login input[type="text"],
 .registration-and-login input[type="password"] {
-    background: #fff;
-    border: 1px solid #dbdbdb;
+    background: transparent;
+    border: 3px solid white;
     font-size: 1.6em;
     padding: .8em .5em;
     border-radius: 2px;
@@ -62,7 +62,7 @@ body.registration-and-login  {
 
 .registration-and-login input[type="text"]:focus,
 .registration-and-login input[type="password"]:focus {
-    background: #fff
+    background: rgba(255,255,255,0.2);
 }
 
 .registration-and-login span {
@@ -89,8 +89,9 @@ body.registration-and-login  {
     line-height: 1.6em;
     margin: 2em 0 0;
     outline: none;
-    padding: .8em 0;
+    padding: .5em 0;
     text-shadow: 0 1px darkcyan;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .registration-and-login input[type="submit"]:hover {
@@ -103,7 +104,6 @@ body.registration-and-login  {
 }
 
 .registration-and-login label{
-    position: absolute;
     left: 8px;
     top: 12px;
     color: #999;
@@ -116,15 +116,14 @@ body.registration-and-login  {
 }
 
 .registration-and-login .floatLabel {
-    top: -11px;
-    background-color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
+    font-size: 20px;
+    color: white;
 }
 
-.registration-and-login a {
+.registration-and-login .submit-register {
     left: 8px;
     horiz-align: center;
-    color: #002752;
-    font-size: 16px;
+    color: white;
+    font-size: 29px;
     font-weight: 400;
 }

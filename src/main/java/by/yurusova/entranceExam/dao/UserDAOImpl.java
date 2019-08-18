@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,6 +63,22 @@ public class UserDAOImpl extends AbstractBaseDAO<User> implements UserDAO {
             LOGGER.error("No user found");
         }
         return user;
+    }
+
+    @Override
+    public List<User> getAllForPagination(final int currentPage, final int numberOfRecordsPerPage) {
+        List<User> users = new ArrayList<>();
+        try {
+            users = sessionFactory.getCurrentSession().createQuery(
+                    "FROM User", User.class)
+                    .setFirstResult(currentPage)
+                    .setMaxResults(numberOfRecordsPerPage)
+                    .list();
+        }
+        catch (NoResultException ex) {
+            LOGGER.error("No users found fpr pagination");
+        }
+        return users;
     }
 
     /**

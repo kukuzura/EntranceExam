@@ -57,4 +57,13 @@ public interface UserService {
      * @return user with given login.
      */
     User findByLogin(String login);
+
+    /**
+     * Gest all users for current page.
+     *
+     * @param currentPage   the page number.
+     * @param recordsAmount amounts of records per page.
+     * @return list of users.
+     */
+    List<User> getAllForPagination(int currentPage, int recordsAmount);
 }

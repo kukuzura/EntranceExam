@@ -60,5 +60,4 @@
     <bean id="gradeDAO" class="by.yurusova.entranceExam.dao.GradeDAOImpl" parent="abstractDAO"/>
 
     <tx:annotation-driven/>
-
 </beans>

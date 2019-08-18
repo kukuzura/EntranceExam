@@ -5,6 +5,7 @@ import by.yurusova.entranceExam.converters.SpecialityListConverter;
 import by.yurusova.entranceExam.dto.SpecialityDTO;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class SpecialityOperationsFacade {
 
     private SpecialityService specialityService;

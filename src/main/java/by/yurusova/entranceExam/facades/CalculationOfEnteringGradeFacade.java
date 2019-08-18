@@ -7,6 +7,7 @@ import by.yurusova.entranceExam.entities.StudentStatus;
 import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class CalculationOfEnteringGradeFacade {
 
     private StudentService studentService;

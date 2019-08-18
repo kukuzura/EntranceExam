@@ -2,7 +2,6 @@ package by.yurusova.entranceExam.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,7 +14,6 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public abstract class AbstractBaseDAO<T> {
 
     protected SessionFactory sessionFactory;

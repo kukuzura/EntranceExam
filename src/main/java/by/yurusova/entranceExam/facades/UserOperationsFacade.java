@@ -4,8 +4,12 @@ import by.yurusova.entranceExam.converters.UserConverter;
 import by.yurusova.entranceExam.converters.UserListConverter;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.entities.User;
+import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.UserService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * Facade for operations with users.
@@ -15,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class UserOperationsFacade {
 
     private UserService userService;
@@ -22,6 +27,8 @@ public class UserOperationsFacade {
     private UserConverter userConverter;
 
     private UserListConverter userListConverter;
+
+    private ApplicationProperties applicationProperties;
 
 
     /**
@@ -66,10 +73,18 @@ public class UserOperationsFacade {
      * Method creates ModelAndView for user list.
      *
      * @return page with list of users.
+     * @param page  page number.
      */
-    public ModelAndView createUserListPage() {
+    public ModelAndView createUserListPage(final int page) {
         ModelAndView mav = new ModelAndView("/userList.jsp");
-        mav.addObject("usersList", userListConverter.convertList(userService.getAll()));
+        int recordsPerPage = Integer.valueOf(applicationProperties.getAmountOfRecordsPerPage());
+        List<User> list = userService.getAllForPagination((page - 1) * recordsPerPage,
+                recordsPerPage);
+        int noOfRecords = userService.getAll().size();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        mav.addObject("noOfPages", noOfPages);
+        mav.addObject("currentPage", page);
+        mav.addObject("usersList", list);
         return mav;
     }
 
@@ -106,5 +121,14 @@ public class UserOperationsFacade {
      */
     public void setUserListConverter(final UserListConverter userListConverter) {
         this.userListConverter = userListConverter;
+    }
+
+    /**
+     * Sets application properties.
+     *
+     * @param applicationProperties object to be set.
+     */
+    public void setApplicationProperties(final ApplicationProperties applicationProperties) {
+        this.applicationProperties = applicationProperties;
     }
 }

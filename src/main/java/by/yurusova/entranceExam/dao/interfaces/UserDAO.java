@@ -2,7 +2,6 @@ package by.yurusova.entranceExam.dao.interfaces;
 
 import by.yurusova.entranceExam.entities.User;
 
-
 import java.util.List;
 
 /**
@@ -58,4 +57,13 @@ public interface UserDAO {
      * @return the user.
      */
     User findByLogin(String login);
+
+    /**
+     * Gets all users for page with given number.
+     *
+     * @param currentPage           page number.
+     * @param amountOfRecordsOnPage amount of records per page.
+     * @return list of users for page.
+     */
+    List<User> getAllForPagination(int currentPage, int amountOfRecordsOnPage);
 }

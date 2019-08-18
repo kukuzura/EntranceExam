@@ -15,6 +15,7 @@ import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.SubjectService;
 import by.yurusova.entranceExam.services.interfaces.TeacherService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class ExamAddingFacade {
 
     private ExamService examService;

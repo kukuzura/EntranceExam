@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -27,13 +28,19 @@ public class UsersDisplayController {
     private UserOperationsFacade facade;
 
     /**
-     * Show list of user.
+     * Show list of user with pagination.
      *
+     * @param page page number
      * @return page with list of users.
      */
     @RequestMapping(value = "/userList", method = RequestMethod.GET)
-    public ModelAndView showAllUsers() {
-        return facade.createUserListPage();
+    public ModelAndView showAllUser(@RequestParam(required = false) final String page) {
+        if (page != null) {
+            return facade.createUserListPage(Integer.valueOf(page));
+        }
+        else {
+            return facade.createUserListPage(1);
+        }
     }
 
     /**

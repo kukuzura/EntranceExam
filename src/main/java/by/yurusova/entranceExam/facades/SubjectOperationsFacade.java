@@ -5,6 +5,7 @@ import by.yurusova.entranceExam.converters.SubjectListConverter;
 import by.yurusova.entranceExam.dto.SubjectDTO;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.services.interfaces.SubjectService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class SubjectOperationsFacade {
 
     private SubjectService subjectService;

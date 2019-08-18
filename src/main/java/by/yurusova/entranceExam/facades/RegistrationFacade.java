@@ -13,6 +13,7 @@ import by.yurusova.entranceExam.services.interfaces.RoleService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.TeacherService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
@@ -25,6 +26,7 @@ import java.util.Arrays;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class RegistrationFacade {
 
     private UserService userService;

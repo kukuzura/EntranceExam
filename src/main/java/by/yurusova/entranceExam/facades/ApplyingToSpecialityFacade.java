@@ -12,6 +12,7 @@ import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -26,6 +27,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class ApplyingToSpecialityFacade {
 
     private SpecialityService specialityService;

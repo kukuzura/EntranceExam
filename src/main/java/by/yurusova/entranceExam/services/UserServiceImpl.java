@@ -42,6 +42,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> getAllForPagination(final int currentPage, final int recordsAmount) {
+        return userDAO.getAllForPagination(currentPage, recordsAmount);
+    }
+
+    @Override
     public void deleteUser(final long id) {
         User user = userDAO.findById(id);
         if (user != null) {

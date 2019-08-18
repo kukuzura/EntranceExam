@@ -4,6 +4,7 @@ import by.yurusova.entranceExam.converters.ExamConverter;
 import by.yurusova.entranceExam.dto.ExamDTO;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
+@Transactional
 public class AdminOperationWithExamFacade {
 
     private ExamService examService;

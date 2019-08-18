@@ -6,7 +6,7 @@ body.table {
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.table-container{
+.table-container {
     height: 50%;
     display: flex;
     justify-content: center;
@@ -55,10 +55,10 @@ body.table {
 }
 
 .table button {
-    padding: 1vh 4vh 1vh 4vh ;
+    padding: 1vh 4vh 1vh 4vh;
     font-size: 14px;
     color: white;
-    background-color: #002752 ;
+    background-color: #002752;
     border: 2px solid white;
     cursor: pointer;
     width: max-content;
@@ -78,4 +78,28 @@ body.table {
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.page-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-numbers a {
+    color: white;
+    text-decoration: none;
+    padding: 1vh 2vh;
+}
+
+.page-numbers a:hover{
+    border: 2px white solid;
+    padding: 1vh 2vh;
+    border-radius: 50%;
+}
+
+.page-numbers td {
+    padding: 0 2vh 0 2vh;
+    font-size: 3vh;
+    cursor: pointer;
 }
