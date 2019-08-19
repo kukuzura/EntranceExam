@@ -16,7 +16,7 @@
 <body>
 <jsp:include page="/WEB-INF/pages/adminNavigation.jsp"/>
 <div class="admin-gif">
-    <img src="<c:url value="/resources/images/linn-7757.gif"/>"/>
+    <img src="<c:url value="/resources/images/linn.gif"/>"/>
 </div>
 </body>
 
