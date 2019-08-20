@@ -29,7 +29,6 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public class ExamAddingFacade {
 
     private ExamService examService;
@@ -53,6 +52,7 @@ public class ExamAddingFacade {
      * @param subjectID    id of subject of current exam.
      * @param specialityID id of speciality of current exam.
      */
+    @Transactional
     public void addExam(final String teacherID, final String subjectID, final String specialityID) {
         Teacher teacher = teacherService.findById(Long.valueOf(teacherID));
         Subject subject = subjectService.findById(Long.valueOf(subjectID));
@@ -70,6 +70,7 @@ public class ExamAddingFacade {
      *
      * @return the ModelAndView.
      */
+    @Transactional
     public ModelAndView createModelAndView() {
         ModelAndView mav = new ModelAndView("/addingExam.jsp");
         mav.addObject("exam", new ExamDTO());

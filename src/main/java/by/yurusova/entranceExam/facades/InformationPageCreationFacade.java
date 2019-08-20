@@ -10,7 +10,6 @@ import by.yurusova.entranceExam.entities.Teacher;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
-import by.yurusova.entranceExam.services.interfaces.StudentService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,7 +18,6 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -30,12 +28,9 @@ import java.util.Map;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public class InformationPageCreationFacade {
 
     private ExamService examService;
-
-    private StudentService studentService;
 
     private UserService userService;
 
@@ -47,7 +42,6 @@ public class InformationPageCreationFacade {
 
     private GradeService gradeService;
 
-
     /**
      * Method creates ModelAndView for student page.
      * gets student information by login of user that bind with it,
@@ -57,10 +51,10 @@ public class InformationPageCreationFacade {
      * and sets it, it's exams(converted too) and total grade to modelAndView.
      *
      * @param principal object with user information.
-     * @param locale    current locale
      * @return the ModelAndView.
      */
-    public ModelAndView createStudentPage(final Principal principal, final Locale locale) {
+    @Transactional
+    public ModelAndView createStudentPage(final Principal principal) {
         ModelAndView modelAndView = new ModelAndView("/studentPage.jsp");
         User user = userService.findByLogin(principal.getName());
         StudentDTO student = studentConverter.convert(user.getStudent());
@@ -86,6 +80,7 @@ public class InformationPageCreationFacade {
      * @param principal object with user information.
      * @return the ModelAndView.
      */
+    @Transactional
     public ModelAndView createTeacherPage(final Principal principal) {
         ModelAndView modelAndView = new ModelAndView("/teacherPage.jsp");
         User user = userService.findByLogin(principal.getName());
@@ -117,15 +112,6 @@ public class InformationPageCreationFacade {
      */
     public void setExamService(final ExamService examService) {
         this.examService = examService;
-    }
-
-    /**
-     * Sets student service.
-     *
-     * @param studentService service to be set.
-     */
-    public void setStudentService(final StudentService studentService) {
-        this.studentService = studentService;
     }
 
     /**

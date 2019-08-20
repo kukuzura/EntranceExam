@@ -1,5 +1,6 @@
 package by.yurusova.entranceExam.controllers;
 
+import by.yurusova.entranceExam.facades.AdminOperationWithExamFacade;
 import by.yurusova.entranceExam.facades.ExamAddingFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,7 @@ public class ExamAddingController {
     private ExamAddingFacade facade;
 
     @Autowired
-    private AdminExamListController examListController;
+    private AdminOperationWithExamFacade operationWithExamFacade;
 
     /**
      * Method shows exam adding page.
@@ -49,6 +50,6 @@ public class ExamAddingController {
                                 @ModelAttribute("subject") final String subjectID,
                                 @ModelAttribute("speciality") final String specialityID) {
         facade.addExam(teacherID, subjectID, specialityID);
-        return examListController.showExamList();
+        return operationWithExamFacade.createExamListPage();
     }
 }

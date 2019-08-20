@@ -23,7 +23,6 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public class RateFacade {
 
     private GradeService gradeService;
@@ -68,6 +67,7 @@ public class RateFacade {
      * @param studentDTOS list of student with grades.
      * @param examID      exam id.
      */
+    @Transactional
     public void rateStudents(final List<StudentDTO> studentDTOS, final long examID) {
         Exam exam = examService.findByID(examID);
         exam.setGraded(true);

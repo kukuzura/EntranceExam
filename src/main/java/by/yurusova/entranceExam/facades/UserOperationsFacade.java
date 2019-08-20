@@ -1,7 +1,6 @@
 package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.UserConverter;
-import by.yurusova.entranceExam.converters.UserListConverter;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.properties.ApplicationProperties;
@@ -19,17 +18,13 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public class UserOperationsFacade {
 
     private UserService userService;
 
     private UserConverter userConverter;
 
-    private UserListConverter userListConverter;
-
     private ApplicationProperties applicationProperties;
-
 
     /**
      * Method delete user by id.
@@ -72,9 +67,10 @@ public class UserOperationsFacade {
     /**
      * Method creates ModelAndView for user list.
      *
+     * @param page page number.
      * @return page with list of users.
-     * @param page  page number.
      */
+    @Transactional
     public ModelAndView createUserListPage(final int page) {
         ModelAndView mav = new ModelAndView("/userList.jsp");
         int recordsPerPage = Integer.valueOf(applicationProperties.getAmountOfRecordsPerPage());
@@ -107,20 +103,12 @@ public class UserOperationsFacade {
      *
      * @param userDTO userDTO to be update.
      */
+    @Transactional
     public void update(final UserDTO userDTO) {
         User user = userService.findById(userDTO.getId());
         user.setLogin(userDTO.getLogin());
         user.setPassword(userDTO.getPassword());
         userService.editUser(user);
-    }
-
-    /**
-     * Sets user list converter.
-     *
-     * @param userListConverter converter to be set.
-     */
-    public void setUserListConverter(final UserListConverter userListConverter) {
-        this.userListConverter = userListConverter;
     }
 
     /**

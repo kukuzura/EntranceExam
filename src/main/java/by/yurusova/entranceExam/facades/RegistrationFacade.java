@@ -26,7 +26,6 @@ import java.util.Arrays;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public class RegistrationFacade {
 
     private UserService userService;
@@ -113,6 +112,7 @@ public class RegistrationFacade {
      * @param userDTO    user
      * @param studentDTO student
      */
+    @Transactional
     public void registerStudent(final UserDTO userDTO, final StudentDTO studentDTO) {
         User user = userConverter.convertBack(userDTO);
         Student student = studentConverter.convertBack(studentDTO);
@@ -129,6 +129,7 @@ public class RegistrationFacade {
      * @param userDTO    user
      * @param teacherDTO teacher
      */
+    @Transactional
     public void registerTeacher(final UserDTO userDTO, final TeacherDTO teacherDTO) {
         User user = userConverter.convertBack(userDTO);
         Teacher teacher = teacherConverter.convertBack(teacherDTO);

@@ -19,7 +19,6 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public class CalculationOfEnteringGradeFacade {
 
     private StudentService studentService;
@@ -53,6 +52,7 @@ public class CalculationOfEnteringGradeFacade {
      *
      * @param speciality speciality to calculate grade.
      */
+    @Transactional
     public void calculateAndSetEnteringGrade(final Speciality speciality) {
         List<Student> enteredStudents = studentService.findBySpecialityIDOrdered(speciality.getId());
         speciality.setEnteringGrade(enteredStudents

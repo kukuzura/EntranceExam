@@ -3,8 +3,6 @@ package by.yurusova.entranceExam.services;
 import by.yurusova.entranceExam.dao.interfaces.UserDAO;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
@@ -18,8 +16,6 @@ import java.util.List;
  * @copyright 2019 SaM
  */
 public class UserServiceImpl implements UserService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     private UserDAO userDAO;
 

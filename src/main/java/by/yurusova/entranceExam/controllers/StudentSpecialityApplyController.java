@@ -30,8 +30,8 @@ public class StudentSpecialityApplyController {
     /**
      * Method apply student to speciality with given id.
      *
-     * @param id        the id.
-     * @param principal object that contains username.
+     * @param id                 the id.
+     * @param principal          object that contains username.
      * @param httpServletRequest request information.
      * @return student information page.
      */
@@ -41,7 +41,7 @@ public class StudentSpecialityApplyController {
                              final HttpServletRequest httpServletRequest) {
         applyingToSpecialityFacade.applyToSpeciality(id, principal);
         String contextPath = httpServletRequest.getContextPath();
-        return "redirect:" + "/account/studentPage";
+        return "redirect:" + contextPath + "/account/studentPage";
     }
 
     /**

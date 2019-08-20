@@ -6,8 +6,6 @@
 
 	<import resource="classpath:database.xml" />
 	<import resource="classpath:security.xml" />
-	<import resource="classpath*:spring-mvc-servlet.xml" />
-
 	<context:component-scan
 		base-package="by.yurusova.entranceExam.controllers" />
 	<context:annotation-config />
@@ -114,7 +112,6 @@
 		class="by.yurusova.entranceExam.facades.UserOperationsFacade">
 		<property name="userConverter" ref="userConverter" />
 		<property name="userService" ref="userService" />
-		<property name="userListConverter" ref="userListConverter" />
 	</bean>
 
 	<bean id="examAddingFacade"
@@ -145,16 +142,13 @@
 		<property name="examConverter" ref="examConverter" />
 	</bean>
 
-	<bean id="studentPageFacade"
-		class="by.yurusova.entranceExam.facades.InformationPageCreationFacade">
-		<property name="examService" ref="examService" />
-		<property name="studentService" ref="studentService" />
-		<property name="userService" ref="userService" />
-		<property name="teacherConverter" ref="teacherConverter" />
-		<property name="examConverter" ref="examConverter" />
-		<property name="studentConverter"
-			ref="studentConverterForRate" />
-		<property name="gradeService" ref="gradeService" />
+	<bean id="informationPageCreationFacade" class="by.yurusova.entranceExam.facades.InformationPageCreationFacade">
+		<property name="examConverter" ref="examConverter"/>
+		<property name="examService" ref="examService"/>
+		<property name="gradeService" ref="gradeService"/>
+		<property name="studentConverter" ref="studentConverterForRate"/>
+		<property name="teacherConverter" ref="teacherConverter"/>
+		<property name="userService" ref="userService"/>
 	</bean>
 
 	<bean id="rateFacade"

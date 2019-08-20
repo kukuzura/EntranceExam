@@ -9,6 +9,7 @@
     <jsp:include page="head.jsp"/>
 </head>
 <body class="registration-and-login">
+<jsp:include page="mainNavigation.jsp"/>
 <div class="container">
     <div class="form-group">
         <form method="post">

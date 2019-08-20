@@ -27,7 +27,6 @@ import java.util.List;
  * @link http ://sam-solutions.com/
  * @copyright 2019 SaM
  */
-@Transactional
 public class ApplyingToSpecialityFacade {
 
     private SpecialityService specialityService;
@@ -47,6 +46,7 @@ public class ApplyingToSpecialityFacade {
      * @param id        speciality id.
      * @param principal user information.
      */
+    @Transactional
     public void applyToSpeciality(final long id, final Principal principal) {
         Speciality speciality = specialityService.findById(id);
         List<Exam> exams = speciality.getExams();

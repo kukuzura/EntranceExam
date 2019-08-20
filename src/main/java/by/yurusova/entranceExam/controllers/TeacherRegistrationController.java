@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Teacher Registration controller.
  *
@@ -75,6 +77,7 @@ public class TeacherRegistrationController {
      * @param teacher              teacher to be validate
      * @param bindingResultTeacher result of teacher validation
      * @param model                model
+     * @param httpServletRequest   request information
      * @return the page
      */
     @RequestMapping(value = "/teacherRegister", method = RequestMethod.POST)
@@ -82,7 +85,8 @@ public class TeacherRegistrationController {
                              final BindingResult bindingResultUser,
                              @ModelAttribute("teacher") @Validated final TeacherDTO teacher,
                              final BindingResult bindingResultTeacher,
-                             final Model model) {
+                             final Model model,
+                             final HttpServletRequest httpServletRequest) {
         if (bindingResultTeacher.hasErrors() || bindingResultUser.hasErrors()) {
             model.addAttribute("user", user);
             model.addAttribute("teacher", teacher);
@@ -90,7 +94,7 @@ public class TeacherRegistrationController {
         }
         else {
             registrationFacade.registerTeacher(user, teacher);
-            return "redirect:/login";
+            return "redirect: " + httpServletRequest.getContextPath() + "/login";
         }
     }
 }

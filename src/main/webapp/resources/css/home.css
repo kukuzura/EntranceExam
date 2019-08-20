@@ -49,9 +49,9 @@ input:checked ~ .slide {
     transform: translateX(100%);
 }
 
-.bg1{
+.bg1 {
     background-image: url("../images/astronaut-11080_1280.jpg");
-    background-color:  rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
 
 )
@@ -77,12 +77,14 @@ input:checked ~ .slide {
     font-size: 3rem;
     white-space: nowrap;
 }
+
 i {
     border: solid black;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
 }
+
 .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
@@ -95,21 +97,21 @@ input:checked + label + .slide {
 
 .bg2 {
     background-image: url("../images/telescope3.jpg");
-    background-color:  rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
 )
 }
 
 .bg3 {
     background-image: url("../images/telescopeh.jpg");
-    background-color:  rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
 )
 }
 
 .bg4 {
     background-image: url("../images/Observatory.jpg");
-    background-color:  rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
 )
 }
@@ -145,4 +147,5 @@ input:checked + label + .slide {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 70vh;
 }
