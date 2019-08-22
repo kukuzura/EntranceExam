@@ -112,6 +112,7 @@
 		class="by.yurusova.entranceExam.facades.UserOperationsFacade">
 		<property name="userConverter" ref="userConverter" />
 		<property name="userService" ref="userService" />
+		<property name="applicationProperties" ref="appProperties"/>
 	</bean>
 
 	<bean id="examAddingFacade"

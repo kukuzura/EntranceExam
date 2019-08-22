@@ -28,7 +28,7 @@ public class TeacherDTO implements Serializable {
      * @param lastName   last name of new teacherDTO.
      * @param patronymic patronymic of new teacherDTO.
      */
-    public TeacherDTO(final long id, final String firstName, final String lastName, final String patronymic) {
+    public TeacherDTO(final long id, final String lastName, final String firstName, final String patronymic) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

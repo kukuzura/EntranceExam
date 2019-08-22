@@ -1,0 +1,10 @@
+body.about {
+    background-image: url("../images/zvezdnoe_nebo_derevya_zvezdy_noch_118267_1600x1200.jpg");
+}
+
+.about div {
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-indent: 5vh;
+}

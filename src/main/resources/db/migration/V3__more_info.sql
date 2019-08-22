@@ -17,33 +17,33 @@ INSERT into role
 values (2, 'ROLE_TEACHER');
 
 insert into user
-values (1, 'user', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (1, 'user', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (2, 'user1', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (2, 'user1', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (3, 'user2', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (3, 'user2', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (4, 'user3', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (4, 'user3', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (5, 'user4', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (5, 'user4', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (6, 'user5', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (6, 'user5', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (7, 'user6', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (7, 'user6', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (8, 'user7', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (8, 'user7', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (9, 'user8', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (9, 'user8', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (10, 'user9', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (10, 'user9', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (11, 'user10', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (11, 'user10', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (12, 'teacher', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (12, 'teacher', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (13, 'teacher2', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (13, 'teacher2', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 insert into user
-values (14, 'teacher3', '$2y$12$zrKXSo4qiLjcpfubuyFxLuA0t7DeV8qlZuptV0S3Owh4PxAvNC/i6');
+values (14, 'teacher3', '$2a$11$W9qSly4OW6RF6ioxJNpvK.NAt8NVmYFFAuqWNzRmv7CY0GomETnJ2');
 
 insert into user_role
 values (1, 1);
@@ -144,3 +144,47 @@ insert into grade
 values (10, 1, 0, 10);
 insert into grade
 values (11, 1, 0, 11);
+insert into grade
+values (1, 4, 0, 12);
+insert into grade
+values (2, 4, 0, 13);
+insert into grade
+values (3, 4, 0, 14);
+insert into grade
+values (4, 4, 0, 15);
+insert into grade
+values (5, 4, 0, 16);
+insert into grade
+values (6, 4, 0, 17);
+insert into grade
+values (7, 4, 0, 18);
+insert into grade
+values (8, 4, 0, 19);
+insert into grade
+values (9, 4, 0, 20);
+insert into grade
+values (10, 4, 0, 21);
+insert into grade
+values (11, 4, 0, 22);
+insert into grade
+values (1, 7, 0, 23);
+insert into grade
+values (2, 7, 0, 24);
+insert into grade
+values (3, 7, 0, 25);
+insert into grade
+values (4, 7, 0, 26);
+insert into grade
+values (5, 7, 0, 27);
+insert into grade
+values (6, 7, 0, 28);
+insert into grade
+values (7, 7, 0, 29);
+insert into grade
+values (8, 7, 0, 30);
+insert into grade
+values (9, 7, 0, 31);
+insert into grade
+values (10, 7, 0, 32);
+insert into grade
+values (11, 7, 0, 33);

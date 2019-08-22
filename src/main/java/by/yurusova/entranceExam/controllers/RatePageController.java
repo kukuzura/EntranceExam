@@ -52,7 +52,7 @@ public class RatePageController {
                            final HttpServletRequest httpServletRequest) {
         rateFacade.rateStudents(studentForm.getStudents(), examId);
         String contextPath = httpServletRequest.getContextPath();
-        return "redirect:" + contextPath + "/account/teacherPage";
+        return "redirect: " + contextPath + "/account/teacherPage";
     }
 
     /**

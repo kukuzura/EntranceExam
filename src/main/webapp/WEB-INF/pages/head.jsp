@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="<c:url value = "/resources/css/studentPage.css"/>"/>
 <link rel="stylesheet" href="<c:url value = "/resources/css/table.css"/>"/>
 <link rel="stylesheet" href="<c:url value = "/resources/css/errorPages.css"/>"/>
+<link rel="stylesheet" href="<c:url value = "/resources/css/about.css"/>"/>
 <script type="text/javascript" src="<c:url value = "/resources/js/jquery-3.4.1.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value = "/resources/js/jquery.validate.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value = "/resources/js/getUpdatePage.js"/>"></script>

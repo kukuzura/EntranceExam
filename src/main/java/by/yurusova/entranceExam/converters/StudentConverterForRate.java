@@ -16,7 +16,7 @@ public class StudentConverterForRate implements TwoWayConverter<Student, Student
     @Override
     public StudentDTO convert(final Student source) {
         return new StudentDTO(
-                source.getId(), source.getPassportID(), source.getFirstName(), source.getLastName(), source.getPatronymic());
+                source.getId(), source.getPassportID(), source.getLastName(), source.getFirstName(), source.getPatronymic());
     }
 
     @Override
