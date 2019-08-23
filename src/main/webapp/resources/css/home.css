@@ -153,3 +153,7 @@ input:checked + label + .slide {
 .subtitle {
 	color: darkgray;
 }
+
+.pictured {
+	background: url("../images/istockphoto-973461748-1024x1024.jpg") repeat;
+}

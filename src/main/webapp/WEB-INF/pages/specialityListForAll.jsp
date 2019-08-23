@@ -8,7 +8,7 @@
     <title><sping:message key="specialityList.title"/></title>
     <jsp:include page="head.jsp"/>
 </head>
-<body>
+<body class="pictured">
 <sec:authorize access="!isAuthenticated()">
     <jsp:include page="mainNavigation.jsp"/>
 </sec:authorize>
