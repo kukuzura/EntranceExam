@@ -149,3 +149,7 @@ input:checked + label + .slide {
     align-items: center;
     height: 70vh;
 }
+
+.subtitle {
+	color: darkgray;
+}
