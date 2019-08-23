@@ -38,6 +38,7 @@
         <tomcat7-maven-plugin.version>2.3-SNAPSHOT</tomcat7-maven-plugin.version>
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
         <maven-compiler.version>3.1</maven-compiler.version>
+        <flyway-version>5.2.4</flyway-version>
     </properties>
 
     <dependencies>
@@ -189,7 +190,7 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>5.2.4</version>
+            <version>${flyway-version}</version>
         </dependency>
     </dependencies>
 
