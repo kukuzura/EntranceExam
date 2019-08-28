@@ -15,7 +15,7 @@
 
 <body class="home">
 	<jsp:include page="mainNavigation.jsp" />
-	<input class="none-display" type="radio" id="trigger1" name="slider">
+	<input type="radio" id="trigger1" name="slider">
 	<label for="trigger1"></label>
 	<div class="slide bg1">
 		<div class="title">
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<input class="none-display" type="radio" id="trigger2" name="slider"
+	<input type="radio" id="trigger2" name="slider"
 		checked autofocus>
 	<label for="trigger2"></label>
 	<div class="slide bg3">
@@ -44,7 +44,7 @@
 		</div>
 	</div>
 
-	<input class="none-display" type="radio" id="trigger3" name="slider">
+	<input type="radio" id="trigger3" name="slider">
 	<label for="trigger3"></label>
 	<div class="slide bg4">
 		<div>

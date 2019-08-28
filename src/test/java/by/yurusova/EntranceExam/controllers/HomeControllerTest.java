@@ -1,6 +1,5 @@
 package by.yurusova.EntranceExam.controllers;
 
-import by.yurusova.entranceExam.controllers.AdminPageController;
 import by.yurusova.entranceExam.controllers.HomeController;
 import org.junit.Before;
 import org.junit.Test;

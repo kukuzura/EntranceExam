@@ -12,7 +12,6 @@ import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.entities.Teacher;
-import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -8,7 +8,6 @@ import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Grade;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
-import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.StudentService;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,9 +41,6 @@ public class RatePageControllerTest {
 
     @Autowired
     private ExamService examService;
-
-    @Autowired
-    private GradeService gradeService;
 
     private StudentForm studentForm;
 

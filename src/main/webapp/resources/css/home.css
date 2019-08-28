@@ -1,11 +1,20 @@
 body.home, html.home {
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 100%;
+    height: 100%;
     text-align: center;
+    overflow: hidden;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
+.home input {
+    position: absolute;
+    opacity: 0;
+    margin-top: 90vh;
+    cursor: pointer;
+}
 .home label {
+    display: inline-block;
     width: 12px;
     height: 12px;
     border: solid 2px white;
@@ -17,26 +26,24 @@ body.home, html.home {
     transition-duration: .4s;
 }
 
-input:checked + label {
+.home input:checked + label {
     background-color: white;
 }
-
-input:focus + label {
+.none-display{
+    display: none;
+}
+.home input:focus + label {
     box-shadow: 0 0 0 2px teal, 0 0 18px white;
 }
 
-.none-display {
-    display: none;
-}
 
 .slide {
     position: absolute;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
     width: 100%;
-    margin-top: 5vh;
+    height: 100%;
     top: 0;
     left: 0;
     z-index: -1;
@@ -45,8 +52,12 @@ input:focus + label {
     opacity: 1;
 }
 
-input:checked ~ .slide {
+.home input:checked ~ .slide {
     transform: translateX(100%);
+}
+.home input:checked + label + .slide {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .bg1 {
@@ -90,7 +101,7 @@ i {
     -webkit-transform: rotate(45deg);
 }
 
-input:checked + label + .slide {
+.home input:checked + label + .slide {
     transform: translateX(0);
     opacity: 1;
 }
@@ -144,16 +155,20 @@ input:checked + label + .slide {
 }
 
 .admin-gif {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
+    display: grid;
+    height: 90vh;
+}
+.admin-gif img{
+    margin:auto;
 }
 
 .subtitle {
-	color: darkgray;
+    color: darkgray;
 }
 
 .pictured {
-	background: url("../images/istockphoto-973461748-1024x1024.jpg") repeat;
+    background-image: url("../images/istockphoto-973461748-1024x1024.jpg");
+    background-repeat: repeat;
+    background-color: rgba(255,255,255,.5);
+    background-blend-mode: overlay;
 }

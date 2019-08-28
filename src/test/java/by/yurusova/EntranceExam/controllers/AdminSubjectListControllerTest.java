@@ -1,10 +1,8 @@
 package by.yurusova.EntranceExam.controllers;
 
 import by.yurusova.entranceExam.controllers.AdminSubjectListController;
-import by.yurusova.entranceExam.converters.SubjectConverter;
 import by.yurusova.entranceExam.converters.SubjectListConverter;
 import by.yurusova.entranceExam.entities.Subject;
-import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.SubjectService;
 import org.junit.Before;
 import org.junit.Test;

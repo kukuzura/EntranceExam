@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
+import java.util.Locale;
 
 /**
  * Student page controller.
@@ -30,8 +31,8 @@ public class StudentPageController {
      * @return student page.
      */
     @RequestMapping("studentPage")
-    public ModelAndView showStudentPage(final Principal principal) {
-        return facade.createStudentPage(principal);
+    public ModelAndView showStudentPage(final Principal principal, Locale locale) {
+        return facade.createStudentPage(principal,locale);
     }
 
 }

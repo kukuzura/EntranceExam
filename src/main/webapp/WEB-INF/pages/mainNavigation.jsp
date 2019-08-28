@@ -21,6 +21,14 @@
             code="home.navigation.button.login"/> </a></li>
     </sec:authorize>
     <li><a href="<c:url value = "/about"/>"><spring:message code="home.navigation.button.about"/> </a></li>
+    <sec:authorize access="hasRole('ROLE_TEACHER')">
+        <li><a href="<c:url value = "/account/teacherPage"/>"><spring:message
+                code="home.navigation.teacherPage"/> </a></li>
+    </sec:authorize>
+    <sec:authorize access="hasRole('ROLE_STUDENT')">
+        <li><a href="<c:url value = "/account/studentPage"/>"><spring:message
+                code="home.navigation.studentPage"/> </a></li>
+    </sec:authorize>
     <li class="dropdown">
         <a class="dropbtn"><spring:message code="home.navigation.dropdown.locale"/> </a>
         <div class="dropdown-content">

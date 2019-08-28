@@ -1,7 +1,6 @@
 package by.yurusova.EntranceExam.controllers;
 
 import by.yurusova.entranceExam.controllers.UsersDisplayController;
-import by.yurusova.entranceExam.converters.UserConverter;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.UserService;
 import org.junit.Before;
@@ -32,9 +31,6 @@ public class AdminUserListControllerTest {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private UserConverter userConverter;
 
     @Before
     public void setUp() {
@@ -112,9 +108,5 @@ public class AdminUserListControllerTest {
 
     public void setUserService(UserService userService) {
         this.userService = userService;
-    }
-
-    public void setUserConverter(UserConverter userConverter) {
-        this.userConverter = userConverter;
     }
 }

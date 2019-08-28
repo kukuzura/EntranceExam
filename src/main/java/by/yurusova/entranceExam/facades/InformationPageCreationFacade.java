@@ -11,6 +11,7 @@ import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
+import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,6 +19,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -42,6 +44,8 @@ public class InformationPageCreationFacade {
 
     private GradeService gradeService;
 
+    private MessageSourceAccessor messageSource;
+
     /**
      * Method creates ModelAndView for student page.
      * gets student information by login of user that bind with it,
@@ -54,7 +58,7 @@ public class InformationPageCreationFacade {
      * @return the ModelAndView.
      */
     @Transactional
-    public ModelAndView createStudentPage(final Principal principal) {
+    public ModelAndView createStudentPage(final Principal principal, Locale locale) {
         ModelAndView modelAndView = new ModelAndView("/studentPage.jsp");
         User user = userService.findByLogin(principal.getName());
         StudentDTO student = studentConverter.convert(user.getStudent());
@@ -64,6 +68,24 @@ public class InformationPageCreationFacade {
         for (Exam exam : examService.findByStudent(student.getId())) {
             examsAndGrades.put(examConverter.convert(exam), gradeService.findByExamAndStudent(exam.getId(), student.getId()));
         }
+        String message = "";
+        Object[] args = new Object[]{};
+        switch (user.getStudent().getStatus()) {
+            case NEW_STUDENT:
+                message = messageSource.getMessage("studentPage.message.haveNoExams");
+                break;
+            case PASS_EXAMS:
+                message = messageSource.getMessage("studentPage.message.examinationInProgress");
+                break;
+            case ENTER:
+                message = messageSource.getMessage("studentPage.message.entered");
+                break;
+            case DID_NOT_ENTER:
+                message = messageSource.getMessage("studentPage.message.didntEntered");
+                break;
+
+        }
+        modelAndView.addObject("message", message);
         modelAndView.addObject("examAndGradesMap", examsAndGrades);
         modelAndView.addObject("totalGrade", student.getGrade());
         return modelAndView;
@@ -148,5 +170,9 @@ public class InformationPageCreationFacade {
      */
     public void setGradeService(final GradeService gradeService) {
         this.gradeService = gradeService;
+    }
+
+    public void setMessageSource(MessageSourceAccessor messageSource) {
+        this.messageSource = messageSource;
     }
 }

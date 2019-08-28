@@ -1,220 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<import resource="classpath:database.xml" />
-	<import resource="classpath:security.xml" />
-	<context:component-scan
-		base-package="by.yurusova.entranceExam.controllers" />
-	<context:annotation-config />
+    <import resource="classpath:database.xml"/>
+    <import resource="classpath:security.xml"/>
+    <context:component-scan
+            base-package="by.yurusova.entranceExam.controllers"/>
+    <context:annotation-config/>
 
-	<bean id="userService"
-		class="by.yurusova.entranceExam.services.UserServiceImpl">
-		<property name="userDAO" ref="userDAO" />
-		<property name="bCryptPasswordEncoder" ref="encoder" />
+    <bean id="userService"
+          class="by.yurusova.entranceExam.services.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
+        <property name="bCryptPasswordEncoder" ref="encoder"/>
 
-	</bean>
+    </bean>
 
-	<bean id="roleService"
-		class="by.yurusova.entranceExam.services.RoleServiceImpl">
-		<property name="roleDAO" ref="roleDAO" />
-	</bean>
+    <bean id="roleService"
+          class="by.yurusova.entranceExam.services.RoleServiceImpl">
+        <property name="roleDAO" ref="roleDAO"/>
+    </bean>
 
-	<bean id="userValidator"
-		class="by.yurusova.entranceExam.validators.UserValidator">
-		<property name="userService" ref="userService" />
-		<property name="applicationProperties" ref="appProperties" />
-	</bean>
+    <bean id="userValidator"
+          class="by.yurusova.entranceExam.validators.UserValidator">
+        <property name="userService" ref="userService"/>
+        <property name="applicationProperties" ref="appProperties"/>
+    </bean>
 
-	<bean id="studentValidator"
-		class="by.yurusova.entranceExam.validators.StudentValidator">
-		<property name="studentService" ref="studentService" />
-		<property name="applicationProperties" ref="appProperties" />
-	</bean>
+    <bean id="studentValidator"
+          class="by.yurusova.entranceExam.validators.StudentValidator">
+        <property name="studentService" ref="studentService"/>
+        <property name="applicationProperties" ref="appProperties"/>
+    </bean>
 
-	<bean id="teacherValidator"
-		class="by.yurusova.entranceExam.validators.TeacherValidator">
-		<property name="applicationProperties" ref="appProperties" />
-	</bean>
+    <bean id="teacherValidator"
+          class="by.yurusova.entranceExam.validators.TeacherValidator">
+        <property name="applicationProperties" ref="appProperties"/>
+    </bean>
 
-	<bean id="studentService"
-		class="by.yurusova.entranceExam.services.StudentServiceImpl">
-		<property name="studentDAO" ref="studentDAO" />
-	</bean>
+    <bean id="studentService"
+          class="by.yurusova.entranceExam.services.StudentServiceImpl">
+        <property name="studentDAO" ref="studentDAO"/>
+    </bean>
 
-	<bean id="teacherService"
-		class="by.yurusova.entranceExam.services.TeacherServiceImpl">
-		<property name="teacherDAO" ref="teacherDAO" />
-	</bean>
+    <bean id="teacherService"
+          class="by.yurusova.entranceExam.services.TeacherServiceImpl">
+        <property name="teacherDAO" ref="teacherDAO"/>
+    </bean>
 
-	<bean id="examService"
-		class="by.yurusova.entranceExam.services.ExamServiceImpl">
-		<property name="examDAO" ref="examDAO" />
-	</bean>
+    <bean id="examService"
+          class="by.yurusova.entranceExam.services.ExamServiceImpl">
+        <property name="examDAO" ref="examDAO"/>
+    </bean>
 
-	<bean id="subjectService"
-		class="by.yurusova.entranceExam.services.SubjectServiceImpl">
-		<property name="subjectDAO" ref="subjectDAO" />
-	</bean>
+    <bean id="subjectService"
+          class="by.yurusova.entranceExam.services.SubjectServiceImpl">
+        <property name="subjectDAO" ref="subjectDAO"/>
+    </bean>
 
-	<bean id="specialityService"
-		class="by.yurusova.entranceExam.services.SpecialityServiceImpl">
-		<property name="specialityDAO" ref="specialityDAO" />
-	</bean>
+    <bean id="specialityService"
+          class="by.yurusova.entranceExam.services.SpecialityServiceImpl">
+        <property name="specialityDAO" ref="specialityDAO"/>
+    </bean>
 
-	<bean id="gradeService"
-		class="by.yurusova.entranceExam.services.GradeServiceImpl">
-		<property name="gradeDAO" ref="gradeDAO" />
-	</bean>
+    <bean id="gradeService"
+          class="by.yurusova.entranceExam.services.GradeServiceImpl">
+        <property name="gradeDAO" ref="gradeDAO"/>
+    </bean>
 
-	<bean id="userConverter"
-		class="by.yurusova.entranceExam.converters.UserConverter" />
+    <bean id="userConverter"
+          class="by.yurusova.entranceExam.converters.UserConverter"/>
 
-	<bean id="studentConverter"
-		class="by.yurusova.entranceExam.converters.StudentConverter" />
+    <bean id="studentConverter"
+          class="by.yurusova.entranceExam.converters.StudentConverter"/>
 
-	<bean id="teacherConverter"
-		class="by.yurusova.entranceExam.converters.TeacherConverter" />
+    <bean id="teacherConverter"
+          class="by.yurusova.entranceExam.converters.TeacherConverter"/>
 
-	<bean id="specialityConverter"
-		class="by.yurusova.entranceExam.converters.SpecialityConverter" />
+    <bean id="specialityConverter"
+          class="by.yurusova.entranceExam.converters.SpecialityConverter"/>
 
-	<bean id="subjectConveter"
-		class="by.yurusova.entranceExam.converters.SubjectConverter" />
+    <bean id="subjectConveter"
+          class="by.yurusova.entranceExam.converters.SubjectConverter"/>
 
-	<bean id="studentConverterForRate"
-		class="by.yurusova.entranceExam.converters.StudentConverterForRate" />
+    <bean id="studentConverterForRate"
+          class="by.yurusova.entranceExam.converters.StudentConverterForRate"/>
 
-	<bean id="examConverter"
-		class="by.yurusova.entranceExam.converters.ExamConverter">
-		<property name="specialityConverter"
-			ref="specialityConverter" />
-		<property name="subjectConverter" ref="subjectConveter" />
-		<property name="teacherConverter" ref="teacherConverter" />
-	</bean>
+    <bean id="examConverter"
+          class="by.yurusova.entranceExam.converters.ExamConverter">
+        <property name="specialityConverter"
+                  ref="specialityConverter"/>
+        <property name="subjectConverter" ref="subjectConveter"/>
+        <property name="teacherConverter" ref="teacherConverter"/>
+    </bean>
 
-	<bean id="registrationFacade"
-		class="by.yurusova.entranceExam.facades.RegistrationFacade">
-		<property name="userService" ref="userService" />
-		<property name="studentService" ref="studentService" />
-		<property name="studentConverter" ref="studentConverter" />
-		<property name="userConverter" ref="userConverter" />
-		<property name="roleService" ref="roleService" />
-		<property name="teacherConverter" ref="teacherConverter" />
-		<property name="teacherService" ref="teacherService" />
-	</bean>
+    <bean id="registrationFacade"
+          class="by.yurusova.entranceExam.facades.RegistrationFacade">
+        <property name="userService" ref="userService"/>
+        <property name="studentService" ref="studentService"/>
+        <property name="studentConverter" ref="studentConverter"/>
+        <property name="userConverter" ref="userConverter"/>
+        <property name="roleService" ref="roleService"/>
+        <property name="teacherConverter" ref="teacherConverter"/>
+        <property name="teacherService" ref="teacherService"/>
+    </bean>
 
 
+    <bean id="userOperationsFacade"
+          class="by.yurusova.entranceExam.facades.UserOperationsFacade">
+        <property name="userConverter" ref="userConverter"/>
+        <property name="userService" ref="userService"/>
+        <property name="applicationProperties" ref="appProperties"/>
+    </bean>
 
-	<bean id="userOperationsFacade"
-		class="by.yurusova.entranceExam.facades.UserOperationsFacade">
-		<property name="userConverter" ref="userConverter" />
-		<property name="userService" ref="userService" />
-		<property name="applicationProperties" ref="appProperties"/>
-	</bean>
+    <bean id="examAddingFacade"
+          class="by.yurusova.entranceExam.facades.ExamAddingFacade">
+        <property name="specialityService" ref="specialityService"/>
+        <property name="examService" ref="examService"/>
+        <property name="subjectService" ref="subjectService"/>
+        <property name="teacherService" ref="teacherService"/>
+        <property name="specialityConverter"
+                  ref="specialityConverter"/>
+        <property name="teacherConverter" ref="teacherConverter"/>
+        <property name="subjectConverter" ref="subjectConveter"/>
+    </bean>
 
-	<bean id="examAddingFacade"
-		class="by.yurusova.entranceExam.facades.ExamAddingFacade">
-		<property name="specialityService" ref="specialityService" />
-		<property name="examService" ref="examService" />
-		<property name="subjectService" ref="subjectService" />
-		<property name="teacherService" ref="teacherService" />
-		<property name="specialityConverter"
-			ref="specialityConverter" />
-		<property name="teacherConverter" ref="teacherConverter" />
-		<property name="subjectConverter" ref="subjectConveter" />
-	</bean>
+    <bean id="applyingToSpecialityFacade"
+          class="by.yurusova.entranceExam.facades.ApplyingToSpecialityFacade">
+        <property name="specialityService" ref="specialityService"/>
+        <property name="userService" ref="userService"/>
+        <property name="gradeService" ref="gradeService"/>
+        <property name="specialityConverter"
+                  ref="specialityConverter"/>
+        <property name="properties" ref="appProperties"/>
+    </bean>
 
-	<bean id="applyingToSpecialityFacade"
-		class="by.yurusova.entranceExam.facades.ApplyingToSpecialityFacade">
-		<property name="specialityService" ref="specialityService" />
-		<property name="userService" ref="userService" />
-		<property name="gradeService" ref="gradeService" />
-		<property name="specialityConverter"
-			ref="specialityConverter" />
-		<property name="properties" ref="appProperties" />
-	</bean>
+    <bean id="adminOPerationWithExamFacade"
+          class="by.yurusova.entranceExam.facades.AdminOperationWithExamFacade">
+        <property name="examService" ref="examService"/>
+        <property name="examConverter" ref="examConverter"/>
+    </bean>
 
-	<bean id="adminOPerationWithExamFacade"
-		class="by.yurusova.entranceExam.facades.AdminOperationWithExamFacade">
-		<property name="examService" ref="examService" />
-		<property name="examConverter" ref="examConverter" />
-	</bean>
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 
-	<bean id="informationPageCreationFacade" class="by.yurusova.entranceExam.facades.InformationPageCreationFacade">
-		<property name="examConverter" ref="examConverter"/>
-		<property name="examService" ref="examService"/>
-		<property name="gradeService" ref="gradeService"/>
-		<property name="studentConverter" ref="studentConverterForRate"/>
-		<property name="teacherConverter" ref="teacherConverter"/>
-		<property name="userService" ref="userService"/>
-	</bean>
 
-	<bean id="rateFacade"
-		class="by.yurusova.entranceExam.facades.RateFacade">
-		<property name="studentService" ref="studentService" />
-		<property name="examService" ref="examService" />
-		<property name="gradeService" ref="gradeService" />
-		<property name="studentConverterForRate"
-			ref="studentConverterForRate" />
-		<property name="calculationOfEnteringGradeFacade"
-			ref="calculatingEnteringGradeFacade" />
-	</bean>
+    <bean id="messageSourseAccesor" class="org.springframework.context.support.MessageSourceAccessor">
+        <constructor-arg name="messageSource" ref="messageSource"/>
+    </bean>
 
-	<bean id="appProperties"
-		class="by.yurusova.entranceExam.properties.ApplicationProperties" />
+    <bean id="informationPageCreationFacade" class="by.yurusova.entranceExam.facades.InformationPageCreationFacade">
+        <property name="examConverter" ref="examConverter"/>
+        <property name="examService" ref="examService"/>
+        <property name="gradeService" ref="gradeService"/>
+        <property name="studentConverter" ref="studentConverterForRate"/>
+        <property name="teacherConverter" ref="teacherConverter"/>
+        <property name="userService" ref="userService"/>
+        <property name="messageSource" ref="messageSourseAccesor"/>
+    </bean>
 
-	<bean id="calculatingEnteringGradeFacade"
-		class="by.yurusova.entranceExam.facades.CalculationOfEnteringGradeFacade">
-		<property name="studentService" ref="studentService" />
-		<property name="applicationProperties" ref="appProperties" />
-		<property name="specialityService" ref="specialityService" />
-	</bean>
+    <bean id="rateFacade"
+          class="by.yurusova.entranceExam.facades.RateFacade">
+        <property name="studentService" ref="studentService"/>
+        <property name="examService" ref="examService"/>
+        <property name="gradeService" ref="gradeService"/>
+        <property name="studentConverterForRate"
+                  ref="studentConverterForRate"/>
+        <property name="calculationOfEnteringGradeFacade"
+                  ref="calculatingEnteringGradeFacade"/>
+    </bean>
 
-	<bean id="subjectOperationsFacade"
-		class="by.yurusova.entranceExam.facades.SubjectOperationsFacade">
-		<property name="subjectService" ref="subjectService" />
-		<property name="subjectConverter" ref="subjectConveter" />
-		<property name="subjectListConverter"
-			ref="subjectListConverter" />
-	</bean>
+    <bean id="appProperties"
+          class="by.yurusova.entranceExam.properties.ApplicationProperties"/>
 
-	<bean id="specialityOperationsFacade"
-		class="by.yurusova.entranceExam.facades.SpecialityOperationsFacade">
-		<property name="specialityService" ref="specialityService" />
-		<property name="specialityConverter"
-			ref="specialityConverter" />
-		<property name="specialityListConverter"
-			ref="specialityListConverter" />
-	</bean>
+    <bean id="calculatingEnteringGradeFacade"
+          class="by.yurusova.entranceExam.facades.CalculationOfEnteringGradeFacade">
+        <property name="studentService" ref="studentService"/>
+        <property name="applicationProperties" ref="appProperties"/>
+        <property name="specialityService" ref="specialityService"/>
+    </bean>
 
-	<bean id="specialityListConverter"
-		class="by.yurusova.entranceExam.converters.SpecialityListConverter">
-		<property name="specialityConverter"
-			ref="specialityConverter" />
-	</bean>
+    <bean id="subjectOperationsFacade"
+          class="by.yurusova.entranceExam.facades.SubjectOperationsFacade">
+        <property name="subjectService" ref="subjectService"/>
+        <property name="subjectConverter" ref="subjectConveter"/>
+        <property name="subjectListConverter"
+                  ref="subjectListConverter"/>
+    </bean>
 
-	<bean id="subjectListConverter"
-		class="by.yurusova.entranceExam.converters.SubjectListConverter">
-		<property name="subjectConverter" ref="subjectConveter" />
-	</bean>
+    <bean id="specialityOperationsFacade"
+          class="by.yurusova.entranceExam.facades.SpecialityOperationsFacade">
+        <property name="specialityService" ref="specialityService"/>
+        <property name="specialityConverter"
+                  ref="specialityConverter"/>
+        <property name="specialityListConverter"
+                  ref="specialityListConverter"/>
+    </bean>
 
-	<bean id="userListConverter"
-		class="by.yurusova.entranceExam.converters.UserListConverter">
-		<property name="userConverter" ref="userConverter" />
-	</bean>
+    <bean id="specialityListConverter"
+          class="by.yurusova.entranceExam.converters.SpecialityListConverter">
+        <property name="specialityConverter"
+                  ref="specialityConverter"/>
+    </bean>
 
-	<bean id="flywayConfig"
-		class="org.flywaydb.core.api.configuration.ClassicConfiguration">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
+    <bean id="subjectListConverter"
+          class="by.yurusova.entranceExam.converters.SubjectListConverter">
+        <property name="subjectConverter" ref="subjectConveter"/>
+    </bean>
 
-	<bean id="flyway" class="org.flywaydb.core.Flyway"
-		init-method="migrate">
-		<constructor-arg ref="flywayConfig" />
-	</bean>
+    <bean id="userListConverter"
+          class="by.yurusova.entranceExam.converters.UserListConverter">
+        <property name="userConverter" ref="userConverter"/>
+    </bean>
+
+    <bean id="flywayConfig"
+          class="org.flywaydb.core.api.configuration.ClassicConfiguration">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="flyway" class="org.flywaydb.core.Flyway"
+          init-method="migrate">
+        <constructor-arg ref="flywayConfig"/>
+    </bean>
 
 
 </beans>

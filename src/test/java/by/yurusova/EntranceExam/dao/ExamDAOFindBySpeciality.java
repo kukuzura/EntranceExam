@@ -1,9 +1,7 @@
 package by.yurusova.EntranceExam.dao;
 
 import by.yurusova.entranceExam.dao.interfaces.ExamDAO;
-import by.yurusova.entranceExam.dao.interfaces.GradeDAO;
 import by.yurusova.entranceExam.dao.interfaces.SpecialityDAO;
-import by.yurusova.entranceExam.dao.interfaces.StudentDAO;
 import by.yurusova.entranceExam.dao.interfaces.SubjectDAO;
 import by.yurusova.entranceExam.dao.interfaces.TeacherDAO;
 import by.yurusova.entranceExam.entities.Exam;

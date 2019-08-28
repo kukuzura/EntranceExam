@@ -3,12 +3,14 @@
 html.speciality-card {
     box-sizing: border-box;
     height: 100%;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .speciality-card .container {
     margin: 0 auto;
     width: 90%;
     max-width: 1200px;
+    font-weight: bold;
 }
 
 .speciality-card .group:after {
@@ -62,11 +64,10 @@ html.speciality-card {
 
 }
 .speciality-card .grid-1-5:hover {
-    background-color: #332739;
 @include filter-gradient(#53455b, #201d22, vertical);
 @include background-image(linear-gradient(top, rgba(83, 69, 91, 1) 0 %, rgba(32, 29, 34, 1) 100 %));
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
     box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 1);
     transform: scale(1.025);
     z-index: 2;
@@ -109,19 +110,19 @@ html.speciality-card {
 }
 
 .speciality-card-h2 {
-    font-size: 2em;
+    font-size: 5vh;
     font-weight: 400;
     margin: 0 0 0.5em;
 }
 
-.speciality-card h3 {
-    font-size: 1.5em;
+is.speciality-card h3 {
+    font-size: 3vh;
     letter-spacing: 0.0625em;
     margin: 0;
 }
 
 .speciality-card p {
-    font-size: 1.075em;
+    font-size: 3vh;
 }
 
 .speciality-card p, .speciality-card ul {
@@ -129,7 +130,7 @@ html.speciality-card {
 }
 
 .speciality-card ul {
-    color: cornflowerblue;
+    color: dimgrey;
     font-size: 1.05em;
     list-style-type: none;
     padding: 0;
@@ -156,6 +157,8 @@ html.speciality-card {
 
 .uppercase, .button, .speciality-card h2 {
     text-transform: uppercase;
+    font-weight: bold;
+
 }
 
 sup, .small {
