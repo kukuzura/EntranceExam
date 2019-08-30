@@ -38,8 +38,8 @@
                                 readonly="true"/>
                 </td>
                 <td>
-                    <form:input path="students[${status.index}].grade" name="grade" id="grade" value=""
-                                class="grade"/>
+                    <input name="grade"  type="number" id="grade" class="grade" required
+                           value="0" min="1" max="100"/>
                     <br/>
                 </td>
         </c:forEach>

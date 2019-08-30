@@ -8,7 +8,6 @@ body.table {
 
 .table-container {
     margin-top: 10vh;
-    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,6 +84,7 @@ body.table {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5vh;
 }
 
 .page-numbers a {
@@ -93,7 +93,7 @@ body.table {
     padding: 1vh 2vh;
 }
 
-.page-numbers a:hover{
+.page-numbers a:hover {
     border: 2px white solid;
     padding: 1vh 2vh;
     border-radius: 50%;
@@ -103,4 +103,12 @@ body.table {
     padding: 0 2vh 0 2vh;
     font-size: 3vh;
     cursor: pointer;
+}
+
+.button-container {
+    align-content: center;
+}
+
+input:invalid {
+    border: 2px red solid;
 }

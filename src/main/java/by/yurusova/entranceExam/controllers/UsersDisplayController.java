@@ -35,12 +35,13 @@ public class UsersDisplayController {
      */
     @RequestMapping(value = "/userList", method = RequestMethod.GET)
     public ModelAndView showAllUser(@RequestParam(required = false) final String page) {
-        if (page != null) {
-            return facade.createUserListPage(Integer.valueOf(page));
+        try {
+            Integer.parseInt(page);
         }
-        else {
+        catch (NumberFormatException e) {
             return facade.createUserListPage(1);
         }
+        return facade.createUserListPage(Integer.valueOf(page));
     }
 
     /**

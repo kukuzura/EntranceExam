@@ -28,11 +28,12 @@ public class StudentPageController {
      * Method returns student page with student information(exams of student, full name, current grade).
      *
      * @param principal object with login user information.
+     * @param locale    current locale.
      * @return student page.
      */
     @RequestMapping("studentPage")
-    public ModelAndView showStudentPage(final Principal principal, Locale locale) {
-        return facade.createStudentPage(principal,locale);
+    public ModelAndView showStudentPage(final Principal principal, final Locale locale) {
+        return facade.createStudentPage(principal, locale);
     }
 
 }

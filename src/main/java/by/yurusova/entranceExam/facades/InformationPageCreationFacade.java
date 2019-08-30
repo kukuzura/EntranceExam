@@ -55,10 +55,11 @@ public class InformationPageCreationFacade {
      * and sets it, it's exams(converted too) and total grade to modelAndView.
      *
      * @param principal object with user information.
+     * @param locale    current locale.
      * @return the ModelAndView.
      */
     @Transactional
-    public ModelAndView createStudentPage(final Principal principal, Locale locale) {
+    public ModelAndView createStudentPage(final Principal principal, final Locale locale) {
         ModelAndView modelAndView = new ModelAndView("/studentPage.jsp");
         User user = userService.findByLogin(principal.getName());
         StudentDTO student = studentConverter.convert(user.getStudent());
@@ -72,16 +73,16 @@ public class InformationPageCreationFacade {
         Object[] args = new Object[]{};
         switch (user.getStudent().getStatus()) {
             case NEW_STUDENT:
-                message = messageSource.getMessage("studentPage.message.haveNoExams");
+                message = messageSource.getMessage("studentPage.message.haveNoExams", locale);
                 break;
             case PASS_EXAMS:
-                message = messageSource.getMessage("studentPage.message.examinationInProgress");
+                message = messageSource.getMessage("studentPage.message.examinationInProgress", locale);
                 break;
             case ENTER:
-                message = messageSource.getMessage("studentPage.message.entered");
+                message = messageSource.getMessage("studentPage.message.entered", locale);
                 break;
             case DID_NOT_ENTER:
-                message = messageSource.getMessage("studentPage.message.didntEntered");
+                message = messageSource.getMessage("studentPage.message.didntEntered", locale);
                 break;
 
         }
@@ -172,7 +173,12 @@ public class InformationPageCreationFacade {
         this.gradeService = gradeService;
     }
 
-    public void setMessageSource(MessageSourceAccessor messageSource) {
+    /**
+     * Sets MessageSourceAccessor.
+     *
+     * @param messageSource object to be set.
+     */
+    public void setMessageSource(final MessageSourceAccessor messageSource) {
         this.messageSource = messageSource;
     }
 }

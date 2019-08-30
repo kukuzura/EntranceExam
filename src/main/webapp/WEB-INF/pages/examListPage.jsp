@@ -31,7 +31,7 @@
     </c:forEach>
 </table>
 </div>
-<div align="center" >
+<div class="button-container" >
     <a class="simple-link add_button" href="<c:url value='/admin/addExam'/>"><spring:message code="addingExam.button.addExam"/></a>
 </div>
 </body>
