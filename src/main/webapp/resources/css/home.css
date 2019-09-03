@@ -167,8 +167,6 @@ i {
 }
 
 .pictured {
-    background-image: url("../images/istockphoto-973461748-1024x1024.jpg");
+    background-image: url("../images/istockphoto-973461748-1024x1024.png");
     background-repeat: repeat;
-    background-color: rgba(255,255,255,.5);
-    background-blend-mode: overlay;
 }
