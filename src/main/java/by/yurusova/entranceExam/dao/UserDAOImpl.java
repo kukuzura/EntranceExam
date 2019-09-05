@@ -5,7 +5,6 @@ import by.yurusova.entranceExam.entities.User;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class UserDAOImpl extends AbstractBaseDAO<User> implements UserDAO {
 
     @Override
     public void delete(final User user) {
-        super.delete(user);
+            super.delete(user);
     }
 
     @Override
@@ -49,7 +48,6 @@ public class UserDAOImpl extends AbstractBaseDAO<User> implements UserDAO {
         return super.getAll("from User", User.class);
     }
 
-    @Transactional
     @Override
     public User findByLogin(final String login) {
         User user = null;
@@ -76,7 +74,7 @@ public class UserDAOImpl extends AbstractBaseDAO<User> implements UserDAO {
                     .list();
         }
         catch (NoResultException ex) {
-            LOGGER.error("No users found fpr pagination");
+            LOGGER.error("No users found for pagination");
         }
         return users;
     }

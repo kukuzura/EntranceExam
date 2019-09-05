@@ -38,7 +38,7 @@
                                 readonly="true"/>
                 </td>
                 <td>
-                    <input name="grade"  type="number" id="grade" class="grade" required
+                    <form:input path="students[${status.index}].grade" name="grade"  type="number" id="grade" class="grade"
                            value="0" min="1" max="100"/>
                     <br/>
                 </td>

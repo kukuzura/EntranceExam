@@ -16,7 +16,7 @@
             <a href="<c:url value = "/teacherRegister"/>"><spring:message
                     code="home.navigation.button.teacherRegistration"/></a>
         </div>
-    <sec:authorize access="isAnonymous()">
+        <sec:authorize access="isAnonymous()">
     <li><a href="<c:url value = "/login"/>"><spring:message
             code="home.navigation.button.login"/> </a></li>
     </sec:authorize>
@@ -35,4 +35,8 @@
             <a href="<c:url value = "?lang=en_US"/>"><spring:message code="home.navigation.button.locale_en"/> </a>
             <a href="<c:url value = "?lang=ru_RU"/>"><spring:message code="home.navigation.button.locale_ru"/> </a>
         </div>
+        <sec:authorize access="isAuthenticated()">
+    <li class="logout"><a href="<c:url value="/logout"/>"><spring:message code="navigation.button.logout"/></a>
+    </li>
+    </sec:authorize>
 </ul>

@@ -7,6 +7,7 @@ import by.yurusova.entranceExam.dto.StudentDTO;
 import by.yurusova.entranceExam.dto.TeacherDTO;
 import by.yurusova.entranceExam.dto.UserDTO;
 import by.yurusova.entranceExam.entities.Student;
+import by.yurusova.entranceExam.entities.StudentStatus;
 import by.yurusova.entranceExam.entities.Teacher;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.services.interfaces.RoleService;
@@ -119,6 +120,7 @@ public class RegistrationFacade {
         user.setRoles(Arrays.asList(roleService.findByName("ROLE_STUDENT")));
         userService.addUser(user);
         student.setUser(user);
+        student.setStatus(StudentStatus.NEW_STUDENT);
         studentService.addStudent(student);
     }
 

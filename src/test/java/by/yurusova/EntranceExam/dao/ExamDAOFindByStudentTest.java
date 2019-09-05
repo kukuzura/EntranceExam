@@ -12,11 +12,11 @@ import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.entities.Teacher;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +26,7 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test-database.xml"})
 @Transactional
+@Rollback
 public class ExamDAOFindByStudentTest {
 
     @Autowired
@@ -68,16 +69,17 @@ public class ExamDAOFindByStudentTest {
     }
 
     @Test
+    @Rollback
     public void test(){
         assertNotNull(examDAO.findByStudent(1));
     }
 
-    @After
-    public void after(){
-        teacherDAO.delete(teacherDAO.findById(2));
-        subjectDAO.delete(subjectDAO.findById(2));
-        specialityDAO.delete(specialityDAO.findById(2));
-        examDAO.delete(examDAO.findById(2));
-    }
+//    @After
+//    public void after(){
+//        teacherDAO.delete(teacherDAO.findById(2));
+//        subjectDAO.delete(subjectDAO.findById(2));
+//        specialityDAO.delete(specialityDAO.findById(2));
+//        examDAO.delete(examDAO.findById(2));
+//    }
 
 }

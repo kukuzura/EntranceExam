@@ -52,7 +52,7 @@
                 <label for="passportID" class="floatLabel"><spring:message
                         code="studentRegistration.lable.passportID"/></label>
                 <form:input id="passportID" name="passportID" type="text" path="student.passportID"/>
-                <span><form:errors path="student.patronymic"/></span>
+                <span><form:errors path="student.passportID"/></span>
             </p>
             <p>
                 <a class="submit-register" style="text-decoration: underline" href="<c:out value="/login"/>">Already have an account?</a>

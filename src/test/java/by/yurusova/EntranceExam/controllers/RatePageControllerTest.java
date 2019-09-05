@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -29,6 +30,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test.xml", "classpath:test-database.xml"})
 @Transactional
+@Rollback
 public class RatePageControllerTest {
 
     private MockMvc mockMvc;
@@ -57,6 +59,7 @@ public class RatePageControllerTest {
     @Before
     public void beforeGetPage(){
         Student student = new Student();
+        student.setPassportID("99999");
         Exam exam = new Exam();
         studentService.addStudent(student);
         examService.saveExam(exam);
@@ -93,9 +96,9 @@ public class RatePageControllerTest {
     @Test
     public void rateTest(){
         ResultMatcher ok = MockMvcResultMatchers.status()
-                .isOk();
+                .isFound();
         ResultMatcher redirect = MockMvcResultMatchers
-                .redirectedUrl("http://localhost:9090/account/teacherPage");
+                .redirectedUrl(" /account/teacherPage");
         ResultMatcher result = MockMvcResultMatchers
                 .model()
                 .attribute("studentForm", studentForm);

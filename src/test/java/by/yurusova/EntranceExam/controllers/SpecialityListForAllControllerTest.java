@@ -30,7 +30,6 @@ public class SpecialityListForAllControllerTest {
     @Autowired
     private SpecialityService specialityService;
 
-
     @Before
     public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(specialityListForAllController).build();

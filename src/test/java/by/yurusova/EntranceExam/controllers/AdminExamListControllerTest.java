@@ -1,12 +1,14 @@
 package by.yurusova.EntranceExam.controllers;
 
 import by.yurusova.entranceExam.controllers.AdminExamListController;
+import by.yurusova.entranceExam.converters.ExamConverter;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -22,6 +24,7 @@ import static org.junit.Assert.assertNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test.xml", "classpath:test-database.xml"})
 @Transactional
+@Rollback
 public class AdminExamListControllerTest {
 
     private MockMvc mockMvc;
@@ -31,6 +34,9 @@ public class AdminExamListControllerTest {
 
     @Autowired
     private ExamService examService;
+
+    @Autowired
+    private ExamConverter examConverter;
 
     @Before
     public void setUp() {
@@ -49,17 +55,12 @@ public class AdminExamListControllerTest {
                 .isOk();
         ResultMatcher view = MockMvcResultMatchers.view()
                 .name("/examListPage.jsp");
-        ResultMatcher resultList = MockMvcResultMatchers
-                .model()
-                .attribute("examList", examService.getAll());
-
-
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/examList");
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders
+                .get("http://localhost:9090/admin/examList");
         try {
             this.mockMvc.perform(builder)
                     .andExpect(ok)
-                    .andExpect(view)
-                    .andExpect(resultList);
+                    .andExpect(view);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,13 +80,29 @@ public class AdminExamListControllerTest {
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("http://localhost:9090/admin/examDelete/2");
         try {
             this.mockMvc.perform(builder)
-                    .andExpect(ok)
-                    .andExpect(MockMvcResultMatchers.redirectedUrl("http://localhost:9090/admin/examList"));
+                    .andExpect(ok);
         } catch (Exception e) {
             e.printStackTrace();
         }
         assertNull(examService.findByID(2));
     }
+
+    @Test
+    public void deleteEntityThatDontExist() {
+        ResultMatcher ok = MockMvcResultMatchers.status()
+                .isOk();
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders
+                .get("http://localhost:9090/admin/examDelete/2");
+        examService.deleteExam(2);
+        try {
+            this.mockMvc.perform(builder)
+                    .andExpect(ok);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public void setExamService(ExamService examService) {
         this.examService = examService;
@@ -93,5 +110,9 @@ public class AdminExamListControllerTest {
 
     public void setController(AdminExamListController controller) {
         this.controller = controller;
+    }
+
+    public void setExamConverter(ExamConverter examConverter) {
+        this.examConverter = examConverter;
     }
 }

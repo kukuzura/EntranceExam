@@ -3,14 +3,21 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <jsp:include page="head.jsp"/>
-<ul>
+<ul class="main-navigation">
     <li><a href="<c:url value="/"/>"><spring:message code="teacherNavigation.button.home"/></a></li>
     <sec:authorize access="hasRole('ROLE_TEAHER')">
-        <li><a href="<c:url value = ""/>"><spring:message code="teacherNavigation.button.teacherPage"/></a></li>
+        <li><a href="<c:url value = "/account/teacherPage"/>"><spring:message
+                code="teacherNavigation.button.teacherPage"/></a></li>
     </sec:authorize>
     <sec:authorize access="hasRole('ROLE_STUDENT')">
-        <li><a href="<c:url value = ""/>"><spring:message code="studentNavigation.button.studentPage"/></a></li>
+        <li><a href="<c:url value = "/account/studentPage"/>"><spring:message
+                code="studentNavigation.button.studentPage"/></a></li>
     </sec:authorize>
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <li><a href="<c:url value = "/admin/adminPage"/>"><spring:message
+                code="adminPage.title"/></a></li>
+    </sec:authorize>
+
     <li class="dropdown">
         <a class="dropbtn"><spring:message code="teacherNavigation.dropdown.name"/></a>
         <div class="dropdown-content">
