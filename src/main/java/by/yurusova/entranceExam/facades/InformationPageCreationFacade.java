@@ -70,7 +70,6 @@ public class InformationPageCreationFacade {
             examsAndGrades.put(examConverter.convert(exam), gradeService.findByExamAndStudent(exam.getId(), student.getId()));
         }
         String message = "";
-        Object[] args = new Object[]{};
         switch (user.getStudent().getStatus()) {
             case NEW_STUDENT:
                 message = messageSource.getMessage("studentPage.message.haveNoExams", locale);
