@@ -1,7 +1,8 @@
 package by.yurusova.entranceExam.entities;
 
 
-import org.hibernate.annotations.GenericGenerator;
+import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,8 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.io.Serializable;
-import java.util.List;
+
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * Entity class for user.
@@ -32,7 +33,7 @@ public class User implements Serializable {
     @GeneratedValue(generator = "increment")
     private long id;
 
-    @Column(name = "login")
+    @Column(name = "login", unique = true)
     private String login;
 
     @Column(name = "password")

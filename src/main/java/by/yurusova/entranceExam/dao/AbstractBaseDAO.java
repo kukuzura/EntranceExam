@@ -1,9 +1,10 @@
 package by.yurusova.entranceExam.dao;
 
+import java.io.Serializable;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
-import java.util.List;
 
 /**
  * Abstract DAO class.
@@ -22,9 +23,10 @@ public abstract class AbstractBaseDAO<T> {
      * Method saves object to database.
      *
      * @param obj the object.
+     * @return 
      */
-    protected void save(final T obj) {
-        sessionFactory.getCurrentSession().save(obj);
+    protected Serializable save(final T obj) {
+        return sessionFactory.getCurrentSession().save(obj);
     }
 
     /**

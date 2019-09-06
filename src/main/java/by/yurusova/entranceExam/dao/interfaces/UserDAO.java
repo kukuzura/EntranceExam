@@ -1,8 +1,8 @@
 package by.yurusova.entranceExam.dao.interfaces;
 
-import by.yurusova.entranceExam.entities.User;
-
 import java.util.List;
+
+import by.yurusova.entranceExam.entities.User;
 
 /**
  * Interface defines base operations that can be performed with user objects.
@@ -26,7 +26,7 @@ public interface UserDAO {
      *
      * @param user the user.
      */
-    void saveUser(User user);
+    Long saveUser(User user);
 
     /**
      * Delete user from database.

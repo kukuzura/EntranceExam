@@ -1,14 +1,16 @@
 package by.yurusova.entranceExam.dao;
 
-import by.yurusova.entranceExam.dao.interfaces.UserDAO;
-import by.yurusova.entranceExam.entities.User;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.NoResultException;
+
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.NoResultException;
-import java.util.ArrayList;
-import java.util.List;
+import by.yurusova.entranceExam.dao.interfaces.UserDAO;
+import by.yurusova.entranceExam.entities.User;
 
 /**
  * DAO class that responsible for operations with user table.
@@ -28,8 +30,8 @@ public class UserDAOImpl extends AbstractBaseDAO<User> implements UserDAO {
     }
 
     @Override
-    public void saveUser(final User user) {
-        super.save(user);
+    public Long saveUser(final User user) {
+        return (Long) super.save(user);
     }
 
     @Override
