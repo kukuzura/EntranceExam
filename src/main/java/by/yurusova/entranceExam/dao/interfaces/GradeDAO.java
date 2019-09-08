@@ -26,8 +26,9 @@ public interface GradeDAO {
      * Method saves grade to db.
      *
      * @param grade grade to be save.
+     * @return
      */
-    void saveGrade(Grade grade);
+    Long saveGrade(Grade grade);
 
     /**
      * Method updates grade in db.

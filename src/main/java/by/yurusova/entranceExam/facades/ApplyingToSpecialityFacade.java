@@ -8,7 +8,6 @@ import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.StudentStatus;
 import by.yurusova.entranceExam.entities.User;
-import by.yurusova.entranceExam.properties.ApplicationProperties;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
@@ -36,8 +35,6 @@ public class ApplyingToSpecialityFacade {
     private GradeService gradeService;
 
     private SpecialityConverter specialityConverter;
-
-    private ApplicationProperties properties;
 
     /**
      * Method register student that mapped with user fro principal
@@ -70,7 +67,7 @@ public class ApplyingToSpecialityFacade {
      */
     public ModelAndView createSpecialityListPage() {
         ModelAndView mav = new ModelAndView("/specialityListForAll.jsp");
-        List<Speciality> specialities = specialityService.getAllWithExamsAmount(Integer.valueOf(properties.getExamAmount()));
+        List<Speciality> specialities = specialityService.getAllWithNotGradedExams();
         List<SpecialityDTO> specialityDTOS = new ArrayList<>();
         for (Speciality speciality : specialities) {
             specialityDTOS.add(specialityConverter.convert(speciality));
@@ -113,14 +110,5 @@ public class ApplyingToSpecialityFacade {
      */
     public void setSpecialityConverter(final SpecialityConverter specialityConverter) {
         this.specialityConverter = specialityConverter;
-    }
-
-    /**
-     * Sets object that contains constants values.
-     *
-     * @param properties the object to be set.
-     */
-    public void setProperties(final ApplicationProperties properties) {
-        this.properties = properties;
     }
 }

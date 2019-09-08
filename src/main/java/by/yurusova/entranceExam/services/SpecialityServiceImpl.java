@@ -1,8 +1,10 @@
 package by.yurusova.entranceExam.services;
 
 import by.yurusova.entranceExam.dao.interfaces.SpecialityDAO;
+import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,7 @@ public class SpecialityServiceImpl implements SpecialityService {
     }
 
     @Override
+    @Transactional
     public void delete(final Speciality speciality) {
         if (speciality != null) {
             specialityDAO.delete(speciality);
@@ -53,6 +56,21 @@ public class SpecialityServiceImpl implements SpecialityService {
         for (Speciality speciality : specialities) {
             if (speciality.getExams().size() != examsAmount) {
                 removed.add(speciality);
+            }
+        }
+        specialities.removeAll(removed);
+        return specialities;
+    }
+
+    @Override
+    public List<Speciality> getAllWithNotGradedExams() {
+        List<Speciality> specialities = specialityDAO.getAll();
+        List<Speciality> removed = new ArrayList<>();
+        for (Speciality speciality : specialityDAO.getAll()) {
+            for (Exam exam : speciality.getExams()) {
+                if (exam.isGraded()) {
+                    removed.add(speciality);
+                }
             }
         }
         specialities.removeAll(removed);

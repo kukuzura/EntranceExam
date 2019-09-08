@@ -12,6 +12,7 @@ import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.entities.Teacher;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,56 +31,65 @@ import static org.junit.Assert.assertNotNull;
 public class ExamDAOFindByStudentTest {
 
     @Autowired
-    ExamDAO examDAO;
+    private ExamDAO examDAO;
 
     @Autowired
-    SubjectDAO subjectDAO;
+    private SubjectDAO subjectDAO;
 
     @Autowired
-    StudentDAO studentDAO;
+    private StudentDAO studentDAO;
 
     @Autowired
-    GradeDAO gradeDAO;
+    private GradeDAO gradeDAO;
 
     @Autowired
-    TeacherDAO teacherDAO;
+    private TeacherDAO teacherDAO;
 
     @Autowired
-    SpecialityDAO specialityDAO;
+    private SpecialityDAO specialityDAO;
+
+    private Long teacherId;
+
+    private Long specialityId;
+
+    private Long subjectId;
+
+    private Long examId;
+
+    private Long studentId;
 
     @Before
-    public void before(){
+    public void before() {
         Exam exam = new Exam();
         Teacher teacher = new Teacher();
         Subject subject = new Subject();
         Student student = new Student();
         Grade grade = new Grade();
         Speciality speciality = new Speciality();
-        studentDAO.saveStudent(student);
+        studentId = studentDAO.saveStudent(student);
         grade.setStudent(student);
-        teacherDAO.saveTeacher(teacher);
-        subjectDAO.saveSubject(subject);
-        specialityDAO.saveSpeciality(speciality);
+        teacherId = teacherDAO.saveTeacher(teacher);
+        subjectId = subjectDAO.saveSubject(subject);
+        specialityId = specialityDAO.saveSpeciality(speciality);
         exam.setSpeciality(speciality);
         exam.setTeacher(teacher);
         exam.setSubject(subject);
-        examDAO.saveExam(exam);
+        examId = examDAO.saveExam(exam);
         grade.setExam(exam);
         gradeDAO.saveGrade(grade);
     }
 
     @Test
-    @Rollback
-    public void test(){
-        assertNotNull(examDAO.findByStudent(1));
+    public void test() {
+        assertNotNull(examDAO.findByStudent(studentId));
     }
 
-//    @After
-//    public void after(){
-//        teacherDAO.delete(teacherDAO.findById(2));
-//        subjectDAO.delete(subjectDAO.findById(2));
-//        specialityDAO.delete(specialityDAO.findById(2));
-//        examDAO.delete(examDAO.findById(2));
-//    }
+    @After
+    public void after() {
+        teacherDAO.delete(teacherDAO.findById(teacherId));
+        subjectDAO.delete(subjectDAO.findById(subjectId));
+        specialityDAO.delete(specialityDAO.findById(specialityId));
+        examDAO.delete(examDAO.findById(examId));
+    }
 
 }

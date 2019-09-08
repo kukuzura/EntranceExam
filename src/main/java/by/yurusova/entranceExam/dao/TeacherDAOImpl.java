@@ -21,8 +21,8 @@ public class TeacherDAOImpl extends AbstractBaseDAO<Teacher> implements TeacherD
     }
 
     @Override
-    public void saveTeacher(final Teacher teacher) {
-        super.save(teacher);
+    public Long saveTeacher(final Teacher teacher) {
+        return (Long) super.save(teacher);
     }
 
     @Override

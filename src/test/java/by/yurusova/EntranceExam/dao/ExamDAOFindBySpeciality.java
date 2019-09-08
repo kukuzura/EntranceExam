@@ -8,6 +8,7 @@ import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.entities.Teacher;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,47 +27,52 @@ import static junit.framework.TestCase.assertNotNull;
 public class ExamDAOFindBySpeciality {
 
     @Autowired
-    ExamDAO examDAO;
+    private ExamDAO examDAO;
 
     @Autowired
-    SubjectDAO subjectDAO;
+    private SubjectDAO subjectDAO;
 
     @Autowired
-    TeacherDAO teacherDAO;
+    private TeacherDAO teacherDAO;
 
     @Autowired
-    SpecialityDAO specialityDAO;
+    private SpecialityDAO specialityDAO;
+
+    private Long teacherId;
+
+    private Long specialityId;
+
+    private Long subjectId;
+
+    private Long examId;
 
     @Before
-    public void beforeDeleteReference(){
+    public void beforeDeleteReference() {
         Exam exam = new Exam();
         Teacher teacher = new Teacher();
         Subject subject = new Subject();
         Speciality speciality = new Speciality();
-        teacher.setId(1);
-        speciality.setId(1);
-        subject.setId(1);
-        teacherDAO.saveTeacher(teacher);
-        subjectDAO.saveSubject(subject);
-        specialityDAO.saveSpeciality(speciality);
+        teacherId = teacherDAO.saveTeacher(teacher);
+        subjectId = subjectDAO.saveSubject(subject);
+        specialityId = specialityDAO.saveSpeciality(speciality);
         exam.setSpeciality(speciality);
         exam.setTeacher(teacher);
         exam.setSubject(subject);
-        examDAO.saveExam(exam);
+        examId = examDAO.saveExam(exam);
     }
 
     @Test
     @Rollback
-    public void deleteExamReferences(){
-        assertNotNull(examDAO.findBySpeciality(1));
+    public void deleteExamReferences() {
+        assertNotNull(examDAO.findBySpeciality(specialityId));
     }
 
-//    @After
-//    public void after(){
-//        teacherDAO.delete(teacherDAO.findById(1));
-//        subjectDAO.delete(subjectDAO.findById(1));
-//        specialityDAO.delete(specialityDAO.findById(1));
-//        examDAO.delete(examDAO.findById(1));
-//    }
+    @After
+    public void after(){
+        teacherDAO.delete(teacherDAO.findById(teacherId));
+        subjectDAO.delete(subjectDAO.findById(subjectId));
+        specialityDAO.delete(specialityDAO.findById(specialityId));
+        examDAO.delete(examDAO.findById(examId));
+    }
 
 }

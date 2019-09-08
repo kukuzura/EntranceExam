@@ -133,7 +133,6 @@
         <property name="gradeService" ref="gradeService"/>
         <property name="specialityConverter"
                   ref="specialityConverter"/>
-        <property name="properties" ref="appProperties"/>
     </bean>
 
     <bean id="adminOPerationWithExamFacade"

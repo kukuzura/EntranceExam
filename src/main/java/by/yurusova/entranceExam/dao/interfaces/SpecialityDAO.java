@@ -26,8 +26,9 @@ public interface SpecialityDAO {
      * Method saves speciality to db.
      *
      * @param speciality speciality to be save.
+     * @return
      */
-    void saveSpeciality(Speciality speciality);
+    Long saveSpeciality(Speciality speciality);
 
     /**
      * Method delete speciality from db.

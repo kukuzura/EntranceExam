@@ -4,6 +4,7 @@ package by.yurusova.entranceExam.services;
 import by.yurusova.entranceExam.dao.interfaces.ExamDAO;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.services.interfaces.ExamService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class ExamServiceImpl implements ExamService {
     }
 
     @Override
+    @Transactional
     public void deleteExam(final long id) {
         Exam exam = examDAO.findById(id);
         if (exam != null) {

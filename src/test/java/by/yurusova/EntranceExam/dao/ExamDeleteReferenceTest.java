@@ -9,6 +9,7 @@ import by.yurusova.entranceExam.entities.Speciality;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.entities.Teacher;
 import junit.framework.TestCase;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +18,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:test-database.xml"})
@@ -38,33 +37,45 @@ public class ExamDeleteReferenceTest extends TestCase {
     @Autowired
     private TeacherDAO teacherDAO;
 
+    private Long teacherId;
+
+    private Long specialityId;
+
+    private Long subjectId;
+
+    private Long examId;
+
     @Before
-    public void before(){
+    public void before() {
         Exam exam = new Exam();
         Teacher teacher = new Teacher();
         Subject subject = new Subject();
         Speciality speciality = new Speciality();
-        teacherDAO.saveTeacher(teacher);
-        subjectDAO.saveSubject(subject);
-        specialityDAO.saveSpeciality(speciality);
+        teacherId = teacherDAO.saveTeacher(teacher);
+        subjectId = subjectDAO.saveSubject(subject);
+        specialityId = specialityDAO.saveSpeciality(speciality);
         exam.setSpeciality(speciality);
         exam.setTeacher(teacher);
         exam.setSubject(subject);
-        examDAO.saveExam(exam);
+        examId = examDAO.saveExam(exam);
     }
 
     @Test
     public void deleteExamReferences() {
-        List<Exam> exams = examDAO.getAll();
-        Teacher teacher = teacherDAO.findById(1);
+        Teacher teacher = teacherDAO.findById(teacherId);
         teacherDAO.delete(teacher);
-        assertNotNull(examDAO.findById(1));
-        Subject subject = subjectDAO.findById(1);
+        assertNotNull(examDAO.findById(examId));
+        Subject subject = subjectDAO.findById(subjectId);
         subjectDAO.delete(subject);
-        assertNotNull(examDAO.findById(1));
-        Speciality speciality = specialityDAO.findById(1);
+        assertNotNull(examDAO.findById(examId));
+        Speciality speciality = specialityDAO.findById(specialityId);
         specialityDAO.delete(speciality);
-        assertNotNull(examDAO.findById(1));
+        assertNotNull(examDAO.findById(examId));
+    }
+
+    @After
+    public void after() {
+        examDAO.delete(examDAO.findById(examId));
     }
 
 }

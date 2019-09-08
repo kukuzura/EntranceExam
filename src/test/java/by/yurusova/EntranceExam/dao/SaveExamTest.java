@@ -38,35 +38,43 @@ public class SaveExamTest {
     @Autowired
     private TeacherDAO teacherDAO;
 
+    private Long teacherId;
+
+    private Long specialityId;
+
+    private Long subjectId;
+
+    private Long examId;
+
     @Before
     public void beforeSave() {
         Teacher teacher = new Teacher();
         Subject subject = new Subject();
         Speciality speciality = new Speciality();
-        teacherDAO.saveTeacher(teacher);
-        subjectDAO.saveSubject(subject);
-        specialityDAO.saveSpeciality(speciality);
+        teacherId = teacherDAO.saveTeacher(teacher);
+        subjectId = subjectDAO.saveSubject(subject);
+        specialityId = specialityDAO.saveSpeciality(speciality);
     }
 
     @Test
     public void saveExamTest() {
         Exam exam = new Exam();
-        Teacher teacher = teacherDAO.findById(4);
-        Subject subject = subjectDAO.findById(4);
-        Speciality speciality = specialityDAO.findById(4);
+        Teacher teacher = teacherDAO.findById(teacherId);
+        Subject subject = subjectDAO.findById(subjectId);
+        Speciality speciality = specialityDAO.findById(specialityId);
         exam.setSpeciality(speciality);
         exam.setTeacher(teacher);
         exam.setSubject(subject);
-        examDAO.saveExam(exam);
-        assertEquals("table is empaty", 1, examDAO.getAll().size());
+        examId = examDAO.saveExam(exam);
+        assertEquals("table is empty", 1, examDAO.getAll().size());
     }
 
     @After
-    public void after(){
-        teacherDAO.delete(teacherDAO.findById(4));
-        subjectDAO.delete(subjectDAO.findById(4));
-        specialityDAO.delete(specialityDAO.findById(4));
-        examDAO.delete(examDAO.findById(3));
+    public void after() {
+        teacherDAO.delete(teacherDAO.findById(teacherId));
+        subjectDAO.delete(subjectDAO.findById(subjectId));
+        specialityDAO.delete(specialityDAO.findById(specialityId));
+        examDAO.delete(examDAO.findById(examId));
     }
 
 

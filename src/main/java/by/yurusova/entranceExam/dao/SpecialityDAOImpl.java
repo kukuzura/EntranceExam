@@ -21,8 +21,8 @@ public class SpecialityDAOImpl extends AbstractBaseDAO<Speciality> implements Sp
     }
 
     @Override
-    public void saveSpeciality(final Speciality speciality) {
-        super.save(speciality);
+    public Long saveSpeciality(final Speciality speciality) {
+        return (Long) super.save(speciality);
     }
 
     @Override

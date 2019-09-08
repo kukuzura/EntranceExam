@@ -26,8 +26,9 @@ public interface StudentDAO {
      * Saves given user to db.
      *
      * @param student student to be saved.
+     * @return
      */
-    void saveStudent(Student student);
+    Long saveStudent(Student student);
 
     /**
      * Delete user from db.

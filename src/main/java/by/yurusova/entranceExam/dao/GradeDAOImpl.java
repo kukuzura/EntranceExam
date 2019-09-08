@@ -36,8 +36,8 @@ public class GradeDAOImpl extends AbstractBaseDAO<Grade> implements GradeDAO {
     }
 
     @Override
-    public void saveGrade(final Grade grade) {
-        super.save(grade);
+    public Long saveGrade(final Grade grade) {
+        return (Long) super.save(grade);
     }
 
     @Override

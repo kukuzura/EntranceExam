@@ -23,7 +23,6 @@ import java.security.Principal;
 @RequestMapping("/account")
 public class StudentSpecialityApplyController {
 
-
     @Autowired
     private ApplyingToSpecialityFacade applyingToSpecialityFacade;
 
@@ -41,7 +40,7 @@ public class StudentSpecialityApplyController {
                              final HttpServletRequest httpServletRequest) {
         applyingToSpecialityFacade.applyToSpeciality(id, principal);
         String contextPath = httpServletRequest.getContextPath();
-        return "redirect:" + contextPath + "/account/studentPage";
+        return "redirect: ../studentPage";
     }
 
     /**

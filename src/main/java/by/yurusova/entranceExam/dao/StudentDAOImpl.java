@@ -30,8 +30,8 @@ public class StudentDAOImpl extends AbstractBaseDAO<Student> implements StudentD
     }
 
     @Override
-    public void saveStudent(final Student student) {
-        super.save(student);
+    public Long saveStudent(final Student student) {
+        return (Long) super.save(student);
     }
 
     @Override

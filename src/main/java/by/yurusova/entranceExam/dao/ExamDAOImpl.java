@@ -26,8 +26,8 @@ public class ExamDAOImpl extends AbstractBaseDAO<Exam> implements ExamDAO {
     }
 
     @Override
-    public void saveExam(final Exam exam) {
-        super.save(exam);
+    public Long saveExam(final Exam exam) {
+        return (Long) super.save(exam);
     }
 
     @Override

@@ -27,8 +27,9 @@ public interface SubjectDAO {
      * Method saves subject to db.
      *
      * @param subject subject to be save.
+     * @return
      */
-    void saveSubject(Subject subject);
+    Long saveSubject(Subject subject);
 
     /**
      * Method gets all subjects from db.

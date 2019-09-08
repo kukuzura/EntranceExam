@@ -26,8 +26,9 @@ public interface ExamDAO {
      * Method saves exam object to db.
      *
      * @param exam exam to be save.
+     * @return
      */
-    void saveExam(Exam exam);
+    Long saveExam(Exam exam);
 
     /**
      * Method delete exam from db.

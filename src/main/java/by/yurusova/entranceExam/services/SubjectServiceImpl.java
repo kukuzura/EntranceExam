@@ -3,6 +3,7 @@ package by.yurusova.entranceExam.services;
 import by.yurusova.entranceExam.dao.interfaces.SubjectDAO;
 import by.yurusova.entranceExam.entities.Subject;
 import by.yurusova.entranceExam.services.interfaces.SubjectService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
+    @Transactional
     public void delete(final Subject subject) {
         if (subject != null) {
             subjectDAO.delete(subject);

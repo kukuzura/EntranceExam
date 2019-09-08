@@ -22,8 +22,8 @@ public class SubjectDAOImpl extends AbstractBaseDAO<Subject> implements SubjectD
     }
 
     @Override
-    public void saveSubject(final Subject subject) {
-        super.save(subject);
+    public Long saveSubject(final Subject subject) {
+        return (Long) super.save(subject);
     }
 
     @Override

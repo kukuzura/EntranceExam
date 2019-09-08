@@ -26,8 +26,9 @@ public interface TeacherDAO {
      * Saves teacher in db.
      *
      * @param teacher teacher object.
+     * @return
      */
-    void saveTeacher(Teacher teacher);
+    Long saveTeacher(Teacher teacher);
 
     /**
      * Delete teacher from db.

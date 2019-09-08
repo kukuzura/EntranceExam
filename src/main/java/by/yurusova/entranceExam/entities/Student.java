@@ -58,7 +58,6 @@ public class Student implements Serializable {
     @Enumerated(EnumType.STRING)
     private StudentStatus status;
 
-
     /**
      * Constructor for Student class.
      */
