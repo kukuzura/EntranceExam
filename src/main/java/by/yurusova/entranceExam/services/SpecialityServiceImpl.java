@@ -63,13 +63,18 @@ public class SpecialityServiceImpl implements SpecialityService {
     }
 
     @Override
-    public List<Speciality> getAllWithNotGradedExams() {
+    public List<Speciality> getAllForApplying(final int examsAmount) {
         List<Speciality> specialities = specialityDAO.getAll();
         List<Speciality> removed = new ArrayList<>();
         for (Speciality speciality : specialityDAO.getAll()) {
+            if (speciality.getExams().size() != examsAmount) {
+                removed.add(speciality);
+                break;
+            }
             for (Exam exam : speciality.getExams()) {
                 if (exam.isGraded()) {
                     removed.add(speciality);
+                    break;
                 }
             }
         }

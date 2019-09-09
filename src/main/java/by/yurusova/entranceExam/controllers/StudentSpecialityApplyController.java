@@ -39,7 +39,6 @@ public class StudentSpecialityApplyController {
                              final Principal principal,
                              final HttpServletRequest httpServletRequest) {
         applyingToSpecialityFacade.applyToSpeciality(id, principal);
-        String contextPath = httpServletRequest.getContextPath();
         return "redirect: ../studentPage";
     }
 

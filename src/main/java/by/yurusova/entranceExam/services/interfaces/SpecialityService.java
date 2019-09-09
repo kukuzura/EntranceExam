@@ -59,9 +59,10 @@ public interface SpecialityService {
     List<Speciality> getAllWithExamsAmount(int examsAmount);
 
     /**
-     * Method gets all specialities with all exams not graded.
+     * Method gets all specialities with all exams not graded
+     * and given amount ao exams.
      *
      * @return list of specialities.
      */
-    List<Speciality> getAllWithNotGradedExams();
+    List<Speciality> getAllForApplying(int examsAmount);
 }
