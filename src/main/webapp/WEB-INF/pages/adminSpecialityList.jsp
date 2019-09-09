@@ -13,11 +13,18 @@
         <tr>
             <th><spring:message key="adminSpecialityList.label.id"/></th>
             <th><spring:message key="adminSpecialityList.label.name"/></th>
+            <th></th>
         </tr>
         <c:forEach items="${specialityList}" var="speciality">
             <tr>
                 <td align="center">${speciality.id}</td>
                 <td align="center">${speciality.name}</td>
+                <td>
+                    <a class="simple-link"
+                       href="<c:url value="/admin/specialityDelete/${speciality.id}"/>"><spring:message
+                            key="adminSpecialityList.button.delete"/>
+                    </a>
+                </td>
             </tr>
         </c:forEach>
     </table>
