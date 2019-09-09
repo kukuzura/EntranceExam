@@ -55,9 +55,13 @@ public class CalculationOfEnteringGradeFacade {
     @Transactional
     public void calculateAndSetEnteringGrade(final Speciality speciality) {
         List<Student> enteredStudents = studentService.findBySpecialityIDOrdered(speciality.getId());
-        speciality.setEnteringGrade(enteredStudents
-                        .get(Integer.valueOf(applicationProperties.getStudentAmount()) - 1)
-                        .getTotalGrade());
+        try {
+            speciality.setEnteringGrade(enteredStudents
+                    .get(Integer.valueOf(applicationProperties.getStudentAmount()) - 1)
+                    .getTotalGrade());
+        }
+        catch(IndexOutOfBoundsException e){
+        }
         for (Student student : enteredStudents) {
             student.setStatus(StudentStatus.ENTER);
             studentService.editStudent(student);
