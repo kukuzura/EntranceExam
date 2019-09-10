@@ -1,6 +1,5 @@
 package by.yurusova.entranceExam.services.security;
 
-
 import by.yurusova.entranceExam.dao.interfaces.UserDAO;
 import by.yurusova.entranceExam.entities.Role;
 import by.yurusova.entranceExam.entities.User;

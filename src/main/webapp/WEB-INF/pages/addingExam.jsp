@@ -29,7 +29,7 @@
                 <form:options items="${teacherList}" itemValue="id" itemLabel="lastName"/>
             </form:select>
         </div>
-        <button class="add_button"><spring:message code="addingExam.button.confirm"/></button>
+        <button class="add_button" style="margin-left: 1vh"><spring:message code="addingExam.button.confirm"/></button>
     </form:form>
 </div>
 </body>

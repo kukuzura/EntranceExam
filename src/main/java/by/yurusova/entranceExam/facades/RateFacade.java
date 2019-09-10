@@ -49,7 +49,7 @@ public class RateFacade {
         modelAndView.addObject("examID", examID);
         modelAndView.addObject("student", new StudentDTO());
         List<Student> students = studentService.findByExamID(examID);
-        ArrayList<StudentDTO> studentDTOS = new ArrayList<>();
+        List<StudentDTO> studentDTOS = new ArrayList<>();
         for (Student student : students) {
             studentDTOS.add(studentConverterForRate.convert(student));
         }
@@ -70,7 +70,6 @@ public class RateFacade {
     @Transactional
     public void rateStudents(final List<StudentDTO> studentDTOS, final long examID) {
         Exam exam = examService.findByID(examID);
-        exam.setGraded(true);
         for (StudentDTO studentDTO : studentDTOS) {
             Student student = studentService.findById(studentDTO.getId());
             student.setStatus(StudentStatus.PASS_EXAMS);
@@ -78,6 +77,7 @@ public class RateFacade {
             gradeService.updateByExamAndStudent(examID, studentDTO.getId(), studentDTO.getGrade());
             studentService.editStudent(student);
         }
+        exam.setGraded(true);
         examService.update(exam);
         if (calculationOfEnteringGradeFacade.isAllExamsGrated(exam.getSpeciality())) {
             calculationOfEnteringGradeFacade.calculateAndSetEnteringGrade(exam.getSpeciality());
