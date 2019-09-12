@@ -56,7 +56,9 @@
 
     <bean id="roleDAO" class="by.yurusova.entranceExam.dao.RoleDAOImpl" parent="abstractDAO"/>
 
-    <bean id="studentDAO" class="by.yurusova.entranceExam.dao.StudentDAOImpl" parent="abstractDAO"/>
+    <bean id="studentDAO" class="by.yurusova.entranceExam.dao.StudentDAOImpl" parent="abstractDAO">
+        <property name="applicationProperties" ref="appProperties"/>
+    </bean>
 
     <bean id="teacherDAO" class="by.yurusova.entranceExam.dao.TeacherDAOImpl" parent="abstractDAO"/>
 

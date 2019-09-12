@@ -29,7 +29,7 @@
             <c:choose>
                 <c:when test="${empty examAndGradesMap}">
                     <tr><spring:message code="studentPage.message.haveNoExams"/></tr>
-                    <tr><a href="<c:url value="specialityList"/>"><spring:message code="studentPage.button.apply"/></a>
+                    <tr><a style="margin-left:2vh"class="simple-link" href="<c:url value="specialityList"/>"><spring:message code="studentPage.button.apply"/></a>
                     </tr>
                 </c:when>
                 <c:otherwise>

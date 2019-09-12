@@ -93,7 +93,7 @@ public class StudentDAOImpl extends AbstractBaseDAO<Student> implements StudentD
                     " JOIN exam.speciality as speciality" +
                     " WHERE speciality.id=:specialityID" +
                     " ORDER BY student.totalGrade desc \n ", Student.class)
-                    .setMaxResults(Integer.valueOf(applicationProperties.getStudentAmount()))
+                    .setMaxResults(Integer.parseInt(applicationProperties.getStudentAmount()))
                     .setParameter("specialityID", specialityID).getResultList();
         }
         catch (NoResultException ex) {

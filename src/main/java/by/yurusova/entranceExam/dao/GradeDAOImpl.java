@@ -28,8 +28,7 @@ public class GradeDAOImpl extends AbstractBaseDAO<Grade> implements GradeDAO {
                     "SELECT grade FROM Grade grade WHERE grade.studbt_id=:student_id", Grade.class)
                     .setParameter("student_id", studentId)
                     .getResultList();
-        }
-        catch (NoResultException e) {
+        } catch (NoResultException e) {
             LOGGER.warn("No grades of this student");
         }
         return grades;
@@ -63,9 +62,8 @@ public class GradeDAOImpl extends AbstractBaseDAO<Grade> implements GradeDAO {
                     .setParameter("studentID", studentID)
                     .getSingleResult();
 
-        }
-        catch (NoResultException ex) {
-            LOGGER.error("No grade to update");
+        } catch (NoResultException ex) {
+            LOGGER.error("No grade to update for student with id " + studentID);
         }
         return grade;
     }

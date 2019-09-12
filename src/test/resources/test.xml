@@ -133,7 +133,7 @@
         <property name="gradeService" ref="gradeService"/>
         <property name="specialityConverter"
                   ref="specialityConverter"/>
-        <property name="properties" ref="appProperties"/>
+        <property name="applicationProperties" ref="appProperties"/>
     </bean>
 
     <bean id="adminOPerationWithExamFacade"
@@ -162,6 +162,13 @@
         <property name="messageSource" ref="messageSourseAccesor"/>
     </bean>
 
+    <bean id="calculatingEnteringGradeFacade"
+          class="by.yurusova.entranceExam.facades.CalculationOfEnteringGradeFacade">
+        <property name="studentService" ref="studentService"/>
+        <property name="applicationProperties" ref="appProperties"/>
+        <property name="specialityService" ref="specialityService"/>
+    </bean>
+
     <bean id="rateFacade"
           class="by.yurusova.entranceExam.facades.RateFacade">
         <property name="studentService" ref="studentService"/>
@@ -176,12 +183,6 @@
     <bean id="appProperties"
           class="by.yurusova.entranceExam.properties.ApplicationProperties"/>
 
-    <bean id="calculatingEnteringGradeFacade"
-          class="by.yurusova.entranceExam.facades.CalculationOfEnteringGradeFacade">
-        <property name="studentService" ref="studentService"/>
-        <property name="applicationProperties" ref="appProperties"/>
-        <property name="specialityService" ref="specialityService"/>
-    </bean>
 
     <bean id="subjectOperationsFacade"
           class="by.yurusova.entranceExam.facades.SubjectOperationsFacade">

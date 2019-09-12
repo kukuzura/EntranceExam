@@ -44,7 +44,7 @@
                 <form:input type="text" name="patronymic" path="teacher.patronymic"/>
                 <span><form:errors path="teacher.patronymic"/></span>
             </p>
-            <a class="submit-register" style="color: #6c757d ; margin: 10px" href="<c:url value="/login"/>">Already have an account</a>
+            <a class="submit-register" style="text-decoration: underline" href="<c:url value="/login"/>"><spring:message code="registration.button.login"/></a>
             <input type="submit" onclick="validatePassword()" value="<spring:message code="teacherRegistration.button.confirm"/>"/>
         </form>
     </div>

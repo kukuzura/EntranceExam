@@ -55,7 +55,7 @@
                 <span><form:errors path="student.passportID"/></span>
             </p>
             <p>
-                <a class="submit-register" style="text-decoration: underline" href="<c:out value="/login"/>">Already have an account?</a>
+                <a class="submit-register" style="text-decoration: underline" href="<c:url value="/login"/>"><spring:message code="registration.button.login"/></a>
                 <input type="submit" onclick="validatePassword()" value="<spring:message code="studentRegistration.button.confirm"/>" id="submit">
             </p>
         </form>
