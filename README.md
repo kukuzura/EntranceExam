@@ -2,7 +2,7 @@
 This project is a simple simulator of applying to university. It allows students to apply to some speciality, register for several exams and get grades for it. After calculating entring grade student recieve message is he enter or not.
 
 ## Database
-In order to work, you need to create database. Create empty shema with name examsdb the run script database.sql from config folder.  
+In order to work, you need to create database. Create empty shema with name examsdb then run script database.sql from config folder.  
 	
 ## Features
 * Students and teachers registration.
