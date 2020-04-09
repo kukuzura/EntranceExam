@@ -40,8 +40,7 @@ body.home, html.home {
 .slide {
     position: absolute;
     background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+
     width: 100%;
     height: 100%;
     top: 0;
@@ -61,7 +60,8 @@ body.home, html.home {
 }
 
 .bg1 {
-    background-image: url("../images/astronaut-11080_1280.jpg");
+    background-image: url("../images/ssYNM.jpg");
+    background-repeat: repeat;
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
 
@@ -114,14 +114,15 @@ i {
 }
 
 .bg3 {
-    background-image: url("../images/telescopeh.jpg");
+    background-image: url("../images/69c092c8d9bcca76fe04415f7a31431a.jpg");
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
+
 )
 }
 
 .bg4 {
-    background-image: url("../images/Observatory.jpg");
+    background-image: url("../images/mlechnyj_put_zvezdnoe_nebo_galaktika_119519_2560x1600.jpg");
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
 )
@@ -132,8 +133,7 @@ i {
     padding-left: 4em;
     padding-right: 4em;
     padding-top: 1em;
-    padding-bottom: 1em;
-    max-width: 400px;
+    padding-bottom: 1em;    max-width: 400px;
     border-radius: 2px;
     opacity: 0.9;
     position: absolute;
@@ -167,6 +167,6 @@ i {
 }
 
 .pictured {
-    background-image: url("../images/istockphoto-973461748-1024x1024.png");
+    background-image: url("../images/Stock Image_ Nature.jpg");
     background-repeat: repeat;
 }

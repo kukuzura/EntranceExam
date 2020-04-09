@@ -20,7 +20,7 @@ html.speciality-card {
 }
 
 .speciality-card .grid-1-5 {
-    border: 2px solid #5d4e65;
+    border: 2px solid white;
     min-height: 400px;
     padding: 1.25em;
     position: relative;
@@ -113,6 +113,7 @@ html.speciality-card {
     font-size: 5vh;
     font-weight: 400;
     margin: 0 0 0.5em;
+    color: white;
 }
 
 is.speciality-card h3 {
@@ -123,6 +124,7 @@ is.speciality-card h3 {
 
 .speciality-card p {
     font-size: 3vh;
+    color: white;
 }
 
 .speciality-card p, .speciality-card ul {

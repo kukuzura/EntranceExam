@@ -4,7 +4,8 @@ ul.main-navigation {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #141329;
+
+    opacity: 1;
     width: 100%;
 }
 
