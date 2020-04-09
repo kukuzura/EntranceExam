@@ -72,6 +72,7 @@ public class CalculationOfEnteringGradeFacade {
             student.setStatus(StudentStatus.DID_NOT_ENTER);
             studentService.editStudent(student);
         }
+        speciality.setEntranceFinished(true);
         specialityService.update(speciality);
     }
 

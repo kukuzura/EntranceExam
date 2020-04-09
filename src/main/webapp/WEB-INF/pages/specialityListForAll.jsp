@@ -24,8 +24,14 @@
                     <p>${exam.subject.name}</p>
                 </c:forEach>
             </ul>
+            <c:if test="${speciality.test==true}">
+                <a href="<c:url value = "/account/applyWithTest/${speciality.id}"/>" class="button-apply"><sping:message
+                        key="specialityList.button.apply"/></a>
+            </c:if>
+            <c:otherwise>
             <a href="<c:url value = "/account/apply/${speciality.id}"/>" class="button-apply"><sping:message
                     key="specialityList.button.apply"/></a>
+            </c:otherwise>
         </div>
     </c:forEach>
 </div>

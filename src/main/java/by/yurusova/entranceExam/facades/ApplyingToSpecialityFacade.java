@@ -2,6 +2,8 @@ package by.yurusova.entranceExam.facades;
 
 import by.yurusova.entranceExam.converters.SpecialityConverter;
 import by.yurusova.entranceExam.dto.SpecialityDTO;
+import by.yurusova.entranceExam.dto.StudentTestsInfoDTO;
+import by.yurusova.entranceExam.dto.SubjectGradeDTO;
 import by.yurusova.entranceExam.entities.Exam;
 import by.yurusova.entranceExam.entities.Grade;
 import by.yurusova.entranceExam.entities.Speciality;
@@ -9,6 +11,7 @@ import by.yurusova.entranceExam.entities.Student;
 import by.yurusova.entranceExam.entities.StudentStatus;
 import by.yurusova.entranceExam.entities.User;
 import by.yurusova.entranceExam.properties.ApplicationProperties;
+import by.yurusova.entranceExam.services.interfaces.ExamService;
 import by.yurusova.entranceExam.services.interfaces.GradeService;
 import by.yurusova.entranceExam.services.interfaces.SpecialityService;
 import by.yurusova.entranceExam.services.interfaces.UserService;
@@ -35,9 +38,12 @@ public class ApplyingToSpecialityFacade {
 
     private GradeService gradeService;
 
+    private ExamService examService;
+
     private SpecialityConverter specialityConverter;
 
     private ApplicationProperties applicationProperties;
+
 
     /**
      * Method register student that mapped with user fro principal
@@ -57,6 +63,28 @@ public class ApplyingToSpecialityFacade {
             Grade grade = new Grade();
             grade.setExam(exam);
             grade.setStudent(student);
+            gradeService.saveGrade(grade);
+        }
+    }
+
+    /**
+     * Method register student that mapped with user fro principal
+     * for all exams of speciality with given id.
+     *
+     * @param id        speciality id.
+     * @param principal user information.
+     */
+    @Transactional
+    public void applyToSpecialityWithTest(final long id, final Principal principal, final StudentTestsInfoDTO studentInfo) {
+        User user = userService.findByLogin(principal.getName());
+        Student student = user.getStudent();
+        student.setStatus(StudentStatus.PASS_EXAMS);
+        List<SubjectGradeDTO> subjectGradeDTOS = studentInfo.getGrades();
+        for (SubjectGradeDTO gradeDto : subjectGradeDTOS) {
+            Grade grade = new Grade();
+            grade.setExam(examService.findByID(gradeDto.getExamId()));
+            grade.setStudent(student);
+            grade.setGrade(gradeDto.getGrade());
             gradeService.saveGrade(grade);
         }
     }
@@ -123,5 +151,33 @@ public class ApplyingToSpecialityFacade {
      */
     public void setApplicationProperties(ApplicationProperties applicationProperties) {
         this.applicationProperties = applicationProperties;
+    }
+
+    public SpecialityService getSpecialityService() {
+        return specialityService;
+    }
+
+    public UserService getUserService() {
+        return userService;
+    }
+
+    public GradeService getGradeService() {
+        return gradeService;
+    }
+
+    public ExamService getExamService() {
+        return examService;
+    }
+
+    public void setExamService(ExamService examService) {
+        this.examService = examService;
+    }
+
+    public SpecialityConverter getSpecialityConverter() {
+        return specialityConverter;
+    }
+
+    public ApplicationProperties getApplicationProperties() {
+        return applicationProperties;
     }
 }

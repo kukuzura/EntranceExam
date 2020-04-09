@@ -72,4 +72,17 @@ public class AdminSpecialityListController {
         return specialityOperationsFacade.createSpecialityList();
     }
 
+    @RequestMapping(value = "/closeSpeciality/{id}", method = RequestMethod.GET)
+    public ModelAndView closeSpeciality(@PathVariable("id") final long specialityID) {
+        specialityOperationsFacade.closeSpeciality(specialityID);
+        return specialityOperationsFacade.createSpecialityList();
+    }
+
+    @RequestMapping(value = "/openSpeciality/{id}", method = RequestMethod.GET)
+    public ModelAndView openSpeciality(@PathVariable("id") final long specialityID) {
+        specialityOperationsFacade.openSpeciality(specialityID);
+        return specialityOperationsFacade.createSpecialityList();
+    }
+
+
 }

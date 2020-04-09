@@ -38,6 +38,12 @@ public class Speciality implements Serializable {
     @Column(name = "entering_grade")
     private double enteringGrade;
 
+    @Column(name = "is_test")
+    private boolean isTest;
+
+    @Column(name = "is_entrance_finished")
+    private boolean isEntranceFinished;
+
     /**
      * Constructor for Speciality.
      */
@@ -53,6 +59,20 @@ public class Speciality implements Serializable {
     public Speciality(final long id, final String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Speciality(final long id, final String name, final boolean isTest, final boolean isEntranceFinished) {
+        this.id = id;
+        this.name = name;
+        this.isTest = isTest;
+        this.isEntranceFinished = isEntranceFinished;
+    }
+
+
+    public Speciality(List<Exam> exams, double enteringGrade, boolean isTest) {
+        this.exams = exams;
+        this.enteringGrade = enteringGrade;
+        this.isTest = isTest;
     }
 
     /**
@@ -138,5 +158,21 @@ public class Speciality implements Serializable {
      */
     public void setEnteringGrade(final double enteringGrade) {
         this.enteringGrade = enteringGrade;
+    }
+
+    public boolean isTest() {
+        return isTest;
+    }
+
+    public void setTest(boolean test) {
+        isTest = test;
+    }
+
+    public boolean isEntranceFinished() {
+        return isEntranceFinished;
+    }
+
+    public void setEntranceFinished(boolean entranceFinished) {
+        isEntranceFinished = entranceFinished;
     }
 }

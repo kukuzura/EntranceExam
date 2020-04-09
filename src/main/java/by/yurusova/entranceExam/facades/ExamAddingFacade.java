@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Facade for adding exam.
@@ -74,23 +75,17 @@ public class ExamAddingFacade {
     public ModelAndView createModelAndView() {
         ModelAndView mav = new ModelAndView("/addingExam.jsp");
         mav.addObject("exam", new ExamDTO());
-        List<TeacherDTO> teacherDTOList = new ArrayList<>();
-        for (Teacher teacher : teacherService.getAll()) {
-            teacherDTOList.add(teacherConverter.convert(teacher));
-        }
+        List<TeacherDTO> teacherDTOList = teacherService.getAll().stream()
+                .map(teacher -> teacherConverter.convert(teacher)).collect(Collectors.toList());
+        List<SubjectDTO> subjectDTOS = subjectService.getAll().stream().filter(subject ->
+                !subject.isTest()).map(subject -> subjectConverter.convert(subject)).collect(Collectors.toList());
+        List<SpecialityDTO> specialityDTOS = specialityService.getAll().stream().filter(speciality ->
+                !speciality.isTest()).map(speciality -> specialityConverter.convert(speciality)).collect(Collectors.toList());
         mav.addObject("teacherList", teacherDTOList);
         mav.addObject("teacher", new TeacherDTO());
         mav.addObject("speciality", new SpecialityDTO());
         mav.addObject("subject", new SubjectDTO());
-        List<SubjectDTO> subjectDTOS = new ArrayList<>();
         mav.addObject("subjectList", subjectDTOS);
-        for (Subject subject : subjectService.getAll()) {
-            subjectDTOS.add(subjectConverter.convert(subject));
-        }
-        List<SpecialityDTO> specialityDTOS = new ArrayList<>();
-        for (Speciality speciality : specialityService.getAll()) {
-            specialityDTOS.add(specialityConverter.convert(speciality));
-        }
         mav.addObject("specialityList", specialityDTOS);
         return mav;
     }

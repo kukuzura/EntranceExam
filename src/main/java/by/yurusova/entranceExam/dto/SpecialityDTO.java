@@ -16,6 +16,10 @@ public class SpecialityDTO implements Serializable {
 
     private String name;
 
+    private boolean isEntranceClosed;
+
+    private boolean isTest;
+
     /**
      * Constructor for SpecialityDTO.
      */
@@ -31,6 +35,13 @@ public class SpecialityDTO implements Serializable {
     public SpecialityDTO(final long id, final String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public SpecialityDTO(long id, String name, boolean isEntranceClosed, boolean isTest) {
+        this.id = id;
+        this.name = name;
+        this.isEntranceClosed = isEntranceClosed;
+        this.isTest = isTest;
     }
 
     /**
@@ -67,5 +78,21 @@ public class SpecialityDTO implements Serializable {
      */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    public boolean isEntranceClosed() {
+        return isEntranceClosed;
+    }
+
+    public void setEntranceClosed(boolean entranceClosed) {
+        isEntranceClosed = entranceClosed;
+    }
+
+    public boolean isTest() {
+        return isTest;
+    }
+
+    public void setTest(boolean test) {
+        isTest = test;
     }
 }

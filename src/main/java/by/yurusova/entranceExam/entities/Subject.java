@@ -32,6 +32,9 @@ public class Subject implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "subject")
     private List<Exam> exams;
 
+    @Column(name = "is_test")
+    private boolean isTest;
+
     /**
      * Constructor for Subject.
      */
@@ -47,6 +50,17 @@ public class Subject implements Serializable {
     public Subject(final long id, final String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Subject(final long id, final String name, final boolean isTest) {
+        this.id = id;
+        this.name = name;
+        this.isTest=isTest;
+    }
+
+    public Subject(List<Exam> exams, boolean isTest) {
+        this.exams = exams;
+        this.isTest = isTest;
     }
 
     /**
@@ -101,5 +115,13 @@ public class Subject implements Serializable {
      */
     public void setExams(final List<Exam> exams) {
         this.exams = exams;
+    }
+
+    public boolean isTest() {
+        return isTest;
+    }
+
+    public void setTest(boolean test) {
+        isTest = test;
     }
 }

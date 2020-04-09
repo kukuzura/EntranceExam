@@ -24,6 +24,22 @@
                        href="<c:url value="/admin/specialityDelete/${speciality.id}"/>"><spring:message
                             key="adminSpecialityList.button.delete"/>
                     </a>
+                    <c:if test="${speciality.test==true}">
+                    <c:choose>
+                    <c:when test="${speciality.entranceClosed==false}">
+                        <a class="simple-link"
+                           href="<c:url value="/admin/closeSpeciality/${speciality.id}"/>"><spring:message
+                                key="adminSpecialityList.button.close"/>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="simple-link"
+                           href="<c:url value="/admin/openSpeciality/${speciality.id}"/>"><spring:message
+                                key="adminSpecialityList.button.open"/>
+                        </a>
+                    </c:otherwise>
+                    </c:choose>
+                    </c:if>
                 </td>
             </tr>
         </c:forEach>

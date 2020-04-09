@@ -16,9 +16,8 @@ public class SpecialityConverter implements TwoWayConverter<Speciality, Speciali
     @Override
     public SpecialityDTO convert(final Speciality source) {
         if (source != null) {
-            return new SpecialityDTO(source.getId(), source.getName());
-        }
-        else {
+            return new SpecialityDTO(source.getId(), source.getName(), source.isEntranceFinished(), source.isTest());
+        } else {
             return null;
         }
     }
