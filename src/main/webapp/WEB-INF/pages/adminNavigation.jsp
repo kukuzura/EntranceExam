@@ -5,7 +5,7 @@
     <jsp:include page="head.jsp"/>
 </head>
 
-<ul class="main-navigation">
+<ul class="main-navigation1">
     <li><a href="<c:url value="/"/>"><spring:message code="adminNavigation.button.home"/></a></li>
     <li><a href="<c:url value = "/admin/userList"/>"><spring:message
             code="adminNavigation.button.userList"/></a>
