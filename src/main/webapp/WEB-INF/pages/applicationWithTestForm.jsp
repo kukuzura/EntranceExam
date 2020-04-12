@@ -7,8 +7,8 @@
     <title>Apply</title>
     <jsp:include page="head.jsp"/>
 </head>
-<body>
-<form:form modelAttribute="studentInfo" method="post">
+<body class="rate">
+<form:form id="gradingForm" modelAttribute="studentInfo" method="post">
     <c:forEach items="${studentInfo.grades}" var="grade" varStatus="status">
         <form:input type="hidden" path="grades[${status.index}].examId"/>
         <form:input path="grades[${status.index}].subjectName" readonly="true"/>
