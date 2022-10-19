@@ -33,7 +33,7 @@
         <commons-lang3.version>3.9</commons-lang3.version>
         <org.springframework.binding.version>2.0.5.RELEASE</org.springframework.binding.version>
         <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
-        <jackson.core.version>2.10.0.pr1</jackson.core.version>
+        <jackson.core.version>2.13.4.1</jackson.core.version>
         <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
         <tomcat7-maven-plugin.version>2.3-SNAPSHOT</tomcat7-maven-plugin.version>
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
